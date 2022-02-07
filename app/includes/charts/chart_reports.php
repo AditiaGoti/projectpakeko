@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row">
-            <div class=" col-xl-3 col-lg-6 mb-4" onclick="window.location='/transaksi';">
+            <div class=" col-xl-2 col-lg-6 mb-4" onclick="window.location='/transaksi';">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6" onclick="window.location='/allmember';">
+            <div class="col-xl-2 col-lg-6" onclick="window.location='/allmember';">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -45,20 +45,20 @@
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="p-4 border-bottom bg-light">
-                        <h4 class="card-title mb-0">Nominal Transaksi</h4>
+                        <h4 class="card-title mb-0">Kunjungan Pelanggan</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="members-chart" height="100"></canvas>
+                        <canvas id="visitors-chart" height="100"></canvas>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="p-4 border-bottom bg-light">
-                        <h4 class="card-title mb-0">Nominal Transaksi</h4>
+                        <h4 class="card-title mb-0">Member Baru</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="visitors-chart" height="100"></canvas>
+                        <canvas id="members-chart" height="100"></canvas>
                     </div>
                 </div>
             </div>
