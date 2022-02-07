@@ -30,10 +30,19 @@
                             <div class="card-body">
                                 <h4 class="card-title">Active Member</h4>
                                 <br />
-                                <div class="topnav">
-                      <div class="search-container">  
-                    <input type="text" id="1" onkeyup="searchTable(1)" size="20" placeholder="Search" style="margin-left:700px;"></input>
-                    </div></div>
+                                <div id="cover" style="margin-top: -50px; position:absolute;">
+                            <form method="get" action="">
+                                <div class="tb">
+                                    <div class="td"><input id="1" onkeyup="searchTable(1)" type="text" placeholder="Search" required></div>
+                                        <div class="td" id="s-cover">
+                                            <button type="submit">
+                                                <div id="s-circle"></div>
+                                                    <span></span>
+                                                        </button>
+                                                    </div>
+                                                                </div>
+                                                                </form>
+                                                                </div>
                     <div class="panel-body">
                       <div class="table-responsive" style="width: auto;">
                         <table id="table1"
@@ -105,6 +114,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="pagination">
+  <a href="#">&laquo;</a>
+  <a class="active" href="#">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+</div>
                 </div>
             </div>
             <!-- content-wrapper ends -->
