@@ -107,7 +107,7 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>No. Transaksi</th>
+                                                    <th>#</th>
                                                     <th>Member ID</th>
                                                     <th>Nama</th>
                                                     <th>Tipe Paket</th>
