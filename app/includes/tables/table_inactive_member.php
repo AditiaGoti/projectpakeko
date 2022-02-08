@@ -33,17 +33,19 @@
                                 <div id="cover" style="margin-top: -50px; position:absolute;">
                             <form method="get" action="">
                                 <div class="tb">
-                                    <div class="td"><input id="1" onkeyup="searchTable(1)" type="text" placeholder="Search" required></div>
+                                    <div class="td">
+                                        <div class="search">
+                                        <input class="search" id="1" onkeyup="searchTable(1)"type="text" placeholder="Search" required></div>
                                         <div class="td" id="s-cover">
-                                            <button type="submit">
+                                            
                                                 <div id="s-circle"></div>
                                                     <span></span>
                                                         </button>
-                                                    </div>
+                                                    </div></div>
                                                                 </div>
                                                                 </form>
                                                                 </div>
-                                <div class="panel-body">
+<br>     <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="table1">
                                         <thead>
