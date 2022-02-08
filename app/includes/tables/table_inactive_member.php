@@ -13,7 +13,7 @@
     vertical-align: middle;
   }
   
-  input,
+  input, 
   button {
     color: black;
     font-family: Nunito;
