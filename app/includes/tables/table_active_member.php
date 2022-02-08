@@ -179,7 +179,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Active Member</h4>
                                 <br />
-                                <div id="cover" style="margin-top: -50px; position:absolute;">
+                                <div id="cover" style="margin-top: -60px; position:absolute;">
                             <form method="get" action="">
                                 <div class="tb">
                                     <div class="td"><input id="1" onkeyup="searchTable(1)" type="text" placeholder="Search" required></div>
@@ -225,6 +225,8 @@
                                                     <td>27 Maret 2022</td>
                                                     <td>15</td>
                                                     <td>1 Januari 2022</td>
+                                                    <td><button class="button-29" role="button">Update</button>
+                                                    <button class="button-30" role="button">Update</button></td>
                                                 </tr>
                                             </tbody>
                                             <tbody>
