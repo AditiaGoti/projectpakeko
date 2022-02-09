@@ -72,25 +72,29 @@
                 </div>
                 <script>
                     function login() {
-
-                        var urlencoded = new URLSearchParams();
-                        urlencoded.append(
-                            "name",
-                            document.getElementById("login_id").value
-                        );
-                        urlencoded.append(
-                            "email",
-                            document.getElementById("login_pass").value
-                        );
-                        var requestOptions = {
-                            method: 'POST',
-                            redirect: 'follow'
+                        const data = {
+                            email: document.getElementById("login_id").value,
+                            password: document.getElementById("login_pass").value
                         };
 
-                        fetch("https://api.klubaderai.com/api/login", requestOptions)
-                            .then(response => response.text())
-                            .then(result => console.log(result))
-                            .catch(error => console.log('error', error));
+                        //POST request with body equal on data in JSON format
+                        fetch('https://api.klubaderai.com/api/login', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(data),
+                            })
+                            .then((response) => response.json())
+                            //Then with the data from the response in JSON...
+                            .then((data) => {
+                                console.log('Success:', data);
+                            })
+                            //Then with the error genereted...
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            });
+
                     }
                 </script>
             </div>
