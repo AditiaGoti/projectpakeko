@@ -11,7 +11,7 @@
                    <div class="col-12 grid-margin stretch-card">
                        <div class="card">
                            <div class="card-body">
-                               <h4 class="card-title">Daftar Transaksi</h4>
+                               <h4 class="card-title">transaction list</h4>
                                <div class="form-group">
                                    <label for="exampleFormControlSelect1">Member</label>
                                    <select class="form-control form-control-lg" id="exampleFormControlSelect1" required>

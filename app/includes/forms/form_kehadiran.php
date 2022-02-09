@@ -11,9 +11,9 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Kehadiran Pengunjug</h4>
+                        <h4 class="card-title">visitor attendance</h4>
                         <p class="card-description">
-                            Menambahkan Kehadiran Pengunjung
+                            Add New visitor attendance
                         </p>
                         <br />
                         <form class="form sample">
