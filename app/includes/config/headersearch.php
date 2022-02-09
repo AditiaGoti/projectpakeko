@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="assets/css/shared/dataTables.responsive.css" />
     <link rel="stylesheet" href="assets/css/demo_1/search.css" />
 
-
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->

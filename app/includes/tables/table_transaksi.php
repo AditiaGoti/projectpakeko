@@ -3,7 +3,7 @@
                 <div class="row page-title-header">
                     <div class="col-12">
                         <div class="page-header">
-                            <h4 class="page-title">Data Transaksi</h4>
+                            <h4 class="page-title">Transaction Data</h4>
                         </div>
                     </div>
                 </div>
@@ -13,7 +13,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Transaksi</h5>
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Transaction Count</h5>
                                         <span class="h2 font-weight-bold mb-0">Rp. 1.000.000.000</span>
                                     </div>
                                     <div class="col-auto">
@@ -100,7 +100,7 @@
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Daftar Transaksi</h4>
+                                <h4 class="card-title">Transaction List</h4>
                                 <br />
                                 <div class="panel-body">
                                     <div class="table-responsive">
