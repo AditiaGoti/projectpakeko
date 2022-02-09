@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Add Admin</h4>
                         <p class="card-description">
-                            Menambahkan Admin Baru klub Ade Rai Ragunan
+                            Add New Admin klub Ade Rai Ragunan
                         </p>
                         <br />
                         <form id="form_member" class="form sample">
