@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Tambah Member</h4>
+                    <h4 class="page-title">Tambah Admin</h4>
                 </div>
             </div>
         </div>
@@ -11,9 +11,9 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Add Member</h4>
+                        <h4 class="card-title">Add Admin</h4>
                         <p class="card-description">
-                            Menambahkan Member klub Ade Rai Ragunan
+                            Menambahkan Admin Baru klub Ade Rai Ragunan
                         </p>
                         <br />
                         <form id="form_member" class="form sample">
