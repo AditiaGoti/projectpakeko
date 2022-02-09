@@ -103,7 +103,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/register",
+                                        "https://api.klubaderai.com/api/register?name=alsi",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

@@ -40,7 +40,7 @@
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                        <input class="input100" type="text" name="email">
+                        <input id="login_id" class="input100" type="text" name="email">
                         <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
 
@@ -48,17 +48,8 @@
                         <span class="btn-show-pass">
                             <i class="zmdi zmdi-eye"></i>
                         </span>
-                        <input class="input100" type="password" name="pass">
+                        <input id="login_pass" class="input100" type="password" name="pass">
                         <span class="focus-input100" data-placeholder="Password"></span>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-                                Login
-                            </button>
-                        </div>
                     </div>
 
                     <div class="text-center p-t-115" style="padding-top: 40px;">
@@ -71,6 +62,37 @@
                         </a>
                     </div>
                 </form>
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button onclick="login()" type="submit" class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                </div>
+                <script>
+                    function login() {
+
+                        var urlencoded = new URLSearchParams();
+                        urlencoded.append(
+                            "name",
+                            document.getElementById("login_id").value
+                        );
+                        urlencoded.append(
+                            "email",
+                            document.getElementById("login_pass").value
+                        );
+                        var requestOptions = {
+                            method: 'POST',
+                            redirect: 'follow'
+                        };
+
+                        fetch("https://api.klubaderai.com/api/login", requestOptions)
+                            .then(response => response.text())
+                            .then(result => console.log(result))
+                            .catch(error => console.log('error', error));
+                    }
+                </script>
             </div>
         </div>
     </div>
