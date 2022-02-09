@@ -3,7 +3,7 @@
                <div class="row page-title-header">
                    <div class="col-12">
                        <div class="page-header">
-                           <h4 class="page-title">Tambah Transaksi</h4>
+                           <h4 class="page-title">Add Transaction</h4>
                        </div>
                    </div>
                </div>

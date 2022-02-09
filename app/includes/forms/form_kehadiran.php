@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Tambah Kehadiran Member</h4>
+                    <h4 class="page-title">Add visitor attendance</h4>
                 </div>
             </div>
         </div>
