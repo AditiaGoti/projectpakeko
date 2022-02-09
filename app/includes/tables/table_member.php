@@ -1,31 +1,3 @@
-<style>
-    button {
-  position: relative;
-  display: block;
-  width: 5px;
-  height: 5px;
-  cursor: pointer;
-  font-size: 10px;
-}
-input[type="text"] {
-  width: 100%;
-  height: 96px;
-  font-size: 30px;
-  line-height: 1;
-  margin-top: -50px;
-  float: right;
-  color: black;
-}
-
-input[type="text"]::placeholder {
-  color: black;
-}
-form {
-  height: 96px;
-}
-
-
-</style>
 <div class="main-panel">
             <div class="content-wrapper">
                 <div class="row page-title-header">
@@ -131,11 +103,14 @@ form {
                             <div class="card-body">
                             <h4 class="card-title">All Member</h4>
                             <div id="cover" style="margin-top: -60px;">
-                            <form method="get" action="">
+                            <form style="  height: 96px;"method="get" action="">
                                 <div class="tb">
-                                    <div class="td"><input id="1" onkeyup="searchTable(1)"type="text" placeholder="Search" required></div>
+                                    <div class="td"><input  style=" width: 100%; height: 96px; font-size: 30px;
+                                        line-height: 1;margin-top: -50px; float: right; color: black;"
+                                        id="1" onkeyup="searchTable(1)" type="text" placeholder="Search" required></div>
                                         <div class="td" id="s-cover">
-                                            <button type="submit">
+                                            <button style="position: relative; display: block; width: 5px; height: 5px;
+                                            cursor: pointer; font-size: 10px;" type="submit">
                                                 <div id="s-circle"></div>
                                                     <span></span>
                                                         </button>
