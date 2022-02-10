@@ -121,6 +121,7 @@
                         <div class="card-body">
                             <div class="panel-body">
                                 <div class="table-responsive">
+
                                     <table class="table table-striped table-bordered table-hover" id="table1">
                                         <thead>
                                             <tr>
@@ -163,6 +164,7 @@
             </div>
         </div>
     </div>
+
     <script>
         function sortTable(d, n) {
             var table, rows, col_header, switching, i, x, y, a, b, shouldSwitch, dir = "asc",
