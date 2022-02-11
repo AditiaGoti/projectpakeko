@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Login
+
+Route::view('/login', 'login');
+// Route::post('/login', [LoginController::class, 'login']);
 // Admin
 
 Route::get('/', function () {
     return view('admin/view-admin/dashboard');
 });
 
-Route::get('/login', function () {
-    return view('admin/view-admin/login');
-});
 
 Route::get('/transaksi', function () {
     return view('admin/table-admin/transaksi');
@@ -63,4 +65,10 @@ Route::get('/form_transaksi', function () {
 
 Route::get('/dashboard-member', function () {
     return view('member/dashboard-member');
+});
+
+//Owner
+
+Route::get('/form_admin', function () {
+    return view('owner/form-owner/form_admin');
 });
