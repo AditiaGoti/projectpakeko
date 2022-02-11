@@ -13,54 +13,58 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Admin
+
 Route::get('/', function () {
-    return view('dashboard');
+    return view('admin/view-admin/dashboard');
 });
 
 Route::get('/login', function () {
-    return view('login');
-});
-
-
-Route::get('/kehadiran', function () {
-    return view('kehadiran');
-});
-
-Route::get('/laporan', function () {
-    return view('laporan');
+    return view('admin/view-admin/login');
 });
 
 Route::get('/transaksi', function () {
-    return view('transaksi');
+    return view('admin/table-admin/transaksi');
 });
 
-Route::get('/allmember', function () {
-    return view('/member/allmember');
+Route::get('/kehadiran', function () {
+    return view('admin/table-admin/kehadiran');
 });
 
-Route::get('/activemember', function () {
-    return view('/member/activemember');
+Route::get('/active_member', function () {
+    return view('admin/table-admin/activemember');
 });
 
-Route::get('/inactivemember', function () {
-    return view('/member/inactivemember');
+Route::get('/all_member', function () {
+    return view('admin/table-admin/allmember');
+});
+
+Route::get('/inactive_member', function () {
+    return view('admin/table-admin/inactivemember');
 });
 
 Route::get('/form_kehadiran', function () {
-    return view('/form/form_kehadiran');
+    return view('admin/form-admin/form_kehadiran');
 });
 
 Route::get('/form_member', function () {
-    return view('/form/form_member');
+    return view('admin/form-admin/form_member');
 });
 
 Route::get('/form_transaksi', function () {
-    return view('/form/form_transaksi');
+    return view('admin/form-admin/form_transaksi');
 });
 
-Route::get('/activemember', function () {
-    return view('/member/activemember');
+Route::get('/form_transaksi', function () {
+    return view('admin/form-admin/form_paket');
 });
-Route::get('/inactivemember', function () {
-    return view('/member/inactivemember');
+
+// Member
+
+Route::get('/qr-member', function () {
+    return view('member/qr-member');
+});
+
+Route::get('/kehadiran-member', function () {
+    return view('member/kehadiran-member');
 });
