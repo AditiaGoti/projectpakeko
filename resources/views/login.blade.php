@@ -54,41 +54,8 @@ session_start();
                         </button>
                     </div>
                 </div>
-                <?php
 
-                $curl = curl_init();
-                $Email = $_GET['email'];
-                $Password = $_GET['pass'];
-                $fields = array(
-                    'name' => urlencode($Email),
-                    'password' => urlencode($Password),
-                );
-                $fields_string = "";
-                foreach ($fields as $key => $value) {
-                    $fields_string .= $key . '=' . $value . '&';
-                }
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => 'api.klubaderai.com/api/login',
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => '',
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => 'POST',
-                    CURLOPT_POSTFIELDS => $fields_string,
-                    CURLOPT_HTTPHEADER => array(
-                        'Content-Type: application/x-www-form-urlencoded'
-                    ),
-                ));
-
-                $response = curl_exec($curl);
-
-                curl_close($curl);
-                echo $response;
-                ?>
-
-                <!-- <script>
+                <script>
                     function login() {
                         const data = {
                             email: document.getElementById("login_id").value,
@@ -107,9 +74,7 @@ session_start();
                             //Then with the data from the response in JSON...
                             .then((data) => {
                                 console.log('Success:', data);
-                                <?php
-                                $_SESSION['login'] = true;
-                                ?>
+
                             })
                             //Then with the error genereted...
                             .catch((error) => {
@@ -119,7 +84,7 @@ session_start();
                         ;
 
                     }
-                </script> -->
+                </script>
             </div>
         </div>
     </div>

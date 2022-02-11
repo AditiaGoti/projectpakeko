@@ -103,16 +103,18 @@
                         <div class="card-body">
                             <h4 class="card-title">All Member</h4>
                             <div class="topnavv">
-                      <div class="search-container">  
-                    <input type="text" id="1" onkeyup="searchTable(1)" size="20" placeholder="Search" style="margin-left:700px;"></input>
-                    <button type="submit"><i class="fa fa-search"></i></button></div></div>
+                                <div class="search-container">
+                                    <input type="text" id="1" onkeyup="searchTable(1)" size="20" placeholder="Search" style="margin-left:700px;"></input>
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
 
-                                <div class="card-body">
-                                    <div class="panel-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover" id="table1">
-                                                <thead>
-                                                    <tr>
+                            <div class="card-body">
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover" id="table1">
+                                            <thead>
+                                                <tr>
                                                     <th onclick="sortTable('num',0)">#</th>
                                                     <th onclick="sortTable('alfa',1)">Nama</th>
                                                     <th>Tempat Lahir</th>
@@ -124,9 +126,9 @@
                                                     <th>Token</th>
                                                     <th onclick="sortTable('date',3)">Tgl Bergabung</th>
                                                     <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                                 <tr>
                                                     <td>1</td>
                                                     <td>Syahrul Husna</td>
@@ -138,13 +140,14 @@
                                                     <td>27 Maret 2022</td>
                                                     <td>15</td>
                                                     <td>1 Januari 2022</td>
-                                                    <td>   <button class="button-29" role="button">Update</button>
-                                                    <button class="button-30" role="button">Update</button></td>
+                                                    <td> <button class="button-29" role="button">Update</button>
+                                                        <button class="button-30" role="button">Update</button>
+                                                    </td>
                                                 </tr>
-                                               
-                                                </tbody>
-                                                
-                                                <tbody>
+
+                                            </tbody>
+
+                                            <tbody>
                                                 <tr>
                                                     <td>2</td>
                                                     <td>Husna Sy</td>
@@ -157,9 +160,9 @@
                                                     <td>15</td>
                                                     <td>1 Januari 2022</td>
                                                 </tr>
-                                            
-                                                </tbody>
-                                                <tbody>
+
+                                            </tbody>
+                                            <tbody>
                                                 <tr>
                                                     <td>3</td>
                                                     <td>Rizki kun</td>
@@ -172,11 +175,11 @@
                                                     <td>15</td>
                                                     <td>1 Januari 2022</td>
                                                 </tr>
-                                            
-                                                </tbody>
-                                            </table>
-                                        </div>
+
+                                            </tbody>
+                                        </table>
                                     </div>
+                                </div>
                                 </form>
                             </div>
                         </div>
@@ -205,7 +208,7 @@
                                         </tbody>
                                     </table>
                                     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                                    <script type="text/javascript" src="assets/js/getAllMember.js"></script>
+                                    <script type="text/javascript" src="assets/js/shared/getAllMember.js"></script>
                                 </div>
                             </div>
                         </div>
@@ -228,24 +231,25 @@
     </div>
 
     <script>
-         function searchTable(col) {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById(col);
-  filter = input.value.toUpperCase();
-  table = document.getElementById("table1");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    if(col=='1') td = tr[i].getElementsByTagName("td")[1];
-    else if(col=='3') td = tr[i].getElementsByTagName("td")[3];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }     
-  }
-}
+        function searchTable(col) {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById(col);
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table1");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                if (col == '1') td = tr[i].getElementsByTagName("td")[1];
+                else if (col == '3') td = tr[i].getElementsByTagName("td")[3];
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
         function sortTable(d, n) {
             var table, rows, col_header, switching, i, x, y, a, b, shouldSwitch, dir = "asc",
                 switchcount = 0;

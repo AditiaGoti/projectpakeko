@@ -38,7 +38,7 @@ Route::get('/active_member', function () {
 });
 
 Route::get('/all_member', function () {
-    return view('admin/table-admin/allmember');
+    return view('admin/table-admin/table_allmember');
 });
 
 Route::get('/inactive_member', function () {
