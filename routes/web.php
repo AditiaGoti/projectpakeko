@@ -61,10 +61,6 @@ Route::get('/form_transaksi', function () {
 
 // Member
 
-Route::get('/qr-member', function () {
-    return view('member/qr-member');
-});
-
-Route::get('/kehadiran-member', function () {
-    return view('member/kehadiran-member');
+Route::get('/dashboard-member', function () {
+    return view('member/dashboard-member');
 });

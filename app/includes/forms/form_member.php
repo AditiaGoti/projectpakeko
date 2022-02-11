@@ -102,7 +102,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/register",
+                                        "https://api.klubaderai.com/api/users",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

@@ -57,10 +57,8 @@
                         <script>
                             function daftarMember() {
                                 var myHeaders = new Headers();
-                                myHeaders.append(
-                                    "Content-Type",
-                                    "application/x-www-form-urlencoded"
-                                );
+                                myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTYzOGNiNTA1NjNkMWYyMjExYTE5OGQ3ZGZmYmU4ZDQ1NWJmNWEwYTZlZGFiMjc4NmJlOWVjNjgzNDcwY2ZjYTdkODU4N2EyNTc5ZDQ2OWMiLCJpYXQiOjE2NDQ1NTY3MTcuODQxOTI2LCJuYmYiOjE2NDQ1NTY3MTcuODQxOTMzLCJleHAiOjE2NzYwOTI3MTcuNzc5OTMxLCJzdWIiOiIyMSIsInNjb3BlcyI6W119.OgyrCJmDAF0xWffREg429Jt9tUCOkMEZTE7_UKAZamIHCrwVM9Fh0y7ZD9qXwCd0bSObVtfbrrRySvXgYrkTRJj_7pt6mhdAaHbWvd7XWHPaCKW1g0vsRcrPqBZncnHU2LTNojOpZRMaxFI4bOc-ku3EEtV8PwEbXz_AdB7VtW4NFXrR2oISqPlutHGpGIDE--gXEZRrg55tmyHu65oq2KHOguYjqGpnlJkjBFX7mFg2IglydNl1P3r5b5D8eX0a1S-NKNHJLvB_0QtgcflYBHXusxoQEnR-CDpCwcltZzH3ncKkkAwkYePE8zjSSbb4tYamu6tGoTVg72Oq8gv678BaMzjs4LQfdknxFMG9jVM4vjYYg2CbeefYmb-7qgTstVAXA9iLPWAMAveOI0cHKx5zx8UH2wUQifDRT3r8xS-zyeske2GJgVUE6O5NEtPf8t1k_HEBvmyWDqKxI43qMQlGIkufEtJg86rGCeXlHVgQrb73iDJj28C-_UjP6C5RfwB5uTxY-NJF7D7LdaQRGpgIIuRpmg7JIAmu9hhLDPNf13dLfuVJhNWiAv4X691tLKsPyXt14wg1NAmIoQJTOq-EFzmsTlRz1STmE4e6vPX121aavUuodYrUNJ7YPrFpVoPYBp5BUnxQXkrQSaQYZ8mqzrbPg0GeDhE8m6FjH5g");
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(
@@ -103,7 +101,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/register?name=alsi",
+                                        "https://api.klubaderai.com/api/register",
                                         requestOptions
                                     )
                                     .then((response) => response.text())
