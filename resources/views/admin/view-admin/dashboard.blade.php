@@ -1,9 +1,3 @@
-<?php
-if (!isset($_SESSION['login'])) {
-    header("Location: login");
-    exit;
-}
-?>
 
 <?php include(app_path() . '/includes/config/header.php'); ?>
 
