@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="assets/css/shared/dataTables.responsive.css" />
     <link rel="stylesheet" href="assets/css/demo_1/search.css" />
     <link rel="stylesheet" href="assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- endinject -->
     <!-- plugin css for this page -->
@@ -28,5 +31,6 @@
     <!-- End Layout styles -->
     <link rel="shortcut icon" href="assets/images/logoo.png" />
     <link rel="stylesheet" href="assets/css/demo_1/stats.css">
+    
 
 </head>

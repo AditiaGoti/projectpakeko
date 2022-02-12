@@ -21,8 +21,7 @@
                 </div>
             </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" style="color: yellow;" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-        </button>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
     </div>
 </nav>

@@ -366,20 +366,13 @@
 }
 @media (max-width: 991px) {
     .navbar.default-layout .navbar-menu-wrapper {
-        width: calc(100% - 70px);
-    }
-}
-.navbar.default-layout .navbar-menu-wrapper .navbar-toggler {
+      width: calc(100% - 70px); } }
+  .navbar.default-layout .navbar-menu-wrapper .navbar-toggler {
     border: 0;
-    color: inherit;
-}
-@media (max-width: 991px) {
-    .navbar.default-layout
-        .navbar-menu-wrapper
-        .navbar-toggler:not(.navbar-toggler-right) {
-        display: none;
-    }
-}
+    color: inherit; }
+    @media (max-width: 991px) {
+      .navbar.default-layout .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
+        display: none; } }
 .navbar.default-layout .navbar-menu-wrapper .search-form {
     width: 35%;
     margin-right: 30px;
