@@ -7,39 +7,36 @@
                 </div>
             </div>
         </div>
-        <div id="MemberContainer" class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+        <div class="row">
+            <div id="qrrow" class="col-lg-6 grid-margin stretch-card">
                 <div class="card text-center">
                     <div class="card-header">
-                        Hello, ${data.name}
+                        Hello,
                     </div>
-                    <div id="fotoqr" value="1" class="card-body">
+                    <div id="fotoqr" class="card-body">
                         <svg>
                             <g id="qrcode" />
                         </svg>
                     </div>
-                    <div class="card-footer text-muted">
-                        </br>
-                        <div class="col-lg-12 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Riwayat Kehadiran</h4>
-                                    <div class="panel-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Tanggal</th>
-                                                        <th>Waktu </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div id="table-row" class="col-lg-6 grid-margin stretch-card">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Riwayat Kehadiran
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Tanggal</th>
+                                        <th>Waktu </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -49,10 +46,9 @@
         <script>
             var myArray = [];
             var cardqr = document.getElementById("MemberContainer");
-            const url = "https://api.klubaderai.com/api/users/1";
-            var qrcode = new QRCode(document.getElementById("qrcode"), {
-                width: 100,
-                height: 100,
+            const url = "https://api.klubaderai.com/api/users/4";
+            var qrcode = new QRCode(document.getElementById("fotoqr"), {
+
                 useSVG: true,
             });
             $.ajax({
@@ -63,25 +59,19 @@
                 },
                 success: function(response) {
                     myArray = response.data;
-                    build(myArray);
-                    // makeCode(myArray);
+                    // build(myArray);
+                    makeCode(myArray);
                 },
             });
 
-            function build(data) {
-                var elText = data.id;
-                qrcode.makeCode(elText);
-                console.log(data.id);
-            }
-            build();
 
 
-            //         function build(data) {
-            //             var row = `
+            // function build(data) {
+            //     var row = `
             //         <div class="col-lg-12 grid-margin stretch-card">
             //             <div class="card text-center">
-            //                 <div class="card-header">
-            //                     Hello, ${data.name}
+            //                 <div data-id=${data.id} id="eh" class="card-header">
+            //                     Hello, ${data.name} (#${data.id})
             //                 </div>
             //                 <div id="fotoqr" value="1" class="card-body">
             //                        <svg>
@@ -114,9 +104,14 @@
             //                 </div>
             //             </div>
             //         </div>`;
-            //             cardqr.innerHTML += row;
+            //     cardqr.innerHTML += row;
 
-            //         }
+            // }
+
+            function makeCode(data) {
+                var id = `${data.id}`;
+                qrcode.makeCode(id);
+            }
         </script>
     </div>
     <!-- content-wrapper ends -->
