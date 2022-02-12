@@ -34,7 +34,7 @@
                                         <th>Waktu </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="kehadiranMember">
                                 </tbody>
                             </table>
                         </div>
@@ -45,10 +45,9 @@
 
         <script>
             var myArray = [];
-            var cardqr = document.getElementById("MemberContainer");
+            var tableKehadiran = document.getElementById("kehadiranMember");
             const url = "https://api.klubaderai.com/api/users/4";
             var qrcode = new QRCode(document.getElementById("fotoqr"), {
-
                 useSVG: true,
             });
             $.ajax({
@@ -59,54 +58,19 @@
                 },
                 success: function(response) {
                     myArray = response.data;
-                    // build(myArray);
+                    build(myArray);
                     makeCode(myArray);
                 },
             });
 
-
-
-            // function build(data) {
-            //     var row = `
-            //         <div class="col-lg-12 grid-margin stretch-card">
-            //             <div class="card text-center">
-            //                 <div data-id=${data.id} id="eh" class="card-header">
-            //                     Hello, ${data.name} (#${data.id})
-            //                 </div>
-            //                 <div id="fotoqr" value="1" class="card-body">
-            //                        <svg>
-            //   <g id="qrcode" />
-            // </svg>
-            //                 </div>
-            //                 <div class="card-footer text-muted">
-            //                     </br>
-            //                     <div class="col-lg-12 grid-margin stretch-card">
-            //                         <div class="card">
-            //                             <div class="card-body">
-            //                                 <h4 class="card-title">Riwayat Kehadiran</h4>
-            //                                 <div class="panel-body">
-            //                                     <div class="table-responsive">
-            //                                         <table class="table table-striped table-bordered table-hover">
-            //                                             <thead>
-            //                                                 <tr>
-            //                                                     <th>Tanggal</th>
-            //                                                     <th>Waktu </th>
-            //                                                 </tr>
-            //                                             </thead>
-            //                                             <tbody>
-            //                                             </tbody>
-            //                                         </table>
-            //                                     </div>
-            //                                 </div>
-            //                             </div>
-            //                         </div>
-            //                     </div>
-            //                 </div>
-            //             </div>
-            //         </div>`;
-            //     cardqr.innerHTML += row;
-
-            // }
+            function build(data) {
+                var row = `
+                <tr data-id=${data.id}>
+                <td>${data.tanggal_lahir}</td>
+                <td>${data.tanggal_lahir}</td>
+                </tr>`;
+                tableKehadiran.innerHTML += row;
+            }
 
             function makeCode(data) {
                 var id = `${data.id}`;
