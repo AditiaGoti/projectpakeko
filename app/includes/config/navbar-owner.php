@@ -1,8 +1,8 @@
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-                <a class="navbar-brand brand-logo" href="\member" style="width: 150px; ">
+                <a class="navbar-brand brand-logo" href="/owner" style="width: 150px; ">
                     <img src="assets/images/logoo.png" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="\member">
+                <a class="navbar-brand brand-logo-mini" href="/owner">
                 </a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -26,22 +26,3 @@
                 </button>
             </div>
         </nav>
-        <div class="container-fluid page-body-wrapper">
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-
-                    <li class="nav-item nav-category" style="margin-top: 75px; color: black;">Klub Ade Rai Ragunan</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/member">
-                            <i class="menu-icon typcn typcn-document-text"></i>
-                            <span class="menu-title" style="color: black;">Kehadiran</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">
-                            <i class="menu-icon typcn typcn-document-text"></i>
-                            <span class="menu-title" style="color: black;">Log Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
