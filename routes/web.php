@@ -22,6 +22,7 @@ use Illuminate\Auth\Events\Login;
 
 Route::get('/login', [loginc::class, 'index']);
 Route::post('/login', [loginc::class, 'login']);
+Route::post('/includes/config/header.php', [loginc::class, 'logout']);
 
 // Profile
 

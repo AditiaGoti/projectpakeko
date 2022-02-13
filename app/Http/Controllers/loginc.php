@@ -60,7 +60,7 @@ class loginc extends Controller
         $nohp = $decoded->data->nohp;
         $alamat = $decoded->data->alamat;
         $expired = $decoded->data->expired;
-        $token = $decoded->data->token;
+        $token = $decoded->token;
         $type = $decoded->data->type;
 
 

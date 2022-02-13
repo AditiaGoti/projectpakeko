@@ -55,11 +55,12 @@
                         <button class="btn btn-danger">Cancel</button>
                         <script>
                             function daftarMember() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
-                                myHeaders.append(
-                                    "Content-Type",
-                                    "application/x-www-form-urlencoded"
-                                );
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
 
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(

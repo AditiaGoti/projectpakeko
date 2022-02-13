@@ -16,82 +16,85 @@
                             Add New Admin klub Ade Rai Ragunan
                         </p>
                         <br />
-                        <form id="form_member" class="form sample">
+                        <form id="form_admin" class="form sample">
                             <div class="form-group">
                                 <label>Name</label>
-                                <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
                             </div>
                             <div class="form-group">
                                 <label>Place of Birth</label>
-                                <input id="member_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                                <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
                             </div>
                             <div class="form-group">
                                 <label>Date of Birth</label>
-                                <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
+                                <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input id="member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
+                                <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
                             </div>
                             <div class="form-group">
                                 <label>Phone Number</label>
-                                <input type="text" id="member_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon Member" aria-label="pnumber" required />
+                                <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
                             </div>
                             <div class="form-group">
                                 <label>Address</label>
-                                <input type="text" id="member_address" class="form-control form-control-lg" placeholder="Masukan Alamat Member" aria-label="adress" required />
+                                <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input id="member_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
+                                <input id="admin_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
                             </div>
                             <div class="form-group">
                                 <label> CPassword</label>
-                                <input id="member_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
+                                <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
                             </div>
                         </form>
-                        <button onclick="daftarMember()" type="submit" class="btn btn-success mr-3">
+                        <button onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
                         <script>
-                            function daftarMember() {
+                            function daftaradmin() {
+
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
-                                myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTYzOGNiNTA1NjNkMWYyMjExYTE5OGQ3ZGZmYmU4ZDQ1NWJmNWEwYTZlZGFiMjc4NmJlOWVjNjgzNDcwY2ZjYTdkODU4N2EyNTc5ZDQ2OWMiLCJpYXQiOjE2NDQ1NTY3MTcuODQxOTI2LCJuYmYiOjE2NDQ1NTY3MTcuODQxOTMzLCJleHAiOjE2NzYwOTI3MTcuNzc5OTMxLCJzdWIiOiIyMSIsInNjb3BlcyI6W119.OgyrCJmDAF0xWffREg429Jt9tUCOkMEZTE7_UKAZamIHCrwVM9Fh0y7ZD9qXwCd0bSObVtfbrrRySvXgYrkTRJj_7pt6mhdAaHbWvd7XWHPaCKW1g0vsRcrPqBZncnHU2LTNojOpZRMaxFI4bOc-ku3EEtV8PwEbXz_AdB7VtW4NFXrR2oISqPlutHGpGIDE--gXEZRrg55tmyHu65oq2KHOguYjqGpnlJkjBFX7mFg2IglydNl1P3r5b5D8eX0a1S-NKNHJLvB_0QtgcflYBHXusxoQEnR-CDpCwcltZzH3ncKkkAwkYePE8zjSSbb4tYamu6tGoTVg72Oq8gv678BaMzjs4LQfdknxFMG9jVM4vjYYg2CbeefYmb-7qgTstVAXA9iLPWAMAveOI0cHKx5zx8UH2wUQifDRT3r8xS-zyeske2GJgVUE6O5NEtPf8t1k_HEBvmyWDqKxI43qMQlGIkufEtJg86rGCeXlHVgQrb73iDJj28C-_UjP6C5RfwB5uTxY-NJF7D7LdaQRGpgIIuRpmg7JIAmu9hhLDPNf13dLfuVJhNWiAv4X691tLKsPyXt14wg1NAmIoQJTOq-EFzmsTlRz1STmE4e6vPX121aavUuodYrUNJ7YPrFpVoPYBp5BUnxQXkrQSaQYZ8mqzrbPg0GeDhE8m6FjH5g");
+                                myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(
                                     "name",
-                                    document.getElementById("member_name").value
+                                    document.getElementById("admin_name").value
                                 );
                                 urlencoded.append(
                                     "email",
-                                    document.getElementById("member_email").value
+                                    document.getElementById("admin_email").value
                                 );
                                 urlencoded.append(
                                     "password",
-                                    document.getElementById("member_pass").value
+                                    document.getElementById("admin_pass").value
                                 );
                                 urlencoded.append(
                                     "password_confirmation",
-                                    document.getElementById("member_cpass").value
+                                    document.getElementById("admin_cpass").value
                                 );
                                 urlencoded.append(
                                     "tempat_lahir",
-                                    document.getElementById("member_pob").value
+                                    document.getElementById("admin_pob").value
                                 );
                                 urlencoded.append(
                                     "tanggal_lahir",
-                                    document.getElementById("member_dob").value
+                                    document.getElementById("admin_dob").value
                                 );
                                 urlencoded.append(
                                     "nohp",
-                                    document.getElementById("member_nohp").value
+                                    document.getElementById("admin_nohp").value
                                 );
                                 urlencoded.append(
                                     "alamat",
-                                    document.getElementById("member_address").value
+                                    document.getElementById("admin_address").value
                                 );
 
                                 var requestOptions = {

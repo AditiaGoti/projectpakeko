@@ -17,10 +17,10 @@
             <div class="collapse" id="kiw">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.alladmin">Semua Member</a>
+                        <a class="nav-link" href="/owner.alladmin">Semua Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.table_admin">Active Member</a>
+                        <a class="nav-link" href="/owner.form_admin">Tambah Admin</a>
                     </li>
                 </ul>
             </div>

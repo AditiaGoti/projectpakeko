@@ -53,7 +53,7 @@
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
-                        <script>
+                        <!-- <script>
                             function daftarMember() {
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -109,7 +109,7 @@
                                     .then((result) => console.log(result))
                                     .catch((error) => console.log("error", error));
                             }
-                        </script>
+                        </script> -->
                     </div>
                 </div>
             </div>

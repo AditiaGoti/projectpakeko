@@ -17,7 +17,7 @@
                                 <p class="font-weight-light text-muted mb-0">syahrulhusna@gmail.com</p>
                             </div>
                             <a href="/profile" class="dropdown-item">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
-                            <a href="/logout" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+                            <a onclick="logout()" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
                         </div>
                     </li>
                 </ul>
@@ -45,3 +45,28 @@
                     </li>
                 </ul>
             </nav>
+            <script>
+                function logout() {
+                    var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                    var token = "Bearer" + " " + tokenSession;
+                    var myHeaders = new Headers();
+                    myHeaders.append("Authorization", token);
+                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                    var urlencoded = new URLSearchParams();
+
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: urlencoded,
+                        redirect: 'follow'
+                    };
+
+                    fetch("https://api.klubaderai.com/api/logout", requestOptions)
+                        .then(response => response.text())
+                        .then(result => {
+                            <?php session_destroy() ?>
+                            console.log(result)
+                        })
+                        .catch(error => console.log('error', error));
+                }
+            </script>
