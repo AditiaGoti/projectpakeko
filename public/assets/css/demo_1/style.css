@@ -339,7 +339,7 @@
     color: #424546;
 }
 .navbar.default-layout .navbar-brand-wrapper .navbar-brand img {
-    width: 170px;
+    width: 300px;
     max-width: 100%;
     margin: auto;
     vertical-align: middle;
@@ -348,9 +348,9 @@
     display: none;
 }
 .navbar.default-layout .navbar-brand-wrapper .brand-logo-mini img {
-    width: 40px;
+    width: 60px;
     max-width: 100%;
-    margin: auto;
+    float: left;
 }
 .navbar.default-layout .navbar-menu-wrapper {
     transition: width 0.25s ease;
@@ -679,7 +679,7 @@
     transition-property: transform;
     transition-property: transform, -webkit-transform;
     transition-timing-function: ease-in;
-    color: white;
+    color: khaki;
 }
 .sidebar > .nav .nav-item .nav-link i.menu-arrow:before {
     content: "\F054";
@@ -688,7 +688,7 @@
     line-height: 1;
     font-style: normal;
     vertical-align: middle;
-    color: white;
+    color:khaki;
 }
 .sidebar > .nav .nav-item .nav-link[aria-expanded="true"] i.menu-arrow {
     -webkit-transform: rotate(90deg);
@@ -700,7 +700,7 @@
     width: 16px;
     line-height: 1;
     font-size: 18px;
-    color: #fff;
+    color: khaki;
 }
 .sidebar > .nav .nav-item .nav-link .menu-title {
     color: inherit;
@@ -714,10 +714,10 @@
     margin-left: auto;
 }
 .sidebar > .nav .nav-item .nav-link:hover {
-    color: #f2f2f2;
+    color: khaki;
 }
 .sidebar > .nav .nav-item.active > .nav-link {
-    color: #fff;
+    color: khaki;
 }
 .sidebar > .nav .nav-item.active > .nav-link .menu-title,
 .sidebar > .nav .nav-item.active > .nav-link i {
@@ -800,21 +800,21 @@
     > .nav:not(.sub-menu)
     > .nav-item:hover:not(.nav-profile):not(.hover-open)
     > .nav-link:not([aria-expanded="true"]):before {
-    border-color: #fff;
+    border-color: khaki;
 }
 .sidebar
     > .nav:not(.sub-menu)
     > .nav-item:hover:not(.nav-profile):not(.hover-open)
     > .nav-link:not([aria-expanded="true"])
     .menu-title {
-    color: #fff;
+    color: khaki;
 }
 .sidebar
     > .nav:not(.sub-menu)
     > .nav-item:hover:not(.nav-profile):not(.hover-open)
     > .nav-link:not([aria-expanded="true"])
     .menu-arrow:before {
-    color: #bfccda;
+    color: khaki;
 }
 
 /* style for off-canvas menu*/
