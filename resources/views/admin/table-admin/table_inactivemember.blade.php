@@ -1,4 +1,16 @@
-<?php include(app_path() . '/includes/config/header.php'); ?>
+<?php
+
+session_start();
+
+if (!isset($_SESSION['login_status'])) {
+  header("location: \login");
+  exit;
+}
+if (!$_SESSION['type'] == 1) {
+  header("location: \login");
+  exit;
+}
+?><?php include(app_path() . '/includes/config/header.php'); ?>
 
 <body>
   <div class="container-scroller">

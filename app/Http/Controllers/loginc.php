@@ -17,12 +17,12 @@ class loginc extends Controller
     {
         // return $request->all();
 
-        $email = $request->input('email');
-        $password = $request->input('password');
+        $login_email = $request->input('email');
+        $login_password = $request->input('password');
 
         $fields = array(
-            'email' => urlencode($email),
-            'password' => urlencode($password),
+            'email' => urlencode($login_email),
+            'password' => urlencode($login_password),
         );
         $fields_string = "";
         foreach ($fields as $key => $value) {
@@ -45,8 +45,56 @@ class loginc extends Controller
         ));
 
         $response = curl_exec($curl);
-
+        $decoded = json_decode($response);
         curl_close($curl);
-        echo $response;
+        // echo $response;
+
+
+
+        $token = $decoded->token;
+        $id = $decoded->data->id;
+        $name = $decoded->data->name;
+        $email = $decoded->data->email;
+        $tanggal_lahir = $decoded->data->tanggal_lahir;
+        $tempat_lahir = $decoded->data->tempat_lahir;
+        $nohp = $decoded->data->nohp;
+        $alamat = $decoded->data->alamat;
+        $expired = $decoded->data->expired;
+        $token = $decoded->data->token;
+        $type = $decoded->data->type;
+
+
+
+        session_start();
+
+        // Storing session data
+        $_SESSION["id"] = $id;
+        $_SESSION["name"] = $name;
+        $_SESSION["email"] = $email;
+        $_SESSION["tanggal_lahir"] = $tanggal_lahir;
+        $_SESSION["tempat_lahir"] = $tempat_lahir;
+        $_SESSION["nohp"] = $nohp;
+        $_SESSION["alamat"] = $alamat;
+        $_SESSION["expired"] = $expired;
+        $_SESSION["token"] = $token;
+        $_SESSION["type"] = $type;
+
+        switch ($type) {
+            case 0:
+                $_SESSION["login_status"] = true;
+                header('location: /member');
+                exit;
+                break;
+            case 1:
+                $_SESSION["login_status"] = true;
+                header('location: /admin');
+                exit;
+                break;
+            case 2:
+                $_SESSION["login_status"] = true;
+                header('location: /owner');
+                exit;
+                break;
+        }
     }
 }

@@ -3,6 +3,27 @@
 use League\CommonMark\Node\Block\Document;
 
 session_start();
+
+if (isset($_SESSION['login_status'])) {
+    switch ($_SESSION['type']) {
+        case 0:
+            $_SESSION["login_status"] = true;
+            header('location: /member');
+            exit;
+            break;
+        case 1:
+            $_SESSION["login_status"] = true;
+            header('location: /admin');
+            exit;
+            break;
+        case 2:
+            $_SESSION["login_status"] = true;
+            header('location: /owner');
+            exit;
+            break;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
