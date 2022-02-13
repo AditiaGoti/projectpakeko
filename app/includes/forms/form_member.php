@@ -9,12 +9,20 @@
         </div>
         <div class="row">
             <div class="col-12 grid-margin stretch-card">
+           
                 <div class="card">
                     <div class="card-body">
                         <p class="card-description">
                             Add New Member klub Ade Rai Ragunan
                         </p>
                         <br />
+                        <div class="alert alert-success" id="alert">
+                        <span class="closebtn">&times;</span>  
+                         <strong>Success!</strong>Data Berhasil Disimpan</div>
+                         <div class="alert alert-danger" id='alertfail'>
+                        <span class="closebtn">&times;</span>  
+                         <strong>Failed!</strong>Terjadi Kesalahan!!</div>
+
                         <form id="form_member" class="form sample">
                             <div class="form-group">
                                 <label>Name</label>
@@ -110,6 +118,26 @@
                                     .then((result) => console.log(result))
                                     .catch((error) => console.log("error", error));
                             }
+                        </script>
+                        <script>
+                            var myalert = document.getElementById("alert");
+                            var failalert = document.getElementById("alertfail");
+                            var close = document.getElementsByClassName("closebtn");
+                            var i;
+                            for (i = 0; i < close.length; i++) {
+                            close[i].onclick = function(){
+                             var div = this.parentElement;
+                              div.style.opacity = "0";
+                              setTimeout(function(){ div.style.display = "none"; }, 600); }
+                                }
+                             myalert.style.display ='none'
+                             failalert.style.display='none'
+                             function alertsuccess(){
+                                myalert.style.display='block'
+                             }
+                             function alertfailed(){
+                                 failalert.style.display='block'
+                             }
                         </script>
                     </div>
                 </div>
