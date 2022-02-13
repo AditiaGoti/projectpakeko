@@ -27,14 +27,15 @@ session_start();
     <div class="limiter" style="background-image: url(assets/images/club.png); background-size: 1400px; background-repeat: no-repeat;">
         <div class="container-login100" style="background-image: url(assets/images/club.png); background-size: 1400px; background-repeat: no-repeat;">
             <div class="wrap-login100">
-                <form class="login100-form validate-form">
+                <form method="POST" action="/login" class="login100-form validate-form">
+
                     <span class="login100-form-title p-b-26">
                         Selamat Datang
                     </span>
-
+                    @csrf
                     <p> Email </p>
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                        <input id="login_id" class="input100" type="text" name="email">
+                        <input id="email" class="input100" type="text" name="email">
                         <span class="focus-input100"></span>
                     </div>
                     <p> Password </p>
@@ -42,19 +43,19 @@ session_start();
                         <span class="btn-show-pass">
                             <i class="zmdi zmdi-eye"></i>
                         </span>
-                        <input id="login_pass" class="input100" type="password" name="pass">
+                        <input id="login_pass" class="input100" type="password" name="password">
                         <span class="focus-input100"></span>
                     </div>
-                </form>
-                <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button onclick="login()" type="submit" class="login100-form-btn">
-                            Login
-                        </button>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button name="submit" type="submit" class="login100-form-btn">
+                                Login
+                            </button>
+                        </div>
                     </div>
-                </div>
-
+                </form>
+                <!-- 
                 <script>
                     function login() {
                         const data = {
@@ -84,7 +85,7 @@ session_start();
                         ;
 
                     }
-                </script>
+                </script> -->
             </div>
         </div>
     </div>

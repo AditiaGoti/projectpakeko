@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\loginc;
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\LoginController;
+use Illuminate\Auth\Events\Login;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,11 @@ use app\Http\Controllers\LoginController;
 
 // Login
 
-Route::view('/login', 'login');
+// Route::get('/login', [LoginController::class, 'index']);
+// Route::post('/login', [LoginController::class, 'login']);
+
+Route::get('/login', [loginc::class, 'index']);
+Route::post('/login', [loginc::class, 'login']);
 
 // Profile
 
