@@ -3,7 +3,7 @@
                 <a class="navbar-brand brand-logo" href="/owner" style="margin-top: -80px; width: 230px; padding: 3px;">
                     <img src="assets/images/aderai.png" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="/owner">
-                <img src="assets/images/logoo.png" alt="logo" />
+                    <img src="assets/images/logoo.png" alt="logo" />
                 </a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -47,7 +47,6 @@
                 fetch("https://api.klubaderai.com/api/logout", requestOptions)
                     .then(response => response.text())
                     .then(result => {
-                        <?php session_destroy() ?>
                         console.log(result)
                     })
                     .catch(error => console.log('error', error));
