@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Add Member</h4>
+                    <h4 class="page-title">Merubah Data Profile</h4>
                 </div>
             </div>
         </div>
@@ -11,105 +11,199 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-description">
-                            Add New Member klub Ade Rai Ragunan
-                        </p>
-                        <br />
-                        <form id="form_member" class="form sample">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Place of Birth</label>
-                                <input id="member_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Date of Birth</label>
-                                <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input id="member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Phone Number</label>
-                                <input type="text" id="member_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon Member" aria-label="pnumber" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" id="member_address" class="form-control form-control-lg" placeholder="Masukan Alamat Member" aria-label="adress" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input id="member_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
-                            </div>
-                            <div class="form-group">
-                                <label> CPassword</label>
-                                <input id="member_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
+                        <div style="display: none;" class="alert alert-success " id="alert">
+                            <span class="close">&times;</span>
+                            <strong>Data Berhasil Disimpan</strong>
+                        </div>
+                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
+                            <span class="close">&times;</span>
+                            <strong>Terjadi Kesalahan</strong>
+                        </div>
+                        <form id="form_admin" class="form sample">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input disabled id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Place of Birth</label>
+                                        <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label>Password</label>
+                                        <input id="admin_pass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label> CPassword</label>
+                                        <input id="admin_cpass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
+                                    </div> -->
+                                </div>
                             </div>
                         </form>
-                        <button onclick="daftarMember()" type="submit" class="btn btn-success mr-3">
+                        <button onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
-                        <!-- <script>
-                            function daftarMember() {
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                        <script>
+                            var myArray = [];
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            var id = `<?php echo $_SESSION['id']; ?>`;
+                            var form = document.getElementById("form_admin");
+                            const url = "https://api.klubaderai.com/api/users" + "/" + id;
+
+                            $.ajax({
+                                method: "GET",
+                                url: url,
+                                headers: {
+                                    Authorization: token
+                                },
+                                success: function(response) {
+                                    myArray = response.data;
+                                    build(myArray);
+                                },
+                            });
+
+                            function build(data) {
+                                var name = document.getElementById("admin_name");
+                                var pob = document.getElementById("admin_pob");
+                                var dob = document.getElementById("admin_dob");
+                                var email = document.getElementById("admin_email");
+                                var nohp = document.getElementById("admin_nohp");
+                                var alamat = document.getElementById("admin_address");
+                                var pass = document.getElementById("admin_pass");
+                                var cpass = document.getElementById("admin_cpass");
+
+                                name.value = data.name;
+                                pob.value = data.tempat_lahir;
+                                dob.value = data.tanggal_lahir;
+                                email.value = data.email;
+                                nohp.value = data.nohp;
+                                alamat.value = data.alamat;
+                                // pass.value = data.pass;
+                                // cpass.value = data.cpass;
+                            }
+                        </script>
+                        <script>
+                            function daftaradmin() {
+                                var myalert = document.getElementById("alert");
+                                var failalert = document.getElementById("alertfail");
+                                var close = document.getElementsByClassName("close");
+                                var i;
+                                for (i = 0; i < close.length; i++) {
+                                    close.onclick = function() {
+                                        var div = this.parentElement;
+                                        div.style.opacity = "0";
+                                        setTimeout(function() {
+                                            div.style.display = "none";
+                                        }, 600);
+                                    }
+                                }
+
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
-                                myHeaders.append(
-                                    "Content-Type",
-                                    "application/x-www-form-urlencoded"
-                                );
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(
                                     "name",
-                                    document.getElementById("member_name").value
+                                    document.getElementById("admin_name").value
                                 );
                                 urlencoded.append(
                                     "email",
-                                    document.getElementById("member_email").value
+                                    document.getElementById("admin_email").value
                                 );
-                                urlencoded.append(
-                                    "password",
-                                    document.getElementById("member_pass").value
-                                );
-                                urlencoded.append(
-                                    "password_confirmation",
-                                    document.getElementById("member_cpass").value
-                                );
+                                // urlencoded.append(
+                                //     "password",
+                                //     document.getElementById("admin_pass").value
+                                // );
+                                // urlencoded.append(
+                                //     "password_confirmation",
+                                //     document.getElementById("admin_cpass").value
+                                // );
                                 urlencoded.append(
                                     "tempat_lahir",
-                                    document.getElementById("member_pob").value
+                                    document.getElementById("admin_pob").value
                                 );
                                 urlencoded.append(
                                     "tanggal_lahir",
-                                    document.getElementById("member_dob").value
+                                    document.getElementById("admin_dob").value
                                 );
                                 urlencoded.append(
                                     "nohp",
-                                    document.getElementById("member_nohp").value
+                                    document.getElementById("admin_nohp").value
                                 );
                                 urlencoded.append(
                                     "alamat",
-                                    document.getElementById("member_address").value
+                                    document.getElementById("admin_address").value
                                 );
 
                                 var requestOptions = {
-                                    method: "POST",
+                                    method: "PATCH",
                                     headers: myHeaders,
                                     body: urlencoded,
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/users",
+                                        "https://api.klubaderai.com/api/users" + "/" + id,
                                         requestOptions
                                     )
                                     .then((response) => response.text())
-                                    .then((result) => console.log(result))
-                                    .catch((error) => console.log("error", error));
+                                    .then((result => {
+                                        myalert.style.display = 'block'
+                                    }))
+                                    .catch((error => {
+                                        console.log(error)
+                                    }));
                             }
-                        </script> -->
+                        </script>
+                        <script>
+                            var myalert = document.getElementById("alert");
+                            var failalert = document.getElementById("alertfail");
+                            var close = document.getElementsByClassName("close");
+                            var i;
+                            for (i = 0; i < close.length; i++) {
+                                close[i].onclick = function() {
+                                    var div = this.parentElement;
+                                    div.style.opacity = "0";
+                                    setTimeout(function() {
+                                        div.style.display = "none";
+                                    }, 600);
+                                }
+                            }
+
+                            function alertsuccess() {
+                                myalert.style.display = 'block'
+                            }
+
+                            function alertfailed() {
+                                failalert.style.display = 'block'
+                            }
+                        </script>
+
                     </div>
                 </div>
             </div>
@@ -119,7 +213,7 @@
     <!-- partial:../../partials/_footer.html -->
     <footer class="footer">
         <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©️ 2022. All Rights Reserved</span>
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022. All Rights Reserved</span>
         </div>
     </footer>
     <!-- partial -->

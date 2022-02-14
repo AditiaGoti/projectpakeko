@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Add visitor attendance</h4>
+                    <h4 class="page-title">Menambahkan Kehadiran Member Klub Ade Rai</h4>
                 </div>
             </div>
         </div>
@@ -11,56 +11,57 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">visitor attendance</h4>
-                        <p class="card-description">
-                            Add New visitor attendance
-                        </p>
-                        <br />
-                        <div class="alert alert-success" id="alert">
-                        <span class="closebtn">&times;</span>  
-                         <strong>Success!</strong>Data Berhasil Disimpan</div>
-                         <div class="alert alert-danger" id='alertfail'>
-                        <span class="closebtn">&times;</span>  
-                         <strong>Failed!</strong>Terjadi Kesalahan!!</div>
-
+                        <div style="display: none;" class="alert alert-success " id="alert">
+                            <span class="close">&times;</span>
+                            <strong>Data Berhasil Disimpan</strong>
+                        </div>
+                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
+                            <span class="close">&times;</span>
+                            <strong>Terjadi Kesalahan</strong>
+                        </div>
                         <form class="form sample">
                             <div class="form-group">
                                 <label>QR Code Value</label>
                                 <input type="text" class="form-control form-control-lg" aria-label="name" required />
                             </div>
-
-
                             <button type="submit" class="btn btn-success mr-3">
                                 Submit
                             </button>
                             <button class="btn btn-danger">Cancel</button>
 
                         </form>
+
                         <script>
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
                             var close = document.getElementsByClassName("closebtn");
                             var i;
                             for (i = 0; i < close.length; i++) {
-                            close[i].onclick = function(){
-                             var div = this.parentElement;
-                              div.style.opacity = "0";
-                              setTimeout(function(){ div.style.display = "none"; }, 600); }
+                                close[i].onclick = function() {
+                                    var div = this.parentElement;
+                                    div.style.opacity = "0";
+                                    setTimeout(function() {
+                                        div.style.display = "none";
+                                    }, 600);
                                 }
-                             myalert.style.display ='none'
-                             failalert.style.display='none'
-                             function alertsuccess(){
-                                myalert.style.display='block'
-                             }
-                             function alertfailed(){
-                                 failalert.style.display='block'
-                             }
+                            }
+                            myalert.style.display = 'none'
+                            failalert.style.display = 'none'
+
+                            function alertsuccess() {
+                                myalert.style.display = 'block'
+                            }
+
+                            function alertfailed() {
+                                failalert.style.display = 'block'
+                            }
                         </script>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- content-wrapper ends -->
     <!-- partial:../../partials/_footer.html -->
     <footer class="footer">

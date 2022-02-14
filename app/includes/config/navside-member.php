@@ -13,8 +13,8 @@
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                             <div class="dropdown-header text-center">
                                 <img class="img-md rounded-circle" src="assets/images/faces/face8.jpg" alt="Profile image">
-                                <p class="mb-1 mt-3 font-weight-semibold">Alsi</p>
-                                <p class="font-weight-light text-muted mb-0">syahrulhusna@gmail.com</p>
+                                <p class="mb-1 mt-3 font-weight-semibold"><?php echo $_SESSION['name'] ?></p>
+                                <p class="font-weight-light text-muted mb-0"><?php echo $_SESSION['email'] ?></p>
                             </div>
                             <a href="/profile" class="dropdown-item">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
                             <a onclick="logout()" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>

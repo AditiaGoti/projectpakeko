@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Tambah Admin</h4>
+                    <h4 class="page-title">Menambahkan Admin Klub Ade Rai</h4>
                 </div>
             </div>
         </div>
@@ -11,58 +11,74 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Add Admin</h4>
-                        <p class="card-description">
-                            Add New Admin klub Ade Rai Ragunan
-                        </p>
-                        <br />
-                        <div class="alert alert-success" id="alert">
-                        <span class="closebtn">&times;</span>  
-                         <strong>Success!</strong>Data Berhasil Disimpan</div>
-                         <div class="alert alert-danger" id='alertfail'>
-                        <span class="closebtn">&times;</span>  
-                         <strong>Failed!</strong>Terjadi Kesalahan!!</div>
-
+                        <div style="display: none;" class="alert alert-success " id="alert">
+                            <span class="close">&times;</span>
+                            <strong>Data Berhasil Disimpan</strong>
+                        </div>
+                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
+                            <span class="close">&times;</span>
+                            <strong>Terjadi Kesalahan</strong>
+                        </div>
                         <form id="form_admin" class="form sample">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Place of Birth</label>
-                                <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Date of Birth</label>
-                                <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Phone Number</label>
-                                <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input id="admin_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
-                            </div>
-                            <div class="form-group">
-                                <label> CPassword</label>
-                                <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Place of Birth</label>
+                                        <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input id="admin_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label> CPassword</label>
+                                        <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
+                                    </div>
+                                </div>
                             </div>
                         </form>
                         <button onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
+
                         <script>
                             function daftaradmin() {
+                                var myalert = document.getElementById("alert");
+                                var failalert = document.getElementById("alertfail");
+                                var close = document.getElementsByClassName("close");
+                                var i;
+                                for (i = 0; i < close.length; i++) {
+                                    close[i].onclick = function() {
+                                        var div = this.parentElement;
+                                        div.style.opacity = "0";
+                                        setTimeout(function() {
+                                            div.style.display = "none";
+                                        }, 600);
+                                    }
+                                }
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
@@ -115,30 +131,15 @@
                                         requestOptions
                                     )
                                     .then((response) => response.text())
-                                    .then((result) => console.log(result))
-                                    .catch((error) => console.log("error", error));
+                                    .then((result => {
+                                        myalert.style.display = 'block'
+                                    }))
+                                    .catch((error => {
+                                        alertfailed();
+                                    }));
                             }
                         </script>
-                         <script>
-                            var myalert = document.getElementById("alert");
-                            var failalert = document.getElementById("alertfail");
-                            var close = document.getElementsByClassName("closebtn");
-                            var i;
-                            for (i = 0; i < close.length; i++) {
-                            close[i].onclick = function(){
-                             var div = this.parentElement;
-                              div.style.opacity = "0";
-                              setTimeout(function(){ div.style.display = "none"; }, 600); }
-                                }
-                             myalert.style.display ='none'
-                             failalert.style.display='none'
-                             function alertsuccess(){
-                                myalert.style.display='block'
-                             }
-                             function alertfailed(){
-                                 failalert.style.display='block'
-                             }
-                        </script>
+
                     </div>
                 </div>
             </div>
