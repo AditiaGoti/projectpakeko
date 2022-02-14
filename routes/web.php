@@ -22,7 +22,6 @@ use Illuminate\Auth\Events\Login;
 
 Route::get('/login', [loginc::class, 'index']);
 Route::post('/login', [loginc::class, 'login']);
-Route::post('/includes/config/header.php', [loginc::class, 'logout']);
 
 // Profile
 
@@ -86,10 +85,11 @@ Route::get('/member', function () {
 
 //Owner
 
+
+
 Route::get('/owner', function () {
     return view('owner/view-owner/dashboard-owner');
 });
-
 
 Route::get('/owner.alladmin', function () {
     return view('owner/table-owner/table_alladmin');

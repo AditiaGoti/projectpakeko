@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="col-lg-6 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="panel-body">
@@ -16,27 +16,14 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Member ID</th>
-                                                    <th>Nama</th>
-                                                    <th>Tipe Paket</th>
-                                                    <th>Nominal</th>
-                                                    <th>FO</th>
-                                                    <th>Waktu</th>
-                                                    <th>Ket</th>
+                                                    <th>ID</th>
+                                                    <th>Paket</th>
+                                                    <th>Harga</th>
+                                                    <th>Created By</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Syahrul Husna</td>
-                                                    <td>Jakarta</td>
-                                                    <td>22 Maret 2000</td>
-                                                    <td>Syahrul Husna</td>
-                                                    <td>syahrulhusna@gmail.com</td>
-                                                    <td>Jl. Sapta No. 88</td>
-                                                    <td>27 Maret 2022</td>
-                                                </tr>
+                                            <tbody id="tablePaket">
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -55,3 +42,63 @@
             </footer>
             <!-- partial -->
         </div>
+        <script>
+            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+            var token = "Bearer" + " " + tokenSession;
+
+            var myArray = [];
+            var tablePaket = document.getElementById("tablePaket");
+            const url = "https://api.klubaderai.com/api/pakets";
+
+            $.ajax({
+                method: "GET",
+                url: url,
+                headers: {
+                    Authorization: token,
+                },
+                success: function(response) {
+                    myArray = response.data;
+                    buildTable(myArray);
+                    console.log(myArray);
+                },
+            });
+
+            function buildTable(data) {
+                for (var i = 0; i < data.length; i++) {
+                    var row = `<tr data-id=${data[i].id}>
+			    <td>${data[i].id}</td>
+			    <td>${data[i].paket}</td>
+                <td>${data[i].harga}</td>
+                <td>${data[i].createdby}</td>
+                <td>
+                    <button class="button-29" role="button">Update</button>
+                    <button id="deleteMember" class="button-30" role="button">Delete</button>
+                </td>
+			</tr>`;
+                    tablePaket.innerHTML += row;
+                }
+            }
+
+            // tablePaket.addEventListener("click", (e) => {
+            //     e.preventDefault();
+            //     let deleteButtonisPressed = e.target.id == "deleteMember";
+
+            //     var myHeaders = new Headers();
+            //     myHeaders.append(
+            //         "Authorization",
+            //         token
+            //     );
+            //     var deleteRequest = {
+            //         method: "Delete",
+            //         headers: myHeaders,
+            //         redirect: "follow",
+            //     };
+
+            //     id = e.target.parentElement.parentElement.dataset.id;
+            //     if (deleteButtonisPressed) {
+            //         fetch(`${url}/${id}`, deleteRequest)
+            //             .then((res) => res.json())
+            //             .then(location.reload());
+            //     }
+            // });
+        </script>

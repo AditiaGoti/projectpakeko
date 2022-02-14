@@ -22,31 +22,15 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
                                             <th>Email</th>
-                                            <th>Nama</th>
-                                            <th>Waktu Absen</th>
-                                            <th>Sisa Jam</th>
-                                            <th>Sisa Hari</th>
-                                            <th>Sisa Bulan</th>
-                                            <th>Sisa Tahun</th>
-                                            <th>Sisa Token</th>
+                                            <th>Waktu</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>syahrulhusna@gmail.com</td>
-                                            <td>Syahrul Husna</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td> <button class="button-29" role="button">Update</button>
-                                                <button class="button-30" role="button">Update</button>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tableKehadiran">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -64,3 +48,64 @@
         </footer>
         <!-- partial -->
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        var tokenSession = '<?php echo $_SESSION['token']; ?>';
+        var token = "Bearer" + " " + tokenSession;
+
+        var myArray = [];
+        var tableKehadiran = document.getElementById("tableKehadiran");
+        const url = "https://api.klubaderai.com/api/kehadiran";
+
+        $.ajax({
+            method: "GET",
+            url: url,
+            headers: {
+                "Authorization": token,
+            },
+            success: function(response) {
+                myArray = response.data;
+                buildTable(myArray);
+                console.log(myArray);
+            },
+        });
+
+        function buildTable(data) {
+            for (var i = 0; i < data.length; i++) {
+                var row = `<tr data-id=${data[i].id}>
+			    <td>${data[i].id}</td>
+			    <td>${data[i].nama}</td>
+                <td>${data[i].email}</td>
+                <td>${data[i].waktu}</td>
+                <td>
+                    <button class="button-29" role="button">Update</button>
+                    <button id="deleteMember" class="button-30" role="button">Delete</button>
+                </td>
+			</tr>`;
+                tableKehadiran.innerHTML += row;
+            }
+        }
+
+        // tableKehadiran.addEventListener("click", (e) => {
+        //     e.preventDefault();
+        //     let deleteButtonisPressed = e.target.id == "deleteMember";
+
+        //     var myHeaders = new Headers();
+        //     myHeaders.append(
+        //         "Authorization",
+        //         token
+        //     );
+        //     var deleteRequest = {
+        //         method: "Delete",
+        //         headers: myHeaders,
+        //         redirect: "follow",
+        //     };
+
+        //     id = e.target.parentElement.parentElement.dataset.id;
+        //     if (deleteButtonisPressed) {
+        //         fetch(`${url}/${id}`, deleteRequest)
+        //             .then((res) => res.json())
+        //             .then(location.reload());
+        //     }
+        // });
+    </script>
