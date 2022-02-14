@@ -315,6 +315,7 @@
     -webkit-transition: background 0.25s ease;
     -moz-transition: background 0.25s ease;
     -ms-transition: background 0.25s ease;
+    border: none;
 }
 .navbar.default-layout .navbar-brand-wrapper {
     transition: width 0.25s ease, background 0.25s ease;
@@ -324,6 +325,7 @@
     background: rgb(209, 200, 118);
     width: 270px;
     height: 63px;
+    border: transparent;
 }
 .navbar.default-layout .navbar-brand-wrapper .navbar-brand {
     color: #ffffff;
@@ -559,7 +561,7 @@
 }
 .sidebar > .nav .nav-item:not(.hover-open) .collapse .sub-menu,
 .sidebar > .nav .nav-item:not(.hover-open) .collapsing .sub-menu {
-    margin: 5px 0;
+    margin: 3px 0;
 }
 .sidebar
     > .nav
@@ -575,7 +577,7 @@
     .sub-menu
     .nav-item
     .nav-link {
-    padding: 10px 0px 10px 70px;
+    padding: 8px 0px 5px 70px;
     position: relative;
     color: black;
     font-size: calc(15px - 2px);
@@ -605,7 +607,7 @@
     display: block;
     height: 100%;
     width: 2px;
-    background: rgb(209, 200, 118);
+    background: khaki;
 }
 .sidebar
     > .nav
@@ -622,6 +624,7 @@
     .nav-item
     .nav-link:hover {
     color: black;
+    
 }
 .sidebar
     > .nav
@@ -637,7 +640,7 @@
     .sub-menu
     .nav-item
     .nav-link:hover:before {
-    background: black;
+    background: red;
 }
 .sidebar
     > .nav
@@ -686,7 +689,7 @@
     transition-property: transform;
     transition-property: transform, -webkit-transform;
     transition-timing-function: ease-in;
-    color: khaki;
+    
 }
 .sidebar > .nav .nav-item .nav-link i.menu-arrow:before {
     content: "\F054";
@@ -767,7 +770,7 @@
 }
 .sidebar > .nav .nav-item.nav-category {
     color: rgba(255, 255, 255, 0.7);
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
     margin: 0 30px;
     font-size: 15px;
     font-weight: 500;
