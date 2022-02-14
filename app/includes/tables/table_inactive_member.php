@@ -65,9 +65,9 @@
                                         <td>27 Maret 2022</td>
                                         <td>15</td>
                                         <td>1 Januari 2022</td>
-                                        <td> <button class="button-29" role="button">Update</button>
-                                            <button class="button-30" role="button">Update</button>
-                                        </td>
+                                        <td><button class="btn btn-primary" role="button">Update</button>
+                                                   <button class="btn btn-danger" role="button">Delete</button>
+                                               </td>
                                     </tr>
                                 </tbody>
                             </table>
