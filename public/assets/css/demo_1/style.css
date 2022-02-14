@@ -640,7 +640,7 @@
     .sub-menu
     .nav-item
     .nav-link:hover:before {
-    background: red;
+    background: black;
 }
 .sidebar
     > .nav
@@ -917,7 +917,7 @@
 }
 
 .content-wrapper {
-    background: rgba(235, 235, 77, 0.486);
+    background:rgba(235, 235, 77, 0.486);
     padding: 1.5rem 1.7rem;
     width: 100%;
     flex-grow: 1;
