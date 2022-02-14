@@ -63,6 +63,7 @@
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
+
                         <script>
                             function daftaradmin() {
                                 var myalert = document.getElementById("alert");

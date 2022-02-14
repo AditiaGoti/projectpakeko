@@ -31,6 +31,5 @@
     <!-- End Layout styles -->
     <link rel="shortcut icon" href="assets/images/logoo.png" />
     <link rel="stylesheet" href="assets/css/demo_1/stats.css">
-    
 
 </head>

@@ -24,14 +24,13 @@
                                 <label>QR Code Value</label>
                                 <input type="text" class="form-control form-control-lg" aria-label="name" required />
                             </div>
-
-
                             <button type="submit" class="btn btn-success mr-3">
                                 Submit
                             </button>
                             <button class="btn btn-danger">Cancel</button>
 
                         </form>
+
                         <script>
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
@@ -62,6 +61,7 @@
             </div>
         </div>
     </div>
+
     <!-- content-wrapper ends -->
     <!-- partial:../../partials/_footer.html -->
     <footer class="footer">

@@ -17,7 +17,7 @@ if (!$_SESSION['type'] == 2) {
     <?php include(app_path() . '/includes/config/navbar-owner.php'); ?>
     <div class="container-fluid page-body-wrapper">
       <?php include(app_path() . '/includes/config/sidebar-owner.php'); ?>
-      <?php include(app_path() . '/includes/config/table_activemember.php'); ?>
+      <?php include(app_path() . '/includes/tables/table_active_member.php'); ?>
     </div>
   </div>
 

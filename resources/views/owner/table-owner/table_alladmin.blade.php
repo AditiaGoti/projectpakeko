@@ -10,7 +10,8 @@ if (!$_SESSION['type'] == 2) {
   header("location: \login");
   exit;
 }
-?><?php include(app_path() . '/includes/config/header.php'); ?>
+?>
+<?php include(app_path() . '/includes/config/header.php'); ?>
 
 <body>
   <div class="container-scroller">
@@ -21,13 +22,6 @@ if (!$_SESSION['type'] == 2) {
     </div>
   </div>
   <?php include(app_path() . '/includes/config/footer.php'); ?>
-  <script>
-    $(document).ready(function() {
-      $("#dataTables-member").DataTable({
-        responsive: true,
-      });
-    });
-  </script>
 </body>
 
 </html>

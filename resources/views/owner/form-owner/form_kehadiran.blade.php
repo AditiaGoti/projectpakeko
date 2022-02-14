@@ -18,9 +18,9 @@ if (!$_SESSION['type'] == 2) {
         <div class="container-fluid page-body-wrapper">
             <?php include(app_path() . '/includes/config/sidebar-owner.php'); ?>
             <?php include(app_path() . '/includes/forms/form_kehadiran.php'); ?>
+            <?php include(app_path() . '/includes/config/footer.php'); ?>
         </div>
     </div>
-    <?php include(app_path() . '/includes/config/footer.php'); ?>
 </body>
 
 </html>
