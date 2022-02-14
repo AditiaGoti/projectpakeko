@@ -146,3 +146,6 @@
             </footer>
             <!-- partial -->
         </div>
+        <script>
+            window.onload = alert(localStorage.getItem("idPaket"));
+        </script>

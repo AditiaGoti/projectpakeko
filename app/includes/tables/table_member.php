@@ -107,7 +107,6 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-
                             <table class="table table-striped table-bordered table-hover" id="table1">
                                 <thead>
                                     <tr>

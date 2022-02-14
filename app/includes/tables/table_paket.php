@@ -71,7 +71,7 @@
                 <td>${data[i].harga}</td>
                 <td>${data[i].createdby}</td>
                 <td>
-                    <button class="button-29" role="button">Update</button>
+                    <button id="updateMember" class="button-29" role="button">Update</button>
                     <button id="deleteMember" class="button-30" role="button">Delete</button>
                 </td>
 			</tr>`;
@@ -79,26 +79,52 @@
                 }
             }
 
-            // tablePaket.addEventListener("click", (e) => {
-            //     e.preventDefault();
-            //     let deleteButtonisPressed = e.target.id == "deleteMember";
+            tablePaket.addEventListener("click", (e) => {
+                e.preventDefault();
+                let deleteButtonisPressed = e.target.id == "deleteMember";
 
-            //     var myHeaders = new Headers();
-            //     myHeaders.append(
-            //         "Authorization",
-            //         token
-            //     );
-            //     var deleteRequest = {
-            //         method: "Delete",
-            //         headers: myHeaders,
-            //         redirect: "follow",
-            //     };
+                var myHeaders = new Headers();
+                myHeaders.append(
+                    "Authorization",
+                    token
+                );
+                var deleteRequest = {
+                    method: "Delete",
+                    headers: myHeaders,
+                    redirect: "follow",
+                };
 
-            //     id = e.target.parentElement.parentElement.dataset.id;
-            //     if (deleteButtonisPressed) {
-            //         fetch(`${url}/${id}`, deleteRequest)
-            //             .then((res) => res.json())
-            //             .then(location.reload());
-            //     }
-            // });
+                id = e.target.parentElement.parentElement.dataset.id;
+                if (deleteButtonisPressed) {
+                    fetch(`${url}/${id}`, deleteRequest)
+                        .then((res) => res.json())
+                        .then(location.reload());
+                }
+            });
+
+            tablePaket.addEventListener("click", (e) => {
+                e.preventDefault();
+                let deleteButtonisPressed = e.target.id == "updateMember";
+                id = e.target.parentElement.parentElement.dataset.id;
+                var getInput = id;
+                localStorage.setItem("idPaket", id);
+                window.location.href = '/transaksi';
+                // var myHeaders = new Headers();
+                // myHeaders.append(
+                //     "Authorization",
+                //     token
+                // );
+                // var deleteRequest = {
+                //     method: "Delete",
+                //     headers: myHeaders,
+                //     redirect: "follow",
+                // };
+
+
+                // if (deleteButtonisPressed) {
+                //     fetch(`${url}/${id}`, deleteRequest)
+                //         .then((res) => res.json())
+                //         .then(location.reload());
+                // }
+            });
         </script>
