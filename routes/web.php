@@ -26,7 +26,8 @@ Route::post('/includes/config/header.php', [loginc::class, 'logout']);
 
 // Profile
 
-Route::view('/profile', 'profile');
+Route::view('/profile-admin', 'admin/view-admin/profile-admin');
+Route::view('/profile-member', 'member/profile-member');
 
 // Admin
 

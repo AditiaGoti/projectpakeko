@@ -55,12 +55,6 @@ class loginc extends Controller
         $id = $decoded->data->id;
         $name = $decoded->data->name;
         $email = $decoded->data->email;
-        $tanggal_lahir = $decoded->data->tanggal_lahir;
-        $tempat_lahir = $decoded->data->tempat_lahir;
-        $nohp = $decoded->data->nohp;
-        $alamat = $decoded->data->alamat;
-        $expired = $decoded->data->expired;
-        $token = $decoded->token;
         $type = $decoded->data->type;
 
 
@@ -68,15 +62,11 @@ class loginc extends Controller
         session_start();
 
         // Storing session data
+
+        $_SESSION["token"] = $token;
         $_SESSION["id"] = $id;
         $_SESSION["name"] = $name;
         $_SESSION["email"] = $email;
-        $_SESSION["tanggal_lahir"] = $tanggal_lahir;
-        $_SESSION["tempat_lahir"] = $tempat_lahir;
-        $_SESSION["nohp"] = $nohp;
-        $_SESSION["alamat"] = $alamat;
-        $_SESSION["expired"] = $expired;
-        $_SESSION["token"] = $token;
         $_SESSION["type"] = $type;
 
         switch ($type) {
