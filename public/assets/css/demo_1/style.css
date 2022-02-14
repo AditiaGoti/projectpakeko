@@ -906,7 +906,7 @@
 }
 
 .content-wrapper {
-    background: #f3f3f3;
+    background:rgba(235, 235, 77, 0.486);
     padding: 1.5rem 1.7rem;
     width: 100%;
     flex-grow: 1;
@@ -919,7 +919,7 @@
 .page-header {
     display: flex;
     width: 100%;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     border-bottom: 1px solid #cdd6dc;
     margin-bottom: 15px;
 }
@@ -972,7 +972,7 @@
 }
 
 .page-title-header {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .page-header-toolbar {
