@@ -45,7 +45,6 @@
         <script>
             var tokenSession = '<?php echo $_SESSION['token']; ?>';
             var token = "Bearer" + " " + tokenSession;
-
             var myArray = [];
             var tablePaket = document.getElementById("tablePaket");
             const url = "https://api.klubaderai.com/api/pakets";
@@ -59,7 +58,6 @@
                 success: function(response) {
                     myArray = response.data;
                     buildTable(myArray);
-                    console.log(myArray);
                 },
             });
 
@@ -94,21 +92,33 @@
                     redirect: "follow",
                 };
 
-                id = e.target.parentElement.parentElement.dataset.id;
+                var id = e.target.parentElement.parentElement.dataset.id;
                 if (deleteButtonisPressed) {
                     fetch(`${url}/${id}`, deleteRequest)
                         .then((res) => res.json())
-                        .then(location.reload());
+                    // .then(location.reload());
                 }
             });
 
             tablePaket.addEventListener("click", (e) => {
                 e.preventDefault();
-                let deleteButtonisPressed = e.target.id == "updateMember";
-                id = e.target.parentElement.parentElement.dataset.id;
-                var getInput = id;
-                localStorage.setItem("idPaket", id);
-                window.location.href = '/transaksi';
+                let updateButtonisPressed = e.target.id == "updateMember";
+
+
+                if (updateButtonisPressed) {
+                    var id = e.target.parentElement.parentElement.dataset.id;
+                    var getInput = id;
+                    localStorage.setItem("idPaket", getInput);
+                    var type = '<?php echo $_SESSION['type']; ?>';
+                    if (type == 1) {
+                        window.location.href = '/form_paket'
+                    } else {
+                        window.location.href = '/owner.formu_paket'
+                    }
+                }
+
+
+
                 // var myHeaders = new Headers();
                 // myHeaders.append(
                 //     "Authorization",

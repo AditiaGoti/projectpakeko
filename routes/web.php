@@ -30,11 +30,9 @@ Route::view('/profile-member', 'member/profile-member');
 
 // Admin
 
-
 Route::get('/admin', function () {
     return view('admin/view-admin/dashboard');
 });
-
 
 Route::get('/transaksi', function () {
     return view('admin/table-admin/table_transaksi');
@@ -136,6 +134,6 @@ Route::get('/owner.form_transaksi', function () {
     return view('owner/form-owner/form_transaksi');
 });
 
-Route::get('/owner.form_paket', function () {
-    return view('owner/form-owner/form_paket');
+Route::get('/owner.formu_paket', function () {
+    return view('owner/form-owner/formu_paket');
 });
