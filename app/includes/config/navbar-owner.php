@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
-                <ul class="navbar-nav ml-auto">
+                <!-- <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
                         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="Profile image"> </a>
@@ -21,34 +21,9 @@
                             <a onclick="logout()" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
                 </button>
             </div>
         </nav>
-
-        <script>
-            function logout() {
-                var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                var token = "Bearer" + " " + tokenSession;
-                var myHeaders = new Headers();
-                myHeaders.append("Authorization", token);
-                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-                var urlencoded = new URLSearchParams();
-
-                var requestOptions = {
-                    method: 'POST',
-                    headers: myHeaders,
-                    body: urlencoded,
-                    redirect: 'follow'
-                };
-
-                fetch("https://api.klubaderai.com/api/logout", requestOptions)
-                    .then(response => response.text())
-                    .then(result => {
-                        console.log(result)
-                    })
-                    .catch(error => console.log('error', error));
-            }
-        </script>

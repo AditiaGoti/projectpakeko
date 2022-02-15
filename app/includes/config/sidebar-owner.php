@@ -99,5 +99,35 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="logout()">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title" style="color: black;">Logout</span>
+            </a>
+        </li>
     </ul>
 </nav>
+<script>
+    function logout() {
+        var tokenSession = '<?php echo $_SESSION['token']; ?>';
+        var token = "Bearer" + " " + tokenSession;
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", token);
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        var urlencoded = new URLSearchParams();
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.klubaderai.com/api/logout", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => console.log('error', error));
+    }
+</script>

@@ -25,78 +25,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 mb-4">
-                <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">Paket</h5>
-                                <h5 class="card-title text-uppercase text-muted mb-0">1 Bulan</h5>
-                                <span class="h2 font-weight-bold mb-0">100</span>
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                    <i class="fas fa-chart-pie"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">Paket</h5>
-                                <h5 class="card-title text-uppercase text-muted mb-0">3 Bulan</h5>
-                                <span class="h2 font-weight-bold mb-0">100</span>
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">Paket</h5>
-                                <h5 class="card-title text-uppercase text-muted mb-0">6 Bulan</h5>
-                                <span class="h2 font-weight-bold mb-0">100</span>
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                    <i class="fas fa-percent"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">Paket</h5>
-                                <h5 class="card-title text-uppercase text-muted mb-0">12 Bulan</h5>
-                                <span class="h2 font-weight-bold mb-0">100</span>
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                    <i class="fas fa-chart-pie"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -128,7 +56,6 @@
                                 </tbody>
                             </table>
                             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                            <script type="text/javascript" src="assets/js/shared/getAllMember.js"></script>
                         </div>
                         <div class="pagination">
                             <a href="#">&laquo;</a>
@@ -231,3 +158,67 @@
     </footer>
     <!-- partial -->
 </div>
+<script>
+    var tokenSession = '<?php echo $_SESSION['token']; ?>';
+    var token = "Bearer" + " " + tokenSession;
+    var myArray = [];
+    var myArray = [];
+    var tableMember = document.getElementById("tableMember");
+    const url = "https://api.klubaderai.com/api/users";
+
+    $.ajax({
+        method: "GET",
+        url: url,
+        headers: {
+            Authorization: token
+        },
+        success: function(response) {
+            myArray = response.data;
+            buildTable(myArray);
+        },
+    });
+
+    function buildTable(data) {
+        for (var i = 0; i < data.length; i++) {
+            var row = `<tr data-id=${data[i].id}>
+			    <td>${data[i].id}</td>
+			    <td>${data[i].name}</td>
+                <td>${data[i].tempat_lahir}</td>
+                <td>${data[i].tanggal_lahir}</td>
+                <td>${data[i].email}</td>
+                <td>${data[i].nohp}</td>
+			    <td>${data[i].alamat}</td>
+                <td>${data[i].expired}</td>
+                <td>${data[i].token}</td>
+                <td></td>
+                <td>
+                    <button class="button-29" role="button">Update</button>
+                    <button id="deleteMember" class="button-30" role="button">Delete</button>
+                </td>
+			</tr>`;
+            tableMember.innerHTML += row;
+        }
+    }
+
+    tableMember.addEventListener("click", (e) => {
+        e.preventDefault();
+        let deleteButtonisPressed = e.target.id == "deleteMember";
+
+        var myHeaders = new Headers();
+        myHeaders.append(
+            "Authorization",
+            token);
+        var deleteRequest = {
+            method: "Delete",
+            headers: myHeaders,
+            redirect: "follow",
+        };
+
+        id = e.target.parentElement.parentElement.dataset.id;
+        if (deleteButtonisPressed) {
+            fetch(`${url}/${id}`, deleteRequest)
+                .then((res) => res.json())
+                .then(location.reload());
+        }
+    });
+</script>

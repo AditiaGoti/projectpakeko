@@ -18,6 +18,7 @@
                         <p class="font-weight-light text-muted mb-0"><?php echo $_SESSION['email'] ?></p>
                     </div>
                     <a href="/profile" class="dropdown-item">My Profile <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
+                    <a href="/changepass" class="dropdown-item">Change Password <span class="badge badge-pill badge-danger"></span><i class="dropdown-item-icon ti-dashboard"></i></a>
                     <a onclick="logout()" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
                 </div>
             </li>
