@@ -22,15 +22,13 @@
                         <form class="form sample">
                             <div class="form-group">
                                 <label>QR Code Value</label>
-                                <input type="text" class="form-control form-control-lg" aria-label="name" required />
+                                <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
                             </div>
-                            <button type="submit" class="btn btn-success mr-3">
-                                Submit
-                            </button>
-                            <button class="btn btn-danger">Cancel</button>
-
                         </form>
-
+                        <button onclick="daftarKehadiran()" type="submit" class="btn btn-success mr-3">
+                            Submit
+                        </button>
+                        <button class="btn btn-danger">Cancel</button>
                         <script>
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
@@ -48,12 +46,38 @@
                             myalert.style.display = 'none'
                             failalert.style.display = 'none'
 
-                            function alertsuccess() {
-                                myalert.style.display = 'block'
-                            }
+                            function daftarKehadiran() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                console.log(token);
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                            function alertfailed() {
-                                failalert.style.display = 'block'
+
+                                var urlencoded = new URLSearchParams();
+                                urlencoded.append(
+                                    "id_member",
+                                    document.getElementById("id_member").value
+                                );
+
+                                var requestOptions = {
+                                    method: "POST",
+                                    headers: myHeaders,
+                                    body: urlencoded,
+                                    redirect: "follow",
+                                };
+                                fetch(
+                                        "https://api.klubaderai.com/api/kehadiran",
+                                        requestOptions
+                                    )
+                                    .then((response) => response.text())
+                                    .then((result => {
+                                        myalert.style.display = 'block'
+                                    }))
+                                    .catch((error => {
+                                        failalert.style.display = 'none'
+                                    }));
                             }
                         </script>
                     </div>

@@ -134,7 +134,7 @@ Route::get('/owner.form_transaksi', function () {
     return view('owner/form-owner/form_transaksi');
 });
 
-Route::get('/owner.formu_paket', function () {
+Route::get('/owner.form_paket', function () {
     return view('owner/form-owner/formu_paket');
 });
 
