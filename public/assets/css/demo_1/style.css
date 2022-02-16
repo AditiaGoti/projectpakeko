@@ -316,8 +316,7 @@
     -moz-transition: background 0.25s ease;
     -ms-transition: background 0.25s ease;
     border: none;
-    margin-left: -20px;
-   
+    
 }
 
 .navbar.default-layout .navbar-brand-wrapper {
@@ -527,7 +526,7 @@
 @media (max-width: 991px) {
     .navbar.default-layout {
         flex-direction: row;
-        margin-left: 0.5px;
+        
     }
     .navbar.default-layout .navbar-brand-wrapper {
         width: 70px;
@@ -551,7 +550,7 @@
     background: linear-gradient(to top, #cdd6dc, rgb(148, 145, 114));
     font-family: "roboto", sans-serif;
     padding: 0;
-    width: 250px;
+    width: 270px;
     z-index: 11;
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
