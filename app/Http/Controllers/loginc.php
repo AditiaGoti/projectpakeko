@@ -52,10 +52,10 @@ class loginc extends Controller
 
 
         $token = $decoded->token;
-        $id = $decoded->data->id;
-        $name = $decoded->data->name;
-        $email = $decoded->data->email;
-        $type = $decoded->data->type;
+        $id = $decoded->id;
+        $name = $decoded->name;
+        $email = $decoded->email;
+        $type = $decoded->type;
 
 
 

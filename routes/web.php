@@ -137,3 +137,7 @@ Route::get('/owner.form_transaksi', function () {
 Route::get('/owner.formu_paket', function () {
     return view('owner/form-owner/formu_paket');
 });
+
+Route::get('/datatables', function () {
+    return view('datatables');
+});

@@ -8,23 +8,64 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="col-lg-8 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-striped table-bordered table-hover" id="table-data">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Paket</th>
                                                     <th>Harga</th>
-                                                    <th>Created By</th>
+                                                    <th>CreatedBy</th>
+                                                    <th>Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="tablePaket">
+                                            <tbody>
+                                                <script>
+                                                    var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                                    var token = "Bearer" + " " + tokenSession;
+                                                    var myArray = [];
+                                                    var tablePaket = document.getElementById("tabel-data");
+                                                    const url = "https://api.klubaderai.com/api/pakets";
+                                                    $(document).ready(function() {
+                                                        $.ajax({
+                                                            method: "GET",
+                                                            url: url,
+                                                            headers: {
+                                                                Authorization: token,
+                                                            },
+                                                            success: function(response) {
+                                                                data = response.data;
+                                                                $.each(data, function(i, data) {
 
+                                                                    var body = "<tr>";
+                                                                    body += "<td>" + data.id + "</td>";
+                                                                    body += "<td>" + data.paket + "</td>";
+                                                                    body += "<td>" + data.harga + "</td>";
+                                                                    body += "<td>" + data.createdby + "</td>";
+                                                                    body += "<td>" + `<button class="fa fa-pencil" role="button"></button>` + " " + `<button class="fa fa-trash" role="button"></button>` + "</td>";
+                                                                    body += "</tr>";
+                                                                    $("#table-data tbody").append(body);
+                                                                });
+                                                                /*DataTables instantiation.*/
+                                                                $("#table-data").DataTable({
+                                                                    responsive: true,
+
+                                                                });
+                                                            },
+                                                            error: function() {
+                                                                alert('Fail!');
+
+                                                            }
+                                                        });
+
+                                                    });
+                                                </script>
                                             </tbody>
+
                                         </table>
                                     </div>
                                 </div>
@@ -42,99 +83,3 @@
             </footer>
             <!-- partial -->
         </div>
-        <script>
-            var tokenSession = '<?php echo $_SESSION['token']; ?>';
-            var token = "Bearer" + " " + tokenSession;
-            var myArray = [];
-            var tablePaket = document.getElementById("tablePaket");
-            const url = "https://api.klubaderai.com/api/pakets";
-
-            $.ajax({
-                method: "GET",
-                url: url,
-                headers: {
-                    Authorization: token,
-                },
-                success: function(response) {
-                    myArray = response.data;
-                    buildTable(myArray);
-                },
-            });
-
-            function buildTable(data) {
-                for (var i = 0; i < data.length; i++) {
-                    var row = `<tr data-id=${data[i].id}>
-			    <td>${data[i].id}</td>
-			    <td>${data[i].paket}</td>
-                <td>${data[i].harga}</td>
-                <td>${data[i].createdby}</td>
-                <td>
-                    <button id="updateMember" class="button-29" role="button">Update</button>
-                    <button id="deleteMember" class="button-30" role="button">Delete</button>
-                </td>
-			</tr>`;
-                    tablePaket.innerHTML += row;
-                }
-            }
-
-            tablePaket.addEventListener("click", (e) => {
-                e.preventDefault();
-                let deleteButtonisPressed = e.target.id == "deleteMember";
-
-                var myHeaders = new Headers();
-                myHeaders.append(
-                    "Authorization",
-                    token
-                );
-                var deleteRequest = {
-                    method: "Delete",
-                    headers: myHeaders,
-                    redirect: "follow",
-                };
-
-                var id = e.target.parentElement.parentElement.dataset.id;
-                if (deleteButtonisPressed) {
-                    fetch(`${url}/${id}`, deleteRequest)
-                        .then((res) => res.json())
-                    // .then(location.reload());
-                }
-            });
-
-            tablePaket.addEventListener("click", (e) => {
-                e.preventDefault();
-                let updateButtonisPressed = e.target.id == "updateMember";
-
-
-                if (updateButtonisPressed) {
-                    var id = e.target.parentElement.parentElement.dataset.id;
-                    var getInput = id;
-                    localStorage.setItem("idPaket", getInput);
-                    var type = '<?php echo $_SESSION['type']; ?>';
-                    if (type == 1) {
-                        window.location.href = '/form_paket'
-                    } else {
-                        window.location.href = '/owner.formu_paket'
-                    }
-                }
-
-
-
-                // var myHeaders = new Headers();
-                // myHeaders.append(
-                //     "Authorization",
-                //     token
-                // );
-                // var deleteRequest = {
-                //     method: "Delete",
-                //     headers: myHeaders,
-                //     redirect: "follow",
-                // };
-
-
-                // if (deleteButtonisPressed) {
-                //     fetch(`${url}/${id}`, deleteRequest)
-                //         .then((res) => res.json())
-                //         .then(location.reload());
-                // }
-            });
-        </script>
