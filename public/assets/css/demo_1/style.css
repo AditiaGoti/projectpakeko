@@ -310,19 +310,22 @@
 /* Navbar */
 .navbar.default-layout {
     font-family: "roboto", sans-serif;
-    background: #fff;
+    background: whitesmoke;
     transition: background 0.25s ease;
     -webkit-transition: background 0.25s ease;
     -moz-transition: background 0.25s ease;
     -ms-transition: background 0.25s ease;
     border: none;
+    margin-left: -20px;
+   
 }
+
 .navbar.default-layout .navbar-brand-wrapper {
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: rgb(209, 200, 118);
+    background: rgb(148, 145, 114);
     width: 270px;
     height: 63px;
     border: transparent;
@@ -369,11 +372,13 @@
 @media (max-width: 991px) {
     .navbar.default-layout .navbar-menu-wrapper {
         width: calc(100% - 70px);
+        
     }
 }
 .navbar.default-layout .navbar-menu-wrapper .navbar-toggler {
     border: 0;
     color: inherit;
+    ;
 }
 @media (max-width: 991px) {
     .navbar.default-layout
@@ -522,6 +527,7 @@
 @media (max-width: 991px) {
     .navbar.default-layout {
         flex-direction: row;
+        margin-left: 0.5px;
     }
     .navbar.default-layout .navbar-brand-wrapper {
         width: 70px;
@@ -531,6 +537,7 @@
     }
     .navbar.default-layout .navbar-brand-wrapper .brand-logo-mini {
         display: inline-block;
+        
     }
     .navbar-collapse {
         display: flex;
@@ -541,10 +548,10 @@
 /* Sidebar */
 .sidebar {
     min-height: calc(100vh - 63px);
-    background: linear-gradient(to top, #cdd6dc, rgb(209, 200, 118));
+    background: linear-gradient(to top, #cdd6dc, rgb(148, 145, 114));
     font-family: "roboto", sans-serif;
     padding: 0;
-    width: 270px;
+    width: 250px;
     z-index: 11;
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -607,7 +614,7 @@
     display: block;
     height: 100%;
     width: 2px;
-    background: khaki;
+    background: whitesmoke;
 }
 .sidebar
     > .nav
@@ -698,7 +705,7 @@
     line-height: 1;
     font-style: normal;
     vertical-align: middle;
-    color: khaki;
+    color: whitesmoke;
 }
 .sidebar > .nav .nav-item .nav-link[aria-expanded="true"] i.menu-arrow {
     -webkit-transform: rotate(90deg);
@@ -710,7 +717,7 @@
     width: 16px;
     line-height: 1;
     font-size: 18px;
-    color: khaki;
+    color: rgb(148, 145, 114);
 }
 .sidebar > .nav .nav-item .nav-link .menu-title {
     color: inherit;
@@ -724,10 +731,10 @@
     margin-left: auto;
 }
 .sidebar > .nav .nav-item .nav-link:hover {
-    color: khaki;
+    color: whitesmoke;
 }
 .sidebar > .nav .nav-item.active > .nav-link {
-    color: khaki;
+    color: whitesmoke;
 }
 .sidebar > .nav .nav-item.active > .nav-link .menu-title,
 .sidebar > .nav .nav-item.active > .nav-link i {
@@ -739,6 +746,9 @@
     margin-left: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    border: 2px solid whitesmoke;
+    box-shadow: 0 2px 10px grey, 0 0 0 2px white;
+    border-radius: 4px;
 }
 .sidebar > .nav .nav-item.nav-profile .nav-link {
     display: flex;
@@ -803,28 +813,28 @@
     > .nav:not(.sub-menu)
     > .nav-item:hover:not(.nav-profile):not(.hover-open)
     > .nav-link:not([aria-expanded="true"]) {
-    background: rgb(224, 202, 74);
+    background: whitesmoke;
     padding-left: 65px;
 }
 .sidebar
     > .nav:not(.sub-menu)
     > .nav-item:hover:not(.nav-profile):not(.hover-open)
     > .nav-link:not([aria-expanded="true"]):before {
-    border-color: khaki;
+    border-color: black;
 }
 .sidebar
     > .nav:not(.sub-menu)
     > .nav-item:hover:not(.nav-profile):not(.hover-open)
     > .nav-link:not([aria-expanded="true"])
     .menu-title {
-    color: khaki;
+    color: whitesmoke;
 }
 .sidebar
     > .nav:not(.sub-menu)
     > .nav-item:hover:not(.nav-profile):not(.hover-open)
     > .nav-link:not([aria-expanded="true"])
     .menu-arrow:before {
-    color: khaki;
+    color: whitesmoke;
 }
 
 /* style for off-canvas menu*/

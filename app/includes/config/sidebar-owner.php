@@ -1,7 +1,17 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-
-        <li class="nav-item nav-category" style="margin-top: 75px; color: black;">Klub Ade Rai Ragunan</li>
+    <li class="nav-item nav-profile">
+              <a href="/owner.profle" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
+                  <div class="dot-indicator bg-success"></div>
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">Syahrul Husna</p>
+                  <p class="designation">Premium user</p>
+                </div>
+              </a>
+            </li>
         <li class="nav-item">
             <a class="nav-link" href="/owner">
                 <i class="menu-icon typcn typcn-document-text"></i>
