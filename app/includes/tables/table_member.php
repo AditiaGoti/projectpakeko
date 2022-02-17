@@ -8,7 +8,56 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-11 grid-margin stretch-card">
+            <div class=" col-lg-4 mb-4">
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div id="sumMember" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Member</h5>
+
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div id="sumAktif" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Member Aktif</h5>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div id="sumTAktif" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Member Non-Aktif</h5>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -68,6 +117,39 @@
                                                 }
                                             });
 
+                                        });
+                                        $(document).ready(function() {
+                                            $.ajax({
+                                                method: "GET",
+                                                url: url,
+                                                headers: {
+                                                    Authorization: token,
+                                                },
+                                                success: function(response) {
+                                                    data = response.etc;
+                                                    member(data);
+                                                    memberaktif(data);
+                                                    membernon(data);
+
+                                                    function member(data) {
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member + " Orang" + `</span>`;
+                                                        $("#sumMember").append(body);
+                                                    };
+
+                                                    function memberaktif(data) {
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member_active + " Orang" + `</span>`;
+                                                        $("#sumAktif").append(body);
+                                                    };
+
+                                                    function membernon(data) {
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member_inactive + " Orang" + `</span>`;
+                                                        $("#sumTAktif").append(body);
+                                                    };
+                                                },
+                                                error: function() {
+                                                    alert('Fail!');
+                                                }
+                                            });
                                         });
                                     </script>
                                 </tbody>

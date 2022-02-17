@@ -5,3 +5,4 @@
   <script type="text/javascript" src="assets/js/demo_1/dashboard.js"></script>
   <script type="text/javascript" src="assets/js/shared/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="assets/js/shared/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.dataTables.min.js"></script>

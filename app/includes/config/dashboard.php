@@ -12,9 +12,9 @@
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col">
+                            <div id="sumTransaksi" class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Transaksi</h5>
-                                <span class="h2 font-weight-bold mb-0">100</span>
+
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -29,9 +29,8 @@
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col">
+                            <div id="sumMember" class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Member</h5>
-                                <span class="h2 font-weight-bold mb-0">100</span>
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -81,6 +80,62 @@
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022. All Rights Reserved</span>
         </div>
     </footer>
+    <script>
+        var tokenSession = '<?php echo $_SESSION['token']; ?>';
+        var token = "Bearer" + " " + tokenSession;
+        var myArray = [];
+        var sumTransaksi = document.getElementById("sumTransaksi");
+        var sumTransaksi = document.getElementById("sumMember");
+        const urlt = "https://api.klubaderai.com/api/transaksi";
+        const urlm = "https://api.klubaderai.com/api/users";
+        $(document).ready(function() {
+            $.ajax({
+                method: "GET",
+                url: urlt,
+                headers: {
+                    Authorization: token,
+                },
+                success: function(response) {
+                    data = response.etc;
+                    buildData(data);
+
+                    function buildData(data) {
+                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + data.total_rupiah + `</span>`;
+                        $("#sumTransaksi").append(body);
+                    };
+                },
+                error: function() {
+                    alert('Fail!');
+
+                }
+            });
+
+        });
+
+        $(document).ready(function() {
+            $.ajax({
+                method: "GET",
+                url: urlm,
+                headers: {
+                    Authorization: token,
+                },
+                success: function(response) {
+                    data = response.etc;
+                    buildData(data);
+
+                    function buildData(data) {
+                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member + " Orang" + `</span>`;
+                        $("#sumMember").append(body);
+                    };
+                },
+                error: function() {
+                    alert('Fail!');
+
+                }
+            });
+
+        });
+    </script>
 
 
     <!-- partial -->
