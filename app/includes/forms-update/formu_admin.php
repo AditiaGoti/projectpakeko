@@ -23,6 +23,10 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
+                                        <label>Email</label>
+                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                    </div>
+                                    <div class="form-group">
                                         <label>Name</label>
                                         <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
                                     </div>
@@ -30,16 +34,13 @@
                                         <label>Place of Birth</label>
                                         <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
                                     </div>
+
+                                </div>
+                                <div class="col">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
                                     </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
-                                    </div>
-                                </div>
-                                <div class="col">
                                     <div class="form-group">
                                         <label>Phone Number</label>
                                         <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
@@ -48,24 +49,52 @@
                                         <label>Address</label>
                                         <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
                                     </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input id="admin_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label> CPassword</label>
-                                        <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
-                                    </div>
                                 </div>
                             </div>
                         </form>
-                        <button onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
+                        <button onclick="updateProfile()" type="submit" class="btn btn-success mr-3">
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
+                        <script>
+                            var myArray = [];
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            var id = `<?php echo $_SESSION['id']; ?>`;
+                            var form = document.getElementById("form_admin");
+                            const url = "https://api.klubaderai.com/api/users" + "/" + id;
+
+                            $.ajax({
+                                method: "GET",
+                                url: url,
+                                headers: {
+                                    Authorization: token
+                                },
+                                success: function(response) {
+                                    myArray = response.data;
+                                    build(myArray);
+                                },
+                            });
+
+                            function build(data) {
+                                var name = document.getElementById("admin_name");
+                                var pob = document.getElementById("admin_pob");
+                                var dob = document.getElementById("admin_dob");
+                                var email = document.getElementById("admin_email");
+                                var nohp = document.getElementById("admin_nohp");
+                                var alamat = document.getElementById("admin_address");
+
+                                name.value = data.name;
+                                pob.value = data.tempat_lahir;
+                                dob.value = data.tanggal_lahir;
+                                email.value = data.email;
+                                nohp.value = data.nohp;
+                                alamat.value = data.alamat;
+                            }
+                        </script>
 
                         <script>
-                            function daftaradmin() {
+                            function updateProfile() {
                                 var myalert = document.getElementById("alert");
                                 var failalert = document.getElementById("alertfail");
                                 var close = document.getElementsByClassName("close");
@@ -83,6 +112,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
+                                const url = "https://api.klubaderai.com/api/users" + "/" + id;
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -94,14 +124,6 @@
                                 urlencoded.append(
                                     "email",
                                     document.getElementById("admin_email").value
-                                );
-                                urlencoded.append(
-                                    "password",
-                                    document.getElementById("admin_pass").value
-                                );
-                                urlencoded.append(
-                                    "password_confirmation",
-                                    document.getElementById("admin_cpass").value
                                 );
                                 urlencoded.append(
                                     "tempat_lahir",
@@ -121,13 +143,13 @@
                                 );
 
                                 var requestOptions = {
-                                    method: "POST",
+                                    method: "patch",
                                     headers: myHeaders,
                                     body: urlencoded,
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/register",
+                                        url,
                                         requestOptions
                                     )
                                     .then((response) => response.text())

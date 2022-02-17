@@ -140,3 +140,7 @@ Route::get('/owform_transaksi', function () {
 Route::get('/owform_paket', function () {
     return view('owner/form-owner/form_paket');
 });
+
+Route::get('/owformu_admin', function () {
+    return view('owner/formu-owner/formu_admin');
+});
