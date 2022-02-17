@@ -30,8 +30,8 @@
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                    <i class="fas fa-chart-bar"></i>
+                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                    <i class="fa fa-book"></i>
                                 </div>
                             </div>
                         </div>
@@ -47,8 +47,8 @@
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                    <i class="fas fa-chart-bar"></i>
+                                <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                                    <i class="fa fa-money"></i>
                                 </div>
                             </div>
                         </div>
