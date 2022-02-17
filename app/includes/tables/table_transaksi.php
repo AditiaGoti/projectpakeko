@@ -80,7 +80,7 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tablePaket = document.getElementById("tabel-data");
+                                        var tableTransaksi = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/transaksi";
                                         $(document).ready(function() {
                                             $.ajax({
@@ -149,6 +149,27 @@
                                                     alert('Fail!');
                                                 }
                                             });
+                                        });
+                                        tableTransaksi.addEventListener("click", (e) => {
+                                            e.preventDefault();
+                                            let deleteButtonisPressed = e.target.id == "deleteMember";
+
+                                            var myHeaders = new Headers();
+                                            myHeaders.append(
+                                                "Authorization",
+                                                token);
+                                            var deleteRequest = {
+                                                method: "Delete",
+                                                headers: myHeaders,
+                                                redirect: "follow",
+                                            };
+
+                                            mid = e.target.parentElement.parentElement.dataset.id;
+                                            if (deleteButtonisPressed) {
+                                                fetch(`${url}/${mid}`, deleteRequest)
+                                                    .then((res) => res.json())
+                                                    .then(location.reload());
+                                            }
                                         });
                                     </script>
                                 </tbody>

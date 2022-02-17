@@ -182,6 +182,68 @@
                                                 }
                                             });
                                         });
+                                        tableMember.addEventListener("click", (e) => {
+                                            e.preventDefault();
+                                            let deleteButtonisPressed = e.target.id == "deleteMember";
+                                            let updateButtonisPressed = e.target.id == "updateMember";
+
+                                            var myHeaders = new Headers();
+                                            myHeaders.append(
+                                                "Authorization",
+                                                token);
+                                            var deleteRequest = {
+                                                method: "Delete",
+                                                headers: myHeaders,
+                                                redirect: "follow",
+                                            };
+
+                                            mid = e.target.parentElement.parentElement.dataset.id;
+                                            if (deleteButtonisPressed) {
+                                                fetch(`${url}/${mid}`, deleteRequest)
+                                                    .then((res) => res.json())
+                                                    .then(location.reload());
+                                            }
+                                            if (updateButtonisPressed) {
+                                                if (type == 2) {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "/owformu_member";
+                                                } else {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "formu_member";
+                                                }
+                                            }
+                                        });
+                                        tableMember.addEventListener("click", (e) => {
+                                            e.preventDefault();
+                                            let deleteButtonisPressed = e.target.id == "deleteMember";
+                                            let updateButtonisPressed = e.target.id == "updateMember";
+
+                                            var myHeaders = new Headers();
+                                            myHeaders.append(
+                                                "Authorization",
+                                                token);
+                                            var deleteRequest = {
+                                                method: "Delete",
+                                                headers: myHeaders,
+                                                redirect: "follow",
+                                            };
+
+                                            mid = e.target.parentElement.parentElement.dataset.id;
+                                            if (deleteButtonisPressed) {
+                                                fetch(`${url}/${mid}`, deleteRequest)
+                                                    .then((res) => res.json())
+                                                    .then(location.reload());
+                                            }
+                                            if (updateButtonisPressed) {
+                                                if (type == 2) {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "/owformu_member";
+                                                } else {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "formu_member";
+                                                }
+                                            }
+                                        });
                                     </script>
                                 </tbody>
 

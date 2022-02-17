@@ -19,7 +19,7 @@
                                    <span class="close">&times;</span>
                                    <strong>Terjadi Kesalahan</strong>
                                </div>
-                               <form id="form_member" class="form sample">
+                               <form id="form_transaksi" class="form sample">
 
                                    <div class="form-group">
                                        <label>ID</label>
@@ -113,7 +113,8 @@
                                            )
                                            .then((response) => response.text())
                                            .then((result => {
-                                               console.log(result);
+                                               myalert.style.display = 'block'
+                                               document.getElementById("form_paket").reset();
                                            }))
                                            .catch((error => {
                                                console.log(error);

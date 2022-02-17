@@ -58,7 +58,7 @@
                                                                     body += "<td>" + data.paket + "</td>";
                                                                     body += "<td>" + data.harga + "</td>";
                                                                     body += "<td>" + data.createdby + "</td>";
-                                                                    body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                                    body += "<td>" + `<button id="updateMember" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="deleteMember" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
                                                                     body += "</tr>";
                                                                     $("#table-data tbody").append(body);
                                                                 });
@@ -78,6 +78,38 @@
                                                             }
                                                         });
 
+                                                    });
+
+                                                    tablePaket.addEventListener("click", (e) => {
+                                                        e.preventDefault();
+                                                        let deleteButtonisPressed = e.target.id == "deleteMember";
+                                                        let updateButtonisPressed = e.target.id == "updateMember";
+
+                                                        var myHeaders = new Headers();
+                                                        myHeaders.append(
+                                                            "Authorization",
+                                                            token);
+                                                        var deleteRequest = {
+                                                            method: "Delete",
+                                                            headers: myHeaders,
+                                                            redirect: "follow",
+                                                        };
+
+                                                        mid = e.target.parentElement.parentElement.dataset.id;
+                                                        if (deleteButtonisPressed) {
+                                                            fetch(`${url}/${mid}`, deleteRequest)
+                                                                .then((res) => res.json())
+                                                                .then(location.reload());
+                                                        }
+                                                        if (updateButtonisPressed) {
+                                                            if (type == 2) {
+                                                                var memID = sessionStorage.getItem(mid);
+                                                                location.href = "/owformu_paket";
+                                                            } else {
+                                                                var memID = sessionStorage.getItem(mid);
+                                                                location.href = "formu_paket";
+                                                            }
+                                                        }
                                                     });
                                                 </script>
                                             </tbody>

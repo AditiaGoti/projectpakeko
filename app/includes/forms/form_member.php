@@ -134,6 +134,7 @@
                                     .then((response) => response.text())
                                     .then((result => {
                                         myalert.style.display = 'block'
+                                        document.getElementById("form_member").reset();
                                     }))
                                     .catch((error => {
                                         alertfailed();

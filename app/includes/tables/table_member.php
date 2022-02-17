@@ -104,6 +104,7 @@
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
+                                        var type = '<?php echo $_SESSION['type']; ?>'
                                         var myArray = [];
                                         var tableMember = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/users";
@@ -198,11 +199,20 @@
                                                 redirect: "follow",
                                             };
 
-                                            id = e.target.parentElement.parentElement.dataset.id;
+                                            mid = e.target.parentElement.parentElement.dataset.id;
                                             if (deleteButtonisPressed) {
-                                                fetch(`${url}/${id}`, deleteRequest)
+                                                fetch(`${url}/${mid}`, deleteRequest)
                                                     .then((res) => res.json())
                                                     .then(location.reload());
+                                            }
+                                            if (updateButtonisPressed) {
+                                                if (type == 2) {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "/owformu_member";
+                                                } else {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "formu_member";
+                                                }
                                             }
                                         });
                                     </script>

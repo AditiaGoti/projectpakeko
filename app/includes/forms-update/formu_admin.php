@@ -155,6 +155,7 @@
                                     .then((response) => response.text())
                                     .then((result => {
                                         myalert.style.display = 'block'
+                                        document.getElementById("form_admin").reset();
                                     }))
                                     .catch((error => {
                                         alertfailed();

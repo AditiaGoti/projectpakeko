@@ -19,7 +19,7 @@
                             <span class="close">&times;</span>
                             <strong>Terjadi Kesalahan</strong>
                         </div>
-                        <form class="form sample">
+                        <form id="form_kehadiran" class="form sample">
                             <div class="form-group">
                                 <label>QR Code Value</label>
                                 <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
@@ -74,6 +74,7 @@
                                     .then((response) => response.text())
                                     .then((result => {
                                         myalert.style.display = 'block'
+                                        document.getElementById("form_kehadiran").reset();
                                     }))
                                     .catch((error => {
                                         failalert.style.display = 'none'

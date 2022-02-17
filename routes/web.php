@@ -77,6 +77,14 @@ Route::get('/form_paket', function () {
     return view('admin/form-admin/form_paket');
 });
 
+Route::get('/formu_member', function () {
+    return view('owner/formu-owner/formu_member');
+});
+
+Route::get('/formu_paket', function () {
+    return view('owner/formu-owner/formu_paket');
+});
+
 // Member
 
 Route::get('/member', function () {

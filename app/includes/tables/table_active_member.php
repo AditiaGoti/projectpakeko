@@ -105,7 +105,7 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tablePaket = document.getElementById("tabel-data");
+                                        var tableMember = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/users-active";
                                         const urlm = "https://api.klubaderai.com/api/users";
                                         $(document).ready(function() {
@@ -181,6 +181,37 @@
                                                     alert('Fail!');
                                                 }
                                             });
+                                        });
+                                        tableMember.addEventListener("click", (e) => {
+                                            e.preventDefault();
+                                            let deleteButtonisPressed = e.target.id == "deleteMember";
+                                            let updateButtonisPressed = e.target.id == "updateMember";
+
+                                            var myHeaders = new Headers();
+                                            myHeaders.append(
+                                                "Authorization",
+                                                token);
+                                            var deleteRequest = {
+                                                method: "Delete",
+                                                headers: myHeaders,
+                                                redirect: "follow",
+                                            };
+
+                                            mid = e.target.parentElement.parentElement.dataset.id;
+                                            if (deleteButtonisPressed) {
+                                                fetch(`${url}/${mid}`, deleteRequest)
+                                                    .then((res) => res.json())
+                                                    .then(location.reload());
+                                            }
+                                            if (updateButtonisPressed) {
+                                                if (type == 2) {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "/owformu_member";
+                                                } else {
+                                                    var memID = sessionStorage.getItem(mid);
+                                                    location.href = "formu_member";
+                                                }
+                                            }
                                         });
                                     </script>
                                 </tbody>

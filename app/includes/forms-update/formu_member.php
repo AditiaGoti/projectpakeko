@@ -19,7 +19,7 @@
                             <span class="close">&times;</span>
                             <strong>Terjadi Kesalahan</strong>
                         </div>
-                        <form id="form_admin" class="form sample">
+                        <form id="form_member" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -61,7 +61,7 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
-                            var form = document.getElementById("form_admin");
+                            var form = document.getElementById("form_member");
                             const url = "https://api.klubaderai.com/api/users" + "/" + id;
 
                             $.ajax({
@@ -155,6 +155,7 @@
                                     .then((response) => response.text())
                                     .then((result => {
                                         myalert.style.display = 'block'
+                                        document.getElementById("form_member").reset();
                                     }))
                                     .catch((error => {
                                         alertfailed();

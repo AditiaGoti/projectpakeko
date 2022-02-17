@@ -106,7 +106,8 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        console.log(result)
+                                        myalert.style.display = 'block'
+                                        document.getElementById("form_paket").reset();
                                     }))
                                     .catch((error => {
                                         failalert.style.display = 'block'
