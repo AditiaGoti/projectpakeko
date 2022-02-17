@@ -940,9 +940,9 @@
 .page-header {
     display: flex;
     width: 100%;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
     border-bottom: 1px solid #cdd6dc;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 @media (max-width: 992px) {
     .page-header {
@@ -951,7 +951,7 @@
 }
 
 .page-title {
-    margin-top: 0;
+    margin-top: -50px;
     margin-bottom: 2px;
 }
 @media (max-width: 992px) {
