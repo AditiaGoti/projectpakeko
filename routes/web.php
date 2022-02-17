@@ -89,52 +89,52 @@ Route::get('/owner', function () {
     return view('owner/view-owner/dashboard-owner');
 });
 
-Route::get('/owner.alladmin', function () {
+Route::get('/o.alladmin', function () {
     return view('owner/table-owner/table_alladmin');
 });
 
-Route::get('/owner.form_admin', function () {
+Route::get('/o.form_admin', function () {
     return view('owner/form-owner/form_admin');
 });
 
-Route::get('/owner.transaksi', function () {
+Route::get('/o.transaksi', function () {
     return view('owner/table-owner/table_transaksi');
 });
 
-Route::get('/owner.kehadiran', function () {
+Route::get('/o.kehadiran', function () {
     return view('owner/table-owner/table_kehadiran');
 });
 
-Route::get('/owner.active_member', function () {
+Route::get('/o.active_member', function () {
     return view('owner/table-owner/table_activemember');
 });
 
 
-Route::get('/owner.inactive_member', function () {
+Route::get('/o.inactive_member', function () {
     return view('owner/table-owner/table_inactivemember');
 });
 
-Route::get('/owner.all_member', function () {
+Route::get('/o.all_member', function () {
     return view('owner/table-owner/table_allmember');
 });
 
-Route::get('/owner.paket', function () {
+Route::get('/o.paket', function () {
     return view('owner/table-owner/table_paket');
 });
 
-Route::get('/owner.form_kehadiran', function () {
+Route::get('/o.form_kehadiran', function () {
     return view('owner/form-owner/form_kehadiran');
 });
 
-Route::get('/owner.form_member', function () {
+Route::get('/o.form_member', function () {
     return view('owner/form-owner/form_member');
 });
 
-Route::get('/owner.form_transaksi', function () {
+Route::get('/o.form_transaksi', function () {
     return view('owner/form-owner/form_transaksi');
 });
 
-Route::get('/owner.form_paket', function () {
+Route::get('/o.form_paket', function () {
     return view('owner/form-owner/formu_paket');
 });
 

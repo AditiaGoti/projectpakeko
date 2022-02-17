@@ -50,14 +50,11 @@ class loginc extends Controller
         // echo $response;
 
 
-
         $token = $decoded->token;
         $id = $decoded->id;
         $name = $decoded->name;
         $email = $decoded->email;
         $type = $decoded->type;
-
-
 
         session_start();
 

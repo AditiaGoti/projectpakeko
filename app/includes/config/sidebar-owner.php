@@ -1,17 +1,17 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-    <li class="nav-item nav-profile">
-              <a href="/owner.profle" class="nav-link">
+        <li class="nav-item nav-profile">
+            <a href="/o.profle" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
-                  <div class="dot-indicator bg-success"></div>
+                    <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
+                    <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Syahrul Husna</p>
-                  <p class="designation">Premium user</p>
+                    <p class="profile-name"> <?php echo $_SESSION['name'] ?> </p>
+                    <p class="designation"><?php echo $_SESSION['email'] ?></p>
                 </div>
-              </a>
-            </li>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="/owner">
                 <i class="menu-icon typcn typcn-document-text"></i>
@@ -27,10 +27,10 @@
             <div class="collapse" id="kiw">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.alladmin">Semua Admin</a>
+                        <a class="nav-link" href="/o.alladmin">Semua Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.form_admin">Tambah Admin</a>
+                        <a class="nav-link" href="/o.form_admin">Tambah Admin</a>
                     </li>
                 </ul>
             </div>
@@ -44,16 +44,16 @@
             <div class="collapse" id="member">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.all_member">Semua Member</a>
+                        <a class="nav-link" href="/o.all_member">Semua Member</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.active_member">Active Member</a>
+                        <a class="nav-link" href="/o.active_member">Active Member</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.inactive_member">Inactive Member</a>
+                        <a class="nav-link" href="/o.inactive_member">Inactive Member</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.form_member">Tambah Member</a>
+                        <a class="nav-link" href="/o.form_member">Tambah Member</a>
                     </li>
                 </ul>
             </div>
@@ -67,10 +67,10 @@
             <div class="collapse" id="kehadiran">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.kehadiran">Semua Kehadiran</a>
+                        <a class="nav-link" href="/o.kehadiran">Semua Kehadiran</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.form_kehadiran">Tambah Kehadiran</a>
+                        <a class="nav-link" href="/o.form_kehadiran">Tambah Kehadiran</a>
                     </li>
                 </ul>
             </div>
@@ -84,10 +84,10 @@
             <div class="collapse" id="transaksi">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.transaksi">Semua Transaksi</a>
+                        <a class="nav-link" href="/o.transaksi">Semua Transaksi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.form_transaksi">Tambah Transaksi</a>
+                        <a class="nav-link" href="/o.form_transaksi">Tambah Transaksi</a>
                     </li>
                 </ul>
             </div>
@@ -101,10 +101,10 @@
             <div class="collapse" id="paket">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.paket">Semua Paket</a>
+                        <a class="nav-link" href="/o.paket">Semua Paket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/owner.form_paket">Tambah Paket</a>
+                        <a class="nav-link" href="/o.form_paket">Tambah Paket</a>
                     </li>
                 </ul>
             </div>
