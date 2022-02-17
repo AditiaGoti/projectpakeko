@@ -10,8 +10,7 @@ if (!$_SESSION['type'] == 2) {
     header("location: \login");
     exit;
 }
-?>
-<?php include(app_path() . '/includes/config/header.php'); ?>
+?><?php include(app_path() . '/includes/config/header.php'); ?>
 
 <body>
     <div class="container-scroller">
