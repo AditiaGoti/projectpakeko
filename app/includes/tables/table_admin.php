@@ -3,7 +3,20 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Data Member</h4>
+                    <h4 class="page-title">Data Admin</h4>
+                    <button id="btnAddow" style="margin-left: 20px; display:none" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                    <button id="btnAdd" style="margin-left: 20px; display:none" type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                    <script>
+                        var type = '<?php echo $_SESSION['type']; ?>'
+                        if (type == 2) {
+                            var btnAdd = document.getElementById("btnAddow")
+                            btnAdd.style.display = 'block'
+                        } else {
+                            var btnAdd = document.getElementById("btnAdd")
+                            btnAdd.style.display = 'block'
+                        }
+                    </script>
+
                 </div>
             </div>
         </div>
@@ -29,7 +42,6 @@
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
-                                        console.log(token);
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/admin";
@@ -92,28 +104,3 @@
     </footer>
     <!-- partial -->
 </div>
-<!-- <script>
-
-
-    tableMember.addEventListener("click", (e) => {
-        e.preventDefault();
-        let deleteButtonisPressed = e.target.id == "deleteMember";
-
-        var myHeaders = new Headers();
-        myHeaders.append(
-            "Authorization",
-            token);
-        var deleteRequest = {
-            method: "Delete",
-            headers: myHeaders,
-            redirect: "follow",
-        };
-
-        id = e.target.parentElement.parentElement.dataset.id;
-        if (deleteButtonisPressed) {
-            fetch(`${url}/${id}`, deleteRequest)
-                .then((res) => res.json())
-                .then(location.reload());
-        }
-    });
-</script> -->
