@@ -64,7 +64,7 @@
                             <table class="table table-striped table-bordered table-hover" id="table-data">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th></th>
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>No. HP</th>
@@ -81,6 +81,7 @@
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/users";
+
                                         $(document).ready(function() {
                                             $.ajax({
                                                 method: "GET",
@@ -100,7 +101,7 @@
                                                         body += "<td>" + data.alamat + "</td>";
                                                         body += "<td>" + data.expired + "</td>";
                                                         body += "<td>" + data.token + "</td>";
-                                                        body += "<td>" + `<button class="fa fa-pencil" role="button"></button>` + " " + `<button class="fa fa-trash" role="button"></button>` + "</td>";
+                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -108,6 +109,10 @@
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
+                                                        dom: 'Bfrtip',
+                                                        buttons: [
+                                                            'excel', 'pdf', 'print'
+                                                        ]
 
                                                     });
                                                 },
