@@ -53,7 +53,7 @@
                             </div>
                         </form>
                         <button style="margin-right: 10px;" onclick="enabledText()" type="button" class="btn btn-info">Edit</button>
-                        <button style="margin-right: -10px;" onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
+                        <button style="margin-right: -10px;" onclick="updateProfile()" type="submit" class="btn btn-success mr-3">
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
@@ -107,7 +107,7 @@
                                 document.getElementById("admin_address").disabled = false;
                             }
 
-                            function daftaradmin() {
+                            function updateProfile() {
                                 var myalert = document.getElementById("alert");
                                 var failalert = document.getElementById("alertfail");
                                 var close = document.getElementsByClassName("close");
