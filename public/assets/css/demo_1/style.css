@@ -1286,4 +1286,155 @@
 .pagination a:hover:not(.active) {
     background-color: #ddd;
 }
+
+#btnAddow{
+    margin-left: 850px; 
+    display:none;
+}
+@media (min-width: 280px) {
+    #btnAddow {
+        float: center;
+        margin-left: 140px; 
+        display:none;
+    }
+}
+@media (min-width: 360px) {
+    #btnAddow {
+        float: center;
+        margin-left: 230px; 
+        display:none;
+    }
+}
+@media (min-width: 400px) {
+    #btnAddow {
+        float: center;
+        margin-left: 265px; 
+        display:none;
+    }
+}
+@media (min-width: 500px) {
+    #btnAddow {
+        float: center;
+        margin-left: 345px; 
+        display:none;
+    }
+}
+@media (min-width: 550px) {
+    #btnAddow {
+        float: center;
+        margin-left: 400px;
+        display:none;
+    }
+}
+@media (min-width: 600px) {
+    #btnAddow {
+        float: center;
+        margin-left: 450px;
+        display:none;
+    }
+}
+@media (min-width: 750px) {
+    #btnAddow {
+        float: center;
+        margin-left: 600px;
+        display:none;
+    }
+}
+@media (min-width: 768px) {
+    #btnAddow {
+        float: center;
+        margin-left: 630px;
+        display:none;
+    }
+}
+@media (min-width: 850px) {
+    #btnAddow {
+        float: center;
+        margin-left: 700px;
+        display:none;
+    }
+}
+@media (min-width: 922px) {
+    #btnAddow {
+        float: center;
+        margin-left: 780px;
+        display:none;
+    }
+}
+#btnAdd{
+    margin-left: 850px; 
+    display:none;
+}
+
+@media (min-width: 280px) {
+    #btnAdd {
+        float: center;
+        margin-left: 140px; 
+        display:none;
+    }
+}
+@media (min-width: 360px) {
+    #btnAdd {
+        float: center;
+        margin-left: 230px; 
+        display:none;
+    }
+}
+@media (min-width: 400px) {
+    #btnAdd {
+        float: center;
+        margin-left: 265px; 
+        display:none;
+    }
+}
+@media (min-width: 500px) {
+    #btnAdd {
+        float: center;
+        margin-left: 345px; 
+        display:none;
+    }
+}
+@media (min-width: 550px) {
+    #btnAdd {
+        float: center;
+        margin-left: 400px;
+        display:none;
+    }
+}
+@media (min-width: 600px) {
+    #btnAdd {
+        float: center;
+        margin-left: 450px;
+        display:none;
+    }
+}
+@media (min-width: 750px) {
+    #btnAdd {
+        float: center;
+        margin-left: 600px;
+        display:none;
+    }
+}
+@media (min-width: 768px) {
+    #btnAdd {
+        float: center;
+        margin-left: 630px;
+        display:none;
+    }
+}
+@media (min-width: 850px) {
+    #btnAdd {
+        float: center;
+        margin-left: 700px;
+        display:none;
+    }
+}
+@media (min-width: 922px) {
+    #btnAdd {
+        float: center;
+        margin-left: 780px;
+        display:none;
+    }
+}
+
 /*# sourceMappingURL=style.css.map */

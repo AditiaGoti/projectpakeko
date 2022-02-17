@@ -4,6 +4,31 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Data Member</h4>
+                    <button id="btnAddowActiveMember"  style="margin-left: 500px; "type="submit" class="btn btn-secondary" onclick="window.location.href='/owform_admin'">Active Member</button>
+                    <button id="btnAddActivememberMember"  style="margin-left: 700px; display:none;"type="submit" class="btn btn-secondary" onclick="window.location.href='/form_admin'">Active Member</button>
+                    <button id="btnAddowInActiveMember"  style="margin-left: 5px; "type="submit" class="btn btn-warning" onclick="window.location.href='/owform_admin'">Inactive Member</button>
+                    <button id="btnAddInActivememberMember"  style="margin-left: 700px; display:none;"type="submit" class="btn btn-warning" onclick="window.location.href='/form_admin'">Inactive Member</button>
+                    <button id="btnAddowMember"  style="margin-left: 5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                    <button id="btnAddMember"  style="margin-left: 750px; display:none;"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                    <script>
+                        var type = '<?php echo $_SESSION['type']; ?>'
+                        if (type == 2) {
+                            var btnAdd = document.getElementById("btnAddowMember")
+                            var btnAddNewMember = document.getElementById("btnAddowActiveMember")
+                            var btnAddNewInMember = document.getElementById("btnAddowInActiveMember")
+                            btnAdd.style.display = 'block'
+                            btnAddNewMember.style.display ="block"
+                            btnAddNewInMember.style.display ="block"
+
+                        } else {
+                            var btnAddNewMember = document.getElementById("btnAddActivememberMember")
+                            var btnAdd = document.getElementById("btnAddMember")
+                            var btnAddNewInMember = document.getElementById("btnAddInActivememberMember")
+                            btnAdd.style.display = 'block'
+                            btnAddNewMember.style.display ="block"
+                            btnAddNewInMember.style.display ="block"
+                        }
+                    </script>
                 </div>
             </div>
         </div>

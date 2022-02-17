@@ -4,6 +4,18 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Data Kehadiran</h4>
+                    <button id="btnAddowKehadiran"  style="margin-left: 800px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                    <button id="btnAddkehadiran"  style="margin-left: 750px; display:none;"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                    <script>
+                        var type = '<?php echo $_SESSION['type']; ?>'
+                        if (type == 2) {
+                            var btnAdd = document.getElementById("btnAddowKehadiran")
+                            btnAdd.style.display = 'block'
+                        } else {
+                            var btnAdd = document.getElementById("btnAddkehadiran")
+                            btnAdd.style.display = 'block'
+                        }
+                    </script>
                 </div>
             </div>
         </div>
