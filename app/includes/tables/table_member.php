@@ -4,12 +4,13 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Data Member
-                    <button id="btnAddowMember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                    <button id="btnAddMember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
-                    <button id="btnAddowActiveMember"  style="float:right; margin-left:5px; display: none; "type="submit" class="btn btn-secondary" onclick="window.location.href='/owform_admin'">Inactive Member</button>
-                    <button id="btnAddActivemember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-secondary" onclick="window.location.href='/form_admin'">inactive Member</button>
-                    <button id="btnAddowInActiveMember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-warning" onclick="window.location.href='/owform_admin'">Active Member</button>
-                    <button id="btnAddInActivemember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-warning" onclick="window.location.href='/form_admin'">Active Member</button> </h4>
+                        <button id="btnAddowActiveMember" style="float:right; margin-left:5px; display: none; " type="submit" class="btn btn-danger" onclick="window.location.href='/owinactive_member'">Inactive Member</button>
+                        <button id="btnAddActivemember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-danger" onclick="window.location.href='/inactive_member'">inactive Member</button>
+                        <button id="btnAddowInActiveMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-success" onclick="window.location.href='/owactive_member'">Active Member</button>
+                        <button id="btnAddInActivemember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-success" onclick="window.location.href='/active_member'">Active Member</button>
+                        <button id="btnAddowMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_member'">Tambah</button>
+                        <button id="btnAddMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/form_member'">Tambah</button>
+                    </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
@@ -17,16 +18,16 @@
                             var btnAddNewMember = document.getElementById("btnAddowActiveMember")
                             var btnAddNewInMember = document.getElementById("btnAddowInActiveMember")
                             btnAdd.style.display = 'block'
-                            btnAddNewMember.style.display ="block"
-                            btnAddNewInMember.style.display ="block"
+                            btnAddNewMember.style.display = "block"
+                            btnAddNewInMember.style.display = "block"
 
                         } else {
                             var btnAddNewMember = document.getElementById("btnAddActivemember")
                             var btnAdd = document.getElementById("btnAddMember")
                             var btnAddNewInMember = document.getElementById("btnAddInActivemember")
                             btnAdd.style.display = 'block'
-                            btnAddNewMember.style.display ="block"
-                            btnAddNewInMember.style.display ="block"
+                            btnAddNewMember.style.display = "block"
+                            btnAddNewInMember.style.display = "block"
                         }
                     </script>
                 </div>

@@ -28,7 +28,7 @@
                                    <div class="form-group">
                                        <label for="exampleFormControlSelect1">Package</label>
                                        <select class="form-control form-control-lg" id="package" required>
-
+                                           <option>-</option>
                                        </select>
                                    </div>
                                    <div class="form-group">
@@ -57,8 +57,7 @@
                                                data = response.data;
                                                $.each(data, function(i, data) {
 
-                                                   var body =
-                                                       body += `<option value='${data.id}'>` + data.paket + `</option>`;
+                                                   var body = `<option value='${data.id}'>` + data.paket + `</option>`;
 
                                                    $("#package").append(body);
                                                });

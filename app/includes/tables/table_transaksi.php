@@ -4,8 +4,9 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Transaction Data
-                    <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                    <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button></h4>
+                        <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_transaksi'">Tambah</button>
+                        <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/form_transaksi'">Tambah</button>
+                    </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
@@ -100,7 +101,7 @@
                                                         body += "<td>" + data.nominal + "</td>";
                                                         body += "<td>" + data.createdby + "</td>";
                                                         body += "<td>" + data.keterangan + "</td>";
-                                                        body += "<td>" + `<button class="fa fa-pencil" role="button"></button>` + " " + `<button class="fa fa-trash" role="button"></button>` + "</td>";
+                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -108,6 +109,10 @@
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
+                                                        dom: 'Bfrtip',
+                                                        buttons: [
+                                                            'excel', 'pdf', 'print'
+                                                        ]
 
                                                     });
                                                 },
