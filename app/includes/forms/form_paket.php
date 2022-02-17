@@ -64,8 +64,6 @@
                                 }
                             }
 
-
-
                             function daftarPaket() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';

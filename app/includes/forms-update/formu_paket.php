@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 grid-margin stretch-card">
+            <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <div style="display: none;" class="alert alert-success " id="alert">
@@ -21,20 +21,66 @@
                         </div>
 
                         <form id="form_paket" class="form sample">
-                            <div class="form-group">
-                                <label>Package Name</label>
-                                <input id="nama_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Nama</label>
+                                        <input id="nama_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Harga</label>
+                                        <input id="harga_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Durasi </label>
+                                        <input id="durasi_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Token</label>
+                                        <input id="token_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Package Price</label>
-                                <input id="harga_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
-                            </div>
-                            <button id="updatePaket" type="submit" class="btn btn-success mr-3">
-                                Submit
-                            </button>
-                            <button class="btn btn-danger">Cancel</button>
                         </form>
 
+                        <button onclick="daftarPaket()" type="submit" class="btn btn-success mr-3">
+                            Submit
+                        </button>
+                        <button class="btn btn-danger">Cancel</button>
+                        <script>
+                            var myArray = [];
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            var id = `<?php echo $_SESSION['id']; ?>`;
+                            var form = document.getElementById("form_admin");
+                            const url = "https://api.klubaderai.com/api/pakets" + "/" + 2;
+
+                            $.ajax({
+                                method: "GET",
+                                url: url,
+                                headers: {
+                                    Authorization: token
+                                },
+                                success: function(response) {
+                                    myArray = response.data;
+                                    build(myArray);
+                                },
+                            });
+
+                            function build(data) {
+                                var paket = document.getElementById("nama_paket");
+                                var harga = document.getElementById("harga_paket");
+                                var durasi = document.getElementById("durasi_paket");
+                                var ntoken = document.getElementById("token_paket");
+
+                                paket.value = data.paket;
+                                harga.value = data.harga;
+                                durasi.value = data.duration;
+                                ntoken.value = data.nilai_token;
+                            }
+                        </script>
                         <script>
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
@@ -50,12 +96,53 @@
                                 }
                             }
 
-                            function alertsuccess() {
-                                myalert.style.display = 'block'
-                            }
+                            function daftarPaket() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var email = '<?php echo $_SESSION['email']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                            function alertfailed() {
-                                failalert.style.display = 'block'
+                                var urlencoded = new URLSearchParams();
+                                urlencoded.append(
+                                    "paket",
+                                    document.getElementById("nama_paket").value
+                                );
+                                urlencoded.append(
+                                    "harga",
+                                    document.getElementById("harga_paket").value
+                                );
+                                urlencoded.append(
+                                    "createdby",
+                                    email
+                                );
+                                urlencoded.append(
+                                    "duration",
+                                    document.getElementById("durasi_paket").value
+                                );
+                                urlencoded.append(
+                                    "nilai_token",
+                                    document.getElementById("token_paket").value
+                                );
+
+                                var requestOptions = {
+                                    method: "PATCH",
+                                    headers: myHeaders,
+                                    body: urlencoded,
+                                    redirect: "follow",
+                                };
+                                fetch(
+                                        "https://api.klubaderai.com/api/pakets",
+                                        requestOptions
+                                    )
+                                    .then((response) => response.text())
+                                    .then((result => {
+                                        console.log(result)
+                                    }))
+                                    .catch((error => {
+                                        failalert.style.display = 'block'
+                                    }));
                             }
                         </script>
                     </div>
@@ -72,83 +159,3 @@
     </footer>
     <!-- partial -->
 </div>
-<script>
-    var myArray = [];
-    var tokenSession = '<?php echo $_SESSION['token']; ?>';
-    var token = "Bearer" + " " + tokenSession;
-    // var id = `<?php echo $_SESSION['id']; ?>`;
-    var idpaket = localStorage.getItem("idPaket")
-    var form = document.getElementById("form_admin");
-    const url = "https://api.klubaderai.com/api/pakets" + "/" + idpaket;
-
-    $.ajax({
-        method: "GET",
-        url: url,
-        headers: {
-            Authorization: token
-        },
-        success: function(response) {
-            myArray = response.data;
-            build(myArray);
-        },
-    });
-
-    function build(data) {
-        var nama = document.getElementById("nama_paket");
-        var harga = document.getElementById("harga_paket");
-
-        nama.value = data.paket;
-        harga.value = data.harga;
-    }
-</script>
-<script>
-    function updatePaket() {
-        var myalert = document.getElementById("alert");
-        var failalert = document.getElementById("alertfail");
-        var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close.onclick = function() {
-                var div = this.parentElement;
-                div.style.opacity = "0";
-                setTimeout(function() {
-                    div.style.display = "none";
-                }, 600);
-            }
-        }
-
-        var tokenSession = '<?php echo $_SESSION['token']; ?>';
-        var token = "Bearer" + " " + tokenSession;
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", token);
-        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-        var urlencoded = new URLSearchParams();
-        urlencoded.append(
-            "paket",
-            document.getElementById("nama_paket").value
-        );
-        urlencoded.append(
-            "harga",
-            document.getElementById("harga_paket").value
-        );
-
-        var requestOptions = {
-            method: "PATCH",
-            headers: myHeaders,
-            body: urlencoded,
-            redirect: "follow",
-        };
-        fetch(
-                "https://api.klubaderai.com/api/pakets" + "/" + id,
-                requestOptions
-            )
-            .then((response) => response.text())
-            .then((result => {
-                myalert.style.display = 'block'
-            }))
-            .catch((error => {
-                console.log(error)
-            }));
-    }
-</script>

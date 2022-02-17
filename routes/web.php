@@ -144,3 +144,15 @@ Route::get('/owform_paket', function () {
 Route::get('/owformu_admin', function () {
     return view('owner/formu-owner/formu_admin');
 });
+
+Route::get('/owformu_member', function () {
+    return view('owner/formu-owner/formu_member');
+});
+
+Route::get('/owformu_paket', function () {
+    return view('owner/formu-owner/formu_paket');
+});
+
+Route::get('/owformu_transaksi', function () {
+    return view('owner/formu-owner/formu_transaksi');
+});
