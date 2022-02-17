@@ -3,13 +3,13 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Data Member</h4>
-                    <button id="btnAddowActiveMember"  style="margin-left: 500px; "type="submit" class="btn btn-secondary" onclick="window.location.href='/owform_admin'">Active Member</button>
-                    <button id="btnAddActivememberMember"  style="margin-left: 700px; display:none;"type="submit" class="btn btn-secondary" onclick="window.location.href='/form_admin'">Active Member</button>
-                    <button id="btnAddowInActiveMember"  style="margin-left: 5px; "type="submit" class="btn btn-warning" onclick="window.location.href='/owform_admin'">Inactive Member</button>
-                    <button id="btnAddInActivememberMember"  style="margin-left: 700px; display:none;"type="submit" class="btn btn-warning" onclick="window.location.href='/form_admin'">Inactive Member</button>
-                    <button id="btnAddowMember"  style="margin-left: 5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                    <button id="btnAddMember"  style="margin-left: 750px; display:none;"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                    <h4 class="page-title">Data Member
+                    <button id="btnAddowMember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                    <button id="btnAddMember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                    <button id="btnAddowActiveMember"  style="float:right; margin-left:5px; display: none; "type="submit" class="btn btn-secondary" onclick="window.location.href='/owform_admin'">Inactive Member</button>
+                    <button id="btnAddActivemember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-secondary" onclick="window.location.href='/form_admin'">inactive Member</button>
+                    <button id="btnAddowInActiveMember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-warning" onclick="window.location.href='/owform_admin'">Active Member</button>
+                    <button id="btnAddInActivemember"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-warning" onclick="window.location.href='/form_admin'">Active Member</button> </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
@@ -21,9 +21,9 @@
                             btnAddNewInMember.style.display ="block"
 
                         } else {
-                            var btnAddNewMember = document.getElementById("btnAddActivememberMember")
+                            var btnAddNewMember = document.getElementById("btnAddActivemember")
                             var btnAdd = document.getElementById("btnAddMember")
-                            var btnAddNewInMember = document.getElementById("btnAddInActivememberMember")
+                            var btnAddNewInMember = document.getElementById("btnAddInActivemember")
                             btnAdd.style.display = 'block'
                             btnAddNewMember.style.display ="block"
                             btnAddNewInMember.style.display ="block"

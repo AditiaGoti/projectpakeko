@@ -3,9 +3,9 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Data Kehadiran</h4>
-                    <button id="btnAddowKehadiran"  style="margin-left: 800px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                    <button id="btnAddkehadiran"  style="margin-left: 750px; display:none;"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                    <h4 class="page-title">Data Kehadiran
+                    <button id="btnAddowKehadiran"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                    <button id="btnAddkehadiran"  style="float:right; margin-left:5px; display: none;x"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button> </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
