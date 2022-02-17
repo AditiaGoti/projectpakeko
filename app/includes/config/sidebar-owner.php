@@ -2,12 +2,8 @@
     <ul class="nav">
         <li class="nav-item nav-profile">
             <a href="/owprofile" class="nav-link">
-                <div class="profile-image">
-                    <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
-                    <div class="dot-indicator bg-success"></div>
-                </div>
                 <div class="text-wrapper">
-                    <p class="profile-name"><?php echo $_SESSION['name'] ?></p>
+                    <p class="profile-name">Hallo, <?php echo $_SESSION['name'] ?></p>
                     <p class="designation"><?php echo $_SESSION['email'] ?></p>
                 </div>
             </a>
