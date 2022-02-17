@@ -42,8 +42,8 @@
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                    <i class="fas fa-chart-pie"></i>
+                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                    <i class="fa fa-users"></i>
                                 </div>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                                 <h5 class="card-title text-uppercase text-muted mb-0">Member Aktif</h5>
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                    <i class="fas fa-users"></i>
+                                <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                    <i class="fa fa-user"></i>
                                 </div>
                             </div>
                         </div>
@@ -74,8 +74,8 @@
                                 <h5 class="card-title text-uppercase text-muted mb-0">Member Non-Aktif</h5>
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                    <i class="fas fa-users"></i>
+                                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                    <i class="fa fa-user-times"></i>
                                 </div>
                             </div>
                         </div>

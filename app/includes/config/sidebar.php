@@ -2,10 +2,6 @@
     <ul class="nav">
         <li class="nav-item nav-profile" style="margin-top: 80px;">
             <a href="#" class="nav-link">
-                <div class="profile-image">
-                    <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
-                    <div class="dot-indicator bg-success"></div>
-                </div>
                 <div class="text-wrapper">
                     <p class="profile-name">Syahrul Husna</p>
                     <p class="designation">Premium user</p>
