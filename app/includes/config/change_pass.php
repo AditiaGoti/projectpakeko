@@ -2,12 +2,12 @@
     <div class="content-wrapper">
         <div class="row page-title-header">
             <div class="col-12">
-                <div class="page-header">
-                    <h4 class="page-title">Menambahkan Member Klub Ade Rai</h4>
+                <div class="page-header" >
+                    <h4 class="page-title" style="margin-top:10px;">Mengganti Password Member Klub Ade Rai</h4>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" >
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -20,7 +20,7 @@
                             <strong>Terjadi Kesalahan</strong>
                         </div>
 
-                        <form id="form_member" class="form sample">
+                        <form id="form_member" style="margin-top: 10px;" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
