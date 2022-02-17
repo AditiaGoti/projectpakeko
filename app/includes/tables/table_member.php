@@ -105,7 +105,7 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tablePaket = document.getElementById("tabel-data");
+                                        var tableMember = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/users";
 
                                         $(document).ready(function() {
@@ -127,7 +127,7 @@
                                                         body += "<td>" + data.alamat + "</td>";
                                                         body += "<td>" + data.expired + "</td>";
                                                         body += "<td>" + data.token + "</td>";
-                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                        body += "<td>" + `<button id="updateMember" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="deleteMember" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -182,6 +182,29 @@
                                                 }
                                             });
                                         });
+
+                                        tableMember.addEventListener("click", (e) => {
+                                            e.preventDefault();
+                                            let deleteButtonisPressed = e.target.id == "deleteMember";
+                                            let updateButtonisPressed = e.target.id == "updateMember";
+
+                                            var myHeaders = new Headers();
+                                            myHeaders.append(
+                                                "Authorization",
+                                                token);
+                                            var deleteRequest = {
+                                                method: "Delete",
+                                                headers: myHeaders,
+                                                redirect: "follow",
+                                            };
+
+                                            id = e.target.parentElement.parentElement.dataset.id;
+                                            if (deleteButtonisPressed) {
+                                                fetch(`${url}/${id}`, deleteRequest)
+                                                    .then((res) => res.json())
+                                                    .then(location.reload());
+                                            }
+                                        });
                                     </script>
                                 </tbody>
 
@@ -204,28 +227,8 @@
     </footer>
     <!-- partial -->
 </div>
-<!-- <script>
+<script>
 
 
-    tableMember.addEventListener("click", (e) => {
-        e.preventDefault();
-        let deleteButtonisPressed = e.target.id == "deleteMember";
 
-        var myHeaders = new Headers();
-        myHeaders.append(
-            "Authorization",
-            token);
-        var deleteRequest = {
-            method: "Delete",
-            headers: myHeaders,
-            redirect: "follow",
-        };
-
-        id = e.target.parentElement.parentElement.dataset.id;
-        if (deleteButtonisPressed) {
-            fetch(`${url}/${id}`, deleteRequest)
-                .then((res) => res.json())
-                .then(location.reload());
-        }
-    });
-</script> -->
+</script>
