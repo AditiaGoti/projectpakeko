@@ -24,31 +24,21 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label>Email</label>
-                                        <input id="member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <input type="text" id="member_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon Member" aria-label="pnumber" required />
-                                    </div>
-                                    <div class="form-group">
                                         <label>Last Password</label>
-                                        <input type="text" id="member_address" class="form-control form-control-lg" placeholder="Masukan Alamat Member" aria-label="adress" required />
+                                        <input type="text" id="member_oldpass" class="form-control form-control-lg" placeholder="Masukan Alamat Member" aria-label="adress" required />
                                     </div>
                                     <div class="form-group">
                                         <label>New Password</label>
-                                        <input id="member_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
+                                        <input id="member_newpass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Confirm New Password</label>
-                                        <input id="member_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
+                                        <input id="member_cpass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <button onclick="daftarMember()" type="submit" class="btn btn-success mr-3">
+                        <button onclick="updatePassword()" type="submit" class="btn btn-success mr-3">
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
@@ -67,9 +57,13 @@
                                 }
                             }
 
-                            function daftarMember() {
+                            function updatePassword() {
+                                var myArray = [];
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
+                                var id = `<?php echo $_SESSION['id']; ?>`;
+                                var form = document.getElementById("form_admin");
+                                const url = "https://api.klubaderai.com/api/users" + "/" + id;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -77,46 +71,22 @@
 
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(
-                                    "name",
-                                    document.getElementById("member_name").value
-                                );
-                                urlencoded.append(
-                                    "email",
-                                    document.getElementById("member_email").value
+                                    "curr_password",
+                                    document.getElementById("member_oldpass").value
                                 );
                                 urlencoded.append(
                                     "password",
-                                    document.getElementById("member_pass").value
-                                );
-                                urlencoded.append(
-                                    "password_confirmation",
-                                    document.getElementById("member_cpass").value
-                                );
-                                urlencoded.append(
-                                    "tempat_lahir",
-                                    document.getElementById("member_pob").value
-                                );
-                                urlencoded.append(
-                                    "tanggal_lahir",
-                                    document.getElementById("member_dob").value
-                                );
-                                urlencoded.append(
-                                    "nohp",
-                                    document.getElementById("member_nohp").value
-                                );
-                                urlencoded.append(
-                                    "alamat",
-                                    document.getElementById("member_address").value
+                                    document.getElementById("member_newpass").value
                                 );
 
                                 var requestOptions = {
-                                    method: "POST",
+                                    method: "PATCH",
                                     headers: myHeaders,
                                     body: urlencoded,
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/users",
+                                        url,
                                         requestOptions
                                     )
                                     .then((response) => response.text())

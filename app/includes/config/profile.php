@@ -28,39 +28,32 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
+                                        <input disabled id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Place of Birth</label>
-                                        <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
+                                        <input disabled id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
                                     </div>
-                                    <div class="form-group">
-                                        <label>Date of Birth</label>
-                                        <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
-                                    </div>
-
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input disabled id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
+                                    </div>
+                                    <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                        <input disabled type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
+                                        <input disabled type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
                                     </div>
-                                    <!-- <div class="form-group">
-                                        <label>Password</label>
-                                        <input id="admin_pass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
-                                    </div>
-                                    <div class="form-group">
-                                        <label> CPassword</label>
-                                        <input id="admin_cpass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
-                                    </div> -->
+
                                 </div>
                             </div>
                         </form>
-                        <button onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
+                        <button style="margin-right: 10px;" onclick="enabledText()" type="button" class="btn btn-info">Edit</button>
+                        <button style="margin-right: -10px;" onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
                             Submit
                         </button>
                         <button class="btn btn-danger">Cancel</button>
@@ -106,6 +99,14 @@
                             }
                         </script>
                         <script>
+                            function enabledText() {
+                                document.getElementById("admin_name").disabled = false;
+                                document.getElementById("admin_pob").disabled = false;
+                                document.getElementById("admin_dob").disabled = false;
+                                document.getElementById("admin_nohp").disabled = false;
+                                document.getElementById("admin_address").disabled = false;
+                            }
+
                             function daftaradmin() {
                                 var myalert = document.getElementById("alert");
                                 var failalert = document.getElementById("alertfail");
@@ -132,18 +133,6 @@
                                     "name",
                                     document.getElementById("admin_name").value
                                 );
-                                urlencoded.append(
-                                    "email",
-                                    document.getElementById("admin_email").value
-                                );
-                                // urlencoded.append(
-                                //     "password",
-                                //     document.getElementById("admin_pass").value
-                                // );
-                                // urlencoded.append(
-                                //     "password_confirmation",
-                                //     document.getElementById("admin_cpass").value
-                                // );
                                 urlencoded.append(
                                     "tempat_lahir",
                                     document.getElementById("admin_pob").value
@@ -176,7 +165,7 @@
                                         myalert.style.display = 'block'
                                     }))
                                     .catch((error => {
-                                        console.log(error)
+                                        failalert.style.display = 'block'
                                     }));
                             }
                         </script>
