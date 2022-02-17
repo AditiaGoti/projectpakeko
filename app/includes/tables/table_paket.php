@@ -4,6 +4,18 @@
                     <div class="col-12">
                         <div class="page-header">
                             <h4 class="page-title">Package Data</h4>
+                            <button id="btnAddowPaket"  style="margin-left: 800px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                            <button id="btnAddPaket" style="margin-left: 800px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                            <script>
+                        var type = '<?php echo $_SESSION['type']; ?>'
+                        if (type == 2) {
+                            var btnAdd = document.getElementById("btnAddowPaket")
+                            btnAdd.style.display = 'block'
+                        } else {
+                            var btnAdd = document.getElementById("btnAddPaket")
+                            btnAdd.style.display = 'block'
+                        }
+                    </script>
                         </div>
                     </div>
                 </div>

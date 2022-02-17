@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Data Admin</h4>
-                    <button id="btnAddow" style="margin-left: 20px; display:none" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                    <button id="btnAdd" style="margin-left: 20px; display:none" type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                    <button id="btnAddow" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                    <button id="btnAdd"  type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
