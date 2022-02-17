@@ -28,6 +28,9 @@ Route::post('/login', [loginc::class, 'login']);
 Route::view('/profile-admin', 'admin/view-admin/profile-admin');
 Route::view('/profile-member', 'member/profile-member');
 
+Route::view('/changepass-admin', 'admin/view-admin/changepass-admin');
+Route::view('/changepass-member', 'member/changepass-member');
+
 // Admin
 
 Route::get('/admin', function () {
@@ -136,8 +139,4 @@ Route::get('/owform_transaksi', function () {
 
 Route::get('/owform_paket', function () {
     return view('owner/form-owner/form_paket');
-});
-
-Route::get('/datatables', function () {
-    return view('datatables');
 });
