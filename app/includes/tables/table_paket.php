@@ -3,24 +3,24 @@
                 <div class="row page-title-header">
                     <div class="col-12">
                         <div class="page-header">
-                            <h4 class="page-title">Package Data <button id="btnAddowPaket"  style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                            <button id="btnAddPaket"  style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
+                            <h4 class="page-title">Package Data <button id="btnAddowPaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_paket'">Tambah</button>
+                                <button id="btnAddPaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/form_paket'">Tambah</button>
                             </h4>
                             <script>
-                        var type = '<?php echo $_SESSION['type']; ?>'
-                        if (type == 2) {
-                            var btnAdd = document.getElementById("btnAddowPaket")
-                            btnAdd.style.display = 'block'
-                        } else {
-                            var btnAdd = document.getElementById("btnAddPaket")
-                            btnAdd.style.display = 'block'
-                        }
-                    </script>
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                if (type == 2) {
+                                    var btnAdd = document.getElementById("btnAddowPaket")
+                                    btnAdd.style.display = 'block'
+                                } else {
+                                    var btnAdd = document.getElementById("btnAddPaket")
+                                    btnAdd.style.display = 'block'
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 grid-margin stretch-card">
+                    <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="panel-body">
@@ -58,13 +58,17 @@
                                                                     body += "<td>" + data.paket + "</td>";
                                                                     body += "<td>" + data.harga + "</td>";
                                                                     body += "<td>" + data.createdby + "</td>";
-                                                                    body += "<td>" + `<button class="fa fa-pencil" role="button"></button>` + " " + `<button class="fa fa-trash" role="button"></button>` + "</td>";
+                                                                    body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
                                                                     body += "</tr>";
                                                                     $("#table-data tbody").append(body);
                                                                 });
                                                                 /*DataTables instantiation.*/
                                                                 $("#table-data").DataTable({
                                                                     responsive: true,
+                                                                    dom: 'Bfrtip',
+                                                                    buttons: [
+                                                                        'excel', 'pdf', 'print'
+                                                                    ]
 
                                                                 });
                                                             },

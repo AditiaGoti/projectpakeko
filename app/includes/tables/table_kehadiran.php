@@ -4,8 +4,9 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Data Kehadiran
-                    <button id="btnAddowKehadiran"  style="float:right; margin-left:5px; display: none;"type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                    <button id="btnAddkehadiran"  style="float:right; margin-left:5px; display: none;x"type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button> </h4>
+                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_kehadiran'">Tambah</button>
+                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-primary" onclick="window.location.href='/form_kehadiran'">Tambah</button>
+                    </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
@@ -20,7 +21,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -57,7 +58,7 @@
                                                         body += "<td>" + data.nama + "</td>";
                                                         body += "<td>" + data.email + "</td>";
                                                         body += "<td>" + data.waktu + "</td>";
-                                                        body += "<td>" + `<button class="fa fa-pencil" role="button"></button>` + " " + `<button class="fa fa-trash" role="button"></button>` + "</td>";
+                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -65,7 +66,10 @@
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
-
+                                                        dom: 'Bfrtip',
+                                                        buttons: [
+                                                            'excel', 'pdf', 'print'
+                                                        ]
 
                                                     });
                                                 },

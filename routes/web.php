@@ -49,7 +49,6 @@ Route::get('/active_member', function () {
     return view('admin/table-admin/table_activemember');
 });
 
-
 Route::get('/inactive_member', function () {
     return view('admin/table-admin/table_inactivemember');
 });
@@ -112,7 +111,6 @@ Route::get('/owactive_member', function () {
     return view('owner/table-owner/table_activemember');
 });
 
-
 Route::get('/owinactive_member', function () {
     return view('owner/table-owner/table_inactivemember');
 });
@@ -151,8 +149,4 @@ Route::get('/owformu_member', function () {
 
 Route::get('/owformu_paket', function () {
     return view('owner/formu-owner/formu_paket');
-});
-
-Route::get('/owformu_transaksi', function () {
-    return view('owner/formu-owner/formu_transaksi');
 });
