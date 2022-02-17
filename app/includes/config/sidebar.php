@@ -1,17 +1,17 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-    <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
+        <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
-                  <div class="dot-indicator bg-success"></div>
+                    <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
+                    <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Syahrul Husna</p>
-                  <p class="designation">Premium user</p>
+                    <p class="profile-name">Syahrul Husna</p>
+                    <p class="designation">Premium user</p>
                 </div>
-              </a>
-            </li>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="/admin">
                 <i class="menu-icon typcn typcn-document-text"></i>

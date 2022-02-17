@@ -19,29 +19,53 @@
                                    <span class="close">&times;</span>
                                    <strong>Terjadi Kesalahan</strong>
                                </div>
+                               <form id="form_member" class="form sample">
 
-                               <div class="form-group">
-                                   <label>ID</label>
-                                   <input id="member_id" type="text" class="form-control form-control-lg" placeholder="Masukan ID Member" aria-label="name" required />
-                               </div>
-                               <div class="form-group">
-                                   <label for="exampleFormControlSelect1">Package</label>
-                                   <select class="form-control form-control-lg" id="exampleFormControlSelect1" required>
-                                       <option>1</option>
-                                       <option>2</option>
-                                       <option>3</option>
-                                       <option>4</option>
-                                       <option>5</option>
-                                   </select>
-                               </div>
-                               <div class="form-group">
-                                   <label>Nominal</label>
-                                   <input type="text" class="form-control form-control-lg" aria-label="Nominal" disabled />
-                               </div>
-                               <button type="submit" class="btn btn-success mr-2">
+                                   <div class="form-group">
+                                       <label>ID</label>
+                                       <input id="id_member" type="text" class="form-control form-control-lg" placeholder="Masukan ID Member" aria-label="name" required />
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="exampleFormControlSelect1">Package</label>
+                                       <select class="form-control form-control-lg" id="package" required>
+
+                                       </select>
+                                   </div>
+                                   <div class="form-group">
+                                       <label>Keterangan</label>
+                                       <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
+                                   </div>
+                               </form>
+                               <button onclick="daftarTransaksi()" type="submit" class="btn btn-success mr-2">
                                    Submit
                                </button>
                                <button class="btn btn-danger">Cancel</button>
+                               <script>
+                                   var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                   var token = "Bearer" + " " + tokenSession;
+                                   var myArray = [];
+                                   var tablePaket = document.getElementById("package");
+                                   const url = "https://api.klubaderai.com/api/pakets";
+                                   $(document).ready(function() {
+                                       $.ajax({
+                                           method: "GET",
+                                           url: url,
+                                           headers: {
+                                               Authorization: token,
+                                           },
+                                           success: function(response) {
+                                               data = response.data;
+                                               $.each(data, function(i, data) {
+
+                                                   var body =
+                                                       body += `<option value='${data.id}'>` + data.paket + `</option>`;
+
+                                                   $("#package").append(body);
+                                               });
+                                           }
+                                       });
+                                   });
+                               </script>
                                <script>
                                    var myalert = document.getElementById("alert");
                                    var failalert = document.getElementById("alertfail");
@@ -57,12 +81,44 @@
                                        }
                                    }
 
-                                   function alertsuccess() {
-                                       myalert.style.display = 'block'
-                                   }
+                                   function daftarTransaksi() {
+                                       var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                       var token = "Bearer" + " " + tokenSession;
+                                       var myHeaders = new Headers();
+                                       myHeaders.append("Authorization", token);
+                                       myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                                   function alertfailed() {
-                                       failalert.style.display = 'block'
+                                       var urlencoded = new URLSearchParams();
+                                       urlencoded.append(
+                                           "id_member",
+                                           document.getElementById("id_member").value
+                                       );
+                                       urlencoded.append(
+                                           "id_paket",
+                                           document.getElementById("package").value
+                                       );
+                                       urlencoded.append(
+                                           "keterangan",
+                                           document.getElementById("keterangan").value
+                                       );
+
+                                       var requestOptions = {
+                                           method: "POST",
+                                           headers: myHeaders,
+                                           body: urlencoded,
+                                           redirect: "follow",
+                                       };
+                                       fetch(
+                                               "https://api.klubaderai.com/api/transaksi",
+                                               requestOptions
+                                           )
+                                           .then((response) => response.text())
+                                           .then((result => {
+                                               console.log(result);
+                                           }))
+                                           .catch((error => {
+                                               console.log(error);
+                                           }));
                                    }
                                </script>
                            </div>

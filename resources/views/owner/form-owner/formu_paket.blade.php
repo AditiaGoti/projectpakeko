@@ -20,7 +20,6 @@ if (!$_SESSION['type'] == 2) {
             <?php include(app_path() . '/includes/formsu/formu_paket.php'); ?>
         </div>
     </div>
-    <br>
     <?php include(app_path() . '/includes/config/footer.php'); ?>
 </body>
 
