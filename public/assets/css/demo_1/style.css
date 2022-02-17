@@ -347,6 +347,7 @@
     max-width: 100%;
     margin: auto;
     vertical-align: middle;
+    padding-bottom: -10px;
 }
 .navbar.default-layout .navbar-brand-wrapper .brand-logo-mini {
     display: none;
