@@ -135,7 +135,7 @@ Route::get('/owform_transaksi', function () {
 });
 
 Route::get('/owform_paket', function () {
-    return view('owner/form-owner/formu_paket');
+    return view('owner/form-owner/form_paket');
 });
 
 Route::get('/datatables', function () {

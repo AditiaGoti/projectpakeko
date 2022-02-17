@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 grid-margin stretch-card">
+            <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <div style="display: none;" class="alert alert-success " id="alert">
@@ -20,7 +20,7 @@
                             <strong>Terjadi Kesalahan</strong>
                         </div>
 
-                        <form id="form_member" class="form sample">
+                        <form id="form_paket" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -64,6 +64,8 @@
                                 }
                             }
 
+
+
                             function daftarPaket() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';
@@ -71,7 +73,6 @@
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
 
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(
@@ -88,7 +89,7 @@
                                 );
                                 urlencoded.append(
                                     "duration",
-                                    document.getElementById("duration_paket").value
+                                    document.getElementById("durasi_paket").value
                                 );
                                 urlencoded.append(
                                     "nilai_token",
@@ -107,7 +108,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
+                                        console.log(result)
                                     }))
                                     .catch((error => {
                                         failalert.style.display = 'block'
