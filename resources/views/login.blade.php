@@ -76,37 +76,6 @@ if (isset($_SESSION['login_status'])) {
                         </div>
                     </div>
                 </form>
-                <!-- 
-                <script>
-                    function login() {
-                        const data = {
-                            email: document.getElementById("login_id").value,
-                            password: document.getElementById("login_pass").value
-                        };
-
-                        //POST request with body equal on data in JSON format
-                        fetch('https://api.klubaderai.com/api/login', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(data),
-                            })
-                            .then((response) => response.json())
-                            //Then with the data from the response in JSON...
-                            .then((data) => {
-                                console.log('Success:', data);
-
-                            })
-                            //Then with the error genereted...
-                            .catch((error) => {
-                                console.error('Error:', error);
-                            })
-
-                        ;
-
-                    }
-                </script> -->
             </div>
         </div>
     </div>

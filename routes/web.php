@@ -17,11 +17,9 @@ use Illuminate\Auth\Events\Login;
 
 // Login
 
-// Route::get('/login', [LoginController::class, 'index']);
-// Route::post('/login', [LoginController::class, 'login']);
-
-Route::get('/login', [loginc::class, 'index']);
-Route::post('/login', [loginc::class, 'login']);
+Route::get('/', [loginc::class, 'index']);
+Route::post('login', [loginc::class, 'login']);
+Route::post('logout', [loginc::class, 'logout']);
 
 // Profile
 

@@ -43,8 +43,8 @@
 
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                    <i class="fas fa-chart-pie"></i>
+                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                    <i class="fa fa-users"></i>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +59,8 @@
                                 <h5 class="card-title text-uppercase text-muted mb-0">Member Aktif</h5>
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                    <i class="fas fa-users"></i>
+                                <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                    <i class="fa fa-user"></i>
                                 </div>
                             </div>
                         </div>
@@ -75,8 +75,8 @@
                                 <h5 class="card-title text-uppercase text-muted mb-0">Member Non-Aktif</h5>
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                    <i class="fas fa-users"></i>
+                                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                    <i class="fa fa-user-times"></i>
                                 </div>
                             </div>
                         </div>
@@ -100,12 +100,12 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tableMember">
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tablePaket = document.getElementById("tabel-data");
+                                        var tableMember = document.getElementById("tableMember");
                                         const url = "https://api.klubaderai.com/api/users-inactive";
                                         const urlm = "https://api.klubaderai.com/api/users";
                                         $(document).ready(function() {
@@ -119,7 +119,7 @@
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
 
-                                                        var body = "<tr>";
+                                                        var body = `<tr data-id=${data.id} >`;
                                                         body += "<td>" + data.id + "</td>";
                                                         body += "<td>" + data.name + "</td>";
                                                         body += "<td>" + data.email + "</td>";
@@ -127,7 +127,7 @@
                                                         body += "<td>" + data.alamat + "</td>";
                                                         body += "<td>" + data.expired + "</td>";
                                                         body += "<td>" + data.token + "</td>";
-                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="delete" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -184,9 +184,8 @@
                                         });
                                         tableMember.addEventListener("click", (e) => {
                                             e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "deleteMember";
-                                            let updateButtonisPressed = e.target.id == "updateMember";
-
+                                            let deleteButtonisPressed = e.target.id == "delete";
+                                            let updateButtonisPressed = e.target.id == "update";
                                             var myHeaders = new Headers();
                                             myHeaders.append(
                                                 "Authorization",
@@ -199,50 +198,22 @@
 
                                             mid = e.target.parentElement.parentElement.dataset.id;
                                             if (deleteButtonisPressed) {
-                                                fetch(`${url}/${mid}`, deleteRequest)
+                                                fetch(`${urlm}/${mid}`, deleteRequest)
                                                     .then((res) => res.json())
-                                                    .then(location.reload());
+                                                // .then(location.reload());
+
                                             }
                                             if (updateButtonisPressed) {
                                                 if (type == 2) {
-                                                    var memID = sessionStorage.getItem(mid);
+                                                    var memID = sessionStorage.setItem("id-member", mid);
                                                     location.href = "/owformu_member";
                                                 } else {
-                                                    var memID = sessionStorage.getItem(mid);
+                                                    var memID = sessionStorage.setItem("id-member", mid);
                                                     location.href = "formu_member";
                                                 }
                                             }
-                                        });
-                                        tableMember.addEventListener("click", (e) => {
-                                            e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "deleteMember";
-                                            let updateButtonisPressed = e.target.id == "updateMember";
 
-                                            var myHeaders = new Headers();
-                                            myHeaders.append(
-                                                "Authorization",
-                                                token);
-                                            var deleteRequest = {
-                                                method: "Delete",
-                                                headers: myHeaders,
-                                                redirect: "follow",
-                                            };
 
-                                            mid = e.target.parentElement.parentElement.dataset.id;
-                                            if (deleteButtonisPressed) {
-                                                fetch(`${url}/${mid}`, deleteRequest)
-                                                    .then((res) => res.json())
-                                                    .then(location.reload());
-                                            }
-                                            if (updateButtonisPressed) {
-                                                if (type == 2) {
-                                                    var memID = sessionStorage.getItem(mid);
-                                                    location.href = "/owformu_member";
-                                                } else {
-                                                    var memID = sessionStorage.getItem(mid);
-                                                    location.href = "formu_member";
-                                                }
-                                            }
                                         });
                                     </script>
                                 </tbody>
@@ -266,28 +237,3 @@
     </footer>
     <!-- partial -->
 </div>
-<!-- <script>
-
-
-    tableMember.addEventListener("click", (e) => {
-        e.preventDefault();
-        let deleteButtonisPressed = e.target.id == "deleteMember";
-
-        var myHeaders = new Headers();
-        myHeaders.append(
-            "Authorization",
-            token);
-        var deleteRequest = {
-            method: "Delete",
-            headers: myHeaders,
-            redirect: "follow",
-        };
-
-        id = e.target.parentElement.parentElement.dataset.id;
-        if (deleteButtonisPressed) {
-            fetch(`${url}/${id}`, deleteRequest)
-                .then((res) => res.json())
-                .then(location.reload());
-        }
-    });
-</script> -->

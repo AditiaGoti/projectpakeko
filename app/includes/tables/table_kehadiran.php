@@ -32,7 +32,7 @@
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Waktu</th>
-                                        <th>Action</th>
+                                        <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +58,7 @@
                                                         body += "<td>" + data.nama + "</td>";
                                                         body += "<td>" + data.email + "</td>";
                                                         body += "<td>" + data.waktu + "</td>";
-                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                        // body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -79,28 +79,28 @@
                                                 }
                                             });
                                         });
-                                        tableKehadiran.addEventListener("click", (e) => {
-                                            e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "deleteMember";
-                                            let updateButtonisPressed = e.target.id == "updateMember";
+                                        // tableKehadiran.addEventListener("click", (e) => {
+                                        //     e.preventDefault();
+                                        //     let deleteButtonisPressed = e.target.id == "deleteMember";
+                                        //     let updateButtonisPressed = e.target.id == "updateMember";
 
-                                            var myHeaders = new Headers();
-                                            myHeaders.append(
-                                                "Authorization",
-                                                token);
-                                            var deleteRequest = {
-                                                method: "Delete",
-                                                headers: myHeaders,
-                                                redirect: "follow",
-                                            };
+                                        //     var myHeaders = new Headers();
+                                        //     myHeaders.append(
+                                        //         "Authorization",
+                                        //         token);
+                                        //     var deleteRequest = {
+                                        //         method: "Delete",
+                                        //         headers: myHeaders,
+                                        //         redirect: "follow",
+                                        //     };
 
-                                            mid = e.target.parentElement.parentElement.dataset.id;
-                                            if (deleteButtonisPressed) {
-                                                fetch(`${url}/${mid}`, deleteRequest)
-                                                    .then((res) => res.json())
-                                                    .then(location.reload());
-                                            }
-                                        });
+                                        //     mid = e.target.parentElement.parentElement.dataset.id;
+                                        //     if (deleteButtonisPressed) {
+                                        //         fetch(`${url}/${mid}`, deleteRequest)
+                                        //             .then((res) => res.json())
+                                        //             .then(location.reload());
+                                        //     }
+                                        // });
                                     </script>
                                 </tbody>
 

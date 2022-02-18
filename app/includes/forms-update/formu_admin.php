@@ -24,7 +24,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" disabled />
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
@@ -60,9 +60,9 @@
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
-                            var id = `<?php echo $_SESSION['id']; ?>`;
+                            var admID = sessionStorage.getItem("id-admin");
                             var form = document.getElementById("form_admin");
-                            const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                            const url = "https://api.klubaderai.com/api/users" + "/" + admID;
 
                             $.ajax({
                                 method: "GET",
@@ -112,18 +112,15 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
-                                const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                                const url = "https://api.klubaderai.com/api/admin" + "/" + admID;
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                                 var urlencoded = new URLSearchParams();
+
                                 urlencoded.append(
                                     "name",
                                     document.getElementById("admin_name").value
-                                );
-                                urlencoded.append(
-                                    "email",
-                                    document.getElementById("admin_email").value
                                 );
                                 urlencoded.append(
                                     "tempat_lahir",
@@ -154,8 +151,10 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
-                                        document.getElementById("form_admin").reset();
+                                        // myalert.style.display = 'block'
+                                        // document.getElementById("form_admin").reset();
+
+                                        console.log(result)
                                     }))
                                     .catch((error => {
                                         alertfailed();

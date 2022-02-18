@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.addons.css">
     <link rel="stylesheet" href="assets/css/shared/dataTables.bootstrap.css" />
     <link rel="stylesheet" href="assets/css/shared/dataTables.responsive.css" />
-    <link rel="stylesheet" href="assets/css/demo_1/search.css" />
     <link rel="stylesheet" href="assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 

@@ -54,8 +54,9 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
+                            var pakID = sessionStorage.getItem("id-paket");;
                             var form = document.getElementById("form_paket");
-                            const url = "https://api.klubaderai.com/api/pakets" + "/" + 2;
+                            const url = "https://api.klubaderai.com/api/pakets" + "/" + pakID;
 
                             $.ajax({
                                 method: "GET",
@@ -127,13 +128,13 @@
                                 );
 
                                 var requestOptions = {
-                                    method: "PATCH",
+                                    method: "put",
                                     headers: myHeaders,
                                     body: urlencoded,
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/pakets",
+                                        url,
                                         requestOptions
                                     )
                                     .then((response) => response.text())

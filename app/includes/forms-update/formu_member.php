@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Menambahkan Admin Klub Ade Rai</h4>
+                    <h4 class="page-title">Merubah Member Klub Ade Rai</h4>
                 </div>
             </div>
         </div>
@@ -24,30 +24,30 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                        <input id="member_email" disabled type="email" class="form-control form-control-lg" placeholder="Masukan Email member" aria-label="email" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
+                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama member" aria-label="name" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Place of Birth</label>
-                                        <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
+                                        <input id="member_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir member" aria-label="pob" required />
                                     </div>
 
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
-                                        <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
+                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir member" aria-label="dob" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                        <input type="text" id="member_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon member" aria-label="pnumber" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
+                                        <input type="text" id="member_address" class="form-control form-control-lg" placeholder="Masukan Alamat member" aria-label="adress" required />
                                     </div>
                                 </div>
                             </div>
@@ -60,9 +60,10 @@
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
-                            var id = `<?php echo $_SESSION['id']; ?>`;
+                            var memID = sessionStorage.getItem("id-member");
+                            // var id = `<?php echo $_SESSION['id']; ?>`;
                             var form = document.getElementById("form_member");
-                            const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                            const url = "https://api.klubaderai.com/api/users" + "/" + memID;
 
                             $.ajax({
                                 method: "GET",
@@ -77,12 +78,12 @@
                             });
 
                             function build(data) {
-                                var name = document.getElementById("admin_name");
-                                var pob = document.getElementById("admin_pob");
-                                var dob = document.getElementById("admin_dob");
-                                var email = document.getElementById("admin_email");
-                                var nohp = document.getElementById("admin_nohp");
-                                var alamat = document.getElementById("admin_address");
+                                var name = document.getElementById("member_name");
+                                var pob = document.getElementById("member_pob");
+                                var dob = document.getElementById("member_dob");
+                                var email = document.getElementById("member_email");
+                                var nohp = document.getElementById("member_nohp");
+                                var alamat = document.getElementById("member_address");
 
                                 name.value = data.name;
                                 pob.value = data.tempat_lahir;
@@ -112,38 +113,35 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
-                                const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                                const url = "https://api.klubaderai.com/api/users" + "/" + memID;
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                                 var urlencoded = new URLSearchParams();
+
                                 urlencoded.append(
                                     "name",
-                                    document.getElementById("admin_name").value
-                                );
-                                urlencoded.append(
-                                    "email",
-                                    document.getElementById("admin_email").value
+                                    document.getElementById("member_name").value
                                 );
                                 urlencoded.append(
                                     "tempat_lahir",
-                                    document.getElementById("admin_pob").value
+                                    document.getElementById("member_pob").value
                                 );
                                 urlencoded.append(
                                     "tanggal_lahir",
-                                    document.getElementById("admin_dob").value
+                                    document.getElementById("member_dob").value
                                 );
                                 urlencoded.append(
                                     "nohp",
-                                    document.getElementById("admin_nohp").value
+                                    document.getElementById("member_nohp").value
                                 );
                                 urlencoded.append(
                                     "alamat",
-                                    document.getElementById("admin_address").value
+                                    document.getElementById("member_address").value
                                 );
 
                                 var requestOptions = {
-                                    method: "patch",
+                                    method: "PATCH",
                                     headers: myHeaders,
                                     body: urlencoded,
                                     redirect: "follow",

@@ -72,15 +72,15 @@
                                         <th>Nominal</th>
                                         <th>CreatedBy</th>
                                         <th>Keterangan</th>
-                                        <th>Actions</th>
+                                        <!-- <th>Actions</th> -->
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tableTransaksi">
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tableTransaksi = document.getElementById("tabel-data");
+                                        var tableTransaksi = document.getElementById("tableTransaksi");
                                         const url = "https://api.klubaderai.com/api/transaksi";
                                         $(document).ready(function() {
                                             $.ajax({
@@ -93,7 +93,7 @@
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
 
-                                                        var body = "<tr>";
+                                                        var body = `<tr data-id=${data.id}>`;
                                                         body += "<td>" + data.id + "</td>";
                                                         body += "<td>" + data.id_member + "</td>";
                                                         body += "<td>" + data.nama_member + "</td>";
@@ -101,7 +101,7 @@
                                                         body += "<td>" + data.nominal + "</td>";
                                                         body += "<td>" + data.createdby + "</td>";
                                                         body += "<td>" + data.keterangan + "</td>";
-                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                        // body += "<td>" + `<button id="delete" class="btn btn-danger" role="button"><i class=" fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -150,27 +150,28 @@
                                                 }
                                             });
                                         });
-                                        tableTransaksi.addEventListener("click", (e) => {
-                                            e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "deleteMember";
+                                        // tableTransaksi.addEventListener("click", (e) => {
+                                        //     e.preventDefault();
+                                        //     let deleteButtonisPressed = e.target.id == "delete";
 
-                                            var myHeaders = new Headers();
-                                            myHeaders.append(
-                                                "Authorization",
-                                                token);
-                                            var deleteRequest = {
-                                                method: "Delete",
-                                                headers: myHeaders,
-                                                redirect: "follow",
-                                            };
+                                        //     var myHeaders = new Headers();
+                                        //     myHeaders.append(
+                                        //         "Authorization",
+                                        //         token);
+                                        //     var deleteRequest = {
+                                        //         method: "Delete",
+                                        //         headers: myHeaders,
+                                        //         redirect: "follow",
+                                        //     };
 
-                                            mid = e.target.parentElement.parentElement.dataset.id;
-                                            if (deleteButtonisPressed) {
-                                                fetch(`${url}/${mid}`, deleteRequest)
-                                                    .then((res) => res.json())
-                                                    .then(location.reload());
-                                            }
-                                        });
+                                        //     mid = e.target.parentElement.parentElement.dataset.id;
+                                        //     if (deleteButtonisPressed) {
+                                        //         fetch(`${url}/${mid}`, deleteRequest)
+                                        //             .then((res) => res.json())
+                                        //             .then(location.reload());
+
+                                        //     }
+                                        // });
                                     </script>
                                 </tbody>
 

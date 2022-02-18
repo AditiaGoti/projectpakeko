@@ -35,12 +35,12 @@
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="tablepaket">
                                                 <script>
                                                     var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                     var token = "Bearer" + " " + tokenSession;
                                                     var myArray = [];
-                                                    var tablePaket = document.getElementById("tabel-data");
+                                                    var tablePaket = document.getElementById("tablepaket");
                                                     const url = "https://api.klubaderai.com/api/pakets";
                                                     $(document).ready(function() {
                                                         $.ajax({
@@ -53,12 +53,13 @@
                                                                 data = response.data;
                                                                 $.each(data, function(i, data) {
 
-                                                                    var body = "<tr>";
+                                                                    var body = `<tr data-id=${data.id} >`;
                                                                     body += "<td>" + data.id + "</td>";
                                                                     body += "<td>" + data.paket + "</td>";
                                                                     body += "<td>" + data.harga + "</td>";
                                                                     body += "<td>" + data.createdby + "</td>";
-                                                                    body += "<td>" + `<button id="updateMember" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="deleteMember" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                                    body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="delete" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+
                                                                     body += "</tr>";
                                                                     $("#table-data tbody").append(body);
                                                                 });
@@ -82,8 +83,8 @@
 
                                                     tablePaket.addEventListener("click", (e) => {
                                                         e.preventDefault();
-                                                        let deleteButtonisPressed = e.target.id == "deleteMember";
-                                                        let updateButtonisPressed = e.target.id == "updateMember";
+                                                        let deleteButtonisPressed = e.target.id == "delete";
+                                                        let updateButtonisPressed = e.target.id == "update";
 
                                                         var myHeaders = new Headers();
                                                         myHeaders.append(
@@ -96,20 +97,22 @@
                                                         };
 
                                                         mid = e.target.parentElement.parentElement.dataset.id;
+                                                        if (updateButtonisPressed) {
+                                                            if (type == 2) {
+                                                                var pakID = sessionStorage.setItem('id-paket', mid);
+                                                                location.href = "/owformu_paket";
+                                                            } else {
+                                                                var pakID = sessionStorage.getItem('id-paket', mid);
+                                                                location.href = "formu_paket";
+                                                            }
+                                                        }
                                                         if (deleteButtonisPressed) {
                                                             fetch(`${url}/${mid}`, deleteRequest)
                                                                 .then((res) => res.json())
                                                                 .then(location.reload());
+
                                                         }
-                                                        if (updateButtonisPressed) {
-                                                            if (type == 2) {
-                                                                var memID = sessionStorage.getItem(mid);
-                                                                location.href = "/owformu_paket";
-                                                            } else {
-                                                                var memID = sessionStorage.getItem(mid);
-                                                                location.href = "formu_paket";
-                                                            }
-                                                        }
+
                                                     });
                                                 </script>
                                             </tbody>

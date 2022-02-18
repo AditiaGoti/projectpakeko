@@ -34,17 +34,17 @@
                                         <th>Email</th>
                                         <th>No. HP</th>
                                         <th>Alamat</th>
-                                        <th>Expired</th>
-                                        <th>Token</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tableadmin">
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tableAdmin = document.getElementById("tabel-data");
+                                        var tableAdmin = document.getElementById("tableadmin");
                                         const url = "https://api.klubaderai.com/api/admin";
                                         $(document).ready(function() {
                                             $.ajax({
@@ -57,15 +57,15 @@
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
 
-                                                        var body = "<tr>";
+                                                        var body = `<tr data-id=${data.id} >`;
                                                         body += "<td>" + data.id + "</td>";
                                                         body += "<td>" + data.name + "</td>";
                                                         body += "<td>" + data.email + "</td>";
                                                         body += "<td>" + data.nohp + "</td>";
                                                         body += "<td>" + data.alamat + "</td>";
-                                                        body += "<td>" + data.expired + "</td>";
-                                                        body += "<td>" + data.token + "</td>";
-                                                        body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                        body += "<td>" + data.tempat_lahir + "</td>";
+                                                        body += "<td>" + data.tanggal_lahir + "</td>";
+                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="delete" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -89,8 +89,8 @@
 
                                         tableAdmin.addEventListener("click", (e) => {
                                             e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "deleteMember";
-                                            let updateButtonisPressed = e.target.id == "updateMember";
+                                            let deleteButtonisPressed = e.target.id == "delete";
+                                            let updateButtonisPressed = e.target.id == "update";
 
                                             var myHeaders = new Headers();
                                             myHeaders.append(
@@ -103,15 +103,16 @@
                                             };
 
                                             mid = e.target.parentElement.parentElement.dataset.id;
+                                            if (updateButtonisPressed) {
+                                                var admID = sessionStorage.setItem("id-admin", mid);
+                                                window.location.href = '/owformu_admin';
+                                            }
                                             if (deleteButtonisPressed) {
                                                 fetch(`${url}/${mid}`, deleteRequest)
                                                     .then((res) => res.json())
                                                     .then(location.reload());
                                             }
-                                            if (updateButtonisPressed) {
-                                                var memID = sessionStorage.getItem(mid);
-                                                location.href = "/owformu_admin";
-                                            }
+
                                         });
                                     </script>
                                 </tbody>

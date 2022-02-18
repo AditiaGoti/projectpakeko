@@ -45,10 +45,32 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/owner">
+            <a id="logoutBtn" href="/" class="nav-link" type="submit">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Logout</span>
             </a>
         </li>
     </ul>
 </nav>
+<script>
+    var tableMember = document.getElementById("logoutBtn");
+    var tokenSession = '<?php echo $_SESSION['token']; ?>';
+    var token = "Bearer" + " " + tokenSession;
+    tableMember.addEventListener("click", (e) => {
+        let logoutBtn = e.target.id == "logoutBtn";
+        if (logoutBtn) {
+            var settings = {
+                "url": "http://api.klubaderai.com/api/logout",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": token
+                },
+            };
+
+            $.ajax(settings).done(function(response) {
+                `<?php session_destroy() ?>`
+            });
+        }
+    });
+</script>
