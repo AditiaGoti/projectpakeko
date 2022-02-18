@@ -3,9 +3,6 @@
   <script type="text/javascript" src="assets/js/shared/off-canvas.js"></script>
   <script type="text/javascript" src="assets/js/shared/misc.js"></script>
   <script type="text/javascript" src="assets/js/demo_1/dashboard.js"></script>
-  <!-- <script type="text/javascript" src="assets/js/shared/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="assets/js/shared/dataTables.bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.dataTables.min.js"></script> -->
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>

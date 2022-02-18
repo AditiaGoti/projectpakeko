@@ -24,5 +24,4 @@ if (!$_SESSION['type'] == 2) {
     </div>
 
     <?php include(app_path() . '/includes/config/footer.php'); ?>
-    <script type="text/javascript" src="assets/js/shared/chart.js"></script>
 </body>

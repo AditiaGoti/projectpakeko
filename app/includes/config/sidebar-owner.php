@@ -69,7 +69,7 @@
             };
 
             $.ajax(settings).done(function(response) {
-                `<?php session_destroy() ?>`
+
             });
         }
     });

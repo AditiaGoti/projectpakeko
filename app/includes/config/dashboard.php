@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -47,7 +48,7 @@
                         <h4 class="card-title mb-0">Kunjungan Pelanggan</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="visitors-chart" height="100"></canvas>
+                        <canvas id="myChart" height="100"></canvas>
                     </div>
                 </div>
             </div>
@@ -57,7 +58,7 @@
                         <h4 class="card-title mb-0">Member Baru</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="members-chart" height="100"></canvas>
+                        <canvas id="memberChart" height="100"></canvas>
                     </div>
                 </div>
             </div>
@@ -67,7 +68,7 @@
                         <h4 class="card-title mb-0">Nominal Transaksi</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="transactions-chart" height="100"></canvas>
+                        <!-- <canvas id="transactions-chart" height="100"></canvas> -->
                     </div>
                 </div>
             </div>
@@ -88,6 +89,7 @@
         var sumTransaksi = document.getElementById("sumMember");
         const urlt = "https://api.klubaderai.com/api/transaksi";
         const urlm = "https://api.klubaderai.com/api/users";
+        const urlk = "https://api.klubaderai.com/api/kehadiran";
         $(document).ready(function() {
             $.ajax({
                 method: "GET",
@@ -121,12 +123,56 @@
                 },
                 success: function(response) {
                     data = response.etc;
+                    strr = JSON.stringify(data.user_data_permonth);
+                    var dataM = JSON.parse(strr);
+                    var values = [];
+                    for (var i in dataM)
+                        values.push(dataM[i]);
                     buildData(data);
+                    chartMember(data);
 
                     function buildData(data) {
                         var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member + " Orang" + `</span>`;
                         $("#sumMember").append(body);
                     };
+
+                    function chartMember(data) {
+
+                        const labels = [
+                            'January',
+                            'February',
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                            'Juli',
+                            'Agustus',
+                            'September',
+                            'Oktober',
+                            'November',
+                            'Desember',
+                        ];
+
+                        const datasets = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Member',
+                                backgroundColor: 'rgb(255, 205, 86)',
+                                borderColor: 'rgb(0, 0, 0)',
+                                data: values
+                            }]
+                        };
+
+                        const config = {
+                            type: 'line',
+                            data: datasets,
+                            options: {},
+                        };
+                        const myChart = new Chart(
+                            document.getElementById('memberChart'),
+                            config
+                        );
+                    }
                 },
                 error: function() {
                     alert('Fail!');
@@ -135,8 +181,9 @@
             });
 
         });
-    </script>
 
+        //   chart
+    </script>
 
     <!-- partial -->
 </div>
