@@ -48,7 +48,7 @@
                         <h4 class="card-title mb-0">Kunjungan Pelanggan</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="myChart" height="100"></canvas>
+                        <canvas id="kehadiranChart" height="100"></canvas>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         <h4 class="card-title mb-0">Nominal Transaksi</h4>
                     </div>
                     <div class="card-body">
-                        <!-- <canvas id="transactions-chart" height="100"></canvas> -->
+                        <canvas id="transaksiChart" height="100"></canvas>
                     </div>
                 </div>
             </div>
@@ -84,6 +84,7 @@
     <script>
         var tokenSession = '<?php echo $_SESSION['token']; ?>';
         var token = "Bearer" + " " + tokenSession;
+        console.log(token)
         var myArray = [];
         var sumTransaksi = document.getElementById("sumTransaksi");
         var sumTransaksi = document.getElementById("sumMember");
@@ -99,12 +100,73 @@
                 },
                 success: function(response) {
                     data = response.etc;
+                    rp = JSON.stringify(data.rupiah_permonth);
+                    var dataT = JSON.parse(rp);
+                    var values = [];
+                    for (var i in dataT)
+                        values.push(dataT[i]);
                     buildData(data);
+
+
+                    chartTransaksi(data);
 
                     function buildData(data) {
                         var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + data.total_rupiah + `</span>`;
                         $("#sumTransaksi").append(body);
                     };
+
+                    function chartTransaksi(data) {
+
+                        const labels = [
+                            'January',
+                            'February',
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                            'Juli',
+                            'Agustus',
+                            'September',
+                            'Oktober',
+                            'November',
+                            'Desember',
+                        ];
+
+                        const datasets = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Transaksi',
+                                backgroundColor: 'rgb(75, 192, 192, 0.5)',
+                                borderColor: 'rgb(75, 192, 192)',
+                                borderWidth: 2,
+                                borderRadius: 5,
+                                borderSkipped: false,
+                                data: values
+
+                            }]
+                        };
+
+                        const config = {
+                            type: 'bar',
+                            data: datasets,
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top',
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'Chart.js Bar Chart'
+                                    }
+                                }
+                            },
+                        };
+                        const myChart = new Chart(
+                            document.getElementById('transaksiChart'),
+                            config
+                        );
+                    }
                 },
                 error: function() {
                     alert('Fail!');
@@ -123,8 +185,8 @@
                 },
                 success: function(response) {
                     data = response.etc;
-                    strr = JSON.stringify(data.user_data_permonth);
-                    var dataM = JSON.parse(strr);
+                    udp = JSON.stringify(data.user_data_permonth);
+                    var dataM = JSON.parse(udp);
                     var values = [];
                     for (var i in dataM)
                         values.push(dataM[i]);
@@ -157,19 +219,110 @@
                             labels: labels,
                             datasets: [{
                                 label: 'Member',
-                                backgroundColor: 'rgb(255, 205, 86)',
-                                borderColor: 'rgb(0, 0, 0)',
+                                backgroundColor: 'rgb(255, 205, 86, 0.5)',
+                                borderColor: 'rgb(255, 205, 86)',
+                                borderWidth: 2,
+                                borderRadius: 5,
+                                borderSkipped: false,
                                 data: values
+
                             }]
                         };
 
                         const config = {
-                            type: 'line',
+                            type: 'bar',
                             data: datasets,
-                            options: {},
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top',
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'Chart.js Bar Chart'
+                                    }
+                                }
+                            },
                         };
                         const myChart = new Chart(
                             document.getElementById('memberChart'),
+                            config
+                        );
+                    }
+                },
+                error: function() {
+                    alert('Fail!');
+
+                }
+            });
+
+        });
+        $(document).ready(function() {
+            $.ajax({
+                method: "GET",
+                url: urlk,
+                headers: {
+                    Authorization: token,
+                },
+                success: function(response) {
+                    data = response.etc;
+                    tk = JSON.stringify(data.total_kehadiranperbulan);
+                    var dataK = JSON.parse(tk);
+                    var values = [];
+                    for (var i in dataK)
+                        values.push(dataK[i]);
+                    chartKehadiran(data);
+
+                    function chartKehadiran(data) {
+
+                        const labels = [
+                            'January',
+                            'February',
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                            'Juli',
+                            'Agustus',
+                            'September',
+                            'Oktober',
+                            'November',
+                            'Desember',
+                        ];
+
+                        const datasets = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Kehadiran',
+                                backgroundColor: 'rgb(54, 162, 235, 0.5)',
+                                borderColor: 'rgb(54, 162, 235)',
+                                borderWidth: 2,
+                                borderRadius: 5,
+                                borderSkipped: false,
+                                data: values
+
+                            }]
+                        };
+
+                        const config = {
+                            type: 'bar',
+                            data: datasets,
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top',
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'Chart.js Bar Chart'
+                                    }
+                                }
+                            },
+                        };
+                        const myChart = new Chart(
+                            document.getElementById('kehadiranChart'),
                             config
                         );
                     }
