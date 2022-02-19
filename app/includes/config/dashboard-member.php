@@ -34,7 +34,7 @@
                                         <th>Waktu </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tableMemberK">
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
@@ -61,7 +61,7 @@
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
 
-                                                        var body = "<tr>";
+                                                        var body = `<tr data-id=${data.id} >`;
                                                         body += "<td>" + data.waktu + "</td>";
                                                         body += "<td>" + data.waktu + "</td>";
                                                         body += "</tr>";
@@ -96,7 +96,5 @@
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022. All Rights Reserved</span>
         </div>
     </footer>
-
-
     <!-- partial -->
 </div>
