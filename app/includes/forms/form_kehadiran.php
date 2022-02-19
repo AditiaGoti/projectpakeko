@@ -19,20 +19,21 @@
                             <span class="close">&times;</span>
                             <strong>Terjadi Kesalahan</strong>
                         </div>
-                        <form id="form_kehadiran" class="form sample">
+                        <form onsubmit="daftarKehadiran();return false" id="form_kehadiran" class="form sample">
                             <div class="form-group">
                                 <label>QR Code Value</label>
                                 <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
                             </div>
+                            <button onclick="daftarKehadiran()" type="button" class="btn btn-success mr-3">
+                                Submit
+                            </button>
+                            <button class="btn btn-danger">Cancel</button>
                         </form>
-                        <button onclick="daftarKehadiran()" type="submit" class="btn btn-success mr-3">
-                            Submit
-                        </button>
-                        <button class="btn btn-danger">Cancel</button>
+
                         <script>
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
-                            var close = document.getElementsByClassName("closebtn");
+                            var close = document.getElementsByClassName("close");
                             var i;
                             for (i = 0; i < close.length; i++) {
                                 close[i].onclick = function() {
@@ -43,13 +44,11 @@
                                     }, 600);
                                 }
                             }
-                            myalert.style.display = 'none'
-                            failalert.style.display = 'none'
 
                             function daftarKehadiran() {
+
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                console.log(token);
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");

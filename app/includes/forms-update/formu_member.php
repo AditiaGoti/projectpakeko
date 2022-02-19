@@ -19,7 +19,7 @@
                             <span class="close">&times;</span>
                             <strong>Terjadi Kesalahan</strong>
                         </div>
-                        <form id="form_member" class="form sample">
+                        <form onsubmit="updateProfile(); return false" id="form_member" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -51,11 +51,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-success mr-3">
+                                Submit
+                            </button>
+                            <button class="btn btn-danger">Cancel</button>
                         </form>
-                        <button onclick="updateProfile()" type="submit" class="btn btn-success mr-3">
-                            Submit
-                        </button>
-                        <button class="btn btn-danger">Cancel</button>
+
                         <script>
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';

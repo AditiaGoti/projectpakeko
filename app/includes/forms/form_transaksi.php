@@ -19,7 +19,7 @@
                                    <span class="close">&times;</span>
                                    <strong>Terjadi Kesalahan</strong>
                                </div>
-                               <form id="form_transaksi" class="form sample">
+                               <form onsubmit="daftarTransaksi(); return false" id="form_transaksi" class="form sample">
 
                                    <div class="form-group">
                                        <label>ID</label>
@@ -35,11 +35,12 @@
                                        <label>Keterangan</label>
                                        <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
                                    </div>
+                                   <button type="submit" class="btn btn-success mr-2">
+                                       Submit
+                                   </button>
+                                   <button class="btn btn-danger">Cancel</button>
                                </form>
-                               <button onclick="daftarTransaksi()" type="submit" class="btn btn-success mr-2">
-                                   Submit
-                               </button>
-                               <button class="btn btn-danger">Cancel</button>
+
                                <script>
                                    var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                    var token = "Bearer" + " " + tokenSession;

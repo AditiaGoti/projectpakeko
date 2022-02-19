@@ -20,7 +20,7 @@
                             <strong>Terjadi Kesalahan</strong>
                         </div>
 
-                        <form id="form_member" class="form sample">
+                        <form id="form_member" onsubmit="daftarMember();return false" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -59,11 +59,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-success mr-3">
+                                Submit
+                            </button>
+                            <button class="btn btn-danger">Cancel</button>
                         </form>
-                        <button onclick="daftarMember()" type="submit" class="btn btn-success mr-3">
-                            Submit
-                        </button>
-                        <button class="btn btn-danger">Cancel</button>
+
                         <script>
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");

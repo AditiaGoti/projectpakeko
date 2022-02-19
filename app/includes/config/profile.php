@@ -3,7 +3,22 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Merubah Data Profile</h4>
+                    <h4 class="page-title">Merubah Data Profile
+                        <button onclick="enabledText()" id="enabledText" style="float:right; margin-left:5px; display: block; " class="btn btn-danger">Edit Profile</button>
+                        <button id="CPAdmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-danger" onclick="window.location.href='/profile-admin'">Change Password</button>
+                        <button id="CPMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-danger" onclick="window.location.href='/profile-member'">Change Password</button>
+                    </h4>
+                    <script>
+                        var type = '<?php echo $_SESSION['type']; ?>'
+                        if (type == 1) {
+                            var btnCPA = document.getElementById("CPAdmin")
+                            btnCPA.style.display = 'block'
+
+                        } else {
+                            var btnCPM = document.getElementById("CPMember")
+                            btnCPM.style.display = 'block'
+                        }
+                    </script>
                 </div>
             </div>
         </div>

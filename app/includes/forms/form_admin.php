@@ -19,7 +19,7 @@
                             <span class="close">&times;</span>
                             <strong>Terjadi Kesalahan</strong>
                         </div>
-                        <form id="form_admin" class="form sample">
+                        <form id="form_admin" onsubmit="daftaradmin();return false" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -58,11 +58,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-success mr-3">
+                                Submit
+                            </button>
+                            <button class="btn btn-danger">Cancel</button>
+
                         </form>
-                        <button onclick="daftaradmin()" type="submit" class="btn btn-success mr-3">
-                            Submit
-                        </button>
-                        <button class="btn btn-danger">Cancel</button>
 
                         <script>
                             function daftaradmin() {

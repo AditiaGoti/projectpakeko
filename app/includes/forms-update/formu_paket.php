@@ -20,7 +20,7 @@
                             <strong>Terjadi Kesalahan</strong>
                         </div>
 
-                        <form id="form_paket" class="form sample">
+                        <form onsubmit="updatePaket();return false" id="form_paket" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -43,12 +43,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-success mr-3">
+                                Submit
+                            </button>
+                            <button class="btn btn-danger">Cancel</button>
                         </form>
 
-                        <button onclick="daftarPaket()" type="submit" class="btn btn-success mr-3">
-                            Submit
-                        </button>
-                        <button class="btn btn-danger">Cancel</button>
+
                         <script>
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
@@ -97,7 +98,7 @@
                                 }
                             }
 
-                            function daftarPaket() {
+                            function updatePaket() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
