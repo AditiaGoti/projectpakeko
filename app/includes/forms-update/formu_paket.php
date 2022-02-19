@@ -140,9 +140,15 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
-                                        document.getElementById("form_paket").reset();
+                                        var data = JSON.parse(result);
+                                        if (data.success) {
+                                            myalert.style.display = 'block'
+                                            document.getElementById("form_member").reset();
+                                        } else {
+                                            failalert.style.display = 'block'
+                                        }
                                     }))
+                                    
                                     .catch((error => {
                                         failalert.style.display = 'block'
                                     }));
