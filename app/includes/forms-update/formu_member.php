@@ -62,7 +62,6 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var memID = sessionStorage.getItem("id-member");
-                            // var id = `<?php echo $_SESSION['id']; ?>`;
                             var form = document.getElementById("form_member");
                             const url = "https://api.klubaderai.com/api/users" + "/" + memID;
 
@@ -153,11 +152,16 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
-                                        document.getElementById("form_member").reset();
+                                        var data = JSON.parse(result);
+                                        if (data.success) {
+                                            myalert.style.display = 'block'
+                                            document.getElementById("form_member").reset();
+                                        } else {
+                                            failalert.style.display = 'block'
+                                        }
                                     }))
                                     .catch((error => {
-                                        alertfailed();
+                                        failalert.style.display = 'block'
                                     }));
                             }
                         </script>
