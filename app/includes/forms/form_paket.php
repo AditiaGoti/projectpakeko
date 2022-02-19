@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
+                            <button type="submit" class="btn btn-inverse-success btn-sm" data-toggle="modal" data-target="#exampleModalLong">
                                 Submit
                             </button>
                             <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
