@@ -84,7 +84,6 @@
     <script>
         var tokenSession = '<?php echo $_SESSION['token']; ?>';
         var token = "Bearer" + " " + tokenSession;
-        console.log(token)
         var myArray = [];
         var sumTransaksi = document.getElementById("sumTransaksi");
         var sumTransaksi = document.getElementById("sumMember");
@@ -105,13 +104,19 @@
                     var values = [];
                     for (var i in dataT)
                         values.push(dataT[i]);
+
+
                     buildData(data);
-
-
                     chartTransaksi(data);
 
+
                     function buildData(data) {
-                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + data.total_rupiah + `</span>`;
+                        var bilangan = data.total_rupiah;
+                        var reverse = bilangan.toString().split('').reverse().join(''),
+                            ribuan = reverse.match(/\d{1,3}/g);
+                        ribuan = ribuan.join('.').split('').reverse().join('');
+
+                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
                         $("#sumTransaksi").append(body);
                     };
 

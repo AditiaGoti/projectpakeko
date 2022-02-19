@@ -24,10 +24,10 @@
                                 <label>QR Code Value</label>
                                 <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
                             </div>
-                            <button onclick="daftarKehadiran()" type="button" class="btn btn-success mr-3">
+                            <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-fw">
                                 Submit
                             </button>
-                            <button class="btn btn-danger">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
                         </form>
 
                         <script>

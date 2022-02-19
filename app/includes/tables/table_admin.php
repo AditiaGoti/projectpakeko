@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Data Admin
-                        <button id="btnAddow" type="submit" class="btn btn-primary" onclick="window.location.href='/owform_admin'">Tambah</button>
-                        <button id="btnAdd" type="submit" class="btn btn-primary" onclick="window.location.href='/form_admin'">Tambah</button>
+                        <button id="btnAddow" type="submit" class="btn btn-inverse-primary btn-fw" onclick="window.location.href='/owform_admin'">Tambah</button>
+                        <button id="btnAdd" type="submit" class="btn btn-inverse-primary btn-fw" onclick="window.location.href='/form_admin'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -34,7 +34,6 @@
                                         <th>Email</th>
                                         <th>No. HP</th>
                                         <th>Alamat</th>
-                                        <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
                                         <th>Actions</th>
                                     </tr>
@@ -63,7 +62,6 @@
                                                         body += "<td>" + data.email + "</td>";
                                                         body += "<td>" + data.nohp + "</td>";
                                                         body += "<td>" + data.alamat + "</td>";
-                                                        body += "<td>" + data.tempat_lahir + "</td>";
                                                         body += "<td>" + data.tanggal_lahir + "</td>";
                                                         body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="delete" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 

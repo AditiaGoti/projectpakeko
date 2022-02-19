@@ -51,10 +51,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success mr-3">
+                            <button type="submit" class="btn btn-inverse-success btn-fw ">
                                 Submit
                             </button>
-                            <button class="btn btn-danger">Cancel</button>
+                            <button onclick="window.location.href='/'" type="button" class="btn btn-inverse-dark btn-fw">Cancel</button>
                         </form>
 
                         <script>

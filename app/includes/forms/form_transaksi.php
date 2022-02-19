@@ -35,10 +35,10 @@
                                        <label>Keterangan</label>
                                        <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
                                    </div>
-                                   <button type="submit" class="btn btn-success mr-2">
+                                   <button type="submit" class="btn btn-inverse-success btn-fw">
                                        Submit
                                    </button>
-                                   <button class="btn btn-danger">Cancel</button>
+                                   <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
                                </form>
 
                                <script>

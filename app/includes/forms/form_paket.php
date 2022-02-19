@@ -43,10 +43,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success mr-3">
+                            <button type="submit" class="btn btn-inverse-success btn-fw">
                                 Submit
                             </button>
-                            <button class="btn btn-danger">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
                         </form>
 
 
