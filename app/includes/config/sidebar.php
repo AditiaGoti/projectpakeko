@@ -8,6 +8,7 @@
                 </div>
             </a>
         </li>
+        <li class="nav-item nav-category">Main Menu</li>
         <li class="nav-item">
             <a class="nav-link" href="/admin">
                 <i class="menu-icon typcn typcn-document-text"></i>

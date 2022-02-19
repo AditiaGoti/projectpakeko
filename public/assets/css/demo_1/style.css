@@ -316,7 +316,6 @@
     -moz-transition: background 0.25s ease;
     -ms-transition: background 0.25s ease;
     border: none;
-    
 }
 
 .navbar.default-layout .navbar-brand-wrapper {
@@ -372,13 +371,11 @@
 @media (max-width: 991px) {
     .navbar.default-layout .navbar-menu-wrapper {
         width: calc(100% - 70px);
-        
     }
 }
 .navbar.default-layout .navbar-menu-wrapper .navbar-toggler {
     border: 0;
     color: inherit;
-    ;
 }
 @media (max-width: 991px) {
     .navbar.default-layout
@@ -527,7 +524,6 @@
 @media (max-width: 991px) {
     .navbar.default-layout {
         flex-direction: row;
-        
     }
     .navbar.default-layout .navbar-brand-wrapper {
         width: 70px;
@@ -537,7 +533,6 @@
     }
     .navbar.default-layout .navbar-brand-wrapper .brand-logo-mini {
         display: inline-block;
-        
     }
     .navbar-collapse {
         display: flex;
@@ -631,7 +626,6 @@
     .nav-item
     .nav-link:hover {
     color: black;
-    
 }
 .sidebar
     > .nav
@@ -696,7 +690,6 @@
     transition-property: transform;
     transition-property: transform, -webkit-transform;
     transition-timing-function: ease-in;
-    
 }
 .sidebar > .nav .nav-item .nav-link i.menu-arrow:before {
     content: "\F054";
@@ -1287,148 +1280,222 @@
     background-color: #ddd;
 }
 
-#btnAddow{
-    margin-left: -140px; 
-    display:none;
+#btnAddow {
+    margin-left: -140px;
+    display: none;
 }
 @media (min-width: 280px) {
     #btnAddow {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 360px) {
     #btnAddow {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 400px) {
     #btnAddow {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 500px) {
     #btnAddow {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 550px) {
     #btnAddow {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 600px) {
     #btnAddow {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 750px) {
     #btnAddow {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 768px) {
     #btnAddow {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 850px) {
     #btnAddow {
         float: right;
         margin-left: 5px;
-        display:none;
+        display: none;
     }
 }
 
-#btnAdd{
-    margin-left: -100px; 
-    display:none;
+#btnAdd {
+    margin-left: -100px;
+    display: none;
 }
 
 @media (min-width: 280px) {
     #btnAdd {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 360px) {
     #btnAdd {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 400px) {
     #btnAdd {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 500px) {
     #btnAdd {
         float: center;
-        margin-left: 0px; 
-        display:none;
+        margin-left: 0px;
+        display: none;
     }
 }
 @media (min-width: 550px) {
     #btnAdd {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 600px) {
     #btnAdd {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 750px) {
     #btnAdd {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 768px) {
     #btnAdd {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 850px) {
     #btnAdd {
         float: center;
         margin-left: 0px;
-        display:none;
+        display: none;
     }
 }
 @media (min-width: 922px) {
     #btnAdd {
         float: right;
         margin-left: 5px;
-        display:none;
+        display: none;
     }
 }
 
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    font-family: Montserrat;
+}
+
+.wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    color: #fbae17;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.bounceball {
+    position: relative;
+    display: inline-block;
+    height: 37px;
+    width: 15px;
+}
+.bounceball:before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fbae17;
+    transform-origin: 50%;
+    -webkit-animation: bounce 500ms alternate infinite ease;
+    animation: bounce 500ms alternate infinite ease;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        top: 30px;
+        height: 5px;
+        border-radius: 60px 60px 20px 20px;
+        transform: scaleX(2);
+    }
+    35% {
+        height: 15px;
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        top: 30px;
+        height: 5px;
+        border-radius: 60px 60px 20px 20px;
+        transform: scaleX(2);
+    }
+    35% {
+        height: 15px;
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+    100% {
+        top: 0;
+    }
+}
 /*# sourceMappingURL=style.css.map */
