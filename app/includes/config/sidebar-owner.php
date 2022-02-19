@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-profile">
-            <a href="/owprofile" class="nav-link">
+            <a href="/" class="nav-link">
                 <div class="text-wrapper">
                     <p class="profile-name">Hallo, <?php echo $_SESSION['name'] ?></p>
                     <p class="designation"><?php echo $_SESSION['email'] ?></p>
