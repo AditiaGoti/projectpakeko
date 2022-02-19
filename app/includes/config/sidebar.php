@@ -2,9 +2,9 @@
     <ul class="nav">
         <li class="nav-item nav-profile">
             <a href=" /profile-admin" class="nav-link">
-                <div class="text-wrapper">
-                    <p class="profile-name">Hallo, <?php echo $_SESSION['name'] ?></p>
-                    <p class="designation"><?php echo $_SESSION['email'] ?></p>
+               <div class="text-wrapper">
+                    <p class="profile-name"> <i class="fa fa-user" style="margin-left: -10px; padding-right: 8px;"></i><?php echo $_SESSION['name'] ?></p>
+                    <p class="designation"><i class="fa fa-envelope"style="margin-left: -11px;  padding-right: 3px;"></i>&nbsp<?php echo $_SESSION['email'] ?></p>
                 </div>
             </a>
         </li>
