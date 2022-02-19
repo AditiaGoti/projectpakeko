@@ -156,8 +156,10 @@
                                         if (data.success) {
                                             myalert.style.display = 'block'
                                             document.getElementById("form_member").reset();
+                                            window.location.reload();
                                         } else {
                                             failalert.style.display = 'block'
+                                            window.location.reload();
                                         }
                                     }))
                                     .catch((error => {

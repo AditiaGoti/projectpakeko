@@ -109,9 +109,11 @@
                                     .then((result => {
                                         myalert.style.display = 'block'
                                         document.getElementById("form_paket").reset();
+                                        window.location.reload();
                                     }))
                                     .catch((error => {
                                         failalert.style.display = 'block'
+                                        window.location.reload();
                                     }));
                             }
                         </script>

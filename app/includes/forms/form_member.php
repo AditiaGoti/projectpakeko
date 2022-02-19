@@ -136,9 +136,11 @@
                                     .then((result => {
                                         myalert.style.display = 'block'
                                         document.getElementById("form_member").reset();
+                                        window.location.reload();
                                     }))
                                     .catch((error => {
                                         alertfailed();
+                                        window.location.reload();
                                     }));
                             }
                         </script>

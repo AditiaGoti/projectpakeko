@@ -135,9 +135,11 @@
                                     .then((result => {
                                         myalert.style.display = 'block'
                                         document.getElementById("form_admin").reset();
+                                        window.location.reload();
                                     }))
                                     .catch((error => {
                                         alertfailed();
+                                        window.location.reload();
                                     }));
                             }
                         </script>

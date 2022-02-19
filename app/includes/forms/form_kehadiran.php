@@ -74,9 +74,11 @@
                                     .then((result => {
                                         myalert.style.display = 'block'
                                         document.getElementById("form_kehadiran").reset();
+                                        window.location.reload();
                                     }))
                                     .catch((error => {
                                         failalert.style.display = 'none'
+                                        window.location.reload();
                                     }));
                             }
                         </script>
