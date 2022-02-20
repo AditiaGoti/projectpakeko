@@ -71,7 +71,10 @@
                                         <th>Paket</th>
                                         <th>Nominal</th>
                                         <th>CreatedBy</th>
+                                        <th>Tanggal</th>
+                                        <th>Waktu</th>
                                         <th>Keterangan</th>
+
                                         <!-- <th>Actions</th> -->
                                     </tr>
                                 </thead>
@@ -92,14 +95,25 @@
                                                 success: function(response) {
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
+                                                        var nominal = data.nominal;
+                                                        var bilangan = nominal.replace('.00', '');
+
+                                                        var reverse = bilangan.toString().split('').reverse().join(''),
+                                                            ribuan = reverse.match(/\d{1,3}/g);
+                                                        ribuan = ribuan.join('.').split('').reverse().join('');
+                                                        const d = new Date(data.updated_at);
+                                                        let time = d.toLocaleTimeString();
+                                                        let date = d.toDateString();
 
                                                         var body = `<tr data-id=${data.id}>`;
                                                         body += "<td>" + data.id + "</td>";
                                                         body += "<td>" + data.id_member + "</td>";
                                                         body += "<td>" + data.nama_member + "</td>";
                                                         body += "<td>" + data.tipe_paket + "</td>";
-                                                        body += "<td>" + data.nominal + "</td>";
+                                                        body += "<td>" + "Rp. " + ribuan + "</td>";
                                                         body += "<td>" + data.createdby + "</td>";
+                                                        body += "<td>" + time + "</td>";
+                                                        body += "<td>" + date + "</td>";
                                                         body += "<td>" + data.keterangan + "</td>";
                                                         // body += "<td>" + `<button id="delete" class="btn btn-danger" role="button" data-toggle="modal" data-target="#exampleModalLong"><i class=" fa fa-trash"></i></button>` + "</td>";
 
@@ -112,6 +126,9 @@
                                                         dom: 'Bfrtip',
                                                         buttons: [
                                                             'excel', 'pdf', 'print'
+                                                        ],
+                                                        "order": [
+                                                            [0, "desc"]
                                                         ]
 
                                                     });

@@ -49,11 +49,12 @@
                                         <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-inverse-success btn-sm">
-                                    Submit
-                                </button>
-                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
                             </div>
+                            <button type="submit" class="btn btn-inverse-success btn-sm">
+                                Submit
+                            </button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+
                         </form>
 
                         <script>
@@ -111,6 +112,9 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
+                                        data = result.etc;
+
+                                        console.log(data)
                                         document.getElementById("form_admin").reset();
 
                                         $('<div class="alert alert-success">' +

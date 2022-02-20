@@ -31,6 +31,7 @@
                                         <th>#</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <!-- <th>Action</th> -->
                                     </tr>
@@ -52,12 +53,16 @@
                                                 success: function(response) {
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
+                                                        const d = new Date(data.waktu);
+                                                        let time = d.toLocaleTimeString();
+                                                        let date = d.toDateString();
 
                                                         var body = "<tr>";
                                                         body += "<td>" + data.id + "</td>";
                                                         body += "<td>" + data.nama + "</td>";
                                                         body += "<td>" + data.email + "</td>";
-                                                        body += "<td>" + data.waktu + "</td>";
+                                                        body += "<td>" + date + "</td>";
+                                                        body += "<td>" + time + "</td>";
                                                         // body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
@@ -66,9 +71,13 @@
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
+
                                                         dom: 'Bfrtip',
                                                         buttons: [
                                                             'excel', 'pdf', 'print'
+                                                        ],
+                                                        "order": [
+                                                            [0, "desc"]
                                                         ]
 
                                                     });

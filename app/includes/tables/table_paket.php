@@ -48,7 +48,6 @@
                                 <table class="table table-striped table-bordered table-hover" id="table-data">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Paket</th>
                                             <th>Harga</th>
                                             <th>CreatedBy</th>
@@ -72,11 +71,18 @@
                                                     success: function(response) {
                                                         data = response.data;
                                                         $.each(data, function(i, data) {
+                                                            var nominal = data.harga;
+
+
+                                                            var bilangan = nominal.replace('.00', '');
+
+                                                            var reverse = bilangan.toString().split('').reverse().join(''),
+                                                                ribuan = reverse.match(/\d{1,3}/g);
+                                                            ribuan = ribuan.join('.').split('').reverse().join('');
 
                                                             var body = `<tr data-id=${data.id} >`;
-                                                            body += "<td>" + data.id + "</td>";
                                                             body += "<td>" + data.paket + "</td>";
-                                                            body += "<td>" + data.harga + "</td>";
+                                                            body += "<td>" + "Rp. " + ribuan + "</td>";
                                                             body += "<td>" + data.createdby + "</td>";
                                                             body += "<td>" +
                                                                 `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
@@ -109,17 +115,6 @@
                                                 e.preventDefault();
                                                 let deleteButtonisPressed = e.target.id == "delete";
                                                 let updateButtonisPressed = e.target.id == "update";
-
-                                                // var myHeaders = new Headers();
-                                                // myHeaders.append(
-                                                //     "Authorization",
-                                                //     token);
-                                                // var deleteRequest = {
-                                                //     method: "Delete",
-                                                //     headers: myHeaders,
-                                                //     redirect: "follow",
-                                                // };
-
                                                 mid = e.target.parentElement.parentElement.dataset.id;
                                                 if (updateButtonisPressed) {
                                                     if (type == 2) {
@@ -130,13 +125,6 @@
                                                         location.href = "formu_paket";
                                                     }
                                                 }
-                                                if (deleteButtonisPressed) {
-                                                    // fetch(`${url}/${mid}`, deleteRequest)
-                                                    //     .then((res) => res.json())
-                                                    //     .then(location.reload());
-
-                                                }
-
 
                                             })
                                             var myHeaders = new Headers();

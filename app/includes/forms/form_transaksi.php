@@ -11,7 +11,7 @@
                    <div class="col-12 grid-margin stretch-card">
                        <div class="card">
                            <div class="card-body">
-                               <form onsubmit="daftarTransaksi(); return false" id="form_transaksi" class="form sample">
+                               <form onsubmit="return false" id="form_transaksi" class="form sample">
 
                                    <div class="form-group">
                                        <label>ID</label>
@@ -27,10 +27,10 @@
                                        <label>Keterangan</label>
                                        <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
                                    </div>
-                                   <button type="submit" class="btn btn-inverse-success btn-sm">
-                                Submit
-                            </button>
-                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                                   <button onclick="daftarTransaksi() " type="button" class="btn btn-inverse-success btn-sm">
+                                       Submit
+                                   </button>
+                                   <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
                                </form>
 
                                <script>
@@ -59,17 +59,17 @@
                                    });
                                </script>
                                <script>
-                                    $("#btn").click(function() {
+                                   $("#btn").click(function() {
 
-                                                            $('<div class="alert alert-success">' +
-                                        '<button type="button" class="close" data-dismiss="alert">' +
-                                        '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
-                                        $(".alert").delay(3000).fadeOut(
-                                        "normal",
-                                        function() {
-                                        $(this).remove();
-                                        });
-                                        });
+                                       $('<div class="alert alert-success">' +
+                                           '<button type="button" class="close" data-dismiss="alert">' +
+                                           '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
+                                       $(".alert").delay(3000).fadeOut(
+                                           "normal",
+                                           function() {
+                                               $(this).remove();
+                                           });
+                                   });
                                    var myalert = document.getElementById("alert");
                                    var failalert = document.getElementById("alertfail");
                                    var close = document.getElementsByClassName("closebtn");
@@ -118,28 +118,28 @@
                                            .then((response) => response.text())
                                            .then((result => {
                                                document.getElementById("form_transaksi").reset();
-                                               
-                                               $('<div class="alert alert-success">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                               $('<div class="alert alert-success">' +
+                                                   '<button type="button" class="close" data-dismiss="alert">' +
+                                                   '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
+
+                                               $(".alert").delay(3000).fadeOut(
+                                                   "normal",
+                                                   function() {
+                                                       $(this).remove();
+                                                   });
 
                                            }))
                                            .catch((error => {
-                                            $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
+                                               $('<div class="alert alert-danger">' +
+                                                   '<button type="button" class="close" data-dismiss="alert">' +
+                                                   '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                               $(".alert").delay(3000).fadeOut(
+                                                   "normal",
+                                                   function() {
+                                                       $(this).remove();
+                                                   });
                                            }));
                                    }
                                </script>

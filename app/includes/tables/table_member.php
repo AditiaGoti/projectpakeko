@@ -34,24 +34,24 @@
             </div>
         </div>
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Anda Yakin Akan Hapus Data Ini?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" onclick="deleteData()" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Anda Yakin Akan Hapus Data Ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="deleteData()" class="btn btn-danger">Delete</button>
                     </div>
                 </div>
+            </div>
+        </div>
         <div class="row">
             <div class=" col-lg-4 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
@@ -59,7 +59,6 @@
                         <div class="row">
                             <div id="sumMember" class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Member</h5>
-
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -147,9 +146,9 @@
                                                         body += "<td>" + data.alamat + "</td>";
                                                         body += "<td>" + data.expired + "</td>";
                                                         body += "<td>" + data.token + "</td>";
-                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + 
-                                                        " " + 
-                                                        `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
+                                                            " " +
+                                                            `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -212,14 +211,14 @@
 
                                             //var myHeaders = new Headers();
                                             //myHeaders.append(
-                                              //  "Authorization",
-                                                //token);
+                                            //  "Authorization",
+                                            //token);
                                             //var deleteRequest = {
-                                              //  method: "Delete",
-                                                //headers: myHeaders,
-                                                //redirect: "follow",
+                                            //  method: "Delete",
+                                            //headers: myHeaders,
+                                            //redirect: "follow",
                                             //};
-                                            
+
 
                                             mid = e.target.parentElement.parentElement.dataset.id;
                                             if (updateButtonisPressed) {
@@ -232,26 +231,27 @@
                                                 }
                                             }
                                             if (deleteButtonisPressed) {
-                                               // fetch(`${url}/${mid}`, deleteRequest)
-                                                 //   .then((res) => res.json())
-                                                   // .then(location.reload());
+                                                // fetch(`${url}/${mid}`, deleteRequest)
+                                                //   .then((res) => res.json())
+                                                // .then(location.reload());
                                             }
 
                                         })
                                         var myHeaders = new Headers();
-                                                    myHeaders.append(
-                                                        "Authorization",
-                                                        token);
-                                                    var deleteRequest = {
-                                                        method: "Delete",
-                                                        headers: myHeaders,
-                                                        redirect: "follow",
-                                                    };
+                                        myHeaders.append(
+                                            "Authorization",
+                                            token);
+                                        var deleteRequest = {
+                                            method: "Delete",
+                                            headers: myHeaders,
+                                            redirect: "follow",
+                                        };
+
                                         function deleteData() {
-                                                        fetch(`${url}/${mid}`, deleteRequest)
-                                                            .then((res) => res.json())
-                                                            .then(location.reload());
-                                                    };
+                                            fetch(`${url}/${mid}`, deleteRequest)
+                                                .then((res) => res.json())
+                                                .then(location.reload());
+                                        };
                                     </script>
                                 </tbody>
                             </table>
