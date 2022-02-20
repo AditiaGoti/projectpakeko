@@ -1,25 +1,18 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
-
 class loginc extends Controller
 {
     function index()
     {
         return view('/login');
     }
-
-
     function login(Request $request)
     {
         // return $request->all();
-
         $login_email = $request->input('email');
         $login_password = $request->input('password');
-
         $fields = array(
             'email' => urlencode($login_email),
             'password' => urlencode($login_password),
@@ -48,7 +41,12 @@ class loginc extends Controller
         $decoded = json_decode($response);
         curl_close($curl);
         // echo $response;
+        $Login = $decoded->success;
 
+        if (!$Login) {
+            $message = "Terjadi Kesalahan";
+            echo "<script type='text/javascript'>alert('$message'); window.location.href='/';</script> ";
+        } else {
 
         $token = $decoded->token;
         $id = $decoded->id;
@@ -57,14 +55,26 @@ class loginc extends Controller
         $type = $decoded->type;
 
         session_start();
+            $id = $decoded->id;
+            $name = $decoded->name;
+            $email = $decoded->email;
+            $type = $decoded->type;
+            $token = $decoded->token;
+            session_start();
 
         // Storing session data
+            // Storing session data
 
         $_SESSION["token"] = $token;
         $_SESSION["id"] = $id;
         $_SESSION["name"] = $name;
         $_SESSION["email"] = $email;
         $_SESSION["type"] = $type;
+            $_SESSION["token"] = $token;
+            $_SESSION["id"] = $id;
+            $_SESSION["name"] = $name;
+            $_SESSION["email"] = $email;
+            $_SESSION["type"] = $type;
 
         switch ($type) {
             case 0:
@@ -82,6 +92,24 @@ class loginc extends Controller
                 header('location: /owner');
                 exit;
                 break;
+            switch ($type) {
+                case 0:
+                    $_SESSION["login_status"] = true;
+                    header('location: /member');
+                    exit;
+                    break;
+                case 1:
+                    $_SESSION["login_status"] = true;
+                    header('location: /admin');
+                    exit;
+                    break;
+                case 2:
+                    $_SESSION["login_status"] = true;
+                    header('location: /owner');
+                    exit;
+                    break;
+            }
         }
+        curl_close($curl);
     }
-}
+}}
