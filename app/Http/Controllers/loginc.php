@@ -46,42 +46,47 @@ class loginc extends Controller
 
         $response = curl_exec($curl);
         $decoded = json_decode($response);
-        curl_close($curl);
-        // echo $response;
+        $Login = $decoded->success;
+
+        if (!$Login) {
+            $message = "Terjadi Kesalahan";
+            echo "<script type='text/javascript'>alert('$message'); window.location.href='/';</script> ";
+        } else {
 
 
-        $token = $decoded->token;
-        $id = $decoded->id;
-        $name = $decoded->name;
-        $email = $decoded->email;
-        $type = $decoded->type;
+            $id = $decoded->id;
+            $name = $decoded->name;
+            $email = $decoded->email;
+            $type = $decoded->type;
+            $token = $decoded->token;
+            session_start();
 
-        session_start();
+            // Storing session data
 
-        // Storing session data
+            $_SESSION["token"] = $token;
+            $_SESSION["id"] = $id;
+            $_SESSION["name"] = $name;
+            $_SESSION["email"] = $email;
+            $_SESSION["type"] = $type;
 
-        $_SESSION["token"] = $token;
-        $_SESSION["id"] = $id;
-        $_SESSION["name"] = $name;
-        $_SESSION["email"] = $email;
-        $_SESSION["type"] = $type;
-
-        switch ($type) {
-            case 0:
-                $_SESSION["login_status"] = true;
-                header('location: /member');
-                exit;
-                break;
-            case 1:
-                $_SESSION["login_status"] = true;
-                header('location: /admin');
-                exit;
-                break;
-            case 2:
-                $_SESSION["login_status"] = true;
-                header('location: /owner');
-                exit;
-                break;
+            switch ($type) {
+                case 0:
+                    $_SESSION["login_status"] = true;
+                    header('location: /member');
+                    exit;
+                    break;
+                case 1:
+                    $_SESSION["login_status"] = true;
+                    header('location: /admin');
+                    exit;
+                    break;
+                case 2:
+                    $_SESSION["login_status"] = true;
+                    header('location: /owner');
+                    exit;
+                    break;
+            }
         }
+        curl_close($curl);
     }
 }
