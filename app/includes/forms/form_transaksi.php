@@ -11,14 +11,6 @@
                    <div class="col-12 grid-margin stretch-card">
                        <div class="card">
                            <div class="card-body">
-                               <div style="display: none;" class="alert alert-success " id="alert">
-                                   <span class="close">&times;</span>
-                                   <strong>Data Berhasil Disimpan</strong>
-                               </div>
-                               <div style="display: none;" class="alert alert-danger" id='alertfail'>
-                                   <span class="close">&times;</span>
-                                   <strong>Terjadi Kesalahan</strong>
-                               </div>
                                <form onsubmit="daftarTransaksi(); return false" id="form_transaksi" class="form sample">
 
                                    <div class="form-group">
@@ -36,9 +28,9 @@
                                        <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
                                    </div>
                                    <button type="submit" class="btn btn-inverse-success btn-sm">
-                                       Submit
-                                   </button>
-                                   <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                                Submit
+                            </button>
+                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
                                </form>
 
                                <script>
@@ -67,6 +59,17 @@
                                    });
                                </script>
                                <script>
+                                    $("#btn").click(function() {
+
+                                                            $('<div class="alert alert-success">' +
+                                        '<button type="button" class="close" data-dismiss="alert">' +
+                                        '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
+                                        $(".alert").delay(3000).fadeOut(
+                                        "normal",
+                                        function() {
+                                        $(this).remove();
+                                        });
+                                        });
                                    var myalert = document.getElementById("alert");
                                    var failalert = document.getElementById("alertfail");
                                    var close = document.getElementsByClassName("closebtn");
@@ -114,13 +117,29 @@
                                            )
                                            .then((response) => response.text())
                                            .then((result => {
-                                               myalert.style.display = 'block'
-                                               document.getElementById("form_paket").reset();
-                                               window.location.reload();
+                                               document.getElementById("form_transaksi").reset();
+                                               
+                                               $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+
                                            }))
                                            .catch((error => {
-                                               console.log(error);
-                                               window.location.reload();
+                                            $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                            }));
                                    }
                                </script>

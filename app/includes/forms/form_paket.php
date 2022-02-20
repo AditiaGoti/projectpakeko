@@ -129,7 +129,7 @@
 
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#response').fadeIn(1000);
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_paket').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",

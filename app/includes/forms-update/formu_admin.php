@@ -11,14 +11,6 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div style="display: none;" class="alert alert-success " id="alert">
-                            <span class="close">&times;</span>
-                            <strong>Data Berhasil Disimpan</strong>
-                        </div>
-                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
-                            <span class="close">&times;</span>
-                            <strong>Terjadi Kesalahan</strong>
-                        </div>
                         <form onsubmit="updateProfile(); return false" id="form_admin" class="form sample">
                             <div class="row">
                                 <div class="col">
@@ -51,10 +43,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
+                            <button type="submit" id="btn" class="btn btn-inverse-success btn-sm">
                                 Submit
                             </button>
-                            <button onclick="window.location.href='/'" type="button" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>   
                         </form>
 
                         <script>
@@ -95,6 +87,7 @@
                         </script>
 
                         <script>
+                                 
                             function updateProfile() {
                                 var myalert = document.getElementById("alert");
                                 var failalert = document.getElementById("alertfail");
@@ -109,7 +102,16 @@
                                         }, 600);
                                     }
                                 }
-
+                                $("#btn").click(function() {
+                                 $('<div class="alert alert-success">' +
+                                '<button type="button" class="close" data-dismiss="alert">' +
+                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_admin').fadeIn(1000);
+                                 $(".alert").delay(3000).fadeOut(
+                                "normal",
+                                function() {
+                            $(this).remove();
+                             });
+                        });
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
@@ -154,16 +156,40 @@
                                     .then((result => {
                                         var data = JSON.parse(result);
                                         if (data.success) {
-                                            myalert.style.display = 'block'
                                             document.getElementById("form_admin").reset();
-                                            window.location.reload();
+                                           
+                                            $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_admin').fadeIn(1000);
+
+                                             $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+
                                         } else {
-                                            failalert.style.display = 'block'
-                                            window.location.reload();
+                                            $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#formu_admin').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                         }
                                     }))
                                     .catch((error => {
-                                        alertfailed();
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#formu_admin').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                     }));
                             }
                         </script>

@@ -11,15 +11,6 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div style="display: none;" class="alert alert-success " id="alert">
-                            <span class="close">&times;</span>
-                            <strong>Data Berhasil Disimpan</strong>
-                        </div>
-                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
-                            <span class="close">&times;</span>
-                            <strong>Terjadi Kesalahan</strong>
-                        </div>
-
                         <form id="form_member" onsubmit="daftarMember();return false" class="form sample">
                             <div class="row">
                                 <div class="col">
@@ -59,13 +50,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm ">
+                            <button type="submit" class="btn btn-inverse-success btn-sm">
                                 Submit
                             </button>
-                            <button onclick="window.location.href='/'" type="button" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
                         </form>
 
                         <script>
+                                    $("#btn").click(function() {
+
+                                    $('<div class="alert alert-success">' +
+                                    '<button type="button" class="close" data-dismiss="alert">' +
+                                    '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_member').fadeIn(1000);
+                                    $(".alert").delay(3000).fadeOut(
+                                    "normal",
+                                    function() {
+                                    $(this).remove();
+                                    });
+
+
+
+});
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
                             var close = document.getElementsByClassName("close");
@@ -134,13 +139,28 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
                                         document.getElementById("form_member").reset();
-                                        window.location.reload();
+                                        
+                                        $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_member').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                     }))
                                     .catch((error => {
-                                        alertfailed();
-                                        window.location.reload();
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_member').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                     }));
                             }
                         </script>
