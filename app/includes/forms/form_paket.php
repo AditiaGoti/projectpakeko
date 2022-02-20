@@ -11,11 +11,11 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div style="display: none;" class="alert alert-success " id="alert">
+                        <div style="display: none;" class="alert alert-success" id="alert" data-dismiss="alert">
                             <span class="close">&times;</span>
                             <strong>Data Berhasil Disimpan</strong>
                         </div>
-                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
+                        <div style="display: none;" class="alert alert-danger" id='alertfail' data-dismiss="alert">
                             <span class="close">&times;</span>
                             <strong>Terjadi Kesalahan</strong>
                         </div>
@@ -64,7 +64,7 @@
                                     }, 600);
                                 }
                             }
-
+                          
                             function daftarPaket() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';
@@ -109,11 +109,22 @@
                                     .then((result => {
                                         myalert.style.display = 'block'
                                         document.getElementById("form_paket").reset();
-                                        window.location.reload();
+                                        $(".alert").delay(3000).fadeOut(
+                                    "normal", function(){
+                                         $(this).remove();
+                                             });
+                                        
+  
+                                        
                                     }))
                                     .catch((error => {
                                         failalert.style.display = 'block'
-                                        window.location.reload();
+                                        $(".alert").delay(3000).fadeOut(
+                                    "normal", function(){
+                                         $(this).remove();
+                                             });
+
+                                        
                                     }));
                             }
                         </script>
