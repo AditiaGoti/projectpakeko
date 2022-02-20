@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title" style="margin-top:10px;">Mengganti PasswordKlub Ade Rai</h4>
+                    <h4 class="page-title" style="margin-top:10px;">Mengganti Password Klub Ade Rai</h4>
                 </div>
             </div>
         </div>
@@ -35,13 +35,14 @@
                         </form>
 
                         <script>
-                            function updatePassword() {
-                                var myArray = [];
-                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                var token = "Bearer" + " " + tokenSession;
+                            var myArray = [];
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            var id = `<?php echo $_SESSION['id']; ?>`;
+                            const url = "https://api.klubaderai.com/api/users/changepass" + "/" + id;
 
-                                var id = `<?php echo $_SESSION['id']; ?>`;
-                                const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                            function updatePassword() {
+
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -56,6 +57,10 @@
                                     "password",
                                     document.getElementById("member_newpass").value
                                 );
+                                urlencoded.append(
+                                    "password_confirmation",
+                                    document.getElementById("member_cpass").value
+                                );
 
                                 var requestOptions = {
                                     method: "PATCH",
@@ -64,7 +69,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/users" + "/" + id, requestOptions
+                                        url, requestOptions
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
