@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row">
-            <div id="qrrow" class="col-lg-6 grid-margin stretch-card">
+            <div id="qrrow" class="col-lg-6 grid-margin stretch-card ">
                 <div class="card text-center">
                     <div class="card-header">
                         Hello, <?php echo $_SESSION['name'] ?>
@@ -38,9 +38,10 @@
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
+                                        var id = '<?php echo $_SESSION['id']; ?>';
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
-                                        const url = "https://api.klubaderai.com/api/kehadiran";
+                                        const url = "https://api.klubaderai.com/api/users/" + id;
                                         var qrcode = new QRCode(document.getElementById("fotoqr"), {
                                             useSVG: true,
                                         });
@@ -60,6 +61,9 @@
                                                     makeCode(myArray);
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
+                                                        const d = new Date(data.waktu);
+                                                        let time = d.toLocaleTimeString();
+                                                        let date = d.toDateString();
 
                                                         var body = `<tr data-id=${data.id} >`;
                                                         body += "<td>" + data.waktu + "</td>";

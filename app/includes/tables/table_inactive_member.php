@@ -150,7 +150,8 @@
                                                             `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
                                                             " " +
                                                             `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
-                                                            "</td>";                                                        body += "</tr>";
+                                                            "</td>";
+                                                        body += "</tr>";
                                                         $("#table-data tbody").append(body);
                                                     });
                                                     /*DataTables instantiation.*/
@@ -218,12 +219,11 @@
                                             };
 
                                             mid = e.target.parentElement.parentElement.dataset.id;
-                                            if (deleteButtonisPressed) {
-                                               // fetch(`${urlm}/${mid}`, deleteRequest)
-                                                 //   .then((res) => res.json())
-                                                // .then(location.reload());
-
-                                            }
+                                            // if (deleteButtonisPressed) {
+                                            // fetch(`${urlm}/${mid}`, deleteRequest)
+                                            //   .then((res) => res.json())
+                                            // .then(location.reload());
+                                            // }
                                             if (updateButtonisPressed) {
                                                 if (type == 2) {
                                                     var memID = sessionStorage.setItem("id-member", mid);
@@ -233,8 +233,6 @@
                                                     location.href = "formu_member";
                                                 }
                                             }
-
-
                                         })
                                         var myHeaders = new Headers();
                                         myHeaders.append(
@@ -247,9 +245,11 @@
                                         };
 
                                         function deleteData() {
-                                            fetch(`${urlm}/${mid}`, deleteRequest)
+                                            fetch(`${url}/${mid}`, deleteRequest)
                                                 .then((res) => res.json())
-                                                .then(location.reload());
+                                                .then(result => console.log(result))
+                                            sessionStorage.removeItem("id-member");
+                                            // location.reload();
                                         };
                                     </script>
                                 </tbody>

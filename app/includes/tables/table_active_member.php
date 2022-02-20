@@ -229,11 +229,11 @@
                                                     location.href = "formu_member";
                                                 }
                                             }
-                                            if (deleteButtonisPressed) {
-                                                // fetch(`${urlm}/${mid}`, deleteRequest)
-                                                //     .then((res) => res.json())
-                                                //     .then(location.reload());
-                                            }
+                                            // if (deleteButtonisPressed) {
+                                            // fetch(`${urlm}/${mid}`, deleteRequest)
+                                            //     .then((res) => res.json())
+                                            //     .then(location.reload());
+                                            // }
 
                                         })
                                         var myHeaders = new Headers();
@@ -247,32 +247,14 @@
                                         };
 
                                         function deleteData() {
-                                            fetch(`${urlm}/${mid}`, deleteRequest)
+                                            fetch(`${url}/${mid}`, deleteRequest)
                                                 .then((res) => res.json())
-                                                .then(location.reload());
+                                                .then(result => console.log(result))
+                                            sessionStorage.removeItem("id-member");
+                                            // location.reload();
                                         };
                                     </script>
                                 </tbody>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Apakah anda yakin ??</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </table>
                         </div>
                     </div>
@@ -292,28 +274,3 @@
     </footer>
     <!-- partial -->
 </div>
-<!-- <script>
-
-
-    tableMember.addEventListener("click", (e) => {
-        e.preventDefault();
-        let deleteButtonisPressed = e.target.id == "deleteMember";
-
-        var myHeaders = new Headers();
-        myHeaders.append(
-            "Authorization",
-            token);
-        var deleteRequest = {
-            method: "Delete",
-            headers: myHeaders,
-            redirect: "follow",
-        };
-
-        id = e.target.parentElement.parentElement.dataset.id;
-        if (deleteButtonisPressed) {
-            fetch(`${url}/${id}`, deleteRequest)
-                .then((res) => res.json())
-                .then(location.reload());
-        }
-    });
-</script> -->

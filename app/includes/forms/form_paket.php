@@ -16,47 +16,32 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input id="nama_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                        <input id="nama_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Paket" aria-label="name" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Harga</label>
-                                        <input id="harga_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                                        <input id="harga_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Harga Paket" aria-label="pob" required />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Durasi </label>
-                                        <input id="durasi_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                        <input id="durasi_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Durasi Paket" aria-label="name" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Token</label>
-                                        <input id="token_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                                        <input id="token_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Token" aria-label="pob" required />
                                     </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-inverse-success btn-sm">
                                 Submit
                             </button>
-                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
                         </form>
 
                         <!-- onclick="window.location.href='/'" -->
                         <script>
-                            $("#btn").click(function() {
-
-                                $('<div class="alert alert-success">' +
-                                    '<button type="button" class="close" data-dismiss="alert">' +
-                                    '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_paket').fadeIn(1000);
-
-                                $(".alert").delay(3000).fadeOut(
-                                    "normal",
-                                    function() {
-                                        $(this).remove();
-                                    });
-
-
-
-                            });
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
                             var close = document.getElementsByClassName("closebtn");

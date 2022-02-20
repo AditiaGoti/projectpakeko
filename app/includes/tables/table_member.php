@@ -230,13 +230,13 @@
                                                     location.href = "formu_member";
                                                 }
                                             }
-                                            if (deleteButtonisPressed) {
-                                                // fetch(`${url}/${mid}`, deleteRequest)
-                                                //   .then((res) => res.json())
-                                                // .then(location.reload());
-                                            }
+                                            // if (deleteButtonisPressed) {
+                                            //     let admID = sessionStorage.setItem("id-member", mid);
+                                            // }
 
                                         })
+
+                                        // var getID = sessionStorage.getItem("id-member");
                                         var myHeaders = new Headers();
                                         myHeaders.append(
                                             "Authorization",
@@ -250,7 +250,9 @@
                                         function deleteData() {
                                             fetch(`${url}/${mid}`, deleteRequest)
                                                 .then((res) => res.json())
-                                                .then(location.reload());
+                                                .then(result => console.log(result))
+                                            sessionStorage.removeItem("id-member");
+                                            // location.reload();
                                         };
                                     </script>
                                 </tbody>

@@ -125,50 +125,35 @@
                                                 var admID = sessionStorage.setItem("id-admin", mid);
                                                 window.location.href = '/owformu_admin';
                                             }
-                                            if (deleteButtonisPressed) {
-                                                //fetch(`${url}/${mid}`, deleteRequest)
-                                                //  .then((res) => res.json())
-                                                //.then(location.reload());
-                                            }
+                                            // if (deleteButtonisPressed) {
+                                            //     let admID = sessionStorage.setItem("id-admin", mid);
+
+                                            // }
 
                                         })
+                                        // let getID = sessionStorage.getItem("id-admin");
                                         var myHeaders = new Headers();
                                         myHeaders.append(
                                             "Authorization",
                                             token);
                                         var deleteRequest = {
-                                            method: "Delete",
+                                            method: "DELETE",
                                             headers: myHeaders,
                                             redirect: "follow",
                                         };
 
                                         function deleteData() {
-                                            fetch(`${url}/${mid}`, deleteRequest)
+                                            fetch("https://api.klubaderai.com/api/admin" + "/" + mid, deleteRequest)
                                                 .then((res) => res.json())
-                                                .then(location.reload());
+                                                .then(result => console.log(result))
+                                            sessionStorage.removeItem("id-admin");
+                                            // location.reload();
+
                                         };
                                     </script>
                                 </tbody>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Apakah anda yakin ??</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </table>
                         </div>
                     </div>

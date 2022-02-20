@@ -140,7 +140,8 @@
                                             function deleteData() {
                                                 fetch(`${url}/${mid}`, deleteRequest)
                                                     .then((res) => res.json())
-                                                    .then(location.reload());
+                                                    .then(result => console.log(result))
+                                                location.reload();
                                             };
                                         </script>
                                     </tbody>

@@ -77,6 +77,7 @@
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
+                            console.log(token);
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var form = document.getElementById("form_profile");
                             const url = "https://api.klubaderai.com/api/users" + "/" + id;
@@ -109,8 +110,7 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
-                                // pass.value = data.pass;
-                                // cpass.value = data.cpass;
+
                             }
                         </script>
                         <script>
