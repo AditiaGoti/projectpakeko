@@ -21,6 +21,25 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Anda Yakin Akan Hapus Data Ini?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button onclick="deleteData()" type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -63,8 +82,9 @@
                                                         body += "<td>" + data.nohp + "</td>";
                                                         body += "<td>" + data.alamat + "</td>";
                                                         body += "<td>" + data.tanggal_lahir + "</td>";
-                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button id="delete" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
-
+                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " +
+                                                            `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
+                                                            "</td>";
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
                                                     });
@@ -106,34 +126,31 @@
                                                 window.location.href = '/owformu_admin';
                                             }
                                             if (deleteButtonisPressed) {
-                                                fetch(`${url}/${mid}`, deleteRequest)
-                                                    .then((res) => res.json())
-                                                    .then(location.reload());
+                                                // fetch(`${url}/${mid}`, deleteRequest)
+                                                //     .then((res) => res.json())
+                                                //     .then(location.reload());
                                             }
 
-                                        });
+                                        })
+                                        var myHeaders = new Headers();
+                                        myHeaders.append(
+                                            "Authorization",
+                                            token);
+                                        var deleteRequest = {
+                                            method: "Delete",
+                                            headers: myHeaders,
+                                            redirect: "follow",
+                                        };
+
+                                        function deleteData() {
+                                            fetch(`${url}/${mid}`, deleteRequest)
+                                                .then((res) => res.json())
+                                                .then(location.reload());
+                                        };
                                     </script>
                                 </tbody>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <p>Apakah anda yakin ??</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+                                <!-- Modal -->
+
                             </table>
                         </div>
                     </div>
