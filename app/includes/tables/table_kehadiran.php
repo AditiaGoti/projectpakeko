@@ -79,50 +79,8 @@
                                                 }
                                             });
                                         });
-                                        // tableKehadiran.addEventListener("click", (e) => {
-                                        //     e.preventDefault();
-                                        //     let deleteButtonisPressed = e.target.id == "deleteMember";
-                                        //     let updateButtonisPressed = e.target.id == "updateMember";
-
-                                        //     var myHeaders = new Headers();
-                                        //     myHeaders.append(
-                                        //         "Authorization",
-                                        //         token);
-                                        //     var deleteRequest = {
-                                        //         method: "Delete",
-                                        //         headers: myHeaders,
-                                        //         redirect: "follow",
-                                        //     };
-
-                                        //     mid = e.target.parentElement.parentElement.dataset.id;
-                                        //     if (deleteButtonisPressed) {
-                                        //         fetch(`${url}/${mid}`, deleteRequest)
-                                        //             .then((res) => res.json())
-                                        //             .then(location.reload());
-                                        //     }
-                                        // });
                                     </script>
                                 </tbody>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <p>Apakah anda yakin ??</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
                             </table>
                         </div>
                     </div>
@@ -140,63 +98,3 @@
     <!-- partial -->
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- <script>
-        var tokenSession = '<?php echo $_SESSION['token']; ?>';
-        var token = "Bearer" + " " + tokenSession;
-
-        var myArray = [];
-        var tableKehadiran = document.getElementById("tableKehadiran");
-        const url = "https://api.klubaderai.com/api/kehadiran";
-
-        $.ajax({
-            method: "GET",
-            url: url,
-            headers: {
-                "Authorization": token,
-            },
-            success: function(response) {
-                myArray = response.data;
-                buildTable(myArray);
-                console.log(myArray);
-            },
-        });
-
-        function buildTable(data) {
-            for (var i = 0; i < data.length; i++) {
-                var row = `<tr data-id=${data[i].id}>
-			    <td>${data[i].id}</td>
-			    <td>${data[i].nama}</td>
-                <td>${data[i].email}</td>
-                <td>${data[i].waktu}</td>
-                <td>
-                    <button class="button-29" role="button">Update</button>
-                    <button id="deleteMember" class="button-30" role="button">Delete</button>
-                </td>
-			</tr>`;
-                tableKehadiran.innerHTML += row;
-            }
-        }
-
-        tableKehadiran.addEventListener("click", (e) => {
-            e.preventDefault();
-            let deleteButtonisPressed = e.target.id == "deleteMember";
-
-            var myHeaders = new Headers();
-            myHeaders.append(
-                "Authorization",
-                token
-            );
-            var deleteRequest = {
-                method: "Delete",
-                headers: myHeaders,
-                redirect: "follow",
-            };
-
-            id = e.target.parentElement.parentElement.dataset.id;
-            if (deleteButtonisPressed) {
-                fetch(`${url}/${id}`, deleteRequest)
-                    .then((res) => res.json())
-                    .then(location.reload());
-            }
-        });
-    </script> -->

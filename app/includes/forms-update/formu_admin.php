@@ -46,7 +46,7 @@
                             <button type="submit" id="btn" class="btn btn-inverse-success btn-sm">
                                 Submit
                             </button>
-                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>   
+                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
                         </form>
 
                         <script>
@@ -87,31 +87,8 @@
                         </script>
 
                         <script>
-                                 
                             function updateProfile() {
-                                var myalert = document.getElementById("alert");
-                                var failalert = document.getElementById("alertfail");
-                                var close = document.getElementsByClassName("close");
-                                var i;
-                                for (i = 0; i < close.length; i++) {
-                                    close[i].onclick = function() {
-                                        var div = this.parentElement;
-                                        div.style.opacity = "0";
-                                        setTimeout(function() {
-                                            div.style.display = "none";
-                                        }, 600);
-                                    }
-                                }
-                                $("#btn").click(function() {
-                                 $('<div class="alert alert-success">' +
-                                '<button type="button" class="close" data-dismiss="alert">' +
-                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_admin').fadeIn(1000);
-                                 $(".alert").delay(3000).fadeOut(
-                                "normal",
-                                function() {
-                            $(this).remove();
-                             });
-                        });
+
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
@@ -157,27 +134,27 @@
                                         var data = JSON.parse(result);
                                         if (data.success) {
                                             document.getElementById("form_admin").reset();
-                                           
-                                            $('<div class="alert alert-success">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_admin').fadeIn(1000);
 
-                                             $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                            $('<div class="alert alert-success">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_admin').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
 
                                         } else {
                                             $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#formu_admin').fadeIn(1000);
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_admin').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
                                         }
                                     }))
                                     .catch((error => {

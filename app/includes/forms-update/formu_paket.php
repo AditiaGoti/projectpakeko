@@ -75,7 +75,6 @@
                             }
                         </script>
                         <script>
-
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
                             var close = document.getElementsByClassName("closebtn");
@@ -91,21 +90,7 @@
                             }
 
                             function updatePaket() {
-                                $("#btn").click(function() {
 
-$('<div class="alert alert-success">' +
-'<button type="button" class="close" data-dismiss="alert">' +
-'&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_paket').fadeIn(1000);
-
-$(".alert").delay(3000).fadeOut(
-"normal",
-function() {
-$(this).remove();
-});
-
-
-
-});
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
@@ -151,27 +136,27 @@ $(this).remove();
                                         if (data.success) {
                                             document.getElementById("form_paket").reset();
                                             $('<div class="alert alert-success">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_paket').fadeIn(1000);
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_paket').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
                                         } else {
                                             $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#formu_paket').fadeIn(1000);
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_paket').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
                                         }
                                     }))
-                                    
+
                                     .catch((error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +

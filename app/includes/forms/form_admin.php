@@ -49,40 +49,15 @@
                                         <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
                                     </div>
                                 </div>
+                                <button type="submit" class="btn btn-inverse-success btn-sm">
+                                    Submit
+                                </button>
+                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
-                                Submit
-                            </button>
-                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
                         </form>
 
                         <script>
-
-                       
                             function daftaradmin() {
-                                $("#btn").click(function() {
-                                $('<div class="alert alert-success">' +
-                                '<button type="button" class="close" data-dismiss="alert">' +
-                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_admin').fadeIn(1000);
-                                $(".alert").delay(3000).fadeOut(
-                                "normal",
-                                function() {
-                                $(this).remove();
-                                });});
-
-                                var myalert = document.getElementById("alert");
-                                var failalert = document.getElementById("alertfail");
-                                var close = document.getElementsByClassName("close");
-                                var i;
-                                for (i = 0; i < close.length; i++) {
-                                    close[i].onclick = function() {
-                                        var div = this.parentElement;
-                                        div.style.opacity = "0";
-                                        setTimeout(function() {
-                                            div.style.display = "none";
-                                        }, 600);
-                                    }
-                                }
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;

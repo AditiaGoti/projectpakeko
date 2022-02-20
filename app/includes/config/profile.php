@@ -4,9 +4,9 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Merubah Data Profile
-                        <button onclick="enabledText()" id="enabledText" style="float:right; margin-left:5px; display: block; " class="btn btn-danger">Edit Profile</button>
-                        <button id="CPAdmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-danger" onclick="window.location.href='/profile-admin'">Change Password</button>
-                        <button id="CPMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-danger" onclick="window.location.href='/profile-member'">Change Password</button>
+                        <button id="CPAdmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
+                        <button id="CPMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
+                        <button onclick="enabledText()" id="enabledText" style="float:right; margin-left:5px; display: block; " class="btn btn-inverse-info btn-fw">Edit Profile</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -34,7 +34,7 @@
                             <span class="close">&times;</span>
                             <strong>Terjadi Kesalahan</strong>
                         </div>
-                        <form id="form_admin" class="form sample">
+                        <form id="form_profile" onsubmit="updateProfile(); return false" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -66,19 +66,19 @@
 
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-inverse-success btn-fw">
+                                Submit
+                            </button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
+
                         </form>
-                        <button style="margin-right: 10px;" onclick="enabledText()" type="button" class="btn btn-info">Edit</button>
-                        <button style="margin-right: -10px;" onclick="updateProfile()" type="submit" class="btn btn-success mr-3">
-                            Submit
-                        </button>
-                        <button class="btn btn-danger">Cancel</button>
                         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                         <script>
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
-                            var form = document.getElementById("form_admin");
+                            var form = document.getElementById("form_profile");
                             const url = "https://api.klubaderai.com/api/users" + "/" + id;
 
                             $.ajax({
@@ -122,20 +122,15 @@
                                 document.getElementById("admin_address").disabled = false;
                             }
 
+                            function disabledText() {
+                                document.getElementById("admin_name").disabled = true;
+                                document.getElementById("admin_pob").disabled = true;
+                                document.getElementById("admin_dob").disabled = true;
+                                document.getElementById("admin_nohp").disabled = true;
+                                document.getElementById("admin_address").disabled = true;
+                            }
+
                             function updateProfile() {
-                                var myalert = document.getElementById("alert");
-                                var failalert = document.getElementById("alertfail");
-                                var close = document.getElementsByClassName("close");
-                                var i;
-                                for (i = 0; i < close.length; i++) {
-                                    close.onclick = function() {
-                                        var div = this.parentElement;
-                                        div.style.opacity = "0";
-                                        setTimeout(function() {
-                                            div.style.display = "none";
-                                        }, 600);
-                                    }
-                                }
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
@@ -177,34 +172,28 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
+                                        $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                        disabledText();
                                     }))
                                     .catch((error => {
-                                        failalert.style.display = 'block'
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                     }));
-                            }
-                        </script>
-                        <script>
-                            var myalert = document.getElementById("alert");
-                            var failalert = document.getElementById("alertfail");
-                            var close = document.getElementsByClassName("close");
-                            var i;
-                            for (i = 0; i < close.length; i++) {
-                                close[i].onclick = function() {
-                                    var div = this.parentElement;
-                                    div.style.opacity = "0";
-                                    setTimeout(function() {
-                                        div.style.display = "none";
-                                    }, 600);
-                                }
-                            }
-
-                            function alertsuccess() {
-                                myalert.style.display = 'block'
-                            }
-
-                            function alertfailed() {
-                                failalert.style.display = 'block'
                             }
                         </script>
 

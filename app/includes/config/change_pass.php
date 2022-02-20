@@ -2,16 +2,16 @@
     <div class="content-wrapper">
         <div class="row page-title-header">
             <div class="col-12">
-                <div class="page-header" >
-                    <h4 class="page-title" style="margin-top:10px;">Mengganti Password Member Klub Ade Rai</h4>
+                <div class="page-header">
+                    <h4 class="page-title" style="margin-top:10px;">Mengganti PasswordKlub Ade Rai</h4>
                 </div>
             </div>
         </div>
-        <div class="row" >
+        <div class="row">
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form id="form_member" style="margin-top: 10px;" class="form sample">
+                        <form id="form_member" onsubmit="updatePassword(); return false" style="margin-top: 10px;" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -28,42 +28,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-inverse-success btn-fw">
+                                Submit
+                            </button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
                         </form>
-                        <button onclick="updatePassword()" type="submit" class="btn btn-success mr-3">
-                            Submit
-                        </button>
-                        <button class="btn btn-danger">Cancel</button>
-                        <script>
-                            $("#btn").click(function() {
-                                 $('<div class="alert alert-success">' +
-                                '<button type="button" class="close" data-dismiss="alert">' +
-                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#change_pass').fadeIn(1000);
-                                 $(".alert").delay(3000).fadeOut(
-                                "normal",
-                                function() {
-                            $(this).remove();
-                             });
-                        });
-                            var myalert = document.getElementById("alert");
-                            var failalert = document.getElementById("alertfail");
-                            var close = document.getElementsByClassName("close");
-                            var i;
-                            for (i = 0; i < close.length; i++) {
-                                close[i].onclick = function() {
-                                    var div = this.parentElement;
-                                    div.style.opacity = "0";
-                                    setTimeout(function() {
-                                        div.style.display = "none";
-                                    }, 600);
-                                }
-                            }
 
+                        <script>
                             function updatePassword() {
                                 var myArray = [];
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
+
                                 var id = `<?php echo $_SESSION['id']; ?>`;
-                                var form = document.getElementById("form_admin");
                                 const url = "https://api.klubaderai.com/api/users" + "/" + id;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -87,14 +64,13 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        url,
-                                        requestOptions
+                                        "https://api.klubaderai.com/api/users" + "/" + id, requestOptions
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
                                         $('<div class="alert alert-success">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#change_pass').fadeIn(1000);
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_changepass').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
@@ -105,7 +81,7 @@
                                     .catch((error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#change_pass').fadeIn(1000);
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_changepass').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
@@ -115,7 +91,6 @@
                                     }));
                             }
                         </script>
-
                     </div>
                 </div>
             </div>

@@ -47,25 +47,10 @@
                                 Submit
                             </button>
                             <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
-                           
+
                         </form>
 
                         <script>
-                                    $("#btn").click(function() {
-
-$('<div class="alert alert-success">' +
-'<button type="button" class="close" data-dismiss="alert">' +
-'&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_member').fadeIn(1000);
-
-$(".alert").delay(3000).fadeOut(
-"normal",
-function() {
-$(this).remove();
-});
-
-
-
-});
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
@@ -103,7 +88,6 @@ $(this).remove();
                         </script>
 
                         <script>
-                           
                             function updateProfile() {
                                 var myalert = document.getElementById("alert");
                                 var failalert = document.getElementById("alertfail");
@@ -165,24 +149,24 @@ $(this).remove();
                                         if (data.success) {
                                             document.getElementById("form_member").reset();
                                             $('<div class="alert alert-success">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formu_member').fadeIn(1000);
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_member').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
                                         } else {
                                             $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#formu_member').fadeIn(1000);
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_member').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
                                         }
                                     }))
                                     .catch((error => {

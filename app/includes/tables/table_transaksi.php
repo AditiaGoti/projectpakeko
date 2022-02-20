@@ -141,7 +141,11 @@
                                                     };
 
                                                     function buildsum(data) {
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + data.total_rupiah + `</span>`;
+                                                        var bilangan = data.total_rupiah;
+                                                        var reverse = bilangan.toString().split('').reverse().join(''),
+                                                            ribuan = reverse.match(/\d{1,3}/g);
+                                                        ribuan = ribuan.join('.').split('').reverse().join('');
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
                                                         $("#sumTransaksi").append(body);
                                                     };
                                                 },
@@ -150,50 +154,8 @@
                                                 }
                                             });
                                         });
-                                        // tableTransaksi.addEventListener("click", (e) => {
-                                        //     e.preventDefault();
-                                        //     let deleteButtonisPressed = e.target.id == "delete";
-
-                                        //     var myHeaders = new Headers();
-                                        //     myHeaders.append(
-                                        //         "Authorization",
-                                        //         token);
-                                        //     var deleteRequest = {
-                                        //         method: "Delete",
-                                        //         headers: myHeaders,
-                                        //         redirect: "follow",
-                                        //     };
-
-                                        //     mid = e.target.parentElement.parentElement.dataset.id;
-                                        //     if (deleteButtonisPressed) {
-                                        //         fetch(`${url}/${mid}`, deleteRequest)
-                                        //             .then((res) => res.json())
-                                        //             .then(location.reload());
-
-                                        //     }
-                                        // });
                                     </script>
                                 </tbody>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <p>Apakah anda yakin ??</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
                             </table>
                         </div>
                     </div>
