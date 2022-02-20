@@ -11,15 +11,6 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div style="display: none;" class="alert alert-success " id="alert">
-                            <span class="close">&times;</span>
-                            <strong>Data Berhasil Disimpan</strong>
-                        </div>
-                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
-                            <span class="close">&times;</span>
-                            <strong>Terjadi Kesalahan</strong>
-                        </div>
-
                         <form id="form_member" style="margin-top: 10px;" class="form sample">
                             <div class="row">
                                 <div class="col">
@@ -43,6 +34,16 @@
                         </button>
                         <button class="btn btn-danger">Cancel</button>
                         <script>
+                            $("#btn").click(function() {
+                                 $('<div class="alert alert-success">' +
+                                '<button type="button" class="close" data-dismiss="alert">' +
+                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#change_pass').fadeIn(1000);
+                                 $(".alert").delay(3000).fadeOut(
+                                "normal",
+                                function() {
+                            $(this).remove();
+                             });
+                        });
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
                             var close = document.getElementsByClassName("close");
@@ -91,10 +92,26 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
+                                        $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#change_pass').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                     }))
                                     .catch((error => {
-                                        alertfailed();
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#change_pass').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                     }));
                             }
                         </script>
