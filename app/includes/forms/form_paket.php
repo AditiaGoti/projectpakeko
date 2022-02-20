@@ -11,15 +11,6 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div style="display: none;" class="alert alert-success" id="alert" data-dismiss="alert">
-                            <span class="close">&times;</span>
-                            <strong>Data Berhasil Disimpan</strong>
-                        </div>
-                        <div style="display: none;" class="alert alert-danger" id='alertfail' data-dismiss="alert">
-                            <span class="close">&times;</span>
-                            <strong>Terjadi Kesalahan</strong>
-                        </div>
-
                         <form id="form_paket" onsubmit="daftarPaket(); return false" class="form sample">
                             <div class="row">
                                 <div class="col">
@@ -46,11 +37,26 @@
                             <button type="submit" class="btn btn-inverse-success btn-sm">
                                 Submit
                             </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
                         </form>
 
-
+                        <!-- onclick="window.location.href='/'" -->
                         <script>
+                            $("#btn").click(function() {
+
+                                $('<div class="alert alert-success">' +
+                                    '<button type="button" class="close" data-dismiss="alert">' +
+                                    '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_paket').fadeIn(1000);
+
+                                $(".alert").delay(3000).fadeOut(
+                                    "normal",
+                                    function() {
+                                        $(this).remove();
+                                    });
+
+
+
+                            });
                             var myalert = document.getElementById("alert");
                             var failalert = document.getElementById("alertfail");
                             var close = document.getElementsByClassName("closebtn");
@@ -64,7 +70,7 @@
                                     }, 600);
                                 }
                             }
-                          
+
                             function daftarPaket() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';
@@ -107,24 +113,30 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        myalert.style.display = 'block'
                                         document.getElementById("form_paket").reset();
+
+                                        $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_paket').fadeIn(1000);
+
                                         $(".alert").delay(3000).fadeOut(
-                                    "normal", function(){
-                                         $(this).remove();
-                                             });
-                                        
-  
-                                        
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
                                     }))
                                     .catch((error => {
-                                        failalert.style.display = 'block'
-                                        $(".alert").delay(3000).fadeOut(
-                                    "normal", function(){
-                                         $(this).remove();
-                                             });
 
-                                        
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#response').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+
                                     }));
                             }
                         </script>
