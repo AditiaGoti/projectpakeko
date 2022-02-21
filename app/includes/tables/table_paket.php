@@ -121,7 +121,7 @@
                                                         var pakID = sessionStorage.setItem('id-paket', mid);
                                                         location.href = "/owformu_paket";
                                                     } else {
-                                                        var pakID = sessionStorage.getItem('id-paket', mid);
+                                                        var pakID = sessionStorage.setItem('id-paket', mid);
                                                         location.href = "/formu_paket";
                                                     }
                                                 }

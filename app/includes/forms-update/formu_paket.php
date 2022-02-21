@@ -3,7 +3,7 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Menambahkan Paket Klub Ade Rai</h4>
+                    <h4 class="page-title">Merubah Paket Klub Ade Rai</h4>
                 </div>
             </div>
         </div>
@@ -47,9 +47,9 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
-                            var pakID = sessionStorage.getItem("id-paket");;
-                            var form = document.getElementById("form_paket");
-                            const url = "https://api.klubaderai.com/api/pakets" + "/" + pakID;
+                            var pakID = sessionStorage.getItem("id-paket");
+                            console.log(pakID)
+                            const url = "https://api.klubaderai.com/api/pakets/" + pakID;
 
                             $.ajax({
                                 method: "GET",

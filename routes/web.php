@@ -78,11 +78,11 @@ Route::get('/form_paket', function () {
 });
 
 Route::get('/formu_member', function () {
-    return view('owner/formu-owner/formu_member');
+    return view('admin/formu-admin/formu_member');
 });
 
 Route::get('/formu_paket', function () {
-    return view('owner/formu-owner/formu_paket');
+    return view('admin/formu-admin/formu_paket');
 });
 
 // Member
