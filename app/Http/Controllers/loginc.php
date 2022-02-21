@@ -103,7 +103,7 @@ class loginc extends Controller
                             break;
                     }
             }
-            curl_close($curl);
         }
+        curl_close($curl);
     }
 }

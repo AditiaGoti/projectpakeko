@@ -28,9 +28,9 @@
                             <table class="table table-striped table-bordered table-hover" id="table-data">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Nama</th>
+
                                         <th>Email</th>
+                                        <th>Nama</th>
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <!-- <th>Action</th> -->
@@ -40,6 +40,7 @@
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
+                                        console.log(token)
                                         var myArray = [];
                                         var tableKehadiran = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/kehadiran";
@@ -58,9 +59,9 @@
                                                         let date = d.toDateString();
 
                                                         var body = "<tr>";
-                                                        body += "<td>" + data.id + "</td>";
-                                                        body += "<td>" + data.nama + "</td>";
+
                                                         body += "<td>" + data.email + "</td>";
+                                                        body += "<td>" + data.nama + "</td>";
                                                         body += "<td>" + date + "</td>";
                                                         body += "<td>" + time + "</td>";
                                                         // body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";

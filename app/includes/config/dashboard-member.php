@@ -30,6 +30,7 @@
                             <table id="table-data" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>Hari</th>
                                         <th>Tanggal</th>
                                         <th>Waktu </th>
                                     </tr>
@@ -38,18 +39,19 @@
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
-                                        var id = '<?php echo $_SESSION['id']; ?>';
+                                        var Sid = '<?php echo $_SESSION['id']; ?>';
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
-                                        const url = "https://api.klubaderai.com/api/users/" + id;
+                                        const url = "https://api.klubaderai.com/api/kehadiran" + "/" + Sid;
                                         var qrcode = new QRCode(document.getElementById("fotoqr"), {
                                             useSVG: true,
                                         });
 
-                                        function makeCode(data) {
-                                            var id = `${data.id}`;
-                                            qrcode.makeCode(id);
+                                        function makeCode() {
+                                            var Sid = '<?php echo $_SESSION['id']; ?>';
+                                            qrcode.makeCode(Sid);
                                         }
+
                                         $(document).ready(function() {
                                             $.ajax({
                                                 method: "GET",
@@ -59,21 +61,29 @@
                                                 },
                                                 success: function(response) {
                                                     makeCode(myArray);
+
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
                                                         const d = new Date(data.waktu);
+                                                        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                                                        let day = weekday[d.getDay()];
                                                         let time = d.toLocaleTimeString();
-                                                        let date = d.toDateString();
+                                                        let date = d.toLocaleDateString();
 
-                                                        var body = `<tr data-id=${data.id} >`;
-                                                        body += "<td>" + data.waktu + "</td>";
-                                                        body += "<td>" + data.waktu + "</td>";
+                                                        var body = `<tr>`;
+                                                        body += "<td>" + day + "</td>";
+                                                        body += "<td>" + date + "</td>";
+                                                        body += "<td>" + time + "</td>";
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
                                                     });
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
+                                                        ordering: false,
+                                                        "order": [
+                                                            [1, "desc"]
+                                                        ]
                                                     });
                                                 },
                                                 error: function() {
