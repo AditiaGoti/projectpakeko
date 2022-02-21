@@ -46,7 +46,7 @@
                             <button type="submit" class="btn btn-inverse-success btn-sm">
                                 Submit
                             </button>
-                            <button type="button" id="btn" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
 
                         </form>
 
