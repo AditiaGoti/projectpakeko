@@ -4,10 +4,6 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Data Member
-                        <button id="btnAddowActiveMember" style="float:right; margin-left:5px; display: none; " type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owinactive_member'">Inactive Member</button>
-                        <button id="btnAddActivemember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/inactive_member'">inactive Member</button>
-                        <button id="btnAddowInActiveMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-success btn-sm" onclick="window.location.href='/owactive_member'">Active Member</button>
-                        <button id="btnAddInActivemember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-success btn-sm" onclick="window.location.href='/active_member'">Active Member</button>
                         <button id="btnAddowMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_member'">Tambah</button>
                         <button id="btnAddMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_member'">Tambah</button>
                     </h4>
@@ -15,19 +11,11 @@
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
                             var btnAdd = document.getElementById("btnAddowMember")
-                            var btnAddNewMember = document.getElementById("btnAddowActiveMember")
-                            var btnAddNewInMember = document.getElementById("btnAddowInActiveMember")
                             btnAdd.style.display = 'block'
-                            btnAddNewMember.style.display = "block"
-                            btnAddNewInMember.style.display = "block"
 
                         } else {
-                            var btnAddNewMember = document.getElementById("btnAddActivemember")
                             var btnAdd = document.getElementById("btnAddMember")
-                            var btnAddNewInMember = document.getElementById("btnAddInActivemember")
                             btnAdd.style.display = 'block'
-                            btnAddNewMember.style.display = "block"
-                            btnAddNewInMember.style.display = "block"
                         }
                     </script>
                 </div>
@@ -105,6 +93,18 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                    <nav style="padding-bottom:10px;">
+                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link " id="nav-allmember-tab" data-toggle="tab" onclick="window.location.href='/owall_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
+                            <a class="nav-item nav-link active" id="nav-activemember-tab" data-toggle="tab" onclick="window.location.href='/owactive_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
+                            <a class="nav-item nav-link" id="nav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/owinactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
+                        </div>
+                    </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade " id="nav-allmember" role="tabpanel" aria-labelledby="nav-allmember-tab">...</div>
+                            <div class="tab-pane fade show active" id="nav-activemember" role="tabpanel" aria-labelledby="nav-activemember-tab">...</div>
+                            <div class="tab-pane fade" id="nav-inactivemember" role="tabpanel" aria-labelledby="nav-inactivemember-tab">...</div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="table-data">
                                 <thead>
