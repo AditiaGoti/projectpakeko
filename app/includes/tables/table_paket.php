@@ -122,7 +122,7 @@
                                                         location.href = "/owformu_paket";
                                                     } else {
                                                         var pakID = sessionStorage.getItem('id-paket', mid);
-                                                        location.href = "formu_paket";
+                                                        location.href = "/formu_paket";
                                                     }
                                                 }
 

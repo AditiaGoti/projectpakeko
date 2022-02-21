@@ -11,7 +11,7 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form id="form_member" onsubmit="updatePassword(); return false" style="margin-top: 10px;" class="form sample">
+                        <form id="form_changepass" onsubmit="updatePassword(); return false" style="margin-top: 10px;" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -73,6 +73,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
+
                                         $('<div class="alert alert-success">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
                                             '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_changepass').fadeIn(1000);

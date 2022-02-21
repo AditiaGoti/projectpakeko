@@ -93,17 +93,50 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <nav style="padding-bottom:10px;">
-                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link " id="nav-allmember-tab" data-toggle="tab" onclick="window.location.href='/owall_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
-                            <a class="nav-item nav-link active" id="nav-activemember-tab" data-toggle="tab" onclick="window.location.href='/owactive_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
-                            <a class="nav-item nav-link" id="nav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/owinactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
-                        </div>
-                    </nav>
+                        <nav style="padding-bottom:10px;">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a style="display:none;" class="nav-item nav-link " id="ownav-allmember-tab" data-toggle="tab" onclick="window.location.href='/owall_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
+                                <a style="display:none;" class="nav-item nav-link active" id="ownav-activemember-tab" data-toggle="tab" onclick="window.location.href='/owactive_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
+                                <a style="display:none;" class="nav-item nav-link" id="ownav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/owinactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
+
+                                <a style="display:none;" class="nav-item nav-link " id="nav-allmember-tab" data-toggle="tab" onclick="window.location.href='/all_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
+                                <a style="display:none;" class="nav-item nav-link active" id="nav-activemember-tab" data-toggle="tab" onclick="window.location.href='/active_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
+                                <a style="display:none;" class="nav-item nav-link" id="nav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/inactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
+                                <script>
+                                    var type = '<?php echo $_SESSION['type']; ?>'
+                                    if (type == 2) {
+                                        var owshowAll = document.getElementById("ownav-allmember-tab")
+                                        var owshowActive = document.getElementById("ownav-activemember-tab")
+                                        var owshowInactive = document.getElementById("ownav-inactivemember-tab")
+                                        owshowAll.style.display = 'block'
+                                        owshowActive.style.display = 'block'
+                                        owshowInactive.style.display = 'block'
+
+                                    } else {
+                                        var showAll = document.getElementById("nav-allmember-tab")
+                                        var showActive = document.getElementById("nav-activemember-tab")
+                                        var showInactive = document.getElementById("nav-inactivemember-tab")
+                                        showAll.style.display = 'block'
+                                        showActive.style.display = 'block'
+                                        showInactive.style.display = 'block'
+                                    }
+                                </script>
+
+                            </div>
+                        </nav>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade " id="nav-allmember" role="tabpanel" aria-labelledby="nav-allmember-tab">...</div>
-                            <div class="tab-pane fade show active" id="nav-activemember" role="tabpanel" aria-labelledby="nav-activemember-tab">...</div>
-                            <div class="tab-pane fade" id="nav-inactivemember" role="tabpanel" aria-labelledby="nav-inactivemember-tab">...</div>
+                            <script>
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                if (type == 2) {
+                                    ` <div class="tab-pane fade  " id="ownav-allmember" role="tabpanel" aria-labelledby="ownav-allmember-tab"></div>
+                                    <div class="tab-pane fade show active " id="ownav-activemember" role="tabpanel" aria-labelledby="ownav-activemember-tab"></div>
+                                    <div class="tab-pane fade " id="ownav-inactivemember" role="tabpanel" aria-labelledby="ownav-inactivemember-tab"></div>`
+                                } else {
+                                    ` <div class="tab-pane fade  " id="nav-allmember" role="tabpanel" aria-labelledby="nav-allmember-tab"></div>
+                                    <div class="tab-pane fade show active " id="nav-activemember" role="tabpanel" aria-labelledby="nav-activemember-tab"></div>
+                                    <div class="tab-pane fade " id="nav-inactivemember" role="tabpanel" aria-labelledby="nav-inactivemember-tab"></div>`
+                                }
+                            </script>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="table-data">

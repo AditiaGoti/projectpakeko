@@ -63,12 +63,12 @@
                             });
 
                             function build(data) {
-                                var paket = document.getElementById("nama_paket");
+                                var nama = document.getElementById("nama_paket");
                                 var harga = document.getElementById("harga_paket");
                                 var durasi = document.getElementById("durasi_paket");
                                 var ntoken = document.getElementById("token_paket");
 
-                                paket.value = data.paket;
+                                nama.value = data.paket;
                                 harga.value = data.harga;
                                 durasi.value = data.duration;
                                 ntoken.value = data.nilai_token;

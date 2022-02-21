@@ -166,34 +166,70 @@
                                     body: urlencoded,
                                     redirect: "follow",
                                 };
-                                fetch(
-                                        "https://api.klubaderai.com/api/users" + "/" + id,
-                                        requestOptions
-                                    )
-                                    .then((response) => response.text())
-                                    .then((result => {
-                                        $('<div class="alert alert-success">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
-                                        disabledText();
-                                    }))
-                                    .catch((error => {
-                                        $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                if (type == 1) {
+                                    fetch(
+                                            "https://api.klubaderai.com/api/admin" + "/" + id,
+                                            requestOptions
+                                        )
+                                        .then((response) => response.text())
+                                        .then((result => {
+                                            $('<div class="alert alert-success">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
-                                    }));
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                            disabledText();
+                                        }))
+                                        .catch((error => {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        }));
+
+                                } else {
+                                    fetch(
+                                            "https://api.klubaderai.com/api/users" + "/" + id,
+                                            requestOptions
+                                        )
+                                        .then((response) => response.text())
+                                        .then((result => {
+                                            $('<div class="alert alert-success">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                            disabledText();
+                                        }))
+                                        .catch((error => {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        }));
+                                }
+
+
                             }
                         </script>
 

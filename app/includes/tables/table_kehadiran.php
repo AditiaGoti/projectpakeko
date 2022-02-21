@@ -40,7 +40,6 @@
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
-                                        console.log(token)
                                         var myArray = [];
                                         var tableKehadiran = document.getElementById("tabel-data");
                                         const url = "https://api.klubaderai.com/api/kehadiran";

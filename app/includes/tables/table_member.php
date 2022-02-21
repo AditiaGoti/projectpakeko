@@ -3,8 +3,8 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Data Member 
-                    <button id="btnAddowMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_member'">Tambah</button>
+                    <h4 class="page-title">Data Member
+                        <button id="btnAddowMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_member'">Tambah</button>
                         <button id="btnAddMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_member'">Tambah</button>
                     </h4>
                     <script>
@@ -92,17 +92,50 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <nav>
-                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-allmember-tab" data-toggle="tab" onclick="window.location.href='/owall_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
-                            <a class="nav-item nav-link" id="nav-activemember-tab" data-toggle="tab" onclick="window.location.href='/owactive_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
-                            <a class="nav-item nav-link" id="nav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/owinactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
-                        </div>
-                    </nav>
+                        <nav style="padding-bottom:10px;">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a style="display:none;" class="nav-item nav-link active" id="ownav-allmember-tab" data-toggle="tab" onclick="window.location.href='/owall_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
+                                <a style="display:none;" class="nav-item nav-link" id="ownav-activemember-tab" data-toggle="tab" onclick="window.location.href='/owactive_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
+                                <a style="display:none;" class="nav-item nav-link" id="ownav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/owinactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
+
+                                <a style="display:none;" class="nav-item nav-link active" id="nav-allmember-tab" data-toggle="tab" onclick="window.location.href='/all_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
+                                <a style="display:none;" class="nav-item nav-link" id="nav-activemember-tab" data-toggle="tab" onclick="window.location.href='/active_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
+                                <a style="display:none;" class="nav-item nav-link" id="nav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/inactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
+                                <script>
+                                    var type = '<?php echo $_SESSION['type']; ?>'
+                                    if (type == 2) {
+                                        var owshowAll = document.getElementById("ownav-allmember-tab")
+                                        var owshowActive = document.getElementById("ownav-activemember-tab")
+                                        var owshowInactive = document.getElementById("ownav-inactivemember-tab")
+                                        owshowAll.style.display = 'block'
+                                        owshowActive.style.display = 'block'
+                                        owshowInactive.style.display = 'block'
+
+                                    } else {
+                                        var showAll = document.getElementById("nav-allmember-tab")
+                                        var showActive = document.getElementById("nav-activemember-tab")
+                                        var showInactive = document.getElementById("nav-inactivemember-tab")
+                                        showAll.style.display = 'block'
+                                        showActive.style.display = 'block'
+                                        showInactive.style.display = 'block'
+                                    }
+                                </script>
+
+                            </div>
+                        </nav>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-allmember" role="tabpanel" aria-labelledby="nav-allmember-tab">...</div>
-                            <div class="tab-pane fade" id="nav-activemember" role="tabpanel" aria-labelledby="nav-activemember-tab">...</div>
-                            <div class="tab-pane fade" id="nav-inactivemember" role="tabpanel" aria-labelledby="nav-inactivemember-tab">...</div>
+                            <script>
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                if (type == 2) {
+                                    ` <div class="tab-pane fade show active " id="ownav-allmember" role="tabpanel" aria-labelledby="ownav-allmember-tab"></div>
+                                    <div class="tab-pane fade " id="ownav-activemember" role="tabpanel" aria-labelledby="ownav-activemember-tab"></div>
+                                    <div class="tab-pane fade " id="ownav-inactivemember" role="tabpanel" aria-labelledby="ownav-inactivemember-tab"></div>`
+                                } else {
+                                    ` <div class="tab-pane fade show active " id="nav-allmember" role="tabpanel" aria-labelledby="nav-allmember-tab"></div>
+                                    <div class="tab-pane fade " id="nav-activemember" role="tabpanel" aria-labelledby="nav-activemember-tab"></div>
+                                    <div class="tab-pane fade " id="nav-inactivemember" role="tabpanel" aria-labelledby="nav-inactivemember-tab"></div>`
+                                }
+                            </script>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="table-data">
@@ -209,17 +242,6 @@
                                             let deleteButtonisPressed = e.target.id == "delete";
                                             let updateButtonisPressed = e.target.id == "update";
 
-                                            //var myHeaders = new Headers();
-                                            //myHeaders.append(
-                                            //  "Authorization",
-                                            //token);
-                                            //var deleteRequest = {
-                                            //  method: "Delete",
-                                            //headers: myHeaders,
-                                            //redirect: "follow",
-                                            //};
-
-
                                             mid = e.target.parentElement.parentElement.dataset.id;
                                             if (updateButtonisPressed) {
                                                 if (type == 2) {
@@ -230,13 +252,7 @@
                                                     location.href = "formu_member";
                                                 }
                                             }
-                                            // if (deleteButtonisPressed) {
-                                            //     let admID = sessionStorage.setItem("id-member", mid);
-                                            // }
-
                                         })
-
-                                        // var getID = sessionStorage.getItem("id-member");
                                         var myHeaders = new Headers();
                                         myHeaders.append(
                                             "Authorization",
