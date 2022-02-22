@@ -10,6 +10,17 @@
                 </div>
             </div>
         </div>
+        <script>
+            var type = '<?php echo $_SESSION['type']; ?>'
+            if (type == 2) {
+                var btnAdd = document.getElementById("owbackpaket")
+                btnAdd.style.display = 'block'
+
+            } else {
+                var btnAdd = document.getElementById("backpaket")
+                btnAdd.style.display = 'block'
+            }
+        </script>
         <div class="row">
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
