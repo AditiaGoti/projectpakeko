@@ -77,14 +77,15 @@
                                                             'excel', 'pdf', 'print'
                                                         ],
                                                         "order": [
-                                                            [0, "desc"]
+                                                            [2, "desc"]
                                                         ]
 
                                                     });
                                                 },
-                                                error: function() {
-                                                    alert('Fail!');
-
+                                                error: function(response) {
+                                                    hasil = response.responseJSON.message;
+                                                    alert(hasil);
+                                                    location.href = "/logout";
                                                 }
                                             });
                                         });

@@ -196,9 +196,10 @@
 
                                                     });
                                                 },
-                                                error: function() {
-                                                    alert('Fail!');
-
+                                                error: function(response) {
+                                                    hasil = response.responseJSON.message;
+                                                    alert(hasil);
+                                                    location.href = "/logout";
                                                 }
                                             });
 
