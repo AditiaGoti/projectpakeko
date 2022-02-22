@@ -73,17 +73,6 @@
                                    });
                                </script>
                                <script>
-                                   $("#btn").click(function() {
-
-                                       $('<div class="alert alert-success">' +
-                                           '<button type="button" class="close" data-dismiss="alert">' +
-                                           '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
-                                       $(".alert").delay(3000).fadeOut(
-                                           "normal",
-                                           function() {
-                                               $(this).remove();
-                                           });
-                                   });
                                    var myalert = document.getElementById("alert");
                                    var failalert = document.getElementById("alertfail");
                                    var close = document.getElementsByClassName("closebtn");
@@ -131,17 +120,33 @@
                                            )
                                            .then((response) => response.text())
                                            .then((result => {
-                                               document.getElementById("form_transaksi").reset();
 
-                                               $('<div class="alert alert-success">' +
-                                                   '<button type="button" class="close" data-dismiss="alert">' +
-                                                   '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_transaksi').fadeIn(1000);
+                                               var data = JSON.parse(result);
+                                               var hasildata = data.success;
+                                               var message = data.errors;
+                                               document.getElementById("form_admin").reset();
+                                               if (hasildata) {
+                                                   $('<div class="alert alert-success">' +
+                                                       '<button type="button" class="close" data-dismiss="alert">' +
+                                                       '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_admin').fadeIn(1000);
 
-                                               $(".alert").delay(3000).fadeOut(
-                                                   "normal",
-                                                   function() {
-                                                       $(this).remove();
-                                                   });
+                                                   $(".alert").delay(3000).fadeOut(
+                                                       "normal",
+                                                       function() {
+                                                           $(this).remove();
+                                                       });
+                                               } else {
+                                                   $('<div class="alert alert-danger">' +
+                                                       '<button type="button" class="close" data-dismiss="alert">' +
+                                                       `&times;</button>${message}</div>`).hide().prependTo('#form_admin').fadeIn(1000);
+
+                                                   $(".alert").delay(3000).fadeOut(
+                                                       "normal",
+                                                       function() {
+                                                           $(this).remove();
+                                                       });
+                                               }
+
 
                                            }))
                                            .catch((error => {
