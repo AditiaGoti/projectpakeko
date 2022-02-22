@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Menambahkan Member Klub Ade Rai
-                        <button id="owbackmember" style="float:right; margin-left:5px;display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
-                        <button id="backmember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
+                        <button id="owbackmember" style="float:right; margin-left:5px;display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owall_member'">Back</button>
+                        <button id="backmember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/all_member'">Back</button>
                     </h4>
                 </div>
             </div>

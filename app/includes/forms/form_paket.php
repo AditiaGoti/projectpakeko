@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Menambahkan Paket Klub Ade Rai
-                        <button id="owbackpaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
-                        <button id="backpaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
+                        <button id="owbackpaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owpaket'">Back</button>
+                        <button id="backpaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/paket'">Back</button>
                     </h4>
                 </div>
             </div>

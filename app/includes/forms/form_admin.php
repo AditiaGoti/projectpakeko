@@ -4,23 +4,11 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Menambahkan Admin Klub Ade Rai
-                        <button id="owbackadmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
-                        <button id="backadmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
+                        <button id="owbackadmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owalladmin'">Back</button>
                     </h4>
                 </div>
             </div>
         </div>
-        <script>
-            var type = '<?php echo $_SESSION['type']; ?>'
-            if (type == 2) {
-                var btnAdd = document.getElementById("owbackadmin")
-                btnAdd.style.display = 'block'
-
-            } else {
-                var btnAdd = document.getElementById("backadmin")
-                btnAdd.style.display = 'block'
-            }
-        </script>
         <div class="row">
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
