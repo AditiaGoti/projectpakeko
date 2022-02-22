@@ -32,7 +32,7 @@
             </li>
 
             <li class="nav-item">
-                <a id="logoutBtn" href="/logout" class="nav-link" type="submit">
+                <a href="/logout" class="nav-link">
                     <i class="menu-icon typcn typcn-document-text"></i>
                     <span class="menu-title" style="color: black;">Logout</span>
                 </a>
