@@ -268,7 +268,7 @@
                                                 .then((res) => res.json())
                                                 .then(result => console.log(result))
                                             sessionStorage.removeItem("id-member");
-                                            // location.reload();
+                                            location.reload();
                                         };
                                     </script>
                                 </tbody>

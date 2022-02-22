@@ -147,7 +147,7 @@
                                                 .then((res) => res.json())
                                                 .then(result => console.log(result))
                                             sessionStorage.removeItem("id-admin");
-                                            // location.reload();
+                                            location.reload();
 
                                         };
                                     </script>

@@ -262,11 +262,7 @@
                                                     location.href = "formu_member";
                                                 }
                                             }
-                                            // if (deleteButtonisPressed) {
-                                            // fetch(`${urlm}/${mid}`, deleteRequest)
-                                            //     .then((res) => res.json())
-                                            //     .then(location.reload());
-                                            // }
+
 
                                         })
                                         var myHeaders = new Headers();
@@ -284,7 +280,7 @@
                                                 .then((res) => res.json())
                                                 .then(result => console.log(result))
                                             sessionStorage.removeItem("id-member");
-                                            // location.reload();
+                                            location.reload();
                                         };
                                     </script>
                                 </tbody>
