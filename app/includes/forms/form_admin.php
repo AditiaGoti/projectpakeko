@@ -3,7 +3,10 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Menambahkan Admin Klub Ade Rai</h4>
+                    <h4 class="page-title">Menambahkan Admin Klub Ade Rai
+                        <button id="owbackadmin" style="float:right; margin-left:5px;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
+                        <button id="backadmin" style="float:right; margin-left:5px;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
+                    </h4>
                 </div>
             </div>
         </div>

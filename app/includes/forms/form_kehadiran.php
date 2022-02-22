@@ -3,7 +3,10 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Menambahkan Kehadiran Member Klub Ade Rai</h4>
+                    <h4 class="page-title">Menambahkan Kehadiran Member Klub Ade Rai
+                        <button id="owbackkehadiran" style="float:right; margin-left:5px;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
+                        <button id="backkehadiran" style="float:right; margin-left:5px;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owform_member'">Back</button>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -23,17 +26,17 @@
                         </form>
 
                         <script>
-                             $("#btn").click(function() {
+                            $("#btn").click(function() {
 
-                            $('<div class="alert alert-success">' +
-                            '<button type="button" class="close" data-dismiss="alert">' +
-                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                $('<div class="alert alert-success">' +
+                                    '<button type="button" class="close" data-dismiss="alert">' +
+                                    '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
 
-                            $(".alert").delay(3000).fadeOut(
-                            "normal",
-                            function() {
-                            $(this).remove();
-                            });
+                                $(".alert").delay(3000).fadeOut(
+                                    "normal",
+                                    function() {
+                                        $(this).remove();
+                                    });
 
                             });
                             var myalert = document.getElementById("alert");
@@ -78,7 +81,7 @@
                                     .then((response) => response.text())
                                     .then((result => {
                                         document.getElementById("form_kehadiran").reset();
-                                        
+
                                         $('<div class="alert alert-success">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
                                             '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
