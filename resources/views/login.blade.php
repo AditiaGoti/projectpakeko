@@ -46,7 +46,7 @@ if (isset($_SESSION['login_status'])) {
 <body>
 
     <div class="limiter" style="background-image: url(assets/images/club.png); background-size: 1400px; background-repeat: no-repeat;">
-        <div class="container-login100" style="background-image: url(assets/images/club.png); background-size: 1400px; background-repeat: no-repeat;">
+        <div class="container-login100" style="background-image: url(assets/images/klubaderaibg.png); background-size: 1400px; background-repeat: no-repeat;">
             <div class="wrap-login100">
                 <form method="POST" action="/login" class="login100-form validate-form">
                     <span class="login100-form-title p-b-26">

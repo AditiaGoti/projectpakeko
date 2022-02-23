@@ -194,7 +194,7 @@ margin-left : 500px;
   -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
-@media only screen and (min-width:700px) and (max-width:995px)
+@media only screen and (min-width:700px) and (max-width:900px)
 {
   .wrap-login100 {
     width: 350px;
@@ -204,7 +204,25 @@ margin-left : 500px;
     border-radius: 10px;
     overflow: hidden;
     padding: 30px 20px 20px 30px;
-  margin-top: 50px;
+  margin-top: -300px;
+  margin-left : 20px; }
+  .container-login100 {
+ 
+    background-position-x: 30px;
+    
+  }
+}
+@media only screen and (min-width:912px) and (max-width:992px)
+{
+  .wrap-login100 {
+    width: 350px;
+    height: 450px;
+    background:cornsilk;
+    opacity: 0.9;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px 20px 20px 30px;
+  margin-top: -500px;
   margin-left : 20px; }
   .container-login100 {
  
@@ -227,7 +245,7 @@ margin-left : 500px;
   .container-login100 {
  
     background-position-x: -120px;
-    background-position-y:  110px;
+    background-position-y:  105px;
     
   }
   
@@ -247,6 +265,26 @@ margin-left : 500px;
 .container-login100 {
  
   background-position-x: -135px;
+  
+  
+}
+}
+@media only screen and (min-width:280px) and (max-width:289px)
+{
+  .wrap-login100 { 
+  width: 300px;
+  height: 490px;
+  background:cornsilk;
+  opacity: 0.9;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 30px 20px 20px 30px;
+  margin-top: 0px;
+  margin-left : 0px;
+}
+.container-login100 {
+ 
+  background-position-x: -170px;
   
   
 }
