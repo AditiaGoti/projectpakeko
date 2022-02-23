@@ -20,6 +20,25 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Anda Yakin Akan Hapus Data Ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="deleteData()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xl-6 col-lg-4 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
@@ -71,11 +90,11 @@
                                         <th>Paket</th>
                                         <th>Nominal</th>
                                         <th>CreatedBy</th>
-                                        <th>Tanggal</th>
                                         <th>Waktu</th>
+                                        <th>Tanggal</th>
                                         <th>Keterangan</th>
 
-                                        <!-- <th>Actions</th> -->
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableTransaksi">
@@ -115,7 +134,8 @@
                                                         body += "<td>" + time + "</td>";
                                                         body += "<td>" + date + "</td>";
                                                         body += "<td>" + data.keterangan + "</td>";
-                                                        // body += "<td>" + `<button id="delete" class="btn btn-danger" role="button" data-toggle="modal" data-target="#exampleModalLong"><i class=" fa fa-trash"></i></button>` + "</td>";
+                                                        body += "<td>" +
+                                                            `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -141,6 +161,7 @@
                                             });
 
                                         });
+
                                         $(document).ready(function() {
                                             $.ajax({
                                                 method: "GET",
@@ -172,6 +193,43 @@
                                                 }
                                             });
                                         });
+                                        tableTransaksi.addEventListener("click", (e) => {
+                                            e.preventDefault();
+                                            let deleteButtonisPressed = e.target.id == "delete";
+                                            mid = e.target.parentElement.parentElement.dataset.id;
+                                        })
+                                        var myHeaders = new Headers();
+                                        myHeaders.append(
+                                            "Authorization",
+                                            token);
+                                        var deleteRequest = {
+                                            method: "Delete",
+                                            headers: myHeaders,
+                                            redirect: "follow",
+                                        };
+
+                                        function deleteData() {
+                                            fetch(`${url}/${mid}`, deleteRequest)
+                                                .then((res) => res.json())
+                                                .then((result => {
+
+                                                    var hasildata = result.success;
+                                                    var message = result.message;
+                                                    if (hasildata) {
+                                                        location.reload();
+                                                    } else {
+                                                        $('<div class="alert alert-danger">' +
+                                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                                            `&times;</button>${message}</div>`).hide().prependTo('#table-data').fadeIn(1000);
+
+                                                        $(".alert").delay(3000).fadeOut(
+                                                            "normal",
+                                                            function() {
+                                                                $(this).remove();
+                                                            });
+                                                    }
+                                                }))
+                                        };
                                     </script>
                                 </tbody>
                             </table>

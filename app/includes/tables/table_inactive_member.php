@@ -258,11 +258,7 @@
                                             };
 
                                             mid = e.target.parentElement.parentElement.dataset.id;
-                                            // if (deleteButtonisPressed) {
-                                            // fetch(`${urlm}/${mid}`, deleteRequest)
-                                            //   .then((res) => res.json())
-                                            // .then(location.reload());
-                                            // }
+
                                             if (updateButtonisPressed) {
                                                 if (type == 2) {
                                                     var memID = sessionStorage.setItem("id-member", mid);
@@ -286,9 +282,25 @@
                                         function deleteData() {
                                             fetch(`${url}/${mid}`, deleteRequest)
                                                 .then((res) => res.json())
-                                                .then(result => console.log(result))
-                                            sessionStorage.removeItem("id-member");
-                                            location.reload();
+                                                .then((result => {
+
+                                                    var hasildata = result.success;
+                                                    var message = result.message;
+                                                    if (hasildata) {
+                                                        sessionStorage.removeItem("id-member");
+                                                        location.reload();
+                                                    } else {
+                                                        $('<div class="alert alert-danger">' +
+                                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                                            `&times;</button>${message}</div>`).hide().prependTo('#table-data').fadeIn(1000);
+
+                                                        $(".alert").delay(3000).fadeOut(
+                                                            "normal",
+                                                            function() {
+                                                                $(this).remove();
+                                                            });
+                                                    }
+                                                }))
                                         };
                                     </script>
                                 </tbody>

@@ -30,9 +30,9 @@
                             <table id="table-data" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Hari</th>
+                                        <!-- <th>Hari</th> -->
                                         <th>Tanggal</th>
-                                        <th>Waktu </th>
+                                        <!-- <th>Waktu </th> -->
                                     </tr>
                                 </thead>
                                 <tbody id="tableMemberK">
@@ -64,16 +64,17 @@
 
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
-                                                        const d = new Date(data.waktu);
-                                                        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                                                        let day = weekday[d.getDay()];
-                                                        let time = d.toLocaleTimeString();
-                                                        let date = d.toLocaleDateString();
+                                                        const d = data.waktu;
+                                                        // const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                                                        // let day = weekday[d.getDay()];
+                                                        // let time = d.toLocaleTimeString();
+                                                        // let date = d.toLocaleDateString();
+                                                        let date = d.replace(/([+\-]\d\d)(\d\d)$/, "$1:$2");
 
                                                         var body = `<tr>`;
-                                                        body += "<td>" + day + "</td>";
+                                                        // body += "<td>" + day + "</td>";
                                                         body += "<td>" + date + "</td>";
-                                                        body += "<td>" + time + "</td>";
+                                                        // body += "<td>" + time + "</td>";
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
                                                     });
@@ -82,7 +83,7 @@
                                                         responsive: true,
                                                         ordering: false,
                                                         "order": [
-                                                            [1, "desc"]
+                                                            [0, "desc"]
                                                         ]
                                                     });
                                                 },
