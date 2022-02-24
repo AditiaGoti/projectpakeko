@@ -1,9 +1,13 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Transaction Data
+                        <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Transaksi</button>
                         <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_transaksi'">Tambah</button>
                         <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_transaksi'">Tambah</button>
                     </h4>
@@ -35,6 +39,171 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" onclick="deleteData()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade " id="modalLaporan">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Masukan Tanggal Laporan</h5>
+                        <input id="startDate" type="date"> s/d
+                        <input id="endDate" type="date">
+                        <button type="button" onclick="checkDate()" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
+                        <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
+                        <hr>
+                        <script>
+                            function checkDate() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var myArray = [];
+                                var dataLaporan = document.getElementById("dataLaporan");
+                                const urlTE = "https://api.klubaderai.com/api/transaksi-export";
+
+                                var myHeaders = new Headers();
+                                myHeaders.append(
+                                    "Authorization",
+                                    token);
+                                var deleteRequest = {
+                                    method: "POST",
+                                    headers: myHeaders,
+                                    redirect: "follow",
+                                };
+
+                                var urlencoded = new URLSearchParams();
+                                urlencoded.append("start_date", document.getElementById("startDate").value);
+                                urlencoded.append("end_date", document.getElementById("endDate").value);
+
+                                var requestOptions = {
+                                    method: 'POST',
+                                    headers: myHeaders,
+                                    body: urlencoded,
+                                    redirect: 'follow'
+
+                                };
+
+                                fetch(urlTE, requestOptions)
+                                    .then(response => response.text())
+                                    .then((result => {
+                                        var data = JSON.parse(result);
+                                        var hasildata = data.success;
+                                        var message = data.message;
+                                        var totTrans = data.total_transbetween;
+                                        var tot = document.getElementById("totTrans");
+                                        var sum = document.getElementById("sumTrans");
+
+                                        tot.value = message;
+                                        sum.value = totTrans;
+                                    }))
+                                    .catch(error => console.log('error', error));
+                            }
+
+                            function print(result) {
+
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var myArray = [];
+                                var dataLaporan = document.getElementById("dataLaporan");
+                                const urlTE = "https://api.klubaderai.com/api/transaksi-export";
+
+                                var myHeaders = new Headers();
+                                myHeaders.append(
+                                    "Authorization",
+                                    token);
+                                var deleteRequest = {
+                                    method: "POST",
+                                    headers: myHeaders,
+                                    redirect: "follow",
+                                };
+
+                                var urlencoded = new URLSearchParams();
+                                urlencoded.append("start_date", document.getElementById("startDate").value);
+                                urlencoded.append("end_date", document.getElementById("endDate").value);
+
+                                var requestOptions = {
+                                    method: 'POST',
+                                    headers: myHeaders,
+                                    body: urlencoded,
+                                    redirect: 'follow'
+
+                                };
+
+                                fetch(urlTE, requestOptions)
+                                    .then(response => response.text())
+                                    .then((result => {
+                                        var dataparse = JSON.parse(result);
+                                        var hasil = dataparse.success;
+                                        var message = dataparse.message;
+
+                                        var data = dataparse.data;
+                                        var createXLSLFormatObj = [];
+                                        var xlsHeader = ["TID", "ID", "Nama", "Paket", "Nominal", "Tanggal", "Created By", "Keterangan"];
+                                        createXLSLFormatObj.push(xlsHeader);
+                                        $.each(data, function(i, data) {
+                                            const dte = data.updated_at;
+                                            const date = dte.split("T");
+                                            var nominal = data.nominal;
+                                            var bilangan = nominal.replace('.00', '');
+
+                                            var reverse = bilangan.toString().split('').reverse().join(''),
+                                                ribuan = reverse.match(/\d{1,3}/g);
+                                            ribuan = ribuan.join('.').split('').reverse().join('');
+
+                                            /* XLS Rows Data */
+                                            var xlsRows = [{
+                                                "TID": data.id,
+                                                "ID": data.id_member,
+                                                "Nama": data.nama_member,
+                                                "Paket": data.tipe_paket,
+                                                "Nominal": ribuan,
+                                                "Tanggal": date[0],
+                                                "Created_By": data.createdby,
+                                                "Keterangan": data.keterangan
+                                            }];
+
+                                            $.each(xlsRows, function(i, data) {
+                                                var innerRowData = [];
+                                                $.each(data, function(i, data) {
+
+                                                    innerRowData.push(data);
+                                                });
+                                                createXLSLFormatObj.push(innerRowData);
+                                            });
+                                        });
+                                        var filename = "Transaction Data.xlsx";
+
+                                        var ws_name = "Data Transaksi";
+                                        var wb = XLSX.utils.book_new(),
+                                            ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
+
+                                        XLSX.utils.book_append_sheet(wb, ws, ws_name);
+                                        XLSX.writeFile(wb, filename);
+
+                                    }))
+                                    .catch(error => console.log('error', error));
+
+                            }
+                        </script>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Total Transaksi</label>
+                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Jumlah Transaksi</label>
+                                <input id="sumTrans" disabled type="text" class="form-control " aria-label="name" style="margin-left: -2px;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -74,8 +243,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
         <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
