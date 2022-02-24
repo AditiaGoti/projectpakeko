@@ -17,7 +17,7 @@ if (!$_SESSION['type'] == 1) {
         <?php include(app_path() . '/includes/config/navbar.php'); ?>
         <div class="container-fluid page-body-wrapper">
             <?php include(app_path() . '/includes/config/sidebar.php'); ?>
-            <?php include(app_path() . '/includes/config/profile.php'); ?>
+            <?php include(app_path() . '/includes/config/newprofile.php'); ?>
         </div>
     </div>
     <?php include(app_path() . '/includes/config/footer.php'); ?>
