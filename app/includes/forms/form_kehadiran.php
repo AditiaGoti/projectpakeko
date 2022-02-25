@@ -1,3 +1,23 @@
+<style>
+    .profile-card{
+            position:relative;
+            overflow: hidden;
+            margin-top:-150px;
+            box-shadow:0px 2px 3px #222;
+            top:150px;
+        }
+        .profile-card:hover .profile-img img
+        {
+            transform: scale(1.2);
+        }
+        .profile-card .profile-img img{
+            width:100%;
+            height:auto;
+            transition: transform 1s;
+            
+        }
+        
+</style>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -26,10 +46,25 @@
                 <div class="card">
                     <div class="card-body">
                         <form onsubmit="daftarKehadiran();return false" id="form_kehadiran" class="form sample">
+                        <div class="row">
+                            <div class="col">    
                             <div class="form-group">
                                 <label>QR Code Value</label>
                                 <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
                             </div>
+                            <div class="form-group">
+                                        <label>Name</label>
+                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required /></div>
+                            <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
+                            </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="assets/images/logoo.png" alt="Team Image"/></div></div></div></div>
+
                             <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-sm">
                                 Submit
                             </button>
