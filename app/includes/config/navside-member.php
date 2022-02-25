@@ -7,9 +7,10 @@
         </a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-        </button>
+    <ul class="navbar-nav ml-auto">
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button> </ul>
     </div>
 </nav>
 <div class="container-fluid page-body-wrapper">
