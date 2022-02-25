@@ -382,6 +382,7 @@
         .navbar-menu-wrapper
         .navbar-toggler:not(.navbar-toggler-right) {
         display: none;
+        float: left;
     }
 }
 .navbar.default-layout .navbar-menu-wrapper .search-form {
