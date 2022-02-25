@@ -44,7 +44,7 @@
                                         <label>Email</label>
                                         <input id="member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
                                     </div>
-                                    <div class="form-group" style="padding-top: 5px;">
+                                    <div class="form-group">
                                         <label>Photo</label>
                                         <input id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg" type="file" />
                                     </div>
@@ -67,11 +67,10 @@
                                         <input id="member_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
                                     </div>
 
-                                    <button style="margin-top: 29px; margin-left:11px;" type="submit" class="btn btn-inverse-success ">
+                                    <button style="margin-top: 25px; margin-left:11px;" type="submit" class="btn btn-inverse-success ">
                                         Submit
                                     </button>
-                                    <button style="margin-top: 29px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark ">Cancel</button>
-
+                                    <button style="margin-top: 25px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark ">Cancel</button>
 
                                 </div>
                             </div>

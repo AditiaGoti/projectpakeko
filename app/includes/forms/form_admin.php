@@ -13,7 +13,7 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form id="form_admin" onsubmit="daftaradmin();return false" class="form sample">
+                        <form id="form_admin" enctype="multipart/form-data" onsubmit="daftaradmin();return false" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -31,6 +31,10 @@
                                     <div class="form-group">
                                         <label>Email</label>
                                         <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <input id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg" type="file" />
                                     </div>
                                 </div>
                                 <div class="col">
@@ -50,12 +54,12 @@
                                         <label> CPassword</label>
                                         <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
                                     </div>
+                                    <button style="margin-top: 25px; margin-left:11px;" type="submit" class="btn btn-inverse-success ">
+                                        Submit
+                                    </button>
+                                    <button style="margin-top: 25px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark ">Cancel</button>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
-                                Submit
-                            </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
 
                         </form>
 
@@ -66,46 +70,49 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
-                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                                var urlencoded = new URLSearchParams();
-                                urlencoded.append(
+                                var formdata = new FormData();
+                                formdata.append(
                                     "name",
                                     document.getElementById("admin_name").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "email",
                                     document.getElementById("admin_email").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "password",
                                     document.getElementById("admin_pass").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "password_confirmation",
                                     document.getElementById("admin_cpass").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tempat_lahir",
                                     document.getElementById("admin_pob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tanggal_lahir",
                                     document.getElementById("admin_dob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "nohp",
                                     document.getElementById("admin_nohp").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "alamat",
                                     document.getElementById("admin_address").value
+                                );
+                                formdata.append(
+                                    "img_path",
+                                    document.getElementById("admin_img").files[0]
                                 );
 
                                 var requestOptions = {
                                     method: "POST",
                                     headers: myHeaders,
-                                    body: urlencoded,
+                                    body: formdata,
                                     redirect: "follow",
                                 };
                                 fetch(
@@ -118,7 +125,7 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;
-                                        document.getElementById("form_admin").reset();
+
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
@@ -129,6 +136,7 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            document.getElementById("form_admin").reset();
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
