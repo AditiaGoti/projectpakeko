@@ -62,6 +62,10 @@
                                         <label> Confirm Password</label>
                                         <input id="member_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
                                     </div>
+                                    <div class="form-group" style="padding-top: 5px;">
+                                    <label for="formFileMultiple" class="form-label">Photo</label>
+<input class="form-control" type="file" id="formFileMultiple" multiple />
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-inverse-success btn-sm">
