@@ -174,7 +174,7 @@
                     }
                 },
                 error: function() {
-                    alert('Fail!');
+                    alert('Terjadi Kesalahan');
 
                 }
             });
@@ -257,7 +257,7 @@
                     }
                 },
                 error: function() {
-                    alert('Fail!');
+                    alert('Terjadi Kesalahan');
 
                 }
             });
@@ -333,7 +333,7 @@
                     }
                 },
                 error: function() {
-                    alert('Fail!');
+                    alert('Terjadi Kesalahan');
 
                 }
             });

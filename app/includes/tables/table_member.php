@@ -233,7 +233,7 @@
                                                     };
                                                 },
                                                 error: function() {
-                                                    alert('Fail!');
+                                                    alert('Terjadi Kesalahan');
                                                 }
                                             });
                                         });
