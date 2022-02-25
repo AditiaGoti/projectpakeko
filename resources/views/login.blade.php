@@ -55,7 +55,7 @@ if (isset($_SESSION['login_status'])) {
                     @csrf
                     <p> Email </p>
                     <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                        <input id="email" class="input100" type="text" name="email">
+                        <input required id="email" class="input100" type="text" name="email">
                         <span class="focus-input100"></span>
                     </div>
                     <p> Password </p>
@@ -63,7 +63,7 @@ if (isset($_SESSION['login_status'])) {
                         <span class="btn-show-pass">
                             <i class="zmdi zmdi-eye"></i>
                         </span>
-                        <input id="login_pass" class="input100" type="password" name="password">
+                        <input required id="login_pass" class="input100" type="password" name="password">
                         <span class="focus-input100"></span>
                     </div>
                     <div class="container-login100-form-btn">

@@ -42,7 +42,7 @@ class loginc extends Controller
 
         $response = curl_exec($curl);
         $decoded = json_decode($response);
-        curl_close($curl);
+
         // echo $response;
         $Login = $decoded->success;
 

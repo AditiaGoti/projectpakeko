@@ -25,7 +25,7 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form id="form_member" onsubmit="daftarMember();return false" class="form sample">
+                        <form id="form_member" enctype="multipart/form-data" onsubmit="daftarMember();return false" class="form sample">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -43,6 +43,10 @@
                                     <div class="form-group">
                                         <label>Email</label>
                                         <input id="member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
+                                    </div>
+                                    <div class="form-group" style="padding-top: 5px;">
+                                        <label>Photo</label>
+                                        <input id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg" type="file" />
                                     </div>
                                 </div>
                                 <div class="col">
@@ -62,65 +66,71 @@
                                         <label> Confirm Password</label>
                                         <input id="member_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
                                     </div>
-                                    <div class="form-group" style="padding-top: 5px;">
-                                    <label for="formFileMultiple" class="form-label">Photo</label>
-<input class="form-control" type="file" id="formFileMultiple" multiple />
-                                    </div>
+
+                                    <button style="margin-top: 29px; margin-left:11px;" type="submit" class="btn btn-inverse-success ">
+                                        Submit
+                                    </button>
+                                    <button style="margin-top: 29px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark ">Cancel</button>
+
+
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
-                                Submit
-                            </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
                         </form>
 
                         <script>
-                            function daftarMember() {
+                            // const input = document.getElementById('member_img');
+                            // input.addEventListener('change', () => {
+                            //     uploadFile(input.files[0]);
+                            // });
+
+                            function daftarMember(file) {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
-                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-
-                                var urlencoded = new URLSearchParams();
-                                urlencoded.append(
+                                var formdata = new FormData();
+                                formdata.append(
                                     "name",
                                     document.getElementById("member_name").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "email",
                                     document.getElementById("member_email").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "password",
                                     document.getElementById("member_pass").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "password_confirmation",
                                     document.getElementById("member_cpass").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tempat_lahir",
                                     document.getElementById("member_pob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tanggal_lahir",
                                     document.getElementById("member_dob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "nohp",
                                     document.getElementById("member_nohp").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "alamat",
                                     document.getElementById("member_address").value
+                                );
+                                formdata.append(
+                                    "img_path",
+                                    document.getElementById("member_img").files[0]
                                 );
 
                                 var requestOptions = {
                                     method: "POST",
                                     headers: myHeaders,
-                                    body: urlencoded,
+                                    body: formdata,
                                     redirect: "follow",
                                 };
                                 fetch(
@@ -144,6 +154,7 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            document.getElementById("form_member").reset();
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
@@ -155,10 +166,6 @@
                                                     $(this).remove();
                                                 });
                                         }
-
-                                        document.getElementById("form_member").reset();
-
-
                                     }))
                                     .catch((error => {
                                         $('<div class="alert alert-danger">' +
