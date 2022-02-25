@@ -63,7 +63,7 @@
                                             <h6 class="text-muted f-w-400">60kg</h6>
                                         </div>
                                         <div class="buttonupdate">
-                                            <button onclick="/includes/config/profile.php" style="margin-left:200px; margin-top:10px;" class="btn btn-inverse-info btn-fw">Edit Profile</button>
+                                            <button onclick="window.location.href='/editprofile'" style="margin-left:200px; margin-top:10px;" class="btn btn-inverse-info btn-fw">Edit Profile</button>
                                         </div>
                                     </div>
                                 </div>
@@ -91,15 +91,17 @@
 
                                 function build(data) {
 
-                                    img = data.img_path;
+                                    img = "https://api.klubaderai.com" +
+                                        data.img_path;
+
                                     name = data.name;
                                     pob = data.tempat_lahir;
                                     dob = data.tanggal_lahir;
                                     email = data.email;
                                     nohp = data.nohp;
                                     alamat = data.alamat;
-                                    console.log(img);
-                                    // $(`<img src="${img}" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image">`).appendTo('#img');
+
+                                    $(`<img src="${img}" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image">`).appendTo('#img');
                                     $(`<h6 class="text-muted f-w-400">${name}</h6>`).appendTo('#name');
                                     $(`<h6 class="text-muted f-w-400">${email}</h6>`).appendTo('#email');
                                     $(`<h6 class="text-muted f-w-400">${pob}</h6>`).appendTo('#pob');

@@ -82,7 +82,7 @@
                             //     uploadFile(input.files[0]);
                             // });
 
-                            function daftarMember(file) {
+                            function daftarMember() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();

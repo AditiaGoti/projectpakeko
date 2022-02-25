@@ -195,16 +195,23 @@
                         <form onsubmit="daftarKehadiran();return false" id="form_kehadiran" class="form sample">
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-group">
-                                        <label>QR Code Value</label>
-                                        <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px">QR Code Value</label>
+                                        <input id="id_member" type="text" class="form-control  form-control-lg" aria-label="name" required />
+                                        <div class="input-group-append">
+                                            <button onclick="checkID()" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i> </button>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Name</label>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:70px;">Name</label>
                                         <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                        <div class="input-group-append">
+                                            <button onclick="checkName()" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Date of Birth</label>
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:17px;">Date of Birth</label>
                                         <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
                                     </div>
                                 </div>
@@ -217,7 +224,6 @@
                                 </div>
                             </div>
                             <div class="buttonkehadiran">
-                                <button onclick="" type="button" class="btn btn-inverse-dark btn-sm">Check</button>
                                 <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-sm">
                                     Submit
                                 </button>
@@ -226,10 +232,113 @@
                         </form>
 
                         <script>
-                            function checkKehadiran() {
+                            function checkID() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var id = document.getElementById("id_member").value
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
+                                var requestOptions = {
+                                    method: "GET",
+                                    headers: myHeaders,
+                                    redirect: "follow",
+                                };
+                                fetch(
+                                        "https://api.klubaderai.com/api/users/" + id,
+                                        requestOptions
+                                    )
+                                    .then((response) => response.text())
+                                    .then((result => {
+
+                                        var data = JSON.parse(result);
+                                        var hasildata = data.success;
+                                        var message = data.message;
+                                        var namevalue = data.data.name;
+                                        var dobvalue = data.data.tanggal_lahir;
+                                        if (hasildata) {
+                                            var name = document.getElementById("member_name");
+                                            var dob = document.getElementById("member_dob");
+                                            name.value = namevalue;
+                                            dob.value = dobvalue;
+
+                                        } else {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                `&times;</button>${message}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        }
+
+
+                                    }))
+                                    .catch((error => {
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                    }));
                             }
 
+                            function checkName() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                const url = "https://api.klubaderai.com/api/users";
+                                var filter = {
+                                    name: document.getElementById("member_name").value,
+                                    tanggal_lahir: document.getElementById('member_dob').value
+
+
+                                };
+
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                                var requestOptions = {
+                                    method: 'GET',
+                                    headers: myHeaders,
+                                    redirect: 'follow'
+                                };
+
+                                fetch(url, requestOptions)
+                                    .then(response => response.text())
+                                    .then(result => {
+                                        var data = JSON.parse(result);
+                                        var users = data.data;
+
+                                        var filters = users.filter(function(item) {
+                                            for (var key in filter) {
+                                                if (item[key] === undefined || item[key] != filter[key])
+                                                    return false;
+                                            }
+                                            return true;
+                                        });
+                                        var filterData = users[0];
+                                        var id = filterData.id;
+                                        var name = filterData.name;
+                                        var dob = filterData.tanggal_lahir;
+
+                                        var input_id = document.getElementById("id_member");
+
+                                        input_id.value = id;
+
+
+                                    })
+                                    .catch(error => console.log('error', error));
+
+                            }
 
                             function daftarKehadiran() {
 
@@ -244,6 +353,14 @@
                                     "id_member",
                                     document.getElementById("id_member").value
                                 );
+                                urlencoded.append(
+                                    "name",
+                                    document.getElementById("member_name").value
+                                );
+                                urlencoded.append(
+                                    "tanggal_lahir",
+                                    document.getElementById("member_dob").value
+                                );
 
                                 var requestOptions = {
                                     method: "POST",
@@ -257,11 +374,10 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;
-                                        document.getElementById("form_kehadiran").reset();
+
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
@@ -272,6 +388,7 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            document.getElementById("form_kehadiran").reset();
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
