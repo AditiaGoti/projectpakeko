@@ -1,154 +1,169 @@
 <style>
-    .profile-card{
-            position:relative;
-            overflow: hidden;
-            margin-top:-150px;
-            box-shadow:0px 2px 3px #222;
-            top:150px;
-        }
-        .profile-card:hover .profile-img img
-        {
-            transform: scale(1.2);
-        }
-        .profile-card .profile-img img{
-            width:100%;
-            height:auto;
-            transition: transform 1s;
-            
-        }
-@media only screen and (min-width: 280px) and (max-width:360px) {
-    .profile-card{
-     
+    .profile-card {
+        position: relative;
+        overflow: hidden;
+        margin-top: -150px;
+        box-shadow: 0px 2px 3px #222;
+        top: 150px;
+    }
+
+    .profile-card:hover .profile-img img {
+        transform: scale(1.2);
+    }
+
+    .profile-card .profile-img img {
+        width: 100%;
+        height: auto;
+        transition: transform 1s;
+
+    }
+
+    @media only screen and (min-width: 280px) and (max-width:360px) {
+        .profile-card {
+
             overflow: hidden;
             margin-left: 15px;
         }
-        .profile-card:hover .profile-img img
-        {
+
+        .profile-card:hover .profile-img img {
             transform: scale(1.2);
         }
-        .profile-card .profile-img img{
-            width:100%;
-            height:auto;
+
+        .profile-card .profile-img img {
+            width: 100%;
+            height: auto;
             transition: transform 1s;
-            
+
         }
-        .buttonkehadiran{
-            margin-top:180px;
+
+        .buttonkehadiran {
+            margin-top: 180px;
             margin-left: 10px;
         }
-}
-@media only screen and (min-width:768px) and (max-width:898px)
-{
-    .user-card-full {
-    overflow: hidden;
-    width: 690px; 
-    margin-left:-50px;
-    margin-top: -50px;
     }
-    .m-b-25 {
-    margin-bottom: 0px;
-    margin-left: -5px;
-    
-}
-   .buttonupdate{
-     margin-left: -190px;
- }
-}
 
-@media only screen and (min-width:912px) and (max-width:992px)
-{
-    .user-card-full {
-    overflow: hidden;
-    width: 800px; 
-    margin-left:-50px;
-    margin-top: -50px;
+    @media only screen and (min-width:768px) and (max-width:898px) {
+        .user-card-full {
+            overflow: hidden;
+            width: 690px;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+
+        .m-b-25 {
+            margin-bottom: 0px;
+            margin-left: -5px;
+
+        }
+
+        .buttonupdate {
+            margin-left: -190px;
+        }
     }
-    .m-b-25 {
-    margin-bottom: 0px;
-    margin-left: -5px;
-    
-}
-   .buttonupdate{
-     margin-left: -190px;
- }
 
-}
-@media only screen and (min-width:400px) and (max-width:500px)
-{
-  .user-card-full {
-    overflow: hidden;
-    width: 320px; 
-    margin-left:-50px;
-    margin-top: -50px;
+    @media only screen and (min-width:912px) and (max-width:992px) {
+        .user-card-full {
+            overflow: hidden;
+            width: 800px;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+
+        .m-b-25 {
+            margin-bottom: 0px;
+            margin-left: -5px;
+
+        }
+
+        .buttonupdate {
+            margin-left: -190px;
+        }
+
     }
-    .m-b-25 {
-    margin-bottom: 0px;
-    margin-left: -5px;
-    
-}
-   .buttonupdate{
-     margin-left: -190px;
- }
 
-  
-}
-@media only screen and (min-width:540px) and (max-width:600px)
-{
-  .user-card-full {
-    overflow: hidden;
-    width: 380px; 
-    margin-left:0px;
-    margin-top: -50px;
+    @media only screen and (min-width:400px) and (max-width:500px) {
+        .user-card-full {
+            overflow: hidden;
+            width: 320px;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+
+        .m-b-25 {
+            margin-bottom: 0px;
+            margin-left: -5px;
+
+        }
+
+        .buttonupdate {
+            margin-left: -190px;
+        }
+
+
     }
-    .m-b-25 {
-    margin-bottom: 0px;
-    margin-left: -5px;
-    
-}
-   .buttonupdate{
-     margin-left: -190px;
- }
 
-  
-}
-@media only screen and (min-width:650px) and (max-width:699px)
-{
-  .user-card-full {
-    overflow: hidden;
-    width: 600px; 
-    margin-left:-60px;
-    margin-top: -50px;
+    @media only screen and (min-width:540px) and (max-width:600px) {
+        .user-card-full {
+            overflow: hidden;
+            width: 380px;
+            margin-left: 0px;
+            margin-top: -50px;
+        }
+
+        .m-b-25 {
+            margin-bottom: 0px;
+            margin-left: -5px;
+
+        }
+
+        .buttonupdate {
+            margin-left: -190px;
+        }
+
+
     }
-    .m-b-25 {
-    margin-bottom: 0px;
-    margin-left: -5px;
-    
-}
-   .buttonupdate{
-     margin-left: -190px;
- }
 
-  
-}
-@media only screen and (min-width:360px) and (max-width:399px){
+    @media only screen and (min-width:650px) and (max-width:699px) {
+        .user-card-full {
+            overflow: hidden;
+            width: 600px;
+            margin-left: -60px;
+            margin-top: -50px;
+        }
 
-    .user-card-full {
-    overflow: hidden;
-    width: 300px; 
-    margin-left:-60px;
-    margin-top: -50px;
+        .m-b-25 {
+            margin-bottom: 0px;
+            margin-left: -5px;
+
+        }
+
+        .buttonupdate {
+            margin-left: -190px;
+        }
+
+
     }
-    .m-b-25 {
-    margin-bottom: 0px;
-    margin-left: -2px;
-    
-}
-   .buttonupdate{
-     margin-left: -190px;
- }
 
-}
-        
+    @media only screen and (min-width:360px) and (max-width:399px) {
+
+        .user-card-full {
+            overflow: hidden;
+            width: 300px;
+            margin-left: -60px;
+            margin-top: -50px;
+        }
+
+        .m-b-25 {
+            margin-bottom: 0px;
+            margin-left: -2px;
+
+        }
+
+        .buttonupdate {
+            margin-left: -190px;
+        }
+
+    }
 </style>
 <div class="main-panel">
     <div class="content-wrapper">
@@ -178,62 +193,43 @@
                 <div class="card">
                     <div class="card-body">
                         <form onsubmit="daftarKehadiran();return false" id="form_kehadiran" class="form sample">
-                        <div class="row">
-                            <div class="col">    
-                            <div class="form-group">
-                                <label>QR Code Value</label>
-                                <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
-                            </div>
-                            <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>QR Code Value</label>
+                                        <input id="id_member" type="text" class="form-control form-control-lg" aria-label="name" required />
+                                    </div>
+                                    <div class="form-group">
                                         <label>Name</label>
-                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required /></div>
-                            <div class="form-group">
+                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                    </div>
+                                    <div class="form-group">
                                         <label>Date of Birth</label>
                                         <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
-                            </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                              <div class="profile-card">
-                                <div class="profile-img">
-                                    <img src="assets/images/logoo.png" alt="Team Image"/>
+                                    </div>
                                 </div>
-                               </div>
+                                <div class="col-sm-6 col-md-3">
+                                    <div class="profile-card">
+                                        <div class="profile-img">
+                                            <img src="assets/images/logoo.png" alt="Team Image" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="buttonkehadiran">
-                            <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-sm">
-                                Submit
-                            </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button></div>
+                            <div class="buttonkehadiran">
+                                <button onclick="" type="button" class="btn btn-inverse-dark btn-sm">Check</button>
+                                <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-sm">
+                                    Submit
+                                </button>
+                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            </div>
                         </form>
 
                         <script>
-                            $("#btn").click(function() {
+                            function checkKehadiran() {
 
-                                $('<div class="alert alert-success">' +
-                                    '<button type="button" class="close" data-dismiss="alert">' +
-                                    '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
-
-                                $(".alert").delay(3000).fadeOut(
-                                    "normal",
-                                    function() {
-                                        $(this).remove();
-                                    });
-
-                            });
-                            var myalert = document.getElementById("alert");
-                            var failalert = document.getElementById("alertfail");
-                            var close = document.getElementsByClassName("close");
-                            var i;
-                            for (i = 0; i < close.length; i++) {
-                                close[i].onclick = function() {
-                                    var div = this.parentElement;
-                                    div.style.opacity = "0";
-                                    setTimeout(function() {
-                                        div.style.display = "none";
-                                    }, 600);
-                                }
                             }
+
 
                             function daftarKehadiran() {
 
@@ -242,7 +238,6 @@
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
 
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(
