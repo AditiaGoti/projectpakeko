@@ -50,28 +50,14 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Tinggi Badan</p>
-                                            <h6 class="text-muted f-w-400">160cm</h6>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Berat Badan</p>
-                                            <h6 class="text-muted f-w-400">60kg</h6>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Goals Berat Badan</p>
-                                            <h6 class="text-muted f-w-400">60kg</h6>
-                                        </div>
-                                        
-                                        
+                                        </div>  
                                     </div>
                                     <div class="buttonupdate">
                                             <button id="EPAdmin" style=" display: none; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
-                                            <button id="EPMember" style=" display: none; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
+                                            <button id="EPMember" style=" display: none;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
                                     <div class="buttoncp">
                                             <button id="CPAdmin" style="display: none; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
-                                            <button id="CPMember" style="display: none;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
+                                            <button id="CPMember" style="display: none;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
                                 </div>                                        
                                 </div>
                             </div>
