@@ -52,11 +52,15 @@
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Tinggi</p>
+                                            <p class="m-b-10 f-w-600">Tinggi Badan</p>
                                             <h6 class="text-muted f-w-400">160cm</h6>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Berat</p>
+                                            <p class="m-b-10 f-w-600">Berat Badan</p>
+                                            <h6 class="text-muted f-w-400">60kg</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Goals Berat Badan</p>
                                             <h6 class="text-muted f-w-400">60kg</h6>
                                         </div>
                                         
