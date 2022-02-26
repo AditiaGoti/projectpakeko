@@ -195,30 +195,34 @@
                         <form onsubmit="daftarKehadiran();return false" id="form_kehadiran" class="form sample">
                             <div class="row">
                                 <div class="col">
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px">QR Code Value</label>
-                                        <input id="id_member" type="text" class="form-control  form-control-lg" aria-label="name" required />
-                                        <div class="input-group-append">
-                                            <button onclick="checkID()" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i> </button>
+                                    <form>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px">QR Code Value</label>
+                                            <input required id="id_member" type="text" class="form-control  form-control-lg" aria-label="name" required />
+                                            <div class="input-group-append">
+                                                <button onclick="checkID(); return false" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i> </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                     <hr>
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:70px;">Name</label>
-                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
-                                        <div class="input-group-append">
-                                            <button onclick="checkName()" class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                                    <form onsubmit="checkName(); return false">
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:70px;">Name</label>
+                                            <input required id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i></button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:17px;">Date of Birth</label>
-                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
-                                    </div>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:17px;">Date of Birth</label>
+                                            <input required id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="profile-card">
-                                        <div class="profile-img">
-                                            <img src="assets/images/logoo.png" alt="Team Image" />
+                                        <div id="member_img" class="profile-img">
+
                                         </div>
                                     </div>
                                 </div>
@@ -235,7 +239,7 @@
                             function checkID() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var id = document.getElementById("id_member").value
+                                var id = document.getElementById("id_member").value;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -257,11 +261,15 @@
                                         var message = data.message;
                                         var namevalue = data.data.name;
                                         var dobvalue = data.data.tanggal_lahir;
+                                        var imgvalue = "https://api.klubaderai.com" +
+                                            data.data.img_path;
                                         if (hasildata) {
                                             var name = document.getElementById("member_name");
                                             var dob = document.getElementById("member_dob");
                                             name.value = namevalue;
                                             dob.value = dobvalue;
+
+                                            $(`<img src="${imgvalue}" alt="Team Image" />`).appendTo('#member_img');
 
                                         } else {
                                             $('<div class="alert alert-danger">' +
@@ -280,7 +288,7 @@
                                     .catch((error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            `&times;</button>${error}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
@@ -295,12 +303,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var type = '<?php echo $_SESSION['type']; ?>'
                                 const url = "https://api.klubaderai.com/api/users";
-                                var filter = {
-                                    name: document.getElementById("member_name").value,
-                                    tanggal_lahir: document.getElementById('member_dob').value
 
-
-                                };
 
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -316,7 +319,13 @@
                                     .then(response => response.text())
                                     .then(result => {
                                         var data = JSON.parse(result);
+                                        var hasildata = data.success;
                                         var users = data.data;
+
+                                        var filter = {
+                                            name: document.getElementById("member_name").value,
+                                            tanggal_lahir: document.getElementById('member_dob').value
+                                        };
 
                                         var filters = users.filter(function(item) {
                                             for (var key in filter) {
@@ -325,15 +334,15 @@
                                             }
                                             return true;
                                         });
-                                        var filterData = users[0];
+                                        var filterData = filters[0];
                                         var id = filterData.id;
                                         var name = filterData.name;
                                         var dob = filterData.tanggal_lahir;
-
+                                        var imgvalue = "https://api.klubaderai.com/storage/" + filterData.img_path;
                                         var input_id = document.getElementById("id_member");
 
                                         input_id.value = id;
-
+                                        $(`<img src="${imgvalue}" alt="Team Image" />`).appendTo('#member_img');
 
                                     })
                                     .catch(error => console.log('error', error));

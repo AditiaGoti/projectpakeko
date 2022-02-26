@@ -122,7 +122,6 @@
                                     alamat = data.alamat;
 
                                     $(`<img src="${img}" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image">`).appendTo('#img');
-
                                     $(`<h6 class="text-muted f-w-400">${email}</h6>`).appendTo('#email');
                                     $(`<h6 class="text-muted f-w-400">${pob}</h6>`).appendTo('#pob');
                                     $(`<h6 class="text-muted f-w-400">${dob}</h6>`).appendTo('#dob');
