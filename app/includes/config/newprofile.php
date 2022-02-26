@@ -64,6 +64,7 @@
                                             <h6 class="text-muted f-w-400">60kg</h6>
                                         </div>
                                         
+                                        
                                     </div>
                                     <div class="buttonupdate">
                                             <button id="EPAdmin" style=" display: none; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
