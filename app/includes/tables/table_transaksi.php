@@ -52,7 +52,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body"style="height:135px">
                         <h5>Masukan Tanggal Laporan</h5>
                         <input id="startDate" type="date"> s/d
                         <input id="endDate" type="date">
