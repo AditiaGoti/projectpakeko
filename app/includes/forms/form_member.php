@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Photo</label>
-                                        <input id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg" type="file" />
+                                        <input id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
                                     </div>
                                 </div>
                                 <div class="col">
