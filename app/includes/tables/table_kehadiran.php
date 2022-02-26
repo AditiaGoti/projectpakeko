@@ -77,11 +77,11 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.message;
-                                        console.log(data);
                                         var totTrans = data.total;
-                                        var tot = document.getElementById("totTrans");
 
-                                        tot.value = totTrans;
+                                        $(`<p style="margin-left:5px; float :right; margin-top:-5.3px;">${totTrans} </p>`)
+                                            .hide().prependTo('#totKehadiran').fadeIn(500);
+
                                     }))
                                     .catch(error => console.log('error', error));
                             }
@@ -166,8 +166,7 @@
                         </script>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Total Kehadiran : <p style="margin-left:5px; float :right; margin-top:-5.3px;"></p></label>
-                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
+                                <label id="totKehadiran">Total Kehadiran : </label>
                             </div>
 
                         </div>

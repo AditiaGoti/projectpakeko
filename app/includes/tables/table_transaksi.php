@@ -94,13 +94,19 @@
                                     .then((result => {
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.message;
+                                        var totTransBilangan = data.total_trans;
                                         var totTrans = data.total_transbetween;
-                                        var tot = document.getElementById("totTrans");
-                                        var sum = document.getElementById("sumTrans");
+                                        var nominal = totTrans;
 
-                                        tot.value = message;
-                                        sum.value = totTrans;
+                                        var reverse = nominal.toString().split('').reverse().join(''),
+                                            ribuan = reverse.match(/\d{1,3}/g);
+                                        ribuan = ribuan.join('.').split('').reverse().join('');
+
+                                        $(`<p style="margin-left:5px; float :right; margin-top:-5.3px;"> ${totTransBilangan}</p>`)
+                                            .hide().prependTo('#totTrans').fadeIn(500);
+                                        $(`<p style="margin-left:5px; float :right; margin-top:-5.3px;"> ${ribuan}</p>`)
+                                            .hide().prependTo('#sumTrans').fadeIn(500);
+
                                     }))
                                     .catch(error => console.log('error', error));
                             }
@@ -193,12 +199,12 @@
                         </script>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Total Transaksi :  <p style="margin-left:5px; float :right; margin-top:-5.3px;"> test</p></label>
-                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
+                                <label id="totTrans">Total Transaksi :</label>
+                                <!-- <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" /> -->
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Jumlah Transaksi :  <p style="margin-left: 5px; float :right; margin-top:-5.3px;"> test</p></label>
-                                <input id="sumTrans" disabled type="text" class="form-control " aria-label="name" style="margin-left: -2px;" />
+                                <label id="sumTrans">Jumlah Transaksi : </label>
+                                <!-- <input id="sumTrans" disabled type="text" class="form-control " aria-label="name" style="margin-left: -2px;" /> -->
                             </div>
                         </div>
                     </div>
