@@ -193,11 +193,11 @@
                         </script>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Total Transaksi</label>
+                                <label>Total Transaksi :  <p style="margin-left:5px; float :right; margin-top:-5.3px;"> test</p></label>
                                 <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Jumlah Transaksi</label>
+                                <label>Jumlah Transaksi :  <p style="margin-left: 5px; float :right; margin-top:-5.3px;"> test</p></label>
                                 <input id="sumTrans" disabled type="text" class="form-control " aria-label="name" style="margin-left: -2px;" />
                             </div>
                         </div>

@@ -166,7 +166,7 @@
                         </script>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Total Kehadiran</label>
+                                <label>Total Kehadiran : <p style="margin-left:5px; float :right; margin-top:-5.3px;"></p></label>
                                 <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
                             </div>
 
