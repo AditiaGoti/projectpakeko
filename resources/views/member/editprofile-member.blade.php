@@ -17,7 +17,7 @@ if (!$_SESSION['type'] == 0) {
 <body>
     <div class="container-scroller">
         <?php include(app_path() . '/includes/config/navside-member.php'); ?>
-        <?php include(app_path() . '/includes/config/newprofile.php'); ?>
+        <?php include(app_path() . '/includes/config/profile.php'); ?>
     </div>
     </div>
     <?php include(app_path() . '/includes/config/footer.php'); ?>

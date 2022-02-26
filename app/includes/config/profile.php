@@ -4,9 +4,6 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Merubah Data Profile
-                        <button id="CPAdmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
-                        <button id="CPMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
-                        <button onclick="enabledText()" id="enabledText" style="float:right; margin-left:5px; display: block; " class="btn btn-inverse-info btn-fw">Edit Profile</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -39,29 +36,29 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input disabled id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input disabled id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
+                                        <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Place of Birth</label>
-                                        <input disabled id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
+                                        <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
-                                        <input disabled id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
+                                        <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input disabled type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                        <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input disabled type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
+                                        <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
                                     </div>
 
                                 </div>
@@ -113,22 +110,6 @@
                             }
                         </script>
                         <script>
-                            function enabledText() {
-                                document.getElementById("admin_name").disabled = false;
-                                document.getElementById("admin_pob").disabled = false;
-                                document.getElementById("admin_dob").disabled = false;
-                                document.getElementById("admin_nohp").disabled = false;
-                                document.getElementById("admin_address").disabled = false;
-                            }
-
-                            function disabledText() {
-                                document.getElementById("admin_name").disabled = true;
-                                document.getElementById("admin_pob").disabled = true;
-                                document.getElementById("admin_dob").disabled = true;
-                                document.getElementById("admin_nohp").disabled = true;
-                                document.getElementById("admin_address").disabled = true;
-                            }
-
                             function updateProfile() {
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';

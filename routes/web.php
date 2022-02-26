@@ -28,6 +28,9 @@ Route::get('/logout', function () {
 Route::view('/profile-admin', 'admin/view-admin/profile-admin');
 Route::view('/profile-member', 'member/profile-member');
 
+Route::view('/editprofile-admin', 'admin/view-admin/editprofile-admin');
+Route::view('/editprofile-member', 'member/editprofile-member');
+
 Route::view('/changepass-admin', 'admin/view-admin/changepass-admin');
 Route::view('/changepass-member', 'member/changepass-member');
 

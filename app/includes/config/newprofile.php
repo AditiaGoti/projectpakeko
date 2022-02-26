@@ -25,11 +25,11 @@
                             <div class="col-sm-4 bg-c-lite-green user-profile">
                                 <div class="card-block text-center text-white">
                                     <div id="img" class="m-b-25">
-                                        <!-- <img src="assets/images/logoo.png" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image"> -->
-                                    </div>
 
-                                    <!-- <h7 style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="f-w-600">Aditia Goti</h7> -->
-                                    <!-- <p style=" font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Member</p> -->
+                                    </div>
+                                    <h7 style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
+                                    <p id="member" style="display:none; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Member</p>
+                                    <p id="admin" style=" display:none; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Admin</p>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -38,9 +38,6 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p id="email" class="m-b-10 f-w-600">Email</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p id="name" class="m-b-10 f-w-600">Name</p>
                                         </div>
                                         <div class="col-sm-6">
                                             <p id="pob" class="m-b-10 f-w-600">Place of Birth</p>
@@ -63,12 +60,33 @@
                                             <h6 class="text-muted f-w-400">60kg</h6>
                                         </div>
                                         <div class="buttonupdate">
-                                            <button onclick="window.location.href='/editprofile'" style="margin-left:200px; margin-top:10px;" class="btn btn-inverse-info btn-fw">Edit Profile</button>
+                                            <button id="EPAdmin" style=" display: none;margin-left:200px; margin-top:10px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                            <button id="EPMember" style=" display: none;margin-left:200px; margin-top:10px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button>
+                                            <button id="CPAdmin" style="display: none; margin-left:200px; margin-top:10px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
+                                            <button id="CPMember" style="display: none; margin-left:200px; margin-top:10px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <script>
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                if (type == 1) {
+                                    var admin = document.getElementById("admin")
+                                    var epadmin = document.getElementById("EPAdmin")
+                                    var cpadmin = document.getElementById("CPAdmin")
+                                    admin.style.display = 'block'
+                                    epadmin.style.display = 'block'
+                                    cpadmin.style.display = 'block'
 
+                                } else {
+                                    var member = document.getElementById("member")
+                                    var epmember = document.getElementById("EPMember")
+                                    var cpmember = document.getElementById("CPMember")
+                                    member.style.display = 'block'
+                                    epmember.style.display = 'block'
+                                    cpmember.style.display = 'block'
+                                }
+                            </script>
                             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                             <script>
                                 var myArray = [];
@@ -102,7 +120,7 @@
                                     alamat = data.alamat;
 
                                     $(`<img src="${img}" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image">`).appendTo('#img');
-                                    $(`<h6 class="text-muted f-w-400">${name}</h6>`).appendTo('#name');
+
                                     $(`<h6 class="text-muted f-w-400">${email}</h6>`).appendTo('#email');
                                     $(`<h6 class="text-muted f-w-400">${pob}</h6>`).appendTo('#pob');
                                     $(`<h6 class="text-muted f-w-400">${dob}</h6>`).appendTo('#dob');
