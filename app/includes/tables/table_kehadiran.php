@@ -166,7 +166,7 @@
                         </script>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Total Transaksi</label>
+                                <label>Total Kehadiran</label>
                                 <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
                             </div>
 
