@@ -1526,7 +1526,7 @@ body {
     
 }
 .buttonupdate{
-    margin-left: -190px;
+    margin-left: -360px;
 }
 }
 @media only screen and (min-width:768px) and (max-width:898px)
@@ -1542,9 +1542,10 @@ body {
     margin-left: -5px;
     
 }
-   .buttonupdate{
-     margin-left: -190px;
- }
+.buttonupdate{
+    margin-left: -220px;
+}
+  
 }
 
 @media only screen and (min-width:912px) and (max-width:992px)
@@ -1561,7 +1562,7 @@ body {
     
 }
    .buttonupdate{
-     margin-left: -190px;
+     margin-left: -150px;
  }
 
 }
@@ -1578,10 +1579,9 @@ body {
     margin-left: -5px;
     
 }
-   .buttonupdate{
-     margin-left: -190px;
- }
-
+.buttonupdate{
+    margin-left: -345px;
+}
   
 }
 @media only screen and (min-width:540px) and (max-width:600px)
@@ -1598,7 +1598,7 @@ body {
     
 }
    .buttonupdate{
-     margin-left: -190px;
+     margin-left: -280px;
  }
 
   
@@ -1636,8 +1636,13 @@ body {
     
 }
    .buttonupdate{
-     margin-left: -190px;
+     margin-left: -360px;
  }
+   .buttoncp{
+       margin-left: 60px;
+       padding-left: 10px;
+       
+   }
 
 }
 .m-r-0 {
