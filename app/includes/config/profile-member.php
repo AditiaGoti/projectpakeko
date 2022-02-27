@@ -118,7 +118,6 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
-                                myHeaders.append("Content-Type", "application/x-www-form-formdata");
 
                                 var formdata = new FormData();
                                 formdata.append(
@@ -156,16 +155,33 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        $('<div class="alert alert-success">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
 
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
-                                        disabledText();
+                                        var data = JSON.parse(result);
+                                        var hasildata = data.success;
+                                        var message = data.errors;
+
+                                        if (hasildata) {
+                                            $('<div class="alert alert-success">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        } else {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                `&times;</button>${message}</div>`).hide().prependTo('#form_profile').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        }
+
                                     }))
                                     .catch((error => {
                                         $('<div class="alert alert-danger">' +
