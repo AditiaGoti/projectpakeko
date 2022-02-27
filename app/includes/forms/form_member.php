@@ -46,7 +46,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Photo</label>
-                                        <input id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <input onchange="Filevalidation()" id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <label>Max File 2MB</label>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -77,10 +78,23 @@
                         </form>
 
                         <script>
-                            // const input = document.getElementById('member_img');
-                            // input.addEventListener('change', () => {
-                            //     uploadFile(input.files[0]);
-                            // });
+                            Filevalidation = () => {
+                                const fi = document.getElementById('member_img');
+                                // Check if any file is selected.
+                                if (fi.files.length > 0) {
+                                    for (const i = 0; i <= fi.files.length - 1; i++) {
+
+                                        const fsize = fi.files.item(i).size;
+                                        const file = Math.round((fsize / 1024));
+                                        // The size of the file.
+                                        if (file > 2048) {
+                                            alert(
+                                                "File Terlalu Besar, tolong pilih file dibawah 2 MB");
+                                            fi.value = "";
+                                        }
+                                    }
+                                }
+                            }
 
                             function daftarMember() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
