@@ -35,7 +35,7 @@
 
                                     <div class="form-group">
                                         <label>Photo</label>
-                                        <input onchange="Filevalidation()" id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <input onchange="Filevalidation()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
                                         <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
 
                         <script>
                             Filevalidation = () => {
-                                const fi = document.getElementById('member_img');
+                                const fi = document.getElementById('admin_img');
                                 // Check if any file is selected.
                                 if (fi.files.length > 0) {
                                     for (const i = 0; i <= fi.files.length - 1; i++) {
@@ -83,6 +83,8 @@
                                     }
                                 }
                             }
+
+
 
                             function daftaradmin() {
 
