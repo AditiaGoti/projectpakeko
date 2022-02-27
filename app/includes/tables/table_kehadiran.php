@@ -77,7 +77,6 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.message;
-                                        console.log(data);
                                         var totTrans = data.total;
                                         var tot = document.getElementById("totTrans");
 

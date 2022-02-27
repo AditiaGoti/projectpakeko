@@ -62,7 +62,6 @@
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var pakID = sessionStorage.getItem("id-paket");
-                            console.log(pakID)
                             const url = "https://api.klubaderai.com/api/pakets/" + pakID;
 
                             $.ajax({
