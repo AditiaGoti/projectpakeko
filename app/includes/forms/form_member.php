@@ -47,7 +47,7 @@
                                     <div class="form-group">
                                         <label>Photo</label>
                                         <input onchange="Filevalidation()" id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
-                                        <label>Max File 2MB</label>
+                                        <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
                                 </div>
                                 <div class="col">
