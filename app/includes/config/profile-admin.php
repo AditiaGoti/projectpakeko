@@ -5,17 +5,7 @@
                 <div class="page-header">
                     <h4 class="page-title">Merubah Data Profile
                     </h4>
-                    <script>
-                        var type = '<?php echo $_SESSION['type']; ?>'
-                        if (type == 1) {
-                            var btnCPA = document.getElementById("CPAdmin")
-                            btnCPA.style.display = 'block'
 
-                        } else {
-                            var btnCPM = document.getElementById("CPMember")
-                            btnCPM.style.display = 'block'
-                        }
-                    </script>
                 </div>
             </div>
         </div>
@@ -46,8 +36,6 @@
                                         <label>Place of Birth</label>
                                         <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
                                     </div>
-                                </div>
-                                <div class="col">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
@@ -56,17 +44,26 @@
                                         <label>Phone Number</label>
                                         <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
                                     </div>
+                                </div>
+                                <div class="col">
+
                                     <div class="form-group">
                                         <label>Address</label>
                                         <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
                                     </div>
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <img id="adminimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
+                                        <input onchange="VerifyUploadSizeIsOK()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <label>Max File 2MB</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-inverse-success btn-fw">
+                                        Submit
+                                    </button>
+                                    <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
 
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-fw">
-                                Submit
-                            </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
 
                         </form>
                         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -76,7 +73,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var form = document.getElementById("form_profile");
-                            const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                            const url = "https://api.klubaderai.com/api/admin" + "/" + id;
 
                             $.ajax({
                                 method: "GET",
@@ -99,6 +96,8 @@
                                 var alamat = document.getElementById("admin_address");
                                 var pass = document.getElementById("admin_pass");
                                 var cpass = document.getElementById("admin_cpass");
+                                var img = document.getElementById("admin_img");
+                                var imgv = document.getElementById("adminimg_values");
 
                                 name.value = data.name;
                                 pob.value = data.tempat_lahir;
@@ -106,7 +105,8 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
-
+                                imgv.src = "https://api.klubaderai.com/public/storage/" +
+                                    data.img_path;
                             }
                         </script>
                         <script>
@@ -116,100 +116,84 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
-                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                                var urlencoded = new URLSearchParams();
-                                urlencoded.append(
+                                var formdata = new FormData();
+                                formdata.append(
                                     "name",
                                     document.getElementById("admin_name").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tempat_lahir",
                                     document.getElementById("admin_pob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tanggal_lahir",
                                     document.getElementById("admin_dob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "nohp",
                                     document.getElementById("admin_nohp").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "alamat",
                                     document.getElementById("admin_address").value
                                 );
 
                                 var requestOptions = {
-                                    method: "PATCH",
+                                    method: "POST",
                                     headers: myHeaders,
-                                    body: urlencoded,
+                                    body: formdata,
                                     redirect: "follow",
                                 };
 
-                                var type = '<?php echo $_SESSION['type']; ?>'
-                                if (type == 1) {
-                                    fetch(
-                                            "https://api.klubaderai.com/api/admin" + "/" + id,
-                                            requestOptions
-                                        )
-                                        .then((response) => response.text())
-                                        .then((result => {
-                                            $('<div class="alert alert-success">' +
-                                                '<button type="button" class="close" data-dismiss="alert">' +
-                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
 
-                                            $(".alert").delay(3000).fadeOut(
-                                                "normal",
-                                                function() {
-                                                    $(this).remove();
-                                                });
-                                            disabledText();
-                                        }))
-                                        .catch((error => {
-                                            $('<div class="alert alert-danger">' +
-                                                '<button type="button" class="close" data-dismiss="alert">' +
-                                                '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+                                fetch(
+                                        "https://api.klubaderai.com/api/admin" + "/" + id,
+                                        requestOptions
+                                    )
+                                    .then((response) => response.text())
+                                    .then((result => {
+                                        $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
 
-                                            $(".alert").delay(3000).fadeOut(
-                                                "normal",
-                                                function() {
-                                                    $(this).remove();
-                                                });
-                                        }));
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                        disabledText();
+                                    }))
+                                    .catch((error => {
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);
 
-                                } else {
-                                    fetch(
-                                            "https://api.klubaderai.com/api/users" + "/" + id,
-                                            requestOptions
-                                        )
-                                        .then((response) => response.text())
-                                        .then((result => {
-                                            $('<div class="alert alert-success">' +
-                                                '<button type="button" class="close" data-dismiss="alert">' +
-                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_profile').fadeIn(1000);
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                    }));
 
-                                            $(".alert").delay(3000).fadeOut(
-                                                "normal",
-                                                function() {
-                                                    $(this).remove();
-                                                });
-                                            disabledText();
-                                        }))
-                                        .catch((error => {
-                                            $('<div class="alert alert-danger">' +
-                                                '<button type="button" class="close" data-dismiss="alert">' +
-                                                '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);
 
-                                            $(".alert").delay(3000).fadeOut(
-                                                "normal",
-                                                function() {
-                                                    $(this).remove();
-                                                });
-                                        }));
+                            }
+
+                            function VerifyUploadSizeIsOK() {
+                                const UploadFieldID = "admin_img";
+                                var MaxSizeInBytes = 2097152;
+                                var fld = document.getElementById(UploadFieldID);
+                                if (fld.files && fld.files.length == 1 && fld.files[0].size > MaxSizeInBytes) {
+                                    fld.value = "";
+                                    alert("The file size must be no more than " + parseInt(MaxSizeInBytes / 1024 / 1024) + "MB");
                                 }
 
-
+                                var imgv = document.getElementById('adminimg_values');
+                                imgv.src = "";
+                                imgv.src = URL.createObjectURL(fld.files[0]);
+                                imgv.onload = function() {
+                                    URL.revokeObjectURL(imgv.src) // free memory
+                                }
                             }
                         </script>
 

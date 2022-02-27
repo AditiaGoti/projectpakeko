@@ -124,7 +124,7 @@
                                                var data = JSON.parse(result);
                                                var hasildata = data.success;
                                                var message = data.message;
-                                               document.getElementById("form_transaksi").reset();
+
                                                if (hasildata) {
                                                    $('<div class="alert alert-success">' +
                                                        '<button type="button" class="close" data-dismiss="alert">' +
@@ -135,6 +135,7 @@
                                                        function() {
                                                            $(this).remove();
                                                        });
+                                                   document.getElementById("form_transaksi").reset();
                                                } else {
                                                    $('<div class="alert alert-danger">' +
                                                        '<button type="button" class="close" data-dismiss="alert">' +

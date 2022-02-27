@@ -28,8 +28,7 @@
 
                                     </div>
                                     <h7 style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
-                                    <p id="member" style="display:none; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Member</p>
-                                    <p id="admin" style=" display:none; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Admin</p>
+                                    <p id="admin" style=" display:block; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Admin</p>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -50,36 +49,18 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
-                                        </div>  
+                                        </div>
                                     </div>
                                     <div class="buttonupdate">
-                                            <button id="EPAdmin" style=" display: none; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
-                                            <button id="EPMember" style=" display: none;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
+                                        <button id="EPAdmin" style=" display: block; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+
+                                    </div>
                                     <div class="buttoncp">
-                                            <button id="CPAdmin" style="display: none; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
-                                            <button id="CPMember" style="display: none;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
-                                </div>                                        
+                                        <button id="CPAdmin" style="display: block; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
+
+                                    </div>
                                 </div>
                             </div>
-                            <script>
-                                var type = '<?php echo $_SESSION['type']; ?>'
-                                if (type == 1) {
-                                    var admin = document.getElementById("admin")
-                                    var epadmin = document.getElementById("EPAdmin")
-                                    var cpadmin = document.getElementById("CPAdmin")
-                                    admin.style.display = 'block'
-                                    epadmin.style.display = 'block'
-                                    cpadmin.style.display = 'block'
-
-                                } else {
-                                    var member = document.getElementById("member")
-                                    var epmember = document.getElementById("EPMember")
-                                    var cpmember = document.getElementById("CPMember")
-                                    member.style.display = 'block'
-                                    epmember.style.display = 'block'
-                                    cpmember.style.display = 'block'
-                                }
-                            </script>
                             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                             <script>
                                 var myArray = [];
