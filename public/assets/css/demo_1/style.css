@@ -1638,11 +1638,9 @@ body {
    .buttonupdate{
      margin-left: -360px;
  }
-   .buttoncp{
-       margin-left: 60px;
-       padding-left: 10px;
-       
-   }
+   .buttonchangephoto{
+    margin-left: 0px;
+}
 
 }
 .m-r-0 {
@@ -1732,5 +1730,14 @@ body {
     margin: 0 10px 0 0;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out
+}
+.buttonchangephoto{
+    margin-left: 110px;
+}
+@media only screen and (min-width:360px) and (max-width:399px){
+
+   .buttonchangephoto{
+    margin-left: 104px;
+}
 }
 /*# sourceMappingURL=style.css.map */
