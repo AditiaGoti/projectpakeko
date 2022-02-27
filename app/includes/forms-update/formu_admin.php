@@ -28,9 +28,6 @@
                                         <label>Place of Birth</label>
                                         <input id="admin_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir admin" aria-label="pob" required />
                                     </div>
-
-                                </div>
-                                <div class="col">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
@@ -39,26 +36,64 @@
                                         <label>Phone Number</label>
                                         <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
                                     </div>
+
+
+
+                                </div>
+                                <div class="col">
                                     <div class="form-group">
                                         <label>Address</label>
                                         <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
                                     </div>
+
+
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <img id="adminimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
+                                        <input onchange="Filevalidation()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <label>Max File 2MB</label>
+                                    </div>
+                                    <button type="submit" id="btn" class="btn btn-inverse-success btn-sm">
+                                        Submit
+                                    </button>
+                                    <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+
                                 </div>
                             </div>
-                            <button type="submit" id="btn" class="btn btn-inverse-success btn-sm">
-                                Submit
-                            </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
 
                         </form>
 
                         <script>
+                            Filevalidation = () => {
+                                const fi = document.getElementById('admin_img');
+                                // Check if any file is selected.
+                                if (fi.files.length > 0) {
+                                    for (const i = 0; i <= fi.files.length - 1; i++) {
+
+                                        const fsize = fi.files.item(i).size;
+                                        const file = Math.round((fsize / 1024));
+                                        // The size of the file.
+                                        if (file > 2048) {
+                                            alert(
+                                                "File Terlalu Besar, tolong pilih file dibawah 2 MB");
+                                            fi.value = "";
+                                        }
+                                    }
+                                }
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    fi.src = reader.result;
+                                };
+                                reader.readAsDataURL(event.target.files[0]);
+
+                            }
+
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var admID = sessionStorage.getItem("id-admin");
                             var form = document.getElementById("form_admin");
-                            const url = "https://api.klubaderai.com/api/users" + "/" + admID;
+                            const url = "https://api.klubaderai.com/api/admin" + "/" + admID;
 
                             $.ajax({
                                 method: "GET",
@@ -79,6 +114,8 @@
                                 var email = document.getElementById("admin_email");
                                 var nohp = document.getElementById("admin_nohp");
                                 var alamat = document.getElementById("admin_address");
+                                var img = document.getElementById("admin_img");
+                                var imgv = document.getElementById("adminimg_values");
 
                                 name.value = data.name;
                                 pob.value = data.tempat_lahir;
@@ -86,12 +123,14 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
+                                imgv.src = "https://api.klubaderai.com/public/storage/" +
+                                    data.img_path;
+
                             }
                         </script>
 
                         <script>
                             function updateProfile() {
-
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
@@ -160,7 +199,6 @@
                                                     $(this).remove();
                                                 });
                                         }
-
 
                                     }))
                                     .catch((error => {
