@@ -40,9 +40,6 @@
                                         <label>Place of Birth</label>
                                         <input id="member_pob" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir member" aria-label="pob" required />
                                     </div>
-
-                                </div>
-                                <div class="col">
                                     <div class="form-group">
                                         <label>Date of Birth</label>
                                         <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir member" aria-label="dob" required />
@@ -51,16 +48,26 @@
                                         <label>Phone Number</label>
                                         <input type="text" id="member_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon member" aria-label="pnumber" required />
                                     </div>
+                                </div>
+                                <div class="col">
+
                                     <div class="form-group">
                                         <label>Address</label>
                                         <input type="text" id="member_address" class="form-control form-control-lg" placeholder="Masukan Alamat member" aria-label="adress" required />
                                     </div>
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <img id="memberimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
+                                        <input onchange="VerifyUploadSizeIsOK()" id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <label>Max File 2MB</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-inverse-success btn-sm">
+                                        Submit
+                                    </button>
+                                    <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
-                                Submit
-                            </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
 
                         </form>
 
@@ -91,6 +98,8 @@
                                 var email = document.getElementById("member_email");
                                 var nohp = document.getElementById("member_nohp");
                                 var alamat = document.getElementById("member_address");
+                                var img = document.getElementById("member_img");
+                                var imgv = document.getElementById("memberimg_values");
 
                                 name.value = data.name;
                                 pob.value = data.tempat_lahir;
@@ -98,59 +107,69 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
+                                imgv.src = "https://api.klubaderai.com/public/" +
+                                    data.img_path;
+                            }
+
+                            function VerifyUploadSizeIsOK() {
+                                const UploadFieldID = "member_img";
+                                var MaxSizeInBytes = 2097152;
+                                var fld = document.getElementById(UploadFieldID);
+                                if (fld.files && fld.files.length == 1 && fld.files[0].size > MaxSizeInBytes) {
+                                    fld.value = "";
+                                    alert("The file size must be no more than " + parseInt(MaxSizeInBytes / 1024 / 1024) + "MB");
+                                }
+
+                                var imgv = document.getElementById('memberimg_values');
+                                imgv.src = "";
+                                imgv.src = URL.createObjectURL(fld.files[0]);
+                                imgv.onload = function() {
+                                    URL.revokeObjectURL(imgv.src) // free memory
+                                }
                             }
                         </script>
 
                         <script>
                             function updateProfile() {
-                                var myalert = document.getElementById("alert");
-                                var failalert = document.getElementById("alertfail");
-                                var close = document.getElementsByClassName("close");
-                                var i;
-                                for (i = 0; i < close.length; i++) {
-                                    close[i].onclick = function() {
-                                        var div = this.parentElement;
-                                        div.style.opacity = "0";
-                                        setTimeout(function() {
-                                            div.style.display = "none";
-                                        }, 600);
-                                    }
-                                }
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
                                 const url = "https://api.klubaderai.com/api/users" + "/" + memID;
                                 myHeaders.append("Authorization", token);
-                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                                var urlencoded = new URLSearchParams();
 
-                                urlencoded.append(
+                                var formdata = new FormData();
+
+                                formdata.append(
                                     "name",
                                     document.getElementById("member_name").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tempat_lahir",
                                     document.getElementById("member_pob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tanggal_lahir",
                                     document.getElementById("member_dob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "nohp",
                                     document.getElementById("member_nohp").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "alamat",
                                     document.getElementById("member_address").value
                                 );
+                                formdata.append(
+                                    "img_path",
+                                    document.getElementById("member_img").files[0]
+                                );
 
                                 var requestOptions = {
-                                    method: "PATCH",
+                                    method: "post",
                                     headers: myHeaders,
-                                    body: urlencoded,
+                                    body: formdata,
                                     redirect: "follow",
                                 };
                                 fetch(
@@ -163,7 +182,7 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;
-                                        document.getElementById("form_member").reset();
+
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
@@ -174,6 +193,8 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            document.getElementById("form_member").reset();
+                                            document.getElementById('memberimg_values').src = "";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

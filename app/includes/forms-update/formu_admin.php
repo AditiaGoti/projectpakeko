@@ -50,7 +50,7 @@
                                     <div class="form-group">
                                         <label>Photo</label>
                                         <img id="adminimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
-                                        <input onchange="Filevalidation()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <input onchange="VerifyUploadSizeIsOK()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
                                         <label>Max File 2MB</label>
                                     </div>
                                     <button type="submit" id="btn" class="btn btn-inverse-success btn-sm">
@@ -64,30 +64,6 @@
                         </form>
 
                         <script>
-                            Filevalidation = () => {
-                                const fi = document.getElementById('admin_img');
-                                // Check if any file is selected.
-                                if (fi.files.length > 0) {
-                                    for (const i = 0; i <= fi.files.length - 1; i++) {
-
-                                        const fsize = fi.files.item(i).size;
-                                        const file = Math.round((fsize / 1024));
-                                        // The size of the file.
-                                        if (file > 2048) {
-                                            alert(
-                                                "File Terlalu Besar, tolong pilih file dibawah 2 MB");
-                                            fi.value = "";
-                                        }
-                                    }
-                                }
-                                var reader = new FileReader();
-                                reader.onload = function() {
-                                    fi.src = reader.result;
-                                };
-                                reader.readAsDataURL(event.target.files[0]);
-
-                            }
-
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
@@ -127,6 +103,23 @@
                                     data.img_path;
 
                             }
+
+                            function VerifyUploadSizeIsOK() {
+                                const UploadFieldID = "admin_img";
+                                var MaxSizeInBytes = 2097152;
+                                var fld = document.getElementById(UploadFieldID);
+                                if (fld.files && fld.files.length == 1 && fld.files[0].size > MaxSizeInBytes) {
+                                    fld.value = "";
+                                    alert("The file size must be no more than " + parseInt(MaxSizeInBytes / 1024 / 1024) + "MB");
+                                }
+
+                                var imgv = document.getElementById('adminimg_values');
+                                imgv.src = "";
+                                imgv.src = URL.createObjectURL(fld.files[0]);
+                                imgv.onload = function() {
+                                    URL.revokeObjectURL(imgv.src) // free memory
+                                }
+                            }
                         </script>
 
                         <script>
@@ -136,35 +129,39 @@
                                 var myHeaders = new Headers();
                                 const url = "https://api.klubaderai.com/api/admin" + "/" + admID;
                                 myHeaders.append("Authorization", token);
-                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-                                var urlencoded = new URLSearchParams();
 
-                                urlencoded.append(
+                                var formdata = new FormData();
+
+                                formdata.append(
                                     "name",
                                     document.getElementById("admin_name").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tempat_lahir",
                                     document.getElementById("admin_pob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "tanggal_lahir",
                                     document.getElementById("admin_dob").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "nohp",
                                     document.getElementById("admin_nohp").value
                                 );
-                                urlencoded.append(
+                                formdata.append(
                                     "alamat",
                                     document.getElementById("admin_address").value
                                 );
+                                formdata.append(
+                                    "img_path",
+                                    document.getElementById("admin_img").files[0]
+                                );
 
                                 var requestOptions = {
-                                    method: "patch",
+                                    method: "post",
                                     headers: myHeaders,
-                                    body: urlencoded,
+                                    body: formdata,
                                     redirect: "follow",
                                 };
                                 fetch(
@@ -177,7 +174,7 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;
-                                        document.getElementById("form_admin").reset();
+
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
@@ -188,6 +185,8 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            document.getElementById("form_admin").reset();
+                                            document.getElementById('adminimg_values').src = "";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
