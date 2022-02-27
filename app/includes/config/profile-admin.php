@@ -55,7 +55,7 @@
                                         <label>Photo</label>
                                         <img id="adminimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
                                         <input onchange="VerifyUploadSizeIsOK()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
-                                        <label>Max File 2MB</label>
+                                        <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
                                     <button type="submit" class="btn btn-inverse-success btn-fw">
                                         Submit
