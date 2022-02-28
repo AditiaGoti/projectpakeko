@@ -82,63 +82,66 @@
     }
 
     @media only screen and (min-width:400px) and (max-width:500px) {
-        .user-card-full {
-            overflow: hidden;
-            width: 320px;
-            margin-left: -50px;
-            margin-top: -50px;
+        .profile-card {
+        overflow: hidden;
+        margin-left: 15px;
         }
 
-        .m-b-25 {
-            margin-bottom: 0px;
-            margin-left: -5px;
-
+        .profile-card:hover .profile-img img {
+        transform: scale(1.2);
         }
 
-        .buttonupdate {
-            margin-left: -190px;
+        .profile-card .profile-img img {
+        width: 100%;
+        height: auto;
+        transition: transform 1s;
+        }
+
+        .buttonkehadiran {
+        margin-top: 180px;
+        margin-left: 10px;
         }
 
 
     }
 
     @media only screen and (min-width:540px) and (max-width:600px) {
-        .user-card-full {
-            overflow: hidden;
-            width: 380px;
-            margin-left: 0px;
-            margin-top: -50px;
+        .profile-card {
+        overflow: hidden;
+        margin-left: 15px;
         }
 
-        .m-b-25 {
-            margin-bottom: 0px;
-            margin-left: -5px;
-
+        .profile-card:hover .profile-img img {
+        transform: scale(1.2);
         }
 
-        .buttonupdate {
-            margin-left: -190px;
+        .profile-card .profile-img img {
+        width: 100%;
+        height: auto;
+        transition: transform 1s;
         }
 
+        .buttonkehadiran {
+        margin-top: 180px;
+        margin-left: 10px;
+        }
 
     }
 
     @media only screen and (min-width:650px) and (max-width:699px) {
-        .user-card-full {
-            overflow: hidden;
-            width: 600px;
-            margin-left: -60px;
-            margin-top: -50px;
+        .profile-card {
+        overflow: hidden;
+        margin-left: 15px;
         }
 
-        .m-b-25 {
-            margin-bottom: 0px;
-            margin-left: -5px;
-
+        .profile-card:hover .profile-img img {
+        transform: scale(1.2);
         }
 
-        .buttonupdate {
-            margin-left: -190px;
+        .profile-card .profile-img img {
+        width: 100%;
+        height: 200px;
+        transition: transform 1s;
         }
 
 
@@ -146,21 +149,24 @@
 
     @media only screen and (min-width:360px) and (max-width:399px) {
 
-        .user-card-full {
-            overflow: hidden;
-            width: 300px;
-            margin-left: -60px;
-            margin-top: -50px;
+        .profile-card {
+        overflow: hidden;
+        margin-left: 15px;
         }
 
-        .m-b-25 {
-            margin-bottom: 0px;
-            margin-left: -2px;
-
+        .profile-card:hover .profile-img img {
+        transform: scale(1.2);
         }
 
-        .buttonupdate {
-            margin-left: -190px;
+        .profile-card .profile-img img {
+        width: 100%;
+        height: auto;
+        transition: transform 1s;
+        }
+
+        .buttonkehadiran {
+        margin-top: 180px;
+        margin-left: 10px;
         }
 
     }

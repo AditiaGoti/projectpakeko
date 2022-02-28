@@ -22,9 +22,9 @@
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="col-sm-4 bg-c-lite-green user-profile" >
                                 <div class="card-block text-center text-white">
-                                    <div id="img" class="m-b-25">
+                                    <div id="img" style="margin-top:22px"class="m-b-25">
 
                                     </div>
                                     <h7 style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
@@ -52,11 +52,11 @@
                                         </div>
                                     </div>
                                     <div class="buttonupdate">
-                                        <button id="EPAdmin" style=" display: block; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                        <button id="EPAdmin" style=" display: block; margin-left: 340px; margin-top:50px" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
 
                                     </div>
                                     <div class="buttoncp">
-                                        <button id="CPAdmin" style="display: block; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
+                                        <button id="CPAdmin" style="display: block; float:right; margin-top: -29px; " class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
 
                                     </div>
                                 </div>

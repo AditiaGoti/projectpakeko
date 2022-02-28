@@ -67,8 +67,8 @@
                                         
                                     </div>
                                     <div class="buttonupdate">
-                                            <button id="EPAdmin" style=" display: none; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
-                                            <button id="EPMember" style=" display: none; margin-left: 350px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
+                                            <button id="EPAdmin" style=" display: none; margin-left: 340px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                            <button id="EPMember" style=" display: none; margin-left: 340px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
                                     <div class="buttoncp">
                                             <button id="CPAdmin" style="display: none; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
                                             <button id="CPMember" style="display: none;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
