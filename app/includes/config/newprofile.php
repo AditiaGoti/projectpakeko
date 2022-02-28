@@ -24,7 +24,7 @@
                         <div class="row m-l-0 m-r-0">
                             <div class="col-sm-4 bg-c-lite-green user-profile">
                                 <div class="card-block text-center text-white">
-                                    <div id="img" class="m-b-25">
+                                    <div id="img" class="m-b-25" style="margin-top:22px">
 
                                     </div>
                                     <h7 style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
