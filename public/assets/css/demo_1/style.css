@@ -1527,8 +1527,10 @@ body {
 }
 .buttonupdate{
     margin-left: -360px;
+    margin-top: 10px;
 }
 }
+
 @media only screen and (min-width:768px) and (max-width:898px)
 {
     .user-card-full {
@@ -1539,7 +1541,7 @@ body {
     }
     .m-b-25 {
     margin-bottom: 0px;
-    margin-left: -5px;
+    margin-left: 20px;
     
 }
 .buttonupdate{
@@ -1558,7 +1560,7 @@ body {
     }
     .m-b-25 {
     margin-bottom: 0px;
-    margin-left: -5px;
+    margin-left: 15px;
     
 }
    .buttonupdate{
@@ -1597,10 +1599,19 @@ body {
     margin-left: -5px;
     
 }
-   .buttonupdate{
+ .buttonupdate{
      margin-left: -280px;
  }
 
+  
+}
+@media only screen and (min-width:540px) and (max-width:600px)
+{
+  
+.bg-c-lite-green {
+   
+    background-size: 4000px;
+}
   
 }
 @media only screen and (min-width:650px) and (max-width:699px)
@@ -1617,7 +1628,7 @@ body {
     
 }
    .buttonupdate{
-     margin-left: -190px;
+     margin-left: -270px;
  }
 
   
@@ -1636,7 +1647,7 @@ body {
     
 }
    .buttonupdate{
-     margin-left: -360px;
+     margin-left: -350px;
  }
    .buttonchangephoto{
     margin-left: 0px;
@@ -1656,8 +1667,7 @@ body {
 }
 
 .bg-c-lite-green {
-    background: -webkit-gradient(linear, left top, right top, from(black), to(yellow));
-    background: linear-gradient(to bottom, #1f1f1d57, #e0e41081);
+   
     height: auto;
 }
 

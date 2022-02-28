@@ -22,13 +22,15 @@
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile" >
+                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGProfile.png); background-size:339px;  background-repeat: no-repeat;">
                                 <div class="card-block text-center text-white">
-                                    <div id="img" style="margin-top:22px"class="m-b-25">
+                                    <div id="img" style="margin-top:35px"class="m-b-25">
 
                                     </div>
-                                    <h7 style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
-                                    <p id="admin" style=" display:block; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Admin</p>
+                                    <h7 style="font-size: 40px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;"><?php echo $_SESSION['name'] ?></h7>
+                                    <p id="admin" style=" display:block; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;font-size:20px;">Admin</p>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -52,7 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="buttonupdate">
-                                        <button id="EPAdmin" style=" display: block; margin-left: 340px; margin-top:50px" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                        <button id="EPAdmin" style=" display: block; margin-left: 345px; margin-top:70px" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
 
                                     </div>
                                     <div class="buttoncp">

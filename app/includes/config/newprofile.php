@@ -17,19 +17,22 @@
                 </div>
             </div>
         </div>
-        <div class="padding" style="padding: 3rem !important;">
+        <div class="padding" style="padding: 3rem !important; ">
             <div class="row container d-flex justify-content-center">
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGProfile.png); background-size:339px;  background-repeat:repeat-x;">
                                 <div class="card-block text-center text-white">
-                                    <div id="img" class="m-b-25" style="margin-top:22px">
+                                    <div id="img" class="m-b-25" style="margin-top:25px">
 
                                     </div>
-                                    <h7 style="font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
-                                    <p id="member" style="display:none; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Member</p>
-                                    <p id="admin" style=" display:none; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; size:15px;">Admin</p>
+                                    <h7 style="font-size: 40px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;"class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
+                                    <p id="member" style="display:none; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-size:20px; background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;font-style: italic;">Member</p>
+                                    <p id="admin" style=" display:none; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-size:20px;  background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent; font-style: italic;">Admin</p>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -51,24 +54,12 @@
                                         <div class="col-sm-6">
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Tinggi Badan</p>
-                                            <h6 class="text-muted f-w-400">160cm</h6>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Berat Badan</p>
-                                            <h6 class="text-muted f-w-400">60kg</h6>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Goals Berat Badan</p>
-                                            <h6 class="text-muted f-w-400">60kg</h6>
-                                        </div>
-                                        
+                                       
                                         
                                     </div>
                                     <div class="buttonupdate">
-                                            <button id="EPAdmin" style=" display: none; margin-left: 340px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
-                                            <button id="EPMember" style=" display: none; margin-left: 340px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
+                                            <button id="EPAdmin" style=" display: none; margin-left: 340px; margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                            <button id="EPMember" style=" display: none; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
                                     <div class="buttoncp">
                                             <button id="CPAdmin" style="display: none; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
                                             <button id="CPMember" style="display: none;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
