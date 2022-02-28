@@ -130,7 +130,57 @@
                 </div>
             </div>
         </div>
-
+        <div class="padding" style="padding: 3rem !important; ">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-xl-6 col-md-12">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <div class="col-sm-8">
+                                <div class="card-block" style="padding: 1.25rem;">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Progress</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p id="email" class="m-b-10 f-w-600">Tinggi Badan</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p id="pob" class="m-b-10 f-w-600">Berat Badan</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p id="dob" class="m-b-10 f-w-600">Date Of birth</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p id="nohp" class="m-b-10 f-w-600">Phone Number</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p id="alamat" class="m-b-10 f-w-600">Address</p>
+                                        </div>
+                                       
+                                        
+                                    </div>
+                                    <div class="buttonupdate">
+                                            <button id="EPrAdmin" style=" display: none; margin-left: 340px; margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                            <button id="EPrMember" style=" display: none; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>                                     
+                                </div>
+                            </div>
+                            <script>
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                if (type == 1) {
+                                    var epradmin = document.getElementById("EPrAdmin")
+                                    epradmin.style.display = 'block'
+                                } else {
+                                  
+                                    var eprmember = document.getElementById("EPrMember")
+                                    eprmember.style.display = 'block'
+                                 
+                                }
+                            </script>
+                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
     </div>
 
