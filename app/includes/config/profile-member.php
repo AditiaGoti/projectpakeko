@@ -140,6 +140,10 @@
                                     "alamat",
                                     document.getElementById("Member_address").value
                                 );
+                                formdata.append(
+                                    "img_path",
+                                    document.getElementById("member_img").files[0]
+                                );
 
                                 var requestOptions = {
                                     method: "POST",
