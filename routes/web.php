@@ -48,14 +48,6 @@ Route::get('/kehadiran', function () {
     return view('admin/table-admin/table_kehadiran');
 });
 
-Route::get('/active_member', function () {
-    return view('admin/table-admin/table_activemember');
-});
-
-Route::get('/inactive_member', function () {
-    return view('admin/table-admin/table_inactivemember');
-});
-
 Route::get('/all_member', function () {
     return view('admin/table-admin/table_allmember');
 });
@@ -118,13 +110,6 @@ Route::get('/owkehadiran', function () {
     return view('owner/table-owner/table_kehadiran');
 });
 
-Route::get('/owactive_member', function () {
-    return view('owner/table-owner/table_activemember');
-});
-
-Route::get('/owinactive_member', function () {
-    return view('owner/table-owner/table_inactivemember');
-});
 
 Route::get('/owall_member', function () {
     return view('owner/table-owner/table_allmember');
