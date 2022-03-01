@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenteru" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -34,12 +34,50 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="bodyu">
                         Anda Yakin Akan Hapus Data Ini?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" onclick="deleteData()" class="btn btn-danger">Delete</button>
+                        <button type="button" onclick="deleteDatau()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenterua" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="bodyua">
+                        Anda Yakin Akan Hapus Data Ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="deleteDataua()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenterui" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="bodyui">
+                        Anda Yakin Akan Hapus Data Ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="deleteDataui()" class="btn btn-danger">Delete</button>
                     </div>
                 </div>
             </div>
@@ -160,9 +198,6 @@
                                                 "Alamat": data.alamat,
                                                 "Expired Date": data.expired,
                                                 "Token": data.token,
-
-
-
                                             }];
 
                                             $.each(xlsRows, function(i, data) {
@@ -251,207 +286,435 @@
                     </div>
                 </div>
             </div>
+            <script>
+                $(document).ready(function() {
+                    $("#myTab a").each(function(index, element) {
+                        new bootstrap.Tab(element);
+                    })
+                });
+            </script>
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <nav style="padding-bottom:10px;">
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a style="display:none;" class="nav-item nav-link active" id="ownav-allmember-tab" data-toggle="tab" onclick="window.location.href='/owall_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
-                                <a style="display:none;" class="nav-item nav-link" id="ownav-activemember-tab" data-toggle="tab" onclick="window.location.href='/owactive_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
-                                <a style="display:none;" class="nav-item nav-link" id="ownav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/owinactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="nav-item">
+                                <a href="#allmember" class="nav-link active" data-bs-toggle="tab">All Member</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#activemember" class="nav-link" data-bs-toggle="tab">Active Member</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#inactivemember" class="nav-link" data-bs-toggle="tab">Inactive Member</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="allmember">
+                                <div style="margin-top:10px;" class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="table-data">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nama</th>
+                                                <th>Email</th>
+                                                <th>No. HP</th>
+                                                <th>Alamat</th>
+                                                <th>Expired</th>
+                                                <th>Token</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableMember">
+                                            <script>
+                                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                                var token = "Bearer" + " " + tokenSession;
+                                                var type = '<?php echo $_SESSION['type']; ?>'
+                                                var myArray = [];
+                                                var tableMember = document.getElementById("tableMember");
+                                                const urlu = "https://api.klubaderai.com/api/users";
 
-                                <a style="display:none;" class="nav-item nav-link active" id="nav-allmember-tab" data-toggle="tab" onclick="window.location.href='/all_member'" role="tab" aria-controls="nav-allmember" aria-selected="true">All Member</a>
-                                <a style="display:none;" class="nav-item nav-link" id="nav-activemember-tab" data-toggle="tab" onclick="window.location.href='/active_member'" role="tab" aria-controls="nav-activemember" aria-selected="false">Active Member</a>
-                                <a style="display:none;" class="nav-item nav-link" id="nav-inactivemember-tab" data-toggle="tab" onclick="window.location.href='/inactive_member'" role="tab" aria-controls="nav-inactivemember" aria-selected="false">Inactive Member</a>
-                                <script>
-                                    var type = '<?php echo $_SESSION['type']; ?>'
-                                    if (type == 2) {
-                                        var owshowAll = document.getElementById("ownav-allmember-tab")
-                                        var owshowActive = document.getElementById("ownav-activemember-tab")
-                                        var owshowInactive = document.getElementById("ownav-inactivemember-tab")
-                                        owshowAll.style.display = 'block'
-                                        owshowActive.style.display = 'block'
-                                        owshowInactive.style.display = 'block'
+                                                $(document).ready(function() {
+                                                    $.ajax({
+                                                        method: "GET",
+                                                        url: urlu,
+                                                        headers: {
+                                                            Authorization: token,
+                                                        },
+                                                        success: function(response) {
+                                                            data = response.data;
+                                                            $.each(data, function(i, data) {
 
-                                    } else {
-                                        var showAll = document.getElementById("nav-allmember-tab")
-                                        var showActive = document.getElementById("nav-activemember-tab")
-                                        var showInactive = document.getElementById("nav-inactivemember-tab")
-                                        showAll.style.display = 'block'
-                                        showActive.style.display = 'block'
-                                        showInactive.style.display = 'block'
-                                    }
-                                </script>
+                                                                var body = `<tr data-id=${data.id}>`;
+                                                                body += "<td>" + data.id + "</td>";
+                                                                body += "<td>" + data.name + "</td>";
+                                                                body += "<td>" + data.email + "</td>";
+                                                                body += "<td>" + data.nohp + "</td>";
+                                                                body += "<td>" + data.alamat + "</td>";
+                                                                body += "<td>" + data.expired + "</td>";
+                                                                body += "<td>" + data.token + "</td>";
+                                                                body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
+                                                                    " " +
+                                                                    `<button id="delete" data-toggle="modal" data-target="#exampleModalCenteru" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
 
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <script>
-                                var type = '<?php echo $_SESSION['type']; ?>'
-                                if (type == 2) {
-                                    ` <div class="tab-pane fade show active " id="ownav-allmember" role="tabpanel" aria-labelledby="ownav-allmember-tab"></div>
-                                    <div class="tab-pane fade " id="ownav-activemember" role="tabpanel" aria-labelledby="ownav-activemember-tab"></div>
-                                    <div class="tab-pane fade " id="ownav-inactivemember" role="tabpanel" aria-labelledby="ownav-inactivemember-tab"></div>`
-                                } else {
-                                    ` <div class="tab-pane fade show active " id="nav-allmember" role="tabpanel" aria-labelledby="nav-allmember-tab"></div>
-                                    <div class="tab-pane fade " id="nav-activemember" role="tabpanel" aria-labelledby="nav-activemember-tab"></div>
-                                    <div class="tab-pane fade " id="nav-inactivemember" role="tabpanel" aria-labelledby="nav-inactivemember-tab"></div>`
-                                }
-                            </script>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="table-data">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>No. HP</th>
-                                        <th>Alamat</th>
-                                        <th>Expired</th>
-                                        <th>Token</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tableMember">
-                                    <script>
-                                        var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                        var token = "Bearer" + " " + tokenSession;
-                                        var type = '<?php echo $_SESSION['type']; ?>'
-                                        var myArray = [];
-                                        var tableMember = document.getElementById("tableMember");
-                                        const url = "https://api.klubaderai.com/api/users";
-
-                                        $(document).ready(function() {
-                                            $.ajax({
-                                                method: "GET",
-                                                url: url,
-                                                headers: {
-                                                    Authorization: token,
-                                                },
-                                                success: function(response) {
-                                                    data = response.data;
-                                                    $.each(data, function(i, data) {
-
-                                                        var body = `<tr data-id=${data.id}>`;
-                                                        body += "<td>" + data.id + "</td>";
-                                                        body += "<td>" + data.name + "</td>";
-                                                        body += "<td>" + data.email + "</td>";
-                                                        body += "<td>" + data.nohp + "</td>";
-                                                        body += "<td>" + data.alamat + "</td>";
-                                                        body += "<td>" + data.expired + "</td>";
-                                                        body += "<td>" + data.token + "</td>";
-                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
-                                                            " " +
-                                                            `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
-
-                                                        body += "</tr>";
-                                                        $("#table-data tbody").append(body);
-                                                    });
-                                                    /*DataTables instantiation.*/
-                                                    $("#table-data").DataTable({
-                                                        responsive: true,
-                                                        dom: 'Bfrtip',
-                                                        buttons: [
-                                                            'excel', 'pdf', 'print'
-                                                        ]
-
-                                                    });
-                                                },
-                                                error: function(response) {
-                                                    hasil = response.responseJSON.message;
-                                                    alert(hasil);
-                                                    location.href = "/logout";
-                                                }
-                                            });
-
-                                        });
-                                        $(document).ready(function() {
-                                            $.ajax({
-                                                method: "GET",
-                                                url: url,
-                                                headers: {
-                                                    Authorization: token,
-                                                },
-                                                success: function(response) {
-                                                    data = response.etc;
-                                                    member(data);
-                                                    memberaktif(data);
-                                                    membernon(data);
-
-                                                    function member(data) {
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member + " Orang" + `</span>`;
-                                                        $("#sumMember").append(body);
-                                                    };
-
-                                                    function memberaktif(data) {
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member_active + " Orang" + `</span>`;
-                                                        $("#sumAktif").append(body);
-                                                    };
-
-                                                    function membernon(data) {
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member_inactive + " Orang" + `</span>`;
-                                                        $("#sumTAktif").append(body);
-                                                    };
-                                                },
-                                                error: function() {
-                                                    alert('Terjadi Kesalahan');
-                                                }
-                                            });
-                                        });
-
-                                        tableMember.addEventListener("click", (e) => {
-                                            e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "delete";
-                                            let updateButtonisPressed = e.target.id == "update";
-
-                                            mid = e.target.parentElement.parentElement.dataset.id;
-                                            if (updateButtonisPressed) {
-                                                if (type == 2) {
-                                                    var memID = sessionStorage.setItem("id-member", mid);
-                                                    location.href = "/owformu_member";
-                                                } else {
-                                                    var memID = sessionStorage.setItem("id-member", mid);
-                                                    location.href = "formu_member";
-                                                }
-                                            }
-                                        })
-                                        var myHeaders = new Headers();
-                                        myHeaders.append(
-                                            "Authorization",
-                                            token);
-                                        var deleteRequest = {
-                                            method: "Delete",
-                                            headers: myHeaders,
-                                            redirect: "follow",
-                                        };
-
-                                        function deleteData() {
-                                            fetch(`${url}/${mid}`, deleteRequest)
-                                                .then((res) => res.json())
-                                                .then((result => {
-
-                                                    var hasildata = result.success;
-                                                    var message = result.message;
-                                                    if (hasildata) {
-                                                        sessionStorage.removeItem("id-member");
-                                                        location.reload();
-                                                    } else {
-                                                        $('<div class="alert alert-danger">' +
-                                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                                            `&times;</button>${message}</div>`).hide().prependTo('#table-data').fadeIn(1000);
-
-                                                        $(".alert").delay(3000).fadeOut(
-                                                            "normal",
-                                                            function() {
-                                                                $(this).remove();
+                                                                body += "</tr>";
+                                                                $("#table-data tbody").append(body);
                                                             });
+                                                            /*DataTables instantiation.*/
+                                                            $("#table-data").DataTable({
+                                                                responsive: true,
+
+                                                            });
+                                                        },
+                                                        error: function(response) {
+                                                            hasil = response.responseJSON.message;
+                                                            alert(hasil);
+                                                            location.href = "/logout";
+                                                        }
+                                                    });
+
+                                                });
+                                                tableMember.addEventListener("click", (e) => {
+                                                    e.preventDefault();
+                                                    let deleteButtonisPressed = e.target.id == "delete";
+                                                    let updateButtonisPressed = e.target.id == "update";
+
+                                                    mid = e.target.parentElement.parentElement.dataset.id;
+                                                    if (updateButtonisPressed) {
+                                                        if (type == 2) {
+                                                            var memID = sessionStorage.setItem("id-member", mid);
+                                                            location.href = "/owformu_member";
+                                                        } else {
+                                                            var memID = sessionStorage.setItem("id-member", mid);
+                                                            location.href = "formu_member";
+                                                        }
                                                     }
-                                                }))
-                                        };
-                                    </script>
-                                </tbody>
-                            </table>
+                                                })
+                                                var myHeaders = new Headers();
+                                                myHeaders.append(
+                                                    "Authorization",
+                                                    token);
+                                                var deleteRequest = {
+                                                    method: "Delete",
+                                                    headers: myHeaders,
+                                                    redirect: "follow",
+                                                };
+
+                                                function deleteDatau() {
+                                                    fetch(`${urlu}/${mid}`, deleteRequest)
+                                                        .then((res) => res.json())
+                                                        .then((result => {
+
+                                                            var hasildata = result.success;
+                                                            var message = result.message;
+                                                            if (hasildata) {
+                                                                sessionStorage.removeItem("id-member");
+                                                                location.reload();
+                                                            } else {
+                                                                $('<div class="alert alert-danger">' +
+                                                                    '<button type="button" class="close" data-dismiss="alert">' +
+                                                                    `&times;</button>${message}</div>`).hide().prependTo('#modal-bodyu').fadeIn(1000);
+
+                                                                $(".alert").delay(3000).fadeOut(
+                                                                    "normal",
+                                                                    function() {
+                                                                        $(this).remove();
+                                                                    });
+                                                            }
+                                                        }))
+                                                };
+                                            </script>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="activemember">
+                                <div style="margin-top:10px;" class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="table-dataa">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nama</th>
+                                                <th>Email</th>
+                                                <th>No. HP</th>
+                                                <th>Alamat</th>
+                                                <th>Expired</th>
+                                                <th>Token</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableMembera">
+                                            <script>
+                                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                                var token = "Bearer" + " " + tokenSession;
+                                                var myArray = [];
+                                                var tableMembera = document.getElementById("tableMembera");
+                                                const urlua = "https://api.klubaderai.com/api/users-active";
+                                                $(document).ready(function() {
+                                                    $.ajax({
+                                                        method: "GET",
+                                                        url: urlua,
+                                                        headers: {
+                                                            Authorization: token,
+                                                        },
+                                                        success: function(response) {
+                                                            data = response.data;
+                                                            $.each(data, function(i, data) {
+
+                                                                var body = `<tr data-id=${data.id} >`;
+                                                                body += "<td>" + data.id + "</td>";
+                                                                body += "<td>" + data.name + "</td>";
+                                                                body += "<td>" + data.email + "</td>";
+                                                                body += "<td>" + data.nohp + "</td>";
+                                                                body += "<td>" + data.alamat + "</td>";
+                                                                body += "<td>" + data.expired + "</td>";
+                                                                body += "<td>" + data.token + "</td>";
+                                                                body += "<td>" +
+                                                                    `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
+                                                                    " " +
+                                                                    `<button id="delete" data-toggle="modal" data-target="#exampleModalCenterua" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
+                                                                    "</td>";
+                                                                body += "</tr>";
+                                                                $("#table-dataa tbody").append(body);
+                                                            });
+                                                            /*DataTables instantiation.*/
+                                                            $("#table-dataa").DataTable({
+                                                                responsive: true,
+
+                                                            });
+                                                        },
+                                                        error: function(response) {
+                                                            hasil = response.responseJSON.message;
+                                                            alert(hasil);
+                                                            location.href = "/logout";
+                                                        }
+                                                    });
+
+                                                });
+
+                                                tableMembera.addEventListener("click", (e) => {
+                                                    e.preventDefault();
+                                                    let deleteButtonisPressed = e.target.id == "delete";
+                                                    let updateButtonisPressed = e.target.id == "update";
+
+                                                    var myHeaders = new Headers();
+                                                    myHeaders.append(
+                                                        "Authorization",
+                                                        token);
+                                                    var deleteRequest = {
+                                                        method: "Delete",
+                                                        headers: myHeaders,
+                                                        redirect: "follow",
+                                                    };
+
+                                                    midua = e.target.parentElement.parentElement.dataset.id;
+                                                    if (updateButtonisPressed) {
+                                                        if (type == 2) {
+                                                            var memID = sessionStorage.setItem("id-member", midua);
+                                                            location.href = "/owformu_member";
+                                                        } else {
+                                                            var memID = sessionStorage.setItem("id-member", midua);
+                                                            location.href = "formu_member";
+                                                        }
+                                                    }
+                                                })
+                                                var myHeaders = new Headers();
+                                                myHeaders.append(
+                                                    "Authorization",
+                                                    token);
+                                                var deleteRequest = {
+                                                    method: "Delete",
+                                                    headers: myHeaders,
+                                                    redirect: "follow",
+                                                };
+
+                                                function deleteDataua() {
+                                                    fetch(`${urlu}/${midua}`, deleteRequest)
+                                                        .then((res) => res.json())
+                                                        .then((result => {
+
+                                                            var hasildata = result.success;
+                                                            var message = result.message;
+                                                            if (hasildata) {
+                                                                sessionStorage.removeItem("id-member");
+                                                                location.reload();
+                                                            } else {
+                                                                $('<div class="alert alert-danger">' +
+                                                                    '<button type="button" class="close" data-dismiss="alert">' +
+                                                                    `&times;</button>${message}</div>`).hide().prependTo('#modal-bodyua').fadeIn(1000);
+
+                                                                $(".alert").delay(3000).fadeOut(
+                                                                    "normal",
+                                                                    function() {
+                                                                        $(this).remove();
+                                                                    });
+                                                            }
+                                                        }))
+                                                };
+                                            </script>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="inactivemember">
+                                <div style="margin-top:10px;" class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="table-datai">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Nama</th>
+                                                <th>Email</th>
+                                                <th>No. HP</th>
+                                                <th>Alamat</th>
+                                                <th>Expired</th>
+                                                <th>Token</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableMemberi">
+                                            <script>
+                                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                                var token = "Bearer" + " " + tokenSession;
+                                                var myArray = [];
+                                                var tableMemberi = document.getElementById("tableMemberi");
+                                                const urlui = "https://api.klubaderai.com/api/users-inactive";
+
+                                                $(document).ready(function() {
+                                                    $.ajax({
+                                                        method: "GET",
+                                                        url: urlui,
+                                                        headers: {
+                                                            Authorization: token,
+                                                        },
+                                                        success: function(response) {
+                                                            data = response.data;
+                                                            $.each(data, function(i, data) {
+
+                                                                var body = `<tr data-id=${data.id} >`;
+                                                                body += "<td>" + data.id + "</td>";
+                                                                body += "<td>" + data.name + "</td>";
+                                                                body += "<td>" + data.email + "</td>";
+                                                                body += "<td>" + data.nohp + "</td>";
+                                                                body += "<td>" + data.alamat + "</td>";
+                                                                body += "<td>" + data.expired + "</td>";
+                                                                body += "<td>" + data.token + "</td>";
+                                                                body += "<td>" +
+                                                                    `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
+                                                                    " " +
+                                                                    `<button id="delete" data-toggle="modal" data-target="#exampleModalCenterui" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
+                                                                    "</td>";
+                                                                body += "</tr>";
+                                                                $("#table-datai tbody").append(body);
+                                                            });
+                                                            /*DataTables instantiation.*/
+                                                            $("#table-datai").DataTable({
+                                                                responsive: true,
+
+                                                            });
+                                                        },
+                                                        error: function(response) {
+                                                            hasil = response.responseJSON.message;
+                                                            alert(hasil);
+                                                            location.href = "/logout";
+                                                        }
+                                                    });
+
+                                                });
+                                                $(document).ready(function() {
+                                                    $.ajax({
+                                                        method: "GET",
+                                                        url: urlu,
+                                                        headers: {
+                                                            Authorization: token,
+                                                        },
+                                                        success: function(response) {
+                                                            data = response.etc;
+                                                            member(data);
+                                                            memberaktif(data);
+                                                            membernon(data);
+
+                                                            function member(data) {
+                                                                var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member + " Orang" + `</span>`;
+                                                                $("#sumMember").append(body);
+                                                            };
+
+                                                            function memberaktif(data) {
+                                                                var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member_active + " Orang" + `</span>`;
+                                                                $("#sumAktif").append(body);
+                                                            };
+
+                                                            function membernon(data) {
+                                                                var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member_inactive + " Orang" + `</span>`;
+                                                                $("#sumTAktif").append(body);
+                                                            };
+                                                        },
+                                                        error: function() {
+                                                            alert('Terjadi Kesalahan');
+                                                        }
+                                                    });
+                                                });
+                                                tableMemberi.addEventListener("click", (e) => {
+                                                    e.preventDefault();
+                                                    let deleteButtonisPressed = e.target.id == "delete";
+                                                    let updateButtonisPressed = e.target.id == "update";
+                                                    var myHeaders = new Headers();
+                                                    myHeaders.append(
+                                                        "Authorization",
+                                                        token);
+                                                    var deleteRequest = {
+                                                        method: "Delete",
+                                                        headers: myHeaders,
+                                                        redirect: "follow",
+                                                    };
+
+                                                    midui = e.target.parentElement.parentElement.dataset.id;
+
+                                                    if (updateButtonisPressed) {
+                                                        if (type == 2) {
+                                                            var memID = sessionStorage.setItem("id-member", midui);
+                                                            location.href = "/owformu_member";
+                                                        } else {
+                                                            var memID = sessionStorage.setItem("id-member", midui);
+                                                            location.href = "formu_member";
+                                                        }
+                                                    }
+                                                })
+                                                var myHeaders = new Headers();
+                                                myHeaders.append(
+                                                    "Authorization",
+                                                    token);
+                                                var deleteRequest = {
+                                                    method: "Delete",
+                                                    headers: myHeaders,
+                                                    redirect: "follow",
+                                                };
+
+                                                function deleteDataui() {
+                                                    fetch(`${urlu}/${midui}`, deleteRequest)
+                                                        .then((res) => res.json())
+                                                        .then((result => {
+
+                                                            var hasildata = result.success;
+                                                            var message = result.message;
+                                                            if (hasildata) {
+                                                                sessionStorage.removeItem("id-member");
+                                                                location.reload();
+                                                            } else {
+                                                                $('<div class="alert alert-danger">' +
+                                                                    '<button type="button" class="close" data-dismiss="alert">' +
+                                                                    `&times;</button>${message}</div>`).hide().prependTo('#model-bodyui').fadeIn(1000);
+
+                                                                $(".alert").delay(3000).fadeOut(
+                                                                    "normal",
+                                                                    function() {
+                                                                        $(this).remove();
+                                                                    });
+                                                            }
+                                                        }))
+                                                };
+                                            </script>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
