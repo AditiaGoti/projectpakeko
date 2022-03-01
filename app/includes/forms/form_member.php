@@ -55,12 +55,19 @@
                                         <label>Phone Number</label>
                                         <input type="text" id="member_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon Member" aria-label="pnumber" required />
                                     </div>
-                                    <div class="form-group ">
-                                        <label>Gender</label>
-                                        <div class="form-radio">
-                                            <input type="radio" class="form-check-input" name="gender" id="radioMale" value="male">Laki-Laki
-                                            <input type="radio" class="form-check-input" name="gender" id="radioFemale" value="female">Perempuan
-                                        </div>
+                                    <div class="form-group">
+                                    <label>Gender</label>
+                                    <br>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="radioMale" value="male" name="inlineDefaultRadiosExample">
+                                        <p class="custom-control-label" for="defaultInline1" style="font-size: 13px;">Laki Laki</p>
+                                    </div>
+
+                                    <!-- Default inline 2-->
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="radioFemale" value="female" name="inlineDefaultRadiosExample">
+                                        <p class="custom-control-label" for="defaultInline2"style="font-size: 13px;">Perempuan</p>
+                                    </div>
                                     </div>
 
                                     <div class="form-group">
