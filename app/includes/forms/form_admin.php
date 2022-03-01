@@ -35,15 +35,23 @@
 
                                     <div class="form-group">
                                         <label>Photo</label>
-                                        <input onchange="Filevalidation()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <input onchange="VerifyUploadSizeIsOK()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
                                         <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                        <input type="text" id="admin_nohp" class="form-control " placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
                                     </div>
+                                    <div class="form-group ">
+                                        <label>Gender</label>
+                                        <div class="form-radio">
+                                            <input type="radio" class="form-check-input" name="gender" id="radioMale" value="male">Laki-Laki
+                                            <input type="radio" class="form-check-input" name="gender" id="radioFemale" value="female">Perempuan
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label>Address</label>
                                         <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
@@ -66,26 +74,6 @@
                         </form>
 
                         <script>
-                            Filevalidation = () => {
-                                const fi = document.getElementById('admin_img');
-                                // Check if any file is selected.
-                                if (fi.files.length > 0) {
-                                    for (const i = 0; i <= fi.files.length - 1; i++) {
-
-                                        const fsize = fi.files.item(i).size;
-                                        const file = Math.round((fsize / 1024));
-                                        // The size of the file.
-                                        if (file > 2048) {
-                                            alert(
-                                                "File Terlalu Besar, tolong pilih file dibawah 2 MB");
-                                            fi.value = "";
-                                        }
-                                    }
-                                }
-                            }
-
-
-
                             function daftaradmin() {
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
@@ -113,6 +101,10 @@
                                 formdata.append(
                                     "tempat_lahir",
                                     document.getElementById("admin_pob").value
+                                );
+                                formdata.append(
+                                    "gender",
+                                    document.querySelector('input[name = gender]:checked').value
                                 );
                                 formdata.append(
                                     "tanggal_lahir",
@@ -147,6 +139,7 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;
+                                        console.log(data);
 
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
@@ -184,6 +177,17 @@
                                                 $(this).remove();
                                             });
                                     }));
+                            }
+
+                            function VerifyUploadSizeIsOK() {
+                                const UploadFieldID = "admin_img";
+                                var MaxSizeInBytes = 2097152;
+                                var fld = document.getElementById(UploadFieldID);
+                                if (fld.files && fld.files.length == 1 && fld.files[0].size > MaxSizeInBytes) {
+                                    fld.value = "";
+                                    alert("The file size must be no more than " + parseInt(MaxSizeInBytes / 1024 / 1024) + "MB");
+                                }
+
                             }
                         </script>
 
