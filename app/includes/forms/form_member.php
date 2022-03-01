@@ -57,16 +57,15 @@
                                     </div>
                                     <div class="form-group">
                                     <label>Gender</label>
-                                    <br>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="radioMale" value="male" name="inlineDefaultRadiosExample">
-                                        <p class="custom-control-label" for="defaultInline1" style="font-size: 13px;">Laki Laki</p>
-                                    </div>
-
-                                    <!-- Default inline 2-->
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="radioFemale" value="female" name="inlineDefaultRadiosExample">
-                                        <p class="custom-control-label" for="defaultInline2"style="font-size: 13px;">Perempuan</p>
+                                    <div class="wrapperr">
+                                            <input type="radio" name="gender" id="option-1" checked>
+                                            <input type="radio" name="gender" id="option-2">
+                                            <label for="option-1" class="option option-1">
+                                                <div class="dot"></div> <span>Laki-laki</span>
+                                            </label>
+                                            <label for="option-2" class="option option-2">
+                                                 <div class="dot"></div> <span>Perempuan</span>
+                                            </label>
                                     </div>
                                     </div>
 
