@@ -194,12 +194,12 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label style="float:left">Total Transaksi :</label>
-                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left:-5px" /> 
+                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left:-5px" />
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label >Jumlah Transaksi :</label>
+                                <label>Jumlah Transaksi :</label>
                                 <input id="sumTrans" disabled type="text" class="form-control " aria-label="name" style="margin-left:-5px" />
                             </div>
                         </div>
@@ -327,7 +327,7 @@
                                                 error: function(response) {
                                                     hasil = response.responseJSON.message;
                                                     alert(hasil);
-                                                    location.href = "/logout";
+
                                                 }
                                             });
 

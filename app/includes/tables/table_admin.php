@@ -9,20 +9,8 @@
                 <div class="page-header">
                     <h4 class="page-title">Data Admin
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Admin</button>
-                        <button id="btnAddow" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_admin'">Tambah</button>
-                        <button id="btnAdd" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_admin'">Tambah</button>
+                        <button style="display: block;" id="btnAddow" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_admin'">Tambah</button>
                     </h4>
-                    <script>
-                        var type = '<?php echo $_SESSION['type']; ?>'
-                        if (type == 2) {
-                            var btnAdd = document.getElementById("btnAddow")
-                            btnAdd.style.display = 'block'
-                        } else {
-                            var btnAdd = document.getElementById("btnAdd")
-                            btnAdd.style.display = 'block'
-                        }
-                    </script>
-
                 </div>
             </div>
         </div>
@@ -213,8 +201,8 @@
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Gender</th>
-                                        <th>Tempat Lahir</th>
-                                        <th>Tanggal Lahir</th>
+                                        <th>POB</th>
+                                        <th>DOB</th>
                                         <th>No. HP</th>
                                         <th>Alamat</th>
                                         <th>Actions</th>
@@ -264,7 +252,6 @@
                                                 error: function(response) {
                                                     hasil = response.responseJSON.message;
                                                     alert(hasil);
-                                                    location.href = "/logout";
                                                 }
                                             });
                                         });
@@ -289,13 +276,9 @@
                                                 var admID = sessionStorage.setItem("id-admin", mid);
                                                 window.location.href = '/owformu_admin';
                                             }
-                                            // if (deleteButtonisPressed) {
-                                            //     let admID = sessionStorage.setItem("id-admin", mid);
-
-                                            // }
 
                                         })
-                                        // let getID = sessionStorage.getItem("id-admin");
+
                                         var myHeaders = new Headers();
                                         myHeaders.append(
                                             "Authorization",

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
 
     <link rel="stylesheet" href="assets/css/shared/dataTables.jqueryui.min.css">
+    <link rel="stylesheet" href="assets/css/shared/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- endinject -->

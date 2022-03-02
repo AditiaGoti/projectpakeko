@@ -1,3 +1,5 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -25,14 +27,14 @@
                     <div class="card-header">
                         Riwayat Kehadiran
                     </div>
-                    <div class="panel-body">
+                    <div class="card-body">
                         <div class="table-responsive">
                             <table id="table-data" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <!-- <th>Hari</th> -->
+                                        <th>Hari</th>
                                         <th>Tanggal</th>
-                                        <!-- <th>Waktu </th> -->
+                                        <th>Waktu </th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableMemberK">
@@ -65,32 +67,30 @@
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
                                                         const d = data.waktu;
-                                                        // const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                                                        // let day = weekday[d.getDay()];
-                                                        // let time = d.toLocaleTimeString();
-                                                        // let date = d.toLocaleDateString();
-                                                        let date = d.replace(/([+\-]\d\d)(\d\d)$/, "$1:$2");
+                                                        const weekday = ["Minggu", "Senin", "Selama", "Rabu", "Kamis", "Jumat", "Sabtu"];
+                                                        let day = weekday[new Date(d.replace(/-/g, "/")).getDay()];
+                                                        let time = new Date(d.replace(/-/g, "/")).toLocaleTimeString("id-ID");
+                                                        let date = new Date(d.replace(/-/g, "/")).toLocaleDateString("id-ID");
+                                                        // let day = d.replace(/([+\-]\d\d)(\d\d)$/, "$1:$2");
 
                                                         var body = `<tr>`;
-                                                        // body += "<td>" + day + "</td>";
+                                                        body += `<td >` + day + "</td>";
                                                         body += "<td>" + date + "</td>";
-                                                        // body += "<td>" + time + "</td>";
+                                                        body += "<td>" + time + " WIB" + "</td>";
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
                                                     });
                                                     /*DataTables instantiation.*/
-                                                    $("#table-data").DataTable({
+                                                    var t = $("#table-data").DataTable({
                                                         responsive: true,
+                                                        "pageLength": 25,
                                                         ordering: false,
-                                                        "order": [
-                                                            [0, "desc"]
-                                                        ]
                                                     });
+
                                                 },
                                                 error: function(response) {
                                                     hasil = response.responseJSON.message;
                                                     alert(hasil);
-                                                    location.href = "/logout";
                                                 }
                                             });
 

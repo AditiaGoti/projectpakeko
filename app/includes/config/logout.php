@@ -5,12 +5,9 @@
     </div>
 </div>
 <script>
-    // var tableMember = document.getElementById("logoutBtn");
     var tokenSession = '<?php echo $_SESSION['token']; ?>';
     var token = "Bearer" + " " + tokenSession;
-    // tableMember.addEventListener("click", (e) => {
-    // let logoutBtn = e.target.id == "logoutBtn";
-    // if (logoutBtn) {
+
     var settings = {
         "url": "http://api.klubaderai.com/api/logout",
         "method": "POST",

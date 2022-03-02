@@ -317,8 +317,8 @@
                                                 <th>Nama</th>
                                                 <th>Email</th>
                                                 <th>Gender</th>
-                                                <th>Tempat Lahir</th>
-                                                <th>Tanggal Lahir</th>
+
+                                                <th>DOB</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
@@ -351,7 +351,6 @@
                                                                 body += "<td>" + data.name + "</td>";
                                                                 body += "<td>" + data.email + "</td>";
                                                                 body += "<td>" + data.gender + "</td>";
-                                                                body += "<td>" + data.tempat_lahir + "</td>";
                                                                 body += "<td>" + data.tanggal_lahir + "</td>";
                                                                 body += "<td>" + data.nohp + "</td>";
                                                                 body += "<td>" + data.alamat + "</td>";
@@ -374,7 +373,7 @@
                                                         error: function(response) {
                                                             hasil = response.responseJSON.message;
                                                             alert(hasil);
-                                                            location.href = "/logout";
+
                                                         }
                                                     });
 
@@ -442,8 +441,8 @@
                                                 <th>Nama</th>
                                                 <th>Email</th>
                                                 <th>Gender</th>
-                                                <th>Tempat Lahir</th>
-                                                <th>Tanggal Lahir</th>
+
+                                                <th>DOB</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
@@ -498,7 +497,7 @@
                                                         error: function(response) {
                                                             hasil = response.responseJSON.message;
                                                             alert(hasil);
-                                                            location.href = "/logout";
+
                                                         }
                                                     });
 
@@ -577,8 +576,7 @@
                                                 <th>Nama</th>
                                                 <th>Email</th>
                                                 <th>Gender</th>
-                                                <th>Tempat Lahir</th>
-                                                <th>Tanggal Lahir</th>
+                                                <th>DOB</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
@@ -610,7 +608,6 @@
                                                                 body += "<td>" + data.name + "</td>";
                                                                 body += "<td>" + data.email + "</td>";
                                                                 body += "<td>" + data.gender + "</td>";
-                                                                body += "<td>" + data.tempat_lahir + "</td>";
                                                                 body += "<td>" + data.tanggal_lahir + "</td>";
                                                                 body += "<td>" + data.nohp + "</td>";
                                                                 body += "<td>" + data.alamat + "</td>";

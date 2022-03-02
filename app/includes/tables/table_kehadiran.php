@@ -187,6 +187,7 @@
                                     <tr>
                                         <th>Email</th>
                                         <th>Nama</th>
+                                        <th>Hari</th>
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <!-- <th>Action</th> -->
@@ -209,17 +210,19 @@
                                                 success: function(response) {
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
-                                                        const d = new Date(data.waktu);
-                                                        let time = d.toLocaleTimeString();
-                                                        let date = d.toDateString();
+                                                        const d = data.waktu;
+                                                        const weekday = ["Minggu", "Senin", "Selama", "Rabu", "Kamis", "Jumat", "Sabtu"];
+                                                        let day = weekday[new Date(d.replace(/-/g, "/")).getDay()];
+                                                        let time = new Date(d.replace(/-/g, "/")).toLocaleTimeString("id-ID");
+                                                        let date = new Date(d.replace(/-/g, "/")).toLocaleDateString("id-ID");
 
                                                         var body = "<tr>";
 
                                                         body += "<td>" + data.email + "</td>";
                                                         body += "<td>" + data.nama + "</td>";
+                                                        body += "<td>" + day + "</td>";
                                                         body += "<td>" + date + "</td>";
-                                                        body += "<td>" + time + "</td>";
-                                                        // body += "<td>" + `<button class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " + `<button class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
+                                                        body += "<td>" + time + " WIB" + "</td>";
 
                                                         body += "</tr>";
                                                         $("#table-data tbody").append(body);
@@ -227,21 +230,14 @@
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
-
-                                                        dom: 'Bfrtip',
-                                                        buttons: [
-                                                            'excel', 'pdf', 'print'
-                                                        ],
-                                                        "order": [
-                                                            [2, "desc"]
-                                                        ]
-
+                                                        "pageLength": 50,
+                                                        sorting: false
                                                     });
                                                 },
                                                 error: function(response) {
                                                     hasil = response.responseJSON.message;
                                                     alert(hasil);
-                                                    location.href = "/logout";
+
                                                 }
                                             });
                                         });
