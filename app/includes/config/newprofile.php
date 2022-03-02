@@ -31,8 +31,6 @@
                                       -webkit-text-fill-color: transparent;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
                                     <p id="member" style="display:none; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-size:20px; background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-style: italic;">Member</p>
-                                    <p id="admin" style=" display:none; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-size:20px;  background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent; font-style: italic;">Admin</p>
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -54,38 +52,29 @@
                                         <div class="col-sm-6">
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <p id="gender" class="m-b-10 f-w-600">Gender</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p id="expired" class="m-b-10 f-w-600">Expired</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p id="token" class="m-b-10 f-w-600">Token</p>
+                                        </div>
 
 
                                     </div>
                                     <div class="buttonupdate">
-                                        <button id="EPAdmin" style=" display: none; margin-left: 340px; margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
-                                        <button id="EPMember" style=" display: none; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button>
+
+                                        <button id="EPMember" style=" display: block; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button>
                                     </div>
                                     <div class="buttoncp">
-                                        <button id="CPAdmin" style="display: none; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
-                                        <button id="CPMember" style="display: none;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
+
+                                        <button id="CPMember" style="display: block;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
                                     </div>
                                 </div>
                             </div>
-                            <script>
-                                var type = '<?php echo $_SESSION['type']; ?>'
-                                if (type == 1) {
-                                    var admin = document.getElementById("admin")
-                                    var epadmin = document.getElementById("EPAdmin")
-                                    var cpadmin = document.getElementById("CPAdmin")
-                                    admin.style.display = 'block'
-                                    epadmin.style.display = 'block'
-                                    cpadmin.style.display = 'block'
 
-                                } else {
-                                    var member = document.getElementById("member")
-                                    var epmember = document.getElementById("EPMember")
-                                    var cpmember = document.getElementById("CPMember")
-                                    member.style.display = 'block'
-                                    epmember.style.display = 'block'
-                                    cpmember.style.display = 'block'
-                                }
-                            </script>
                             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                             <script>
                                 var myArray = [];
@@ -117,6 +106,9 @@
                                     email = data.email;
                                     nohp = data.nohp;
                                     alamat = data.alamat;
+                                    gender = data.gender;
+                                    expired = data.expired;
+                                    token = data.token;
 
                                     $(`<img src="${img}" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image">`).appendTo('#img');
                                     $(`<h6 class="text-muted f-w-400">${email}</h6>`).appendTo('#email');
@@ -124,6 +116,10 @@
                                     $(`<h6 class="text-muted f-w-400">${dob}</h6>`).appendTo('#dob');
                                     $(`<h6 class="text-muted f-w-400">${nohp}</h6>`).appendTo('#nohp');
                                     $(`<h6 class="text-muted f-w-400">${alamat}</h6>`).appendTo('#alamat');
+                                    $(`<h6 class="text-muted f-w-400">${gender}</h6>`).appendTo('#gender');
+                                    $(`<h6 class="text-muted f-w-400">${expired}</h6>`).appendTo('#expired');
+                                    $(`<h6 class="text-muted f-w-400">${token}</h6>`).appendTo('#token');
+
                                 }
                             </script>
                         </div>
@@ -131,43 +127,37 @@
                 </div>
             </div>
         </div>
-        <div id="ModalLoginForm" class="modal fade">
+        <div id="ModalCowo" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title">Progress</h2>
                     </div>
                     <div class="modal-body">
-                        <form role="form" method="POST" action="">
-                            <input type="hidden" name="_token" value="">
+                        <form onsubmit="proCowo(); return false">
+                            <input type="hidden" name="_token">
                             <div class="form-group">
                                 <label class="control-label">Berat Badan</label>
                                 <div>
-                                    <input type="text" class="form-control input-lg" name="berat" value="">
+                                    <input id="coberat" type="text" class="form-control input-lg" name="berat">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Tinggi Badan</label>
                                 <div>
-                                    <input type="text" class="form-control input-lg" name="tinggi" value="">
+                                    <input id="cotinggi" type="text" class="form-control input-lg" name="tinggi">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Massa Otot</label>
+                                <label class="control-label">Lingkar Leher</label>
                                 <div>
-                                    <input type="text" class="form-control input-lg" name="massaotot">
+                                    <input id="coleher" type="text" class="form-control input-lg" name="massaotot">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Presentasi Lemak</label>
+                                <label class="control-label">Lingkar Pinggang</label>
                                 <div>
-                                    <input type="text" class="form-control input-lg" name="presentasilemak">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Massa Lemak</label>
-                                <div>
-                                    <input type="text" class="form-control input-lg" name="massalemak">
+                                    <input id="copinggang" type="text" class="form-control input-lg" name="presentasilemak">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -178,10 +168,114 @@
                                 </div>
                             </div>
                         </form>
+                        <script>
+                            function proCowo() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+
+                                var urlencoded = new URLSearchParams();
+                                urlencoded.append("tinggi_badan", document.getElementById("coberat").value);
+                                urlencoded.append("berat_badan", document.getElementById("cotinggi").value);
+                                urlencoded.append("leher", document.getElementById("coleher").value);
+                                urlencoded.append("pinggang", document.getElementById("copinggang").value);
+
+                                var requestOptions = {
+                                    method: 'POST',
+                                    headers: myHeaders,
+                                    body: urlencoded,
+                                    redirect: 'follow'
+                                };
+
+                                fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
+                                    .then(response => response.text())
+                                    .then(result => console.log(result))
+                                    .catch(error => console.log('error', error));
+                            }
+                        </script>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+        </div>
+        <div id="ModalCewe" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Progress</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form onsubmit="proCewe(); return false">
+                            <input type="hidden" name="_token">
+                            <div class="form-group">
+                                <label class="control-label">Berat Badan</label>
+                                <div>
+                                    <input id="ceberat" type="text" class="form-control input-lg" name="berat">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Tinggi Badan</label>
+                                <div>
+                                    <input id="cetinggi" type="text" class="form-control input-lg" name="tinggi">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Lingkar Leher</label>
+                                <div>
+                                    <input id="celeher" type="text" class="form-control input-lg" name="massaotot">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Lingkar Pinggang</label>
+                                <div>
+                                    <input id="cepinggang" type="text" class="form-control input-lg" name="presentasilemak">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Lingkar Paha</label>
+                                <div>
+                                    <input type="cetext" class="form-control input-lg" name="massalemak">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button type="submit" class="btn btn-success">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <script>
+                            function proCewe() {
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+
+                                var urlencoded = new URLSearchParams();
+                                urlencoded.append("berat_badan", document.getElementById("cetinggi").value);
+                                urlencoded.append("tinggi_badan", document.getElementById("ceberat").value);
+                                urlencoded.append("leher", document.getElementById("celeher").value);
+                                urlencoded.append("pinggang", document.getElementById("cepinggang").value);
+                                urlencoded.append("paha", document.getElementById("cepaha").value);
+
+                                var requestOptions = {
+                                    method: 'POST',
+                                    headers: myHeaders,
+                                    body: urlencoded,
+                                    redirect: 'follow'
+                                };
+
+                                fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
+                                    .then(response => response.text())
+                                    .then(result => console.log(result))
+                                    .catch(error => console.log('error', error));
+                            }
+                        </script>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
         <div class="row justify-content-center">
             <div class=" col-lg-4 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
@@ -237,10 +331,18 @@
             <div class="col-md-6 grid-margin">
                 <div class="card">
                     <div class="p-4 border-bottom bg-light">
-                        <h4 class="card-title mb-0" style="font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalLoginForm">
-                                Add Progress
-                            </button></h4>
+                        <h4 id="btnCowo" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCowo"></button></h4>
+                        <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"></button></h4>
                     </div>
+                    <script>
+                        var gender = <?php echo $_SESSION["gender"] ?>;
+                        if (gender == male) {
+                            document.getElementById("btnCowo").style.display = block;
+
+                        } else {
+                            document.getElementById("btnCewe").style.display = block;
+                        }
+                    </script>
                     <div class="card-body">
                         <canvas id="kgChart"></canvas>
                         <script>
@@ -414,7 +516,7 @@
                                             const datasets = {
                                                 labels: labels,
                                                 datasets: [{
-                                                    label: 'Fatmass',
+                                                    label: 'Body Fat',
                                                     backgroundColor: 'rgb(255, 178, 166, 0.5)',
                                                     borderColor: 'rgb(255, 178, 166)',
                                                     borderWidth: 2,
