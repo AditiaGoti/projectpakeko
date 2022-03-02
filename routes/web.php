@@ -15,6 +15,10 @@ use Illuminate\Auth\Events\Login;
 |
 */
 
+Route::get('/email', function () {
+    return view('email');
+});
+
 // Login
 
 Route::get('/', [loginc::class, 'index']);

@@ -131,6 +131,57 @@
                 </div>
             </div>
         </div>
+        <div id="ModalLoginForm" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Progress</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" method="POST" action="">
+                            <input type="hidden" name="_token" value="">
+                            <div class="form-group">
+                                <label class="control-label">Berat Badan</label>
+                                <div>
+                                    <input type="text" class="form-control input-lg" name="berat" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Tinggi Badan</label>
+                                <div>
+                                    <input type="text" class="form-control input-lg" name="tinggi" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Massa Otot</label>
+                                <div>
+                                    <input type="text" class="form-control input-lg" name="massaotot">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Presentasi Lemak</label>
+                                <div>
+                                    <input type="text" class="form-control input-lg" name="presentasilemak">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Massa Lemak</label>
+                                <div>
+                                    <input type="text" class="form-control input-lg" name="massalemak">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button type="submit" class="btn btn-success">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <div class="row justify-content-center">
             <div class=" col-lg-4 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
@@ -138,16 +189,21 @@
                         <div class="row">
                             <div id="sumMember" class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Before</h5>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+
                             </div>
                             <div class="col" style="margin-top: 50px;">
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Lemak :</P><P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
-                              
-                                
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Lemak :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
+
+
                             </div>
                         </div>
                     </div>
@@ -159,200 +215,251 @@
                         <div class="row justify-content-center">
                             <div id="sumMember" class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;">After</h5>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+
                             </div>
                             <div class="col" style="margin-top: 50px;">
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P><P  style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                <P style="font-size:12px;">Massa Lemak :</P><P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
-                              
-                                
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <P style="font-size:12px;">Massa Lemak :</P>
+                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <div class="col-md-12 grid-margin">
-            <div class="card">
-                <div class="p-4 border-bottom bg-light">
-                    <h4 class="card-title mb-0" style="font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalLoginForm">
-    Add Progress
-</button></h4>
-                </div>
-                <div id="ModalLoginForm" class="modal fade">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Progress</h2>
-            </div>
-            <div class="modal-body">          
-                <form role="form" method="POST" action="">
-                    <input type="hidden" name="_token" value="">
-                    <div class="form-group">
-                        <label class="control-label">Berat Badan</label>
-                        <div>
-                            <input type="text" class="form-control input-lg" name="berat" value="">
-                        </div>
+
+            <div class="col-md-6 grid-margin">
+                <div class="card">
+                    <div class="p-4 border-bottom bg-light">
+                        <h4 class="card-title mb-0" style="font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalLoginForm">
+                                Add Progress
+                            </button></h4>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Tinggi Badan</label>
-                        <div>
-                            <input type="text" class="form-control input-lg" name="tinggi" value="">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Massa Otot</label>
-                        <div>
-                            <input type="text" class="form-control input-lg" name="massaotot">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Presentasi Lemak</label>
-                        <div>
-                            <input type="text" class="form-control input-lg" name="presentasilemak">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Massa Lemak</label>
-                        <div>
-                            <input type="text" class="form-control input-lg" name="massalemak">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <button type="submit" class="btn btn-success">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-                <div class="card-body">
-                    <canvas id="kgChart" height="100"></canvas>
-                    <script>
-                        var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                        var token = "Bearer" + " " + tokenSession;
-                        var myArray = [];
+                    <div class="card-body">
+                        <canvas id="kgChart"></canvas>
+                        <script>
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            var myArray = [];
 
 
-                        $(document).ready(function() {
-                            $.ajax({
-                                method: "GET",
-                                url: urlt,
-                                headers: {
-                                    Authorization: token,
-                                },
-                                success: function(response) {
-                                    data = response.data;
-                                    bf = JSON.stringify(data.body_fat);
-                                    w = JSON.stringify(data.weight);
-                                    lm = JSON.stringify(data.leanmass);
-                                    fm = JSON.stringify(data.fatmass);
-                                    var databf = JSON.parse(bf);
-                                    var dataw = JSON.parse(w);
-                                    var datalm = JSON.parse(lm);
-                                    var datafm = JSON.parse(fm);
+                            $(document).ready(function() {
+                                $.ajax({
+                                    method: "GET",
+                                    url: urlt,
+                                    headers: {
+                                        Authorization: token,
+                                    },
+                                    success: function(response) {
+                                        data = response.data;
+                                        bf = JSON.stringify(data.body_fat);
+                                        w = JSON.stringify(data.weight);
+                                        lm = JSON.stringify(data.leanmass);
+                                        fm = JSON.stringify(data.fatmass);
+                                        var databf = JSON.parse(bf);
+                                        var dataw = JSON.parse(w);
+                                        var datalm = JSON.parse(lm);
+                                        var datafm = JSON.parse(fm);
 
-                                    var arraybf = [];
-                                    for (var i in databf)
-                                        arraybf.push(databf[i]);
+                                        var arraybf = [];
+                                        for (var i in databf)
+                                            arraybf.push(databf[i]);
 
-                                    var arrayw = [];
-                                    for (var i in dataw)
-                                        arrayw.push(dataw[i]);
+                                        var arrayw = [];
+                                        for (var i in dataw)
+                                            arrayw.push(dataw[i]);
 
-                                    var arraylm = [];
-                                    for (var i in datalm)
-                                        arraylm.push(datalm[i]);
+                                        var arraylm = [];
+                                        for (var i in datalm)
+                                            arraylm.push(datalm[i]);
 
-                                    var arrayfm = [];
-                                    for (var i in datafm)
-                                        arrayfm.push(datafm[i]);
+                                        var arrayfm = [];
+                                        for (var i in datafm)
+                                            arrayfm.push(datafm[i]);
 
-                                    chartTransaksi(data);
+                                        chartTransaksi(data);
 
-                                    function chartTransaksi(data) {
+                                        function chartTransaksi(data) {
 
-                                        const labels = [
-                                            '1',
-                                            '2',
-                                            '3',
-                                            '4',
-                                            '5',
-                                        ];
+                                            const labels = [
+                                                '1',
+                                                '2',
+                                                '3',
+                                                '4',
+                                                '5',
+                                            ];
 
-                                        const datasets = {
-                                            labels: labels,
-                                            datasets: [{
-                                                label: 'Weight',
-                                                backgroundColor: 'rgb(154, 220, 255, 0.5)',
-                                                borderColor: 'rgb(154, 220, 255)',
-                                                borderWidth: 2,
-                                                borderRadius: 5,
-                                                borderSkipped: false,
-                                                data: arrayw
+                                            const datasets = {
+                                                labels: labels,
+                                                datasets: [{
+                                                    label: 'Weight',
+                                                    backgroundColor: 'rgb(154, 220, 255, 0.5)',
+                                                    borderColor: 'rgb(154, 220, 255)',
+                                                    borderWidth: 2,
+                                                    borderRadius: 5,
+                                                    borderSkipped: false,
+                                                    data: arrayw
 
-                                            }, {
-                                                label: 'Leanmass',
-                                                backgroundColor: 'rgb(255, 248, 154, 0.5)',
-                                                borderColor: 'rgb(255, 248, 154)',
-                                                borderWidth: 2,
-                                                borderRadius: 5,
-                                                borderSkipped: false,
-                                                data: arraylm
+                                                }, {
+                                                    label: 'Leanmass',
+                                                    backgroundColor: 'rgb(255, 248, 154, 0.5)',
+                                                    borderColor: 'rgb(255, 248, 154)',
+                                                    borderWidth: 2,
+                                                    borderRadius: 5,
+                                                    borderSkipped: false,
+                                                    data: arraylm
 
-                                            }, {
-                                                label: 'Fatmass',
-                                                backgroundColor: 'rgb(255, 178, 166, 0.5)',
-                                                borderColor: 'rgb(255, 178, 166)',
-                                                borderWidth: 2,
-                                                borderRadius: 5,
-                                                borderSkipped: false,
-                                                data: arrayfm
+                                                }, {
+                                                    label: 'Fatmass',
+                                                    backgroundColor: 'rgb(255, 178, 166, 0.5)',
+                                                    borderColor: 'rgb(255, 178, 166)',
+                                                    borderWidth: 2,
+                                                    borderRadius: 5,
+                                                    borderSkipped: false,
+                                                    data: arrayfm
 
-                                            }]
-                                        };
+                                                }]
+                                            };
 
-                                        const config = {
-                                            type: 'bar',
-                                            data: datasets,
-                                            options: {
-                                                responsive: true,
-                                                plugins: {
-                                                    legend: {
-                                                        position: 'top',
-                                                    },
-                                                    title: {
-                                                        display: true,
-                                                        text: 'Chart.js Bar Chart'
+                                            const config = {
+                                                type: 'bar',
+                                                data: datasets,
+                                                options: {
+                                                    responsive: true,
+                                                    plugins: {
+                                                        legend: {
+                                                            position: 'top',
+                                                        },
+                                                        title: {
+                                                            display: true,
+                                                            text: 'Chart.js Bar Chart'
+                                                        }
                                                     }
-                                                }
-                                            },
-                                        };
-                                        const myChart = new Chart(
-                                            document.getElementById('kgChart'),
-                                            config
-                                        );
+                                                },
+                                            };
+                                            const myChart = new Chart(
+                                                document.getElementById('kgChart'),
+                                                config
+                                            );
+                                        }
+                                    },
+                                    error: function() {
+                                        alert('Terjadi Kesalahan');
+
                                     }
-                                },
-                                error: function() {
-                                    alert('Terjadi Kesalahan');
+                                });
 
-                                }
                             });
-
-                        });
-                    </script>
+                        </script>
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-6 grid-margin">
+                <div class="card">
+                    <div class="p-4 border-bottom bg-light">
+                        <h4 class="card-title mb-0" style="font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalLoginForm">
+                                Add Progress
+                            </button></h4>
+                    </div>
+
+                    <div class="card-body">
+                        <canvas id="gChart"></canvas>
+                        <script>
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            const urlt = "https://api.klubaderai.com/api/users-progress";
+                            var myArray = [];
+
+
+                            $(document).ready(function() {
+                                $.ajax({
+                                    method: "GET",
+                                    url: urlt,
+                                    headers: {
+                                        Authorization: token,
+                                    },
+                                    success: function(response) {
+                                        data = response.data;
+                                        bf = JSON.stringify(data.body_fat);
+                                        w = JSON.stringify(data.weight);
+                                        lm = JSON.stringify(data.leanmass);
+                                        fm = JSON.stringify(data.fatmass);
+                                        var databf = JSON.parse(bf);
+                                        var dataw = JSON.parse(w);
+                                        var datalm = JSON.parse(lm);
+                                        var datafm = JSON.parse(fm);
+
+                                        var arraybf = [];
+                                        for (var i in databf)
+                                            arraybf.push(databf[i]);
+
+                                        chartTransaksi(data);
+
+                                        function chartTransaksi(data) {
+
+                                            const labels = [
+                                                '1',
+                                                '2',
+                                                '3',
+                                                '4',
+                                                '5',
+                                            ];
+
+                                            const datasets = {
+                                                labels: labels,
+                                                datasets: [{
+                                                    label: 'Fatmass',
+                                                    backgroundColor: 'rgb(255, 178, 166, 0.5)',
+                                                    borderColor: 'rgb(255, 178, 166)',
+                                                    borderWidth: 2,
+                                                    borderRadius: 5,
+                                                    borderSkipped: false,
+                                                    data: arraybf
+
+                                                }]
+                                            };
+
+                                            const config = {
+                                                type: 'line',
+                                                data: datasets,
+                                                options: {
+                                                    responsive: true,
+                                                    plugins: {
+                                                        legend: {
+                                                            position: 'top',
+                                                        },
+                                                        title: {
+                                                            display: true,
+                                                            text: 'Chart.js Bar Chart'
+                                                        }
+                                                    }
+                                                },
+                                            };
+                                            const myChart = new Chart(
+                                                document.getElementById('gChart'),
+                                                config
+                                            );
+                                        }
+                                    },
+                                    error: function() {
+                                        alert('Terjadi Kesalahan');
+
+                                    }
+                                });
+
+                            });
+                        </script>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-    </div>
     </div>
 
     <!-- content-wrapper ends -->
