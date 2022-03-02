@@ -1,5 +1,4 @@
-/* Layouts */
-/* Animation Mixins */
+
 @-webkit-keyframes dropdownAnimation {
     from {
         opacity: 0;
@@ -307,7 +306,6 @@
     margin: 0;
 }
 
-/* Navbar */
 .navbar.default-layout {
     font-family: "roboto", sans-serif;
     background: whitesmoke;
@@ -541,7 +539,7 @@
     }
 }
 
-/* Sidebar */
+
 .sidebar {
     min-height: calc(100vh - 63px);
     background: linear-gradient(to top, #cdd6dc, rgb(148, 145, 114));
@@ -1891,4 +1889,4 @@ body {
   #option-2:checked:checked ~ .option-2 span{
     color: #fff;
   }
-/*# sourceMappingURL=style.css.map */
+
