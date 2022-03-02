@@ -334,7 +334,7 @@
                         <h4 id="btnCowo" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCowo"></button></h4>
                         <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"></button></h4>
                     </div>
-                    <script>
+                    <!--<script>
                         var gender = <?php echo $_SESSION["gender"] ?>;
                         if (gender == male) {
                             document.getElementById("btnCowo").style.display = block;
@@ -342,7 +342,7 @@
                         } else {
                             document.getElementById("btnCewe").style.display = block;
                         }
-                    </script>
+                    </script>-->
                     <div class="card-body">
                         <canvas id="kgChart"></canvas>
                         <script>
