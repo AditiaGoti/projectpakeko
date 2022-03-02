@@ -28,7 +28,7 @@
 
                                     </div>
                                     <h7 style="font-size: 40px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;"class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
+                                      -webkit-text-fill-color: transparent;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
                                     <p id="member" style="display:none; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-size:20px; background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-style: italic;">Member</p>
                                     <p id="admin" style=" display:none; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-size:20px;  background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
@@ -54,16 +54,17 @@
                                         <div class="col-sm-6">
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
                                         </div>
-                                       
-                                        
+
+
                                     </div>
                                     <div class="buttonupdate">
-                                            <button id="EPAdmin" style=" display: none; margin-left: 340px; margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
-                                            <button id="EPMember" style=" display: none; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>
+                                        <button id="EPAdmin" style=" display: none; margin-left: 340px; margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                        <button id="EPMember" style=" display: none; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button>
+                                    </div>
                                     <div class="buttoncp">
-                                            <button id="CPAdmin" style="display: none; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
-                                            <button id="CPMember" style="display: none;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
-                                </div>                                        
+                                        <button id="CPAdmin" style="display: none; float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
+                                        <button id="CPMember" style="display: none;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
+                                    </div>
                                 </div>
                             </div>
                             <script>
@@ -154,12 +155,13 @@
                                         <div class="col-sm-6">
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
                                         </div>
-                                       
-                                        
+
+
                                     </div>
                                     <div class="buttonupdate">
-                                            <button id="EPrAdmin" style=" display: none; margin-left: 340px; margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
-                                            <button id="EPrMember" style=" display: none; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button></div>                                     
+                                        <button id="EPrAdmin" style=" display: none; margin-left: 340px; margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                        <button id="EPrMember" style=" display: none; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button>
+                                    </div>
                                 </div>
                             </div>
                             <script>
@@ -168,10 +170,10 @@
                                     var epradmin = document.getElementById("EPrAdmin")
                                     epradmin.style.display = 'block'
                                 } else {
-                                  
+
                                     var eprmember = document.getElementById("EPrMember")
                                     eprmember.style.display = 'block'
-                                 
+
                                 }
                             </script>
                             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -180,7 +182,7 @@
                 </div>
             </div>
         </div>
-        
+
 
     </div>
 

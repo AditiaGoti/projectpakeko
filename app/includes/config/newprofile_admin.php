@@ -24,7 +24,7 @@
                         <div class="row m-l-0 m-r-0">
                             <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGProfile.png); background-size:339px;  background-repeat: no-repeat;">
                                 <div class="card-block text-center text-white">
-                                    <div id="img" style="margin-top:35px"class="m-b-25">
+                                    <div id="img" style="margin-top:35px" class="m-b-25">
 
                                     </div>
                                     <h7 style="font-size: 40px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
