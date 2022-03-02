@@ -13,7 +13,8 @@
 
     .profile-card .profile-img img {
         width: 100%;
-        height: auto;
+        height: 250px;
+    
         transition: transform 1s;
 
     }
@@ -222,6 +223,11 @@
                                         <div class="input-group mb-3">
                                             <label style="margin-top:5px; padding-right:17px;">Date of Birth</label>
                                             <input required id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
+                                        </div>
+                                        <hr>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:17px;">Expired Date</label>
+                                            <input required id="" type="" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" required />
                                         </div>
                                     </form>
                                 </div>
