@@ -189,19 +189,19 @@
                         <div class="row">
                             <div id="sumMember" class="col">
                                 <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Before</h5>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
 
                             </div>
-                            <div class="col" style="margin-top: 50px;">
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Lemak :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
+                            <div class="col" style="margin-top: 70px;">
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
 
 
                             </div>
@@ -214,20 +214,20 @@
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;">After</h5>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">After</h5>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
 
                             </div>
-                            <div class="col" style="margin-top: 50px;">
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                <P style="font-size:12px;">Massa Lemak :</P>
-                                <P style="font-size:12px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
+                            <div class="col" style="margin-top: 70px;">
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; ">Presentase Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
                             </div>
                         </div>
                     </div>
