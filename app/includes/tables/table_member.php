@@ -473,7 +473,6 @@
                                                                 body += "<td>" + data.name + "</td>";
                                                                 body += "<td>" + data.email + "</td>";
                                                                 body += "<td>" + data.gender + "</td>";
-                                                                body += "<td>" + data.tempat_lahir + "</td>";
                                                                 body += "<td>" + data.tanggal_lahir + "</td>";
                                                                 body += "<td>" + data.nohp + "</td>";
                                                                 body += "<td>" + data.alamat + "</td>";
@@ -631,7 +630,6 @@
                                                         error: function(response) {
                                                             hasil = response.responseJSON.message;
                                                             alert(hasil);
-                                                            location.href = "/logout";
                                                         }
                                                     });
 
