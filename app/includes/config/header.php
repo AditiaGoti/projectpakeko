@@ -12,7 +12,11 @@
     <link rel="stylesheet" href="assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.addons.css">
+    <link rel="stylesheet" href="assets/css/shared/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/shared/dataTables.responsive.css" />
     <link rel="stylesheet" href="assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" href="assets/css/shared/dataTables.jqueryui.min.css">
     <link rel="stylesheet" href="assets/css/shared/dataTables.bootstrap4.min.css">

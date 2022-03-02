@@ -1622,6 +1622,42 @@ body {
         margin-left: 0px;
     }
 }
+@media only screen and (min-width: 360px) and (max-width: 374px) {
+    .user-card-full {
+        overflow: hidden;
+        width: 310px;
+        margin-left: -65px;
+        margin-top: -50px;
+    }
+    .m-b-25 {
+        margin-bottom: 0px;
+        margin-left: -2px;
+    }
+    .buttonupdate {
+        margin-left: -338px;
+    }
+    .buttonchangephoto {
+        margin-left: 0px;
+    }
+}
+@media only screen and (min-width: 375px) and (max-width: 380px) {
+    .user-card-full {
+        overflow: hidden;
+        width: 325px;
+        margin-left: -65px;
+        margin-top: -50px;
+    }
+    .m-b-25 {
+        margin-bottom: 0px;
+        margin-left: -2px;
+    }
+    .buttonupdate {
+        margin-left: -338px;
+    }
+    .buttonchangephoto {
+        margin-left: 0px;
+    }
+}
 .m-r-0 {
     margin-right: 0px;
 }
@@ -1637,7 +1673,12 @@ body {
 .bg-c-lite-green {
     height: auto;
 }
-
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+    .bg-c-lite-green {
+        background-size: 1000px;
+        height: auto;
+    }
+}
 .user-profile {
     padding: 20px 0;
 }
