@@ -1,4 +1,3 @@
-
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -46,17 +45,17 @@
                                         <input type="text" id="admin_nohp" class="form-control " placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
                                     </div>
                                     <div class="form-group">
-                                    <label>Gender</label>
-                                    <div class="wrapperr">
-                                            <input type="radio" name="gender" id="option-1" checked>
-                                            <input type="radio" name="gender" id="option-2">
+                                        <label>Gender</label>
+                                        <div class="wrapperr">
+                                            <input type="radio" name="gender" value="male" id="option-1" checked>
+                                            <input type="radio" name="gender" value="female" id="option-2">
                                             <label for="option-1" class="option option-1">
                                                 <div class="dot"></div> <span>Laki-laki</span>
                                             </label>
                                             <label for="option-2" class="option option-2">
-                                                 <div class="dot"></div> <span>Perempuan</span>
+                                                <div class="dot"></div> <span>Perempuan</span>
                                             </label>
-                                    </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
@@ -110,7 +109,7 @@
                                 );
                                 formdata.append(
                                     "gender",
-                                    document.querySelector('input[name = gender]:checked').value
+                                    document.querySelector('input[name=gender]:checked').value
                                 );
                                 formdata.append(
                                     "tanggal_lahir",
@@ -144,13 +143,12 @@
 
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.errors;
-                                        console.log(data);
+                                        var message = data.message;
 
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
-                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_admin').fadeIn(1000);
+                                                `&times;</button>${message}</div>`).hide().prependTo('#form_admin').fadeIn(1000);
 
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",

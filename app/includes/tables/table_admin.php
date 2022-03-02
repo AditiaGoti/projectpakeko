@@ -209,11 +209,14 @@
                             <table class="table table-striped table-bordered table-hover" id="table-data">
                                 <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Gender</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
                                         <th>No. HP</th>
                                         <th>Alamat</th>
-                                        <th>Tanggal Lahir</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -236,11 +239,14 @@
                                                     $.each(data, function(i, data) {
 
                                                         var body = `<tr data-id=${data.id} >`;
+                                                        body += "<td>" + data.id + "</td>";
                                                         body += "<td>" + data.name + "</td>";
                                                         body += "<td>" + data.email + "</td>";
+                                                        body += "<td>" + data.gender + "</td>";
+                                                        body += "<td>" + data.tempat_lahir + "</td>";
+                                                        body += "<td>" + data.tanggal_lahir + "</td>";
                                                         body += "<td>" + data.nohp + "</td>";
                                                         body += "<td>" + data.alamat + "</td>";
-                                                        body += "<td>" + data.tanggal_lahir + "</td>";
 
                                                         body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " +
                                                             `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
@@ -252,11 +258,7 @@
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
-                                                        dom: 'Bfrtip',
-                                                        buttons: [
-                                                            'excel', 'pdf', 'print'
-                                                        ]
-
+                                                        "pageLength": 50
                                                     });
                                                 },
                                                 error: function(response) {

@@ -316,6 +316,9 @@
                                                 <th></th>
                                                 <th>Nama</th>
                                                 <th>Email</th>
+                                                <th>Gender</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
@@ -347,6 +350,9 @@
                                                                 body += "<td>" + data.id + "</td>";
                                                                 body += "<td>" + data.name + "</td>";
                                                                 body += "<td>" + data.email + "</td>";
+                                                                body += "<td>" + data.gender + "</td>";
+                                                                body += "<td>" + data.tempat_lahir + "</td>";
+                                                                body += "<td>" + data.tanggal_lahir + "</td>";
                                                                 body += "<td>" + data.nohp + "</td>";
                                                                 body += "<td>" + data.alamat + "</td>";
                                                                 body += "<td>" + data.expired + "</td>";
@@ -361,6 +367,7 @@
                                                             /*DataTables instantiation.*/
                                                             $("#table-data").DataTable({
                                                                 responsive: true,
+                                                                "pageLength": 50
 
                                                             });
                                                         },
@@ -434,6 +441,9 @@
                                                 <th>#</th>
                                                 <th>Nama</th>
                                                 <th>Email</th>
+                                                <th>Gender</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
@@ -463,6 +473,9 @@
                                                                 body += "<td>" + data.id + "</td>";
                                                                 body += "<td>" + data.name + "</td>";
                                                                 body += "<td>" + data.email + "</td>";
+                                                                body += "<td>" + data.gender + "</td>";
+                                                                body += "<td>" + data.tempat_lahir + "</td>";
+                                                                body += "<td>" + data.tanggal_lahir + "</td>";
                                                                 body += "<td>" + data.nohp + "</td>";
                                                                 body += "<td>" + data.alamat + "</td>";
                                                                 body += "<td>" + data.expired + "</td>";
@@ -478,6 +491,7 @@
                                                             /*DataTables instantiation.*/
                                                             $("#table-dataa").DataTable({
                                                                 responsive: true,
+                                                                "pageLength": 50
 
                                                             });
                                                         },
@@ -562,6 +576,9 @@
                                                 <th>#</th>
                                                 <th>Nama</th>
                                                 <th>Email</th>
+                                                <th>Gender</th>
+                                                <th>Tempat Lahir</th>
+                                                <th>Tanggal Lahir</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
@@ -592,6 +609,9 @@
                                                                 body += "<td>" + data.id + "</td>";
                                                                 body += "<td>" + data.name + "</td>";
                                                                 body += "<td>" + data.email + "</td>";
+                                                                body += "<td>" + data.gender + "</td>";
+                                                                body += "<td>" + data.tempat_lahir + "</td>";
+                                                                body += "<td>" + data.tanggal_lahir + "</td>";
                                                                 body += "<td>" + data.nohp + "</td>";
                                                                 body += "<td>" + data.alamat + "</td>";
                                                                 body += "<td>" + data.expired + "</td>";
@@ -607,6 +627,7 @@
                                                             /*DataTables instantiation.*/
                                                             $("#table-datai").DataTable({
                                                                 responsive: true,
+                                                                "pageLength": 50
 
                                                             });
                                                         },

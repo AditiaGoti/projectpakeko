@@ -56,17 +56,17 @@
                                         <input type="text" id="member_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon Member" aria-label="pnumber" required />
                                     </div>
                                     <div class="form-group">
-                                    <label>Gender</label>
-                                    <div class="wrapperr">
-                                            <input type="radio" name="gender" id="option-1" checked>
-                                            <input type="radio" name="gender" id="option-2">
+                                        <label>Gender</label>
+                                        <div class="wrapperr">
+                                            <input type="radio" name="gender" value="male" id="option-1" checked>
+                                            <input type="radio" name="gender" value="female" id="option-2">
                                             <label for="option-1" class="option option-1">
                                                 <div class="dot"></div> <span>Laki-laki</span>
                                             </label>
                                             <label for="option-2" class="option option-2">
-                                                 <div class="dot"></div> <span>Perempuan</span>
+                                                <div class="dot"></div> <span>Perempuan</span>
                                             </label>
-                                    </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -94,7 +94,6 @@
                             function daftarMember() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var select = document.getElementById("member_gender");
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
 
