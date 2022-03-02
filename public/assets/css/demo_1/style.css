@@ -1506,12 +1506,13 @@ body {
 }
 .user-card-full {
     overflow: hidden;
-    width: 1000px; 
-    margin-left:-270px;
+    width: 1030px; 
+    margin-left:-290px;
     margin-top: -40px;
+    border-radius: 3px;
    
 }
-@media only screen and (min-width: 280px) and (max-width:360px) {
+@media only screen and (min-width: 280px) and (max-width:359px) {
     .user-card-full {
     overflow: hidden;
     width: 250px; 
@@ -1529,12 +1530,30 @@ body {
 }
 }
 
-@media only screen and (min-width:768px) and (max-width:898px)
+@media only screen and (min-width:820px) and (max-width:898px)
 {
     .user-card-full {
     overflow: hidden;
-    width: 690px; 
-    margin-left:-50px;
+    width: 768px; 
+    margin-left:-65px;
+    margin-top: -50px;
+    }
+    .m-b-25 {
+    margin-bottom: 0px;
+    margin-left: 20px;
+    
+}
+.buttonupdate{
+    margin-left: -170px;
+}
+  
+}
+@media only screen and (min-width:768px) and (max-width:819px)
+{
+    .user-card-full {
+    overflow: hidden;
+    width: 717px; 
+    margin-left:-65px;
     margin-top: -50px;
     }
     .m-b-25 {
@@ -1552,8 +1571,8 @@ body {
 {
     .user-card-full {
     overflow: hidden;
-    width: 800px; 
-    margin-left:-50px;
+    width: 860px; 
+    margin-left:-65px;
     margin-top: -50px;
     }
     .m-b-25 {
@@ -1562,7 +1581,7 @@ body {
     
 }
    .buttonupdate{
-     margin-left: -150px;
+     margin-left: -100px;
  }
 
 }
@@ -1570,17 +1589,20 @@ body {
 {
   .user-card-full {
     overflow: hidden;
-    width: 320px; 
-    margin-left:-50px;
+    width: 360px; 
+    margin-left:-60px;
     margin-top: -50px;
+   
     }
     .m-b-25 {
     margin-bottom: 0px;
     margin-left: -5px;
     
 }
+
+
 .buttonupdate{
-    margin-left: -345px;
+    margin-left: -320px;
 }
   
 }
@@ -1588,8 +1610,8 @@ body {
 {
   .user-card-full {
     overflow: hidden;
-    width: 380px; 
-    margin-left:0px;
+    width: 485px; 
+    margin-left:-60px;
     margin-top: -50px;
     }
     .m-b-25 {
@@ -1598,7 +1620,7 @@ body {
     
 }
  .buttonupdate{
-     margin-left: -280px;
+     margin-left: -180px;
  }
 
   
@@ -1631,12 +1653,12 @@ body {
 
   
 }
-@media only screen and (min-width:360px) and (max-width:399px){
+@media only screen and (min-width:390px) and (max-width:399px){
 
     .user-card-full {
     overflow: hidden;
-    width: 300px; 
-    margin-left:-60px;
+    width: 340px; 
+    margin-left:-64px;
     margin-top: -50px;
     }
     .m-b-25 {
@@ -1646,6 +1668,48 @@ body {
 }
    .buttonupdate{
      margin-left: -350px;
+ }
+   .buttonchangephoto{
+    margin-left: 0px;
+}
+
+}
+@media only screen and (min-width:360px) and (max-width:374px){
+
+    .user-card-full {
+    overflow: hidden;
+    width: 310px; 
+    margin-left:-65px;
+    margin-top: -50px;
+    }
+    .m-b-25 {
+    margin-bottom: 0px;
+    margin-left: -2px;
+    
+}
+   .buttonupdate{
+     margin-left: -338px;
+ }
+   .buttonchangephoto{
+    margin-left: 0px;
+}
+
+}
+@media only screen and (min-width:375px) and (max-width:380px){
+
+    .user-card-full {
+    overflow: hidden;
+    width: 325px; 
+    margin-left:-65px;
+    margin-top: -50px;
+    }
+    .m-b-25 {
+    margin-bottom: 0px;
+    margin-left: -2px;
+    
+}
+   .buttonupdate{
+     margin-left: -338px;
  }
    .buttonchangephoto{
     margin-left: 0px;
@@ -1668,7 +1732,13 @@ body {
    
     height: auto;
 }
-
+@media only screen and (min-width:400px) and (max-width:500px)
+{
+    .bg-c-lite-green {
+        background-size: 1000px;
+        height: auto;
+    }
+}
 .user-profile {
     padding: 20px 0
 }
