@@ -161,10 +161,15 @@
                                     "alamat",
                                     document.getElementById("member_address").value
                                 );
-                                formdata.append(
-                                    "img_path",
-                                    document.getElementById("member_img").files[0]
-                                );
+
+                                var foto = document.getElementById("member_img").files[0]
+                                if (foto == null) {
+                                    // 
+                                } else {
+                                    formdata.append(
+                                        "img_path", foto
+                                    );
+                                }
 
                                 var requestOptions = {
                                     method: "post",
