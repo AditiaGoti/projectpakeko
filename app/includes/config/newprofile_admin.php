@@ -17,60 +17,6 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class=" col-lg-4 mb-4">
-                <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                        <div class="row">
-                            <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;background:red;-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;">Before</h5>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Berat Badan :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">80kg</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Tinggi Badan:</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">180cm</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Massa Otot :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
-
-                            </div>
-                            <div class="col" style="margin-top: 42px;">
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold; margin-left:-7px">Presentase Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;margin-left:-7px">Massa Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">17%</P>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class=" col-lg-4 mb-4">
-                <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                        <div class="row justify-content-center">
-                            <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; color: green; font-weight: bold;background:green;-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;">After</h5>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-weight: bold;">Berat Badan :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">80kg</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Tinggi Badan:</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">180cm</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Massa Otot :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
-
-                            </div>
-                            <div class="col" style="margin-top: 42px;">
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;margin-left:-7px">Presentase Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;margin-left:-7px">Massa Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">17%</P>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         <div class="padding" style="padding: 3rem !important;">
             <div class="row container d-flex justify-content-center">
                 <div class="col-xl-6 col-md-12">
