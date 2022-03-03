@@ -121,7 +121,6 @@
                                             });
 
 
-
                                             function deleteData() {
                                                 var myHeaders = new Headers();
                                                 myHeaders.append(

@@ -362,7 +362,7 @@
                     <div class="modal-footer">
                         <div class="form-group">
                             <div>
-                                <button onclick="proCowo(); return false" type="button" class="btn btn-success">
+                                <button onclick="proCowo(); return false" type="submit" class="btn btn-success">
                                     Submit
                                 </button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -370,13 +370,13 @@
                         </div>
                     </div>
                     <script>
-                        var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                        var token = "Bearer" + " " + tokenSession;
-                        var myHeaders = new Headers();
-                        myHeaders.append("Authorization", token);
-                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
                         function proCowo() {
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            var myHeaders = new Headers();
+                            myHeaders.append("Authorization", token);
+                            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
                             var urlencoded = new URLSearchParams();
                             urlencoded.append("tinggi_badan", document.getElementById("coberat").value);
                             urlencoded.append("berat_badan", document.getElementById("cotinggi").value);
@@ -434,6 +434,12 @@
                         }
 
                         function proCewe() {
+
+                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                            var token = "Bearer" + " " + tokenSession;
+                            var myHeaders = new Headers();
+                            myHeaders.append("Authorization", token);
+                            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                             var urlencoded = new URLSearchParams();
                             urlencoded.append("berat_badan", document.getElementById("cetinggi").value);
