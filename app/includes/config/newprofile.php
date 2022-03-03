@@ -549,7 +549,7 @@
                     }
                 </script>
                 <div class="row justify-content-center px-1" style="padding-top: 10px;">
-                    <div class=" col-lg-4 mb-4">
+                    <div class=" col-lg-6 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
                             <div class="card-body" style="background: linear-gradient(10deg, #FFE4E1 30%, white);box-shadow: none;border-radius:7px;">
                                 <div class="row">
@@ -575,7 +575,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" col-lg-4 mb-4">
+                    <div class=" col-lg-6 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
                             <div class="card-body" style=" background: linear-gradient(10deg, lightgreen 30%, white);box-shadow: none; border-radius:7px; ">
                                 <div class="row justify-content-center">
