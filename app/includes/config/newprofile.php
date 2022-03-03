@@ -558,18 +558,16 @@
                                       -webkit-text-fill-color: transparent;font-weight: bold;">Before</h5>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
                                         <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;"></i> 80kg</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;margin-top: -10px;">Tinggi Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-ruler-vertical fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;"></i>180cm</P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
                                         <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
 
                                     </div>
-                                    <div class="col" style="margin-top: 40px;">
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-20px;font-weight: bold;">Presentase Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
+                                    <div class="col" style="margin-top: 38px;">
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-10px;font-weight: bold;">Berat Otot</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>56 KG</P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
-                                        <i class="fa-solid fa-backward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:crimson;"></i>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>56 KG</P>
+                                        <i class="fa-solid fa-backward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -70px; color:crimson;"></i>
                                     </div>
                                 </div>
                             </div>
@@ -584,18 +582,16 @@
                                       -webkit-text-fill-color: transparent; font-weight: bold;">After</h5>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
                                         <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> 80kg</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;margin-top: -10px;">Tinggi Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-ruler-vertical fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;color:black;"></i>180cm</P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
                                         <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i></P>
 
                                     </div>
-                                    <div class="col" style="margin-top: 40px;">
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-20px;font-weight: bold;">Presentase Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
-                                        <i class="fa-solid fa-forward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:grey;"></i>
+                                    <div class="col" style="margin-top: 38px;">
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-10px;font-weight: bold;">Berat Otot</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>56 KG</P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -10px;">Massa Lemak</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>56 KG</P>
+                                        <i class="fa-solid fa-forward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -40px; color:grey;"></i>
                                     </div>
                                 </div>
                             </div>
