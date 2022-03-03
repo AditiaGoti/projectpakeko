@@ -35,22 +35,22 @@
                 body_cat = data.body_cat;
                 $(`<h6 class="text-muted f-w-400">${body_cat}</h6>`).appendTo('#body_cat');
 
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;"></i>${data.weight[3]} kg</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px; font-weight: bold; margin-left: -25px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 10px;"></i>${data.weight[3]} kg</P>
                     `).appendTo('#beforeBerat');
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i>${data.fatmass[3]} kg</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px;font-weight: bold; margin-left: -25px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px;padding-right: 10px;"></i>${data.fatmass[3]} kg</P>
                     `).appendTo('#beforeMassaO');
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>${data.leanmass[3]} kg</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px;font-weight: bold;color: red; margin-left:-5px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>${data.leanmass[3]} kg</P>
                     `).appendTo('#beforeOtot');
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>${data.body_fat[3]} %</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px;font-weight: bold;color: red; padding-right:5px">${data.body_fat[3]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px; padding-right: 10px;color:red;"></i></P>
                     `).appendTo('#beforeMassaL');
 
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> ${data.weight[4]} kg</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px; font-weight: bold; margin-left: -25px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> ${data.weight[4]} kg</P>
                                         `).appendTo('#afterBerat');
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i> ${data.fatmass[4]} kg</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px;font-weight: bold; margin-left: -30px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i> ${data.fatmass[4]} kg</P>
                                         `).appendTo('#afterMassaO');
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>${data.leanmass[4]} kg</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px;font-weight: bold;color: green;margin-left: -8px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>${data.leanmass[4]} kg</P>
                                         `).appendTo('#afterOtot');
-                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>${data.body_fat[4]} %</P>
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:0px;font-weight: bold;color: green;">${data.body_fat[4]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px; padding-right: 10px;color:black;"></i></P>
                                         `).appendTo('#afterMassaL');
 
 
