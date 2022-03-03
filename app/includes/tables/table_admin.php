@@ -254,30 +254,17 @@
                                                     alert(hasil);
                                                 }
                                             });
+                                            tableAdmin.addEventListener("click", (e) => {
+                                                e.preventDefault();
+                                                let deleteButtonisPressed = e.target.id == "delete";
+                                                let updateButtonisPressed = e.target.id == "update";
+                                                mid = e.target.parentElement.parentElement.dataset.id;
+                                                if (updateButtonisPressed) {
+                                                    var admID = sessionStorage.setItem("id-admin", mid);
+                                                    window.location.href = '/owformu_admin';
+                                                }
+                                            })
                                         });
-
-                                        tableAdmin.addEventListener("click", (e) => {
-                                            e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "delete";
-                                            let updateButtonisPressed = e.target.id == "update";
-
-                                            var myHeaders = new Headers();
-                                            myHeaders.append(
-                                                "Authorization",
-                                                token);
-                                            var deleteRequest = {
-                                                method: "Delete",
-                                                headers: myHeaders,
-                                                redirect: "follow",
-                                            };
-
-                                            mid = e.target.parentElement.parentElement.dataset.id;
-                                            if (updateButtonisPressed) {
-                                                var admID = sessionStorage.setItem("id-admin", mid);
-                                                window.location.href = '/owformu_admin';
-                                            }
-
-                                        })
 
                                         var myHeaders = new Headers();
                                         myHeaders.append(
