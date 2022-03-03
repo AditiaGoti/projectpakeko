@@ -23,6 +23,7 @@
             },
             success: function(response) {
                 data = response.data;
+                console.log(data);
                 bf = JSON.stringify(data.body_fat);
                 w = JSON.stringify(data.weight);
                 lm = JSON.stringify(data.leanmass);
@@ -33,6 +34,25 @@
                 var datafm = JSON.parse(fm);
                 body_cat = data.body_cat;
                 $(`<h6 class="text-muted f-w-400">${body_cat}</h6>`).appendTo('#body_cat');
+
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;"></i>${data.weight[3]} kg</P>
+                    `).appendTo('#beforeBerat');
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i>${data.fatmass[3]} kg</P>
+                    `).appendTo('#beforeMassaO');
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>${data.leanmass[3]} kg</P>
+                    `).appendTo('#beforeOtot');
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>${data.body_fat[3]} %</P>
+                    `).appendTo('#beforeMassaL');
+
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> ${data.weight[4]} kg</P>
+                                        `).appendTo('#afterBerat');
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i> ${data.fatmass[4]} kg</P>
+                                        `).appendTo('#afterMassaO');
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>${data.leanmass[4]} kg</P>
+                                        `).appendTo('#afterOtot');
+                $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>${data.body_fat[4]} %</P>
+                                        `).appendTo('#afterMassaL');
+
 
                 var arraybf = [];
                 for (var i in databf)
@@ -556,17 +576,17 @@
                                     <div id="sumMember" class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;background:red;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-weight: bold;">Before</h5>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;"></i> 80kg</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
+                                        <P id="beforeBerat" style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
+
+                                        <P id="beforeMassaO" style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
+
 
                                     </div>
                                     <div class="col" style="margin-top: 38px;">
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-10px;font-weight: bold;">Berat Otot</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>56 KG</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:red;"></i>56 KG</P>
+                                        <P id="beforeOtot" style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-10px;font-weight: bold;">Berat Otot</P>
+
+                                        <P id="beforeMassaL" style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
+
                                         <i class="fa-solid fa-backward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -70px; color:crimson;"></i>
                                     </div>
                                 </div>
@@ -580,17 +600,13 @@
                                     <div id="sumMember" class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;color: green; background-color:green;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent; font-weight: bold;">After</h5>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> 80kg</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i></P>
+                                        <P id="afterBerat" style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
+                                        <P id="afterMassaO" style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
 
                                     </div>
                                     <div class="col" style="margin-top: 38px;">
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-10px;font-weight: bold;">Berat Otot</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>56 KG</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -10px;">Massa Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 10px;color:black;"></i>56 KG</P>
+                                        <P id="afterOtot" style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-10px;font-weight: bold;">Berat Otot</P>
+                                        <P id="afterMassaL" style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -10px;">Massa Lemak</P>
                                         <i class="fa-solid fa-forward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -40px; color:grey;"></i>
                                     </div>
                                 </div>
