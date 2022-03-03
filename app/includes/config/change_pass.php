@@ -16,15 +16,15 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Last Password</label>
-                                        <input type="text" id="member_oldpass" class="form-control form-control-lg" placeholder="Masukan Alamat Member" aria-label="adress" required />
+                                        <input type="password" id="member_oldpass" class="form-control form-control-lg" placeholder="Masukan Password Lama" aria-label="adress" required />
                                     </div>
                                     <div class="form-group">
                                         <label>New Password</label>
-                                        <input id="member_newpass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
+                                        <input id="member_newpass" type="password" class="form-control form-control-lg" placeholder="Masukan Password Baru" aria-label="password" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Confirm New Password</label>
-                                        <input id="member_cpass" type="text" class="form-control form-control-lg" placeholder="Masukan Sandi Member" aria-label="password" required />
+                                        <input id="member_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Password Konfirmasi" aria-label="password" required />
                                     </div>
                                 </div>
                             </div>
