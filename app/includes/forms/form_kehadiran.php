@@ -14,7 +14,7 @@
     .profile-card .profile-img img {
         width: 100%;
         height: 250px;
-    
+
         transition: transform 1s;
 
     }
@@ -84,23 +84,23 @@
 
     @media only screen and (min-width:400px) and (max-width:500px) {
         .profile-card {
-        overflow: hidden;
-        margin-left: 15px;
+            overflow: hidden;
+            margin-left: 15px;
         }
 
         .profile-card:hover .profile-img img {
-        transform: scale(1.2);
+            transform: scale(1.2);
         }
 
         .profile-card .profile-img img {
-        width: 100%;
-        height: auto;
-        transition: transform 1s;
+            width: 100%;
+            height: auto;
+            transition: transform 1s;
         }
 
         .buttonkehadiran {
-        margin-top: 180px;
-        margin-left: 10px;
+            margin-top: 180px;
+            margin-left: 10px;
         }
 
 
@@ -108,41 +108,41 @@
 
     @media only screen and (min-width:540px) and (max-width:600px) {
         .profile-card {
-        overflow: hidden;
-        margin-left: 15px;
+            overflow: hidden;
+            margin-left: 15px;
         }
 
         .profile-card:hover .profile-img img {
-        transform: scale(1.2);
+            transform: scale(1.2);
         }
 
         .profile-card .profile-img img {
-        width: 100%;
-        height: auto;
-        transition: transform 1s;
+            width: 100%;
+            height: auto;
+            transition: transform 1s;
         }
 
         .buttonkehadiran {
-        margin-top: 180px;
-        margin-left: 10px;
+            margin-top: 180px;
+            margin-left: 10px;
         }
 
     }
 
     @media only screen and (min-width:650px) and (max-width:699px) {
         .profile-card {
-        overflow: hidden;
-        margin-left: 15px;
+            overflow: hidden;
+            margin-left: 15px;
         }
 
         .profile-card:hover .profile-img img {
-        transform: scale(1.2);
+            transform: scale(1.2);
         }
 
         .profile-card .profile-img img {
-        width: 100%;
-        height: 200px;
-        transition: transform 1s;
+            width: 100%;
+            height: 200px;
+            transition: transform 1s;
         }
 
 
@@ -151,23 +151,23 @@
     @media only screen and (min-width:360px) and (max-width:399px) {
 
         .profile-card {
-        overflow: hidden;
-        margin-left: 15px;
+            overflow: hidden;
+            margin-left: 15px;
         }
 
         .profile-card:hover .profile-img img {
-        transform: scale(1.2);
+            transform: scale(1.2);
         }
 
         .profile-card .profile-img img {
-        width: 100%;
-        height: auto;
-        transition: transform 1s;
+            width: 100%;
+            height: auto;
+            transition: transform 1s;
         }
 
         .buttonkehadiran {
-        margin-top: 180px;
-        margin-left: 10px;
+            margin-top: 180px;
+            margin-left: 10px;
         }
 
     }
@@ -227,7 +227,7 @@
                                         <hr>
                                         <div class="input-group mb-3">
                                             <label style="margin-top:5px; padding-right:17px;">Expired Date</label>
-                                            <input required id="" type="" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" required />
+                                            <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
                                         </div>
                                     </form>
                                 </div>
@@ -273,6 +273,7 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.message;
+                                        var expiredvalue = data.data.expired;
                                         var namevalue = data.data.name;
                                         var dobvalue = data.data.tanggal_lahir;
                                         var imgvalue = "https://api.klubaderai.com" +
@@ -280,9 +281,11 @@
                                         if (hasildata) {
                                             var name = document.getElementById("member_name");
                                             var dob = document.getElementById("member_dob");
+                                            var exp = document.getElementById("member_exp");
                                             name.value = namevalue;
                                             dob.value = dobvalue;
                                             img.src = imgvalue;
+                                            exp.value = expiredvalue;
 
                                         } else {
                                             $('<div class="alert alert-danger">' +
@@ -352,8 +355,11 @@
                                         var id = filterData.id;
                                         var name = filterData.name;
                                         var dob = filterData.tanggal_lahir;
+                                        var exp = filterData.expired;
                                         var imgvalue = "https://api.klubaderai.com/storage/" + filterData.img_path;
                                         var input_id = document.getElementById("id_member");
+                                        var input_exp = document.getElementById("member_exp");
+                                        input_exp.value = exp;
                                         input_id.value = id;
                                         img.src = imgvalue;
 
