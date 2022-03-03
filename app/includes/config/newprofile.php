@@ -466,10 +466,6 @@
                 </div>
                 <script>
                     var gender = '<?php echo $_SESSION['gender']; ?>'
-
-<<<<<<< HEAD
-                <div class="row justify-content-center px-1" style="padding-top: 10px;">
-=======
                     if (gender == 'male') {
                         var btnAdd = document.getElementById("btnCowo")
                         btnAdd.style.display = 'block'
@@ -478,8 +474,8 @@
                         btnAdd.style.display = 'block'
                     }
                 </script>
-                <div class="row justify-content-center" style="padding-top: 10px;">
->>>>>>> eb2ca21549f8f94c6b7170784e0a57205f7a5c17
+
+                <div class="row justify-content-center px-1" style="padding-top: 10px;">
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
                             <div class="card-body" style="background: linear-gradient(10deg, #FFE4E1 30%, white);box-shadow: none;border-radius:7px;">
