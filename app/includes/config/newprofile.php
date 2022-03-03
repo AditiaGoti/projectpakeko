@@ -128,7 +128,7 @@
             </div>
         </div>
         <div id="ModalCowo" class="modal fade">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title">Progress</h2>
@@ -206,7 +206,7 @@
             </div><!-- /.modal-dialog -->
         </div>
         <div id="ModalCewe" class="modal fade">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title">Progress</h2>
