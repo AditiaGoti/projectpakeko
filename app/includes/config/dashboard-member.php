@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/css/shared/notice.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="main-panel">
@@ -9,11 +10,15 @@
                 </div>
             </div>
         </div>
+        <div id="status" class="col-14">
+
+
+        </div>
         <div class="row">
             <div id="qrrow" class="col-lg-6 grid-margin stretch-card ">
                 <div class="card text-center">
                     <div class="card-header">
-                        Hello, <?php echo $_SESSION['name'] ?>
+                        QR-Code
                     </div>
                     <div id="fotoqr" class="card-body">
                         <svg>
@@ -49,6 +54,9 @@
                                             useSVG: true,
                                         });
 
+
+
+
                                         function makeCode() {
                                             var Sid = '<?php echo $_SESSION['id']; ?>';
                                             qrcode.makeCode(Sid);
@@ -63,15 +71,35 @@
                                                 },
                                                 success: function(response) {
                                                     makeCode(myArray);
-
                                                     data = response.data;
+                                                    user_data = response.user_data;
+                                                    dl = user_data.days_left;
+                                                    left = dl.split(" ")
+
+                                                    if (left[5] >= 8) {
+                                                        $('<div class="notice notice-success">' +
+                                                            ` <strong>Welcome, ${data[0].nama} </strong>` +
+                                                            ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
+                                                    }
+                                                    if (left[5] <= 7 && left[5] >= 1) {
+
+
+                                                        $('<div class="notice notice-warning">' +
+                                                            ` <strong>Welcome, ${data[0].nama} </strong>` +
+                                                            ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
+                                                    }
+                                                    if (left[5] == 0) {
+                                                        $('<div class="notice notice-danger">' +
+                                                            ` <strong>Welcome, ${data[0].nama} </strong>` +
+                                                            ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
+                                                    }
                                                     $.each(data, function(i, data) {
                                                         const d = data.waktu;
                                                         const weekday = ["Minggu", "Senin", "Selama", "Rabu", "Kamis", "Jumat", "Sabtu"];
                                                         let day = weekday[new Date(d.replace(/-/g, "/")).getDay()];
                                                         let time = new Date(d.replace(/-/g, "/")).toLocaleTimeString("id-ID");
                                                         let date = new Date(d.replace(/-/g, "/")).toLocaleDateString("id-ID");
-                                                        // let day = d.replace(/([+\-]\d\d)(\d\d)$/, "$1:$2");
+
 
                                                         var body = `<tr>`;
                                                         body += `<td >` + day + "</td>";
@@ -94,7 +122,7 @@
                                                 }
                                             });
 
-                                        });
+                                        })
                                     </script>
                                 </tbody>
                             </table>
