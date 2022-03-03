@@ -75,7 +75,6 @@
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var form = document.getElementById("form_profile");
                             const url = "https://api.klubaderai.com/api/users" + "/" + id;
-
                             $.ajax({
                                 method: "GET",
                                 url: url,
@@ -110,14 +109,8 @@
                                 imgv.src = "https://api.klubaderai.com/public/" +
                                     data.img_path;
                             }
-                        </script>
-                        <script>
-                            function updateProfile() {
 
-                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                var token = "Bearer" + " " + tokenSession;
-                                var myHeaders = new Headers();
-                                myHeaders.append("Authorization", token);
+                            function updateProfile() {
 
                                 var formdata = new FormData();
                                 formdata.append(
@@ -149,7 +142,6 @@
                                     );
                                 }
 
-
                                 var requestOptions = {
                                     method: "POST",
                                     headers: myHeaders,
@@ -159,7 +151,7 @@
 
 
                                 fetch(
-                                        "https://api.klubaderai.com/api/users" + "/" + id,
+                                        url,
                                         requestOptions
                                     )
                                     .then((response) => response.text())

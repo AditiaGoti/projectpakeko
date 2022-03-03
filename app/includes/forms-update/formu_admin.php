@@ -118,14 +118,10 @@
                                     URL.revokeObjectURL(imgv.src) // free memory
                                 }
                             }
-                        </script>
 
-                        <script>
                             function updateProfile() {
-                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                var token = "Bearer" + " " + tokenSession;
+
                                 var myHeaders = new Headers();
-                                const url = "https://api.klubaderai.com/api/admin" + "/" + admID;
                                 myHeaders.append("Authorization", token);
 
 
@@ -217,6 +213,8 @@
                                     }));
                             }
                         </script>
+
+
 
                     </div>
                 </div>
