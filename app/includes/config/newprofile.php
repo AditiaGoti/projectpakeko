@@ -288,7 +288,7 @@
                     <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"></button></h4>
                 </div>
 
-                <div class="row justify-content-center" style="padding-top: 10px;">
+                <div class="row justify-content-center px-1" style="padding-top: 10px;">
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
                             <div class="card-body" style="background: linear-gradient(10deg, #FFE4E1 30%, white);box-shadow: none;border-radius:7px;"> 
