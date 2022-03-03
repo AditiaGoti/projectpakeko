@@ -291,24 +291,25 @@
                 <div class="row justify-content-center" style="padding-top: 10px;">
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body" style="background-color:#FFE4E1;box-shadow: none;border-radius:7px;">
+                            <div class="card-body" style="background: linear-gradient(10deg, #FFE4E1 30%, white);box-shadow: none;border-radius:7px;"> 
                                 <div class="row">
                                     <div id="sumMember" class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;background:red;-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;">Before</h5>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;">Berat Badan :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">80kg</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;">Tinggi Badan:</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">180cm</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;">Massa Otot :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">56%</P>
+                                      -webkit-text-fill-color: transparent;font-weight: bold;">Before</h5>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;"></i> 80kg</P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;margin-top: -10px;">Tinggi Badan</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-ruler-vertical fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;"></i>180cm</P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: red;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
 
                                     </div>
-                                    <div class="col" style="margin-top: 42px;">
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-7px">Presentase Lemak :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">56%</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px">Massa Lemak :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">17%</P>
+                                    <div class="col" style="margin-top: 40px;">
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-20px;font-weight: bold;">Presentase Lemak</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
+                                        <i class="fa-solid fa-backward fa-beat-fade fa-5x"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:crimson;"></i>
                                     </div>
                                 </div>
                             </div>
@@ -316,30 +317,30 @@
                     </div>
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body" style="background-color:#00FF7F;box-shadow: none; border-radius:7px; ">
+                            <div class="card-body" style=" background: linear-gradient(10deg, lightgreen 30%, white);box-shadow: none; border-radius:7px; ">
                                 <div class="row justify-content-center">
                                     <div id="sumMember" class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;font-family: 'League Gothic', sans-serif;color: green; background:green;-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;">After</h5>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; ">Berat Badan :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">80kg</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;">Tinggi Badan:</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">180cm</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;">Massa Otot :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">56%</P>
+                                        <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;color: green; background-color:green;-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent; font-weight: bold;">After</h5> 
+                                       <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> 80kg</P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;margin-top: -10px;">Tinggi Badan</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-ruler-vertical fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;color:black;"></i>180cm</P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: green;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i></P>
 
                                     </div>
-                                    <div class="col" style="margin-top: 42px;">
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px">Presentase Lemak :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">56%</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px">Massa Lemak :</P>
-                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-top:-15px;">17%</P>
+                                    <div class="col" style="margin-top: 40px;">
+                                    <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-20px;font-weight: bold;">Presentase Lemak</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
+                                        <i class="fa-solid fa-forward fa-beat-fade fa-5x"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:grey;"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-6 border-0">
                         <div class="card" style="background:transparent;box-shadow: none;border:0.1 solid transparent;">
                             <div class="card-body">
