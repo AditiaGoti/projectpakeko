@@ -283,6 +283,37 @@
                                                     Authorization: token,
                                                 },
                                                 success: function(response) {
+                                                    data = response.etc;
+                                                    buildtot(data);
+                                                    buildsum(data);
+
+                                                    function buildtot(data) {
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_transaksi + " Transaksi" + `</span>`;
+                                                        $("#totTransaksi").append(body);
+                                                    };
+
+                                                    function buildsum(data) {
+                                                        var bilangan = data.total_rupiah;
+                                                        var reverse = bilangan.toString().split('').reverse().join(''),
+                                                            ribuan = reverse.match(/\d{1,3}/g);
+                                                        ribuan = ribuan.join('.').split('').reverse().join('');
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
+                                                        $("#sumTransaksi").append(body);
+                                                    };
+                                                },
+                                                error: function() {
+                                                    alert('Terjadi Kesalahan');
+                                                }
+                                            });
+                                        });
+                                        $(document).ready(function() {
+                                            $.ajax({
+                                                method: "GET",
+                                                url: url,
+                                                headers: {
+                                                    Authorization: token,
+                                                },
+                                                success: function(response) {
                                                     data = response.data;
                                                     $.each(data, function(i, data) {
                                                         var nominal = data.nominal;
@@ -323,26 +354,24 @@
 
                                                 }
                                             });
+                                            tableTransaksi.addEventListener("click", (e) => {
+                                                e.preventDefault();
+                                                let deleteButtonisPressed = e.target.id == "delete";
+                                                mid = e.target.parentElement.parentElement.dataset.id;
+                                            })
 
                                         });
 
-
-                                        tableTransaksi.addEventListener("click", (e) => {
-                                            e.preventDefault();
-                                            let deleteButtonisPressed = e.target.id == "delete";
-                                            mid = e.target.parentElement.parentElement.dataset.id;
-                                        })
-                                        var myHeaders = new Headers();
-                                        myHeaders.append(
-                                            "Authorization",
-                                            token);
-                                        var deleteRequest = {
-                                            method: "Delete",
-                                            headers: myHeaders,
-                                            redirect: "follow",
-                                        };
-
                                         function deleteData() {
+                                            var myHeaders = new Headers();
+                                            myHeaders.append(
+                                                "Authorization",
+                                                token);
+                                            var deleteRequest = {
+                                                method: "Delete",
+                                                headers: myHeaders,
+                                                redirect: "follow",
+                                            };
                                             fetch(`${url}/${mid}`, deleteRequest)
                                                 .then((res) => res.json())
                                                 .then((result => {
@@ -364,37 +393,6 @@
                                                     }
                                                 }))
                                         };
-                                        $(document).ready(function() {
-                                            $.ajax({
-                                                method: "GET",
-                                                url: url,
-                                                headers: {
-                                                    Authorization: token,
-                                                },
-                                                success: function(response) {
-                                                    data = response.etc;
-                                                    buildtot(data);
-                                                    buildsum(data);
-
-                                                    function buildtot(data) {
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_transaksi + " Transaksi" + `</span>`;
-                                                        $("#totTransaksi").append(body);
-                                                    };
-
-                                                    function buildsum(data) {
-                                                        var bilangan = data.total_rupiah;
-                                                        var reverse = bilangan.toString().split('').reverse().join(''),
-                                                            ribuan = reverse.match(/\d{1,3}/g);
-                                                        ribuan = ribuan.join('.').split('').reverse().join('');
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
-                                                        $("#sumTransaksi").append(body);
-                                                    };
-                                                },
-                                                error: function() {
-                                                    alert('Terjadi Kesalahan');
-                                                }
-                                            });
-                                        });
                                     </script>
                                 </tbody>
                             </table>

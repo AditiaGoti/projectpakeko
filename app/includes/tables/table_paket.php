@@ -72,8 +72,6 @@
                                                         data = response.data;
                                                         $.each(data, function(i, data) {
                                                             var nominal = data.harga;
-
-
                                                             var bilangan = nominal.replace('.00', '');
 
                                                             var reverse = bilangan.toString().split('').reverse().join(''),
@@ -96,11 +94,6 @@
 
                                                         $("#table-data").DataTable({
                                                             responsive: true,
-                                                            dom: 'Bfrtip',
-                                                            buttons: [
-                                                                'excel', 'pdf', 'print'
-                                                            ]
-
                                                         });
                                                     },
                                                     error: function() {
@@ -108,36 +101,37 @@
 
                                                     }
                                                 });
+                                                tablePaket.addEventListener("click", (e) => {
+                                                    e.preventDefault();
+                                                    let deleteButtonisPressed = e.target.id == "delete";
+                                                    let updateButtonisPressed = e.target.id == "update";
+                                                    mid = e.target.parentElement.parentElement.dataset.id;
+                                                    if (updateButtonisPressed) {
+                                                        if (type == 2) {
+                                                            var pakID = sessionStorage.setItem('id-paket', mid);
+                                                            location.href = "/owformu_paket";
+                                                        } else {
+                                                            var pakID = sessionStorage.setItem('id-paket', mid);
+                                                            location.href = "/formu_paket";
+                                                        }
+                                                    }
+
+                                                })
 
                                             });
 
-                                            tablePaket.addEventListener("click", (e) => {
-                                                e.preventDefault();
-                                                let deleteButtonisPressed = e.target.id == "delete";
-                                                let updateButtonisPressed = e.target.id == "update";
-                                                mid = e.target.parentElement.parentElement.dataset.id;
-                                                if (updateButtonisPressed) {
-                                                    if (type == 2) {
-                                                        var pakID = sessionStorage.setItem('id-paket', mid);
-                                                        location.href = "/owformu_paket";
-                                                    } else {
-                                                        var pakID = sessionStorage.setItem('id-paket', mid);
-                                                        location.href = "/formu_paket";
-                                                    }
-                                                }
 
-                                            })
-                                            var myHeaders = new Headers();
-                                            myHeaders.append(
-                                                "Authorization",
-                                                token);
-                                            var deleteRequest = {
-                                                method: "Delete",
-                                                headers: myHeaders,
-                                                redirect: "follow",
-                                            };
 
                                             function deleteData() {
+                                                var myHeaders = new Headers();
+                                                myHeaders.append(
+                                                    "Authorization",
+                                                    token);
+                                                var deleteRequest = {
+                                                    method: "Delete",
+                                                    headers: myHeaders,
+                                                    redirect: "follow",
+                                                };
                                                 fetch(`${url}/${mid}`, deleteRequest)
                                                     .then((res) => res.json())
                                                     .then((result => {
