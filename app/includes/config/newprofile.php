@@ -7,7 +7,6 @@
         line-height: 25px
     }
 </style>
-
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -22,7 +21,7 @@
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGProfile.png); background-size:339px;  background-repeat:repeat-x;">
+                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGPhoto.png); background-size:auto;  background-repeat:repeat-x;">
                                 <div class="card-block text-center text-white">
                                     <div id="img" class="m-b-25" style="margin-top:25px">
 
@@ -289,10 +288,10 @@
                     <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"></button></h4>
                 </div>
 
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" style="padding-top: 10px;">
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color:#FFE4E1;box-shadow: none;"> 
                                 <div class="row">
                                     <div id="sumMember" class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;background:red;-webkit-background-clip:text;
@@ -309,7 +308,7 @@
                                         <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold; margin-left:-7px">Presentase Lemak :</P>
                                         <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
                                         <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;margin-left:-7px">Massa Lemak :</P>
-                                        <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">17%</P>x
+                                        <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">17%</P>
                                     </div>
                                 </div>
                             </div>
@@ -317,11 +316,11 @@
                     </div>
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color:#00FF7F;box-shadow: none;">
                                 <div class="row justify-content-center">
                                     <div id="sumMember" class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; color: green; font-weight: bold;background:green;-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;">After</h5>
+                                      -webkit-text-fill-color: transparent;">After</h5> 
                                         <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-weight: bold;">Berat Badan :</P>
                                         <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">80kg</P>
                                         <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Tinggi Badan:</P>
@@ -342,9 +341,7 @@
                     </div>
 
                     <div class="col-md-6 grid-margin">
-                        <div class="card">
-
-
+                        <div class="card"style="background:transparent;box-shadow: none;border:0.1 solid transparent;">
                             <div class="card-body">
                                 <canvas id="kgChart"></canvas>
                                 <script>
@@ -465,7 +462,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 grid-margin">
-                        <div class="card">
+                        <div class="card" style="background: transparent;box-shadow: none; border:0.1 solid transparent">
 
                             <div class="card-body">
                                 <canvas id="gChart"></canvas>
