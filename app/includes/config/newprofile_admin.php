@@ -52,6 +52,9 @@
                                         <div class="col-sm-6">
                                             <p id="alamat" class="m-b-10 f-w-600">Address</p>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <p id="gender" class="m-b-10 f-w-600">Gender</p>
+                                        </div>
                                     </div>
                                     <div class="buttonupdate">
                                         <button id="EPAdmin" style=" display: block; margin-left: 345px; margin-top:70px" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
@@ -94,6 +97,7 @@
                                     email = data.email;
                                     nohp = data.nohp;
                                     alamat = data.alamat;
+                                    gender = data.gender;
 
                                     $(`<img src="${img}" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image">`).appendTo('#img');
                                     $(`<h6 class="text-muted f-w-400">${email}</h6>`).appendTo('#email');
@@ -101,6 +105,7 @@
                                     $(`<h6 class="text-muted f-w-400">${dob}</h6>`).appendTo('#dob');
                                     $(`<h6 class="text-muted f-w-400">${nohp}</h6>`).appendTo('#nohp');
                                     $(`<h6 class="text-muted f-w-400">${alamat}</h6>`).appendTo('#alamat');
+                                    $(`<h6 class="text-muted f-w-400">${gender}</h6>`).appendTo('#gender');
                                 }
                             </script>
                         </div>
@@ -108,9 +113,9 @@
                 </div>
             </div>
         </div>
-        </div>
-    
-    
+    </div>
+
+
 
 
     <!-- content-wrapper ends -->

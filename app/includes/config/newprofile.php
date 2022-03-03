@@ -7,6 +7,182 @@
         line-height: 25px
     }
 </style>
+
+<script>
+    var tokenSession = '<?php echo $_SESSION['token']; ?>';
+    var token = "Bearer" + " " + tokenSession;
+    var myArray = [];
+    const urlt = "https://api.klubaderai.com/api/users-progress";
+    var myArray = [];
+    $(document).ready(function() {
+        $.ajax({
+            method: "GET",
+            url: urlt,
+            headers: {
+                Authorization: token,
+            },
+            success: function(response) {
+                data = response.data;
+                bf = JSON.stringify(data.body_fat);
+                w = JSON.stringify(data.weight);
+                lm = JSON.stringify(data.leanmass);
+                fm = JSON.stringify(data.fatmass);
+                var databf = JSON.parse(bf);
+                var dataw = JSON.parse(w);
+                var datalm = JSON.parse(lm);
+                var datafm = JSON.parse(fm);
+                body_cat = data.body_cat;
+                $(`<h6 class="text-muted f-w-400">${body_cat}</h6>`).appendTo('#body_cat');
+
+                var arraybf = [];
+                for (var i in databf)
+                    arraybf.push(databf[i]);
+
+                var arrayw = [];
+                for (var i in dataw)
+                    arrayw.push(dataw[i]);
+
+                var arraylm = [];
+                for (var i in datalm)
+                    arraylm.push(datalm[i]);
+
+                var arrayfm = [];
+                for (var i in datafm)
+                    arrayfm.push(datafm[i]);
+
+                chartkg(data);
+
+                function chartkg(data) {
+
+                    const labels = [
+                        'Last 5',
+                        'Last 4',
+                        'Last 3',
+                        'Last 2',
+                        'Latest',
+                    ];
+
+                    const datasets = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Weight',
+                            backgroundColor: 'rgb(154, 220, 255, 0.5)',
+                            borderColor: 'rgb(154, 220, 255)',
+                            borderWidth: 2,
+                            borderRadius: 5,
+                            borderSkipped: false,
+                            data: arrayw
+
+                        }, {
+                            label: 'Leanmass',
+                            backgroundColor: 'rgb(255, 248, 154, 0.5)',
+                            borderColor: 'rgb(255, 248, 154)',
+                            borderWidth: 2,
+                            borderRadius: 5,
+                            borderSkipped: false,
+                            data: arraylm
+
+                        }, {
+                            label: 'Fatmass',
+                            backgroundColor: 'rgb(255, 178, 166, 0.5)',
+                            borderColor: 'rgb(255, 178, 166)',
+                            borderWidth: 2,
+                            borderRadius: 5,
+                            borderSkipped: false,
+                            data: arrayfm
+
+                        }]
+                    };
+
+                    const config = {
+                        type: 'bar',
+                        data: datasets,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Body Measurements (kg)'
+                            },
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                            },
+
+                        },
+                    };
+                    const myChart = new Chart(
+                        document.getElementById('kgChart'),
+                        config
+                    );
+                }
+                chartpersen(data);
+
+                function chartpersen(data) {
+
+                    const labels = [
+                        'Last 5',
+                        'Last 4',
+                        'Last 3',
+                        'Last 2',
+                        'Latest',
+                    ];
+
+                    const datasets = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Body Fat',
+                            backgroundColor: 'rgb(255, 138, 174, 0.5)',
+                            borderColor: 'rgb(255, 138, 174)',
+                            borderWidth: 2,
+                            borderRadius: 5,
+                            borderSkipped: false,
+                            data: arraybf
+
+                        }]
+                    };
+
+                    const config = {
+                        type: 'line',
+                        data: datasets,
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Body Fat Percentage (%)'
+                            },
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                            },
+                            scales: {
+                                yAxes: [{
+                                    display: true,
+                                    stacked: true,
+                                    ticks: {
+                                        min: 0, // minimum value
+                                        max: 100 // maximum value
+                                    }
+                                }]
+                            }
+                        },
+                    };
+                    const myChart = new Chart(
+                        document.getElementById('gChart'),
+                        config
+                    );
+                }
+            },
+            error: function() {
+                alert('Terjadi Kesalahan');
+
+            }
+        });
+
+    });
+</script>
+
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -55,16 +231,13 @@
                                             <p id="gender" class="m-b-10 f-w-600">Gender</p>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p id="expired" class="m-b-10 f-w-600">Expired</p>
-                                        </div>
-                                        <div class="col-sm-6">
                                             <p id="token" class="m-b-10 f-w-600">Token</p>
                                         </div>
-
-
+                                        <div class="col-sm-6">
+                                            <p id="body_cat" class="m-b-10 f-w-600">Body Category</p>
+                                        </div>
                                     </div>
                                     <div class="buttonupdate">
-
                                         <button id="EPMember" style=" display: block; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button>
                                     </div>
                                     <div class="buttoncp">
@@ -74,7 +247,6 @@
                                 </div>
                             </div>
 
-                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                             <script>
                                 var myArray = [];
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
@@ -106,7 +278,6 @@
                                     nohp = data.nohp;
                                     alamat = data.alamat;
                                     gender = data.gender;
-                                    expired = data.expired;
                                     token = data.token;
 
                                     $(`<img src="${img}" style="width: 200px; height: 200px;" class="img-radius" alt="User-Profile-Image">`).appendTo('#img');
@@ -116,7 +287,6 @@
                                     $(`<h6 class="text-muted f-w-400">${nohp}</h6>`).appendTo('#nohp');
                                     $(`<h6 class="text-muted f-w-400">${alamat}</h6>`).appendTo('#alamat');
                                     $(`<h6 class="text-muted f-w-400">${gender}</h6>`).appendTo('#gender');
-                                    $(`<h6 class="text-muted f-w-400">${expired}</h6>`).appendTo('#expired');
                                     $(`<h6 class="text-muted f-w-400">${token}</h6>`).appendTo('#token');
 
                                 }
@@ -127,11 +297,16 @@
             </div>
         </div>
         <div id="ModalCowo" class="modal fade">
-            <div class="modal-dialog modal-lg" style="width: 350px;" role="document">
+            <div class="modal-dialog modal-lg modal-dialog-centered" style="width: 350px;" role="document">
                 <div class="modal-content">
-
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="modal-body">
-                        <form onsubmit="proCowo(); return false">
+                        <form>
                             <input type="hidden" name="_token">
                             <div class="col">
                                 <div class="form-group">
@@ -162,52 +337,73 @@
                                 </div>
                             </div>
                         </form>
-                        <script>
-                            function proCowo() {
-                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                var token = "Bearer" + " " + tokenSession;
-                                var myHeaders = new Headers();
-                                myHeaders.append("Authorization", token);
 
-                                var urlencoded = new URLSearchParams();
-                                urlencoded.append("tinggi_badan", document.getElementById("coberat").value);
-                                urlencoded.append("berat_badan", document.getElementById("cotinggi").value);
-                                urlencoded.append("leher", document.getElementById("coleher").value);
-                                urlencoded.append("pinggang", document.getElementById("copinggang").value);
-
-                                var requestOptions = {
-                                    method: 'POST',
-                                    headers: myHeaders,
-                                    body: urlencoded,
-                                    redirect: 'follow'
-                                };
-
-                                fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
-                                    .then(response => response.text())
-                                    .then(result => console.log(result))
-                                    .catch(error => console.log('error', error));
-                            }
-                        </script>
                     </div>
                     <div class="modal-footer">
                         <div class="form-group">
                             <div>
-                                <button type="submit" class="btn btn-success">
+                                <button onclick="proCowo(); return false" type="button" class="btn btn-success">
                                     Submit
                                 </button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
+                    <script>
+                        var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                        var token = "Bearer" + " " + tokenSession;
+                        var myHeaders = new Headers();
+                        myHeaders.append("Authorization", token);
+                        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+                        var requestOptions = {
+                            method: 'POST',
+                            headers: myHeaders,
+                            body: urlencoded,
+                            redirect: 'follow'
+                        };
+
+                        function proCowo() {
+                            var urlencoded = new URLSearchParams();
+                            urlencoded.append("tinggi_badan", document.getElementById("coberat").value);
+                            urlencoded.append("berat_badan", document.getElementById("cotinggi").value);
+                            urlencoded.append("leher", document.getElementById("coleher").value);
+                            urlencoded.append("pinggang", document.getElementById("copinggang").value);
+
+                            fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
+                                .then(response => response.text())
+                                .then(result => console.log(result))
+                                .catch(error => console.log('error', error));
+                        }
+
+                        function proCewe() {
+
+                            var urlencoded = new URLSearchParams();
+                            urlencoded.append("berat_badan", document.getElementById("cetinggi").value);
+                            urlencoded.append("tinggi_badan", document.getElementById("ceberat").value);
+                            urlencoded.append("leher", document.getElementById("celeher").value);
+                            urlencoded.append("pinggang", document.getElementById("cepinggang").value);
+                            urlencoded.append("paha", document.getElementById("cepaha").value);
+
+                            fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
+                                .then(response => response.text())
+                                .then(result => console.log(result))
+                                .catch(error => console.log('error', error));
+                        }
+                    </script>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div>
         <div id="ModalCewe" class="modal fade">
-            <div class="modal-dialog modal-lg" style="width: 350px;" role="document">
+            <div class="modal-dialog modal-lg modal-dialog-centered" style="width: 350px;" role="document">
                 <div class="modal-content">
-
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">MESSAGE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="modal-body">
-                        <form onsubmit="proCewe(); return false">
+                        <form>
                             <input type="hidden" name="_token">
                             <div class="form-group">
                                 <label class="control-label">Berat Badan (kg) </label>
@@ -240,76 +436,63 @@
                                 </div>
                             </div>
                         </form>
-                        <script>
-                            function proCewe() {
-                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                var token = "Bearer" + " " + tokenSession;
-                                var myHeaders = new Headers();
-                                myHeaders.append("Authorization", token);
-
-                                var urlencoded = new URLSearchParams();
-                                urlencoded.append("berat_badan", document.getElementById("cetinggi").value);
-                                urlencoded.append("tinggi_badan", document.getElementById("ceberat").value);
-                                urlencoded.append("leher", document.getElementById("celeher").value);
-                                urlencoded.append("pinggang", document.getElementById("cepinggang").value);
-                                urlencoded.append("paha", document.getElementById("cepaha").value);
-
-                                var requestOptions = {
-                                    method: 'POST',
-                                    headers: myHeaders,
-                                    body: urlencoded,
-                                    redirect: 'follow'
-                                };
-
-                                fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
-                                    .then(response => response.text())
-                                    .then(result => console.log(result))
-                                    .catch(error => console.log('error', error));
-                            }
-                        </script>
                     </div>
                     <div class="modal-footer">
                         <div class="form-group">
                             <div>
-                                <button type="submit" class="btn btn-success">
+                                <button onclick="proCowo(); return false" type="button" class="btn btn-success">
                                     Submit
                                 </button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
+                </div>
+            </div>
         </div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="modal-header">
-                    <h4 id="btnCowo" class="card-title mb-0" style="display:block;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCowo"></button></h4>
-                    <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"></button></h4>
+                    <h4 id="btnCowo" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCowo"><i class="fa fa-plus" aria-hidden="true"></i></button></h4>
+                    <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"><i class="fa fa-plus" aria-hidden="true"></i></button></h4>
                 </div>
+                <script>
+                    var gender = '<?php echo $_SESSION['gender']; ?>'
 
+<<<<<<< HEAD
                 <div class="row justify-content-center px-1" style="padding-top: 10px;">
+=======
+                    if (gender == 'male') {
+                        var btnAdd = document.getElementById("btnCowo")
+                        btnAdd.style.display = 'block'
+                    } else if (gender == 'female') {
+                        var btnAdd = document.getElementById("btnCewe")
+                        btnAdd.style.display = 'block'
+                    }
+                </script>
+                <div class="row justify-content-center" style="padding-top: 10px;">
+>>>>>>> eb2ca21549f8f94c6b7170784e0a57205f7a5c17
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body" style="background: linear-gradient(10deg, #FFE4E1 30%, white);box-shadow: none;border-radius:7px;"> 
+                            <div class="card-body" style="background: linear-gradient(10deg, #FFE4E1 30%, white);box-shadow: none;border-radius:7px;">
                                 <div class="row">
                                     <div id="sumMember" class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;background:red;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-weight: bold;">Before</h5>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;"></i> 80kg</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: red;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;"></i> 80kg</P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;margin-top: -10px;">Tinggi Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-ruler-vertical fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;"></i>180cm</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;"><i class="fa-solid fa-ruler-vertical fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;"></i>180cm</P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: red;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
 
                                     </div>
                                     <div class="col" style="margin-top: 40px;">
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-20px;font-weight: bold;">Presentase Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
-                                        <i class="fa-solid fa-backward fa-beat-fade fa-5x"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:crimson;"></i>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: red;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px"></i></P>
+                                        <i class="fa-solid fa-backward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:crimson;"></i>
                                     </div>
                                 </div>
                             </div>
@@ -321,237 +504,39 @@
                                 <div class="row justify-content-center">
                                     <div id="sumMember" class="col">
                                         <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;color: green; background-color:green;-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent; font-weight: bold;">After</h5> 
-                                       <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> 80kg</P>
+                                      -webkit-text-fill-color: transparent; font-weight: bold;">After</h5>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;">Berat Badan</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px; font-weight: bold; margin-left: -20px;color: green;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 5px; padding-right: 2px;color:black;"></i> 80kg</P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px;margin-top: -10px;">Tinggi Badan</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-ruler-vertical fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;color:black;"></i>180cm</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;"><i class="fa-solid fa-ruler-vertical fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -10px; padding-right: 8px;color:black;"></i>180cm</P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 5px; margin-top: -10px;">Massa Otot</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: green;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i></P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold; margin-left: 15px;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px ;color:black;"></i></P>
 
                                     </div>
                                     <div class="col" style="margin-top: 40px;">
-                                    <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-20px;font-weight: bold;">Presentase Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
+                                        <P style="font-size:15px;font-family: 'League Gothic', sans-serif; margin-left:-20px;font-weight: bold;">Presentase Lemak</P>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
                                         <P style="font-size:15px;font-family: 'League Gothic', sans-serif;margin-left:-7px;font-weight: bold; margin-top: -8px;">Massa Lemak</P>
-                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
-                                        <i class="fa-solid fa-forward fa-beat-fade fa-5x"style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:grey;"></i>
+                                        <P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-25px;font-weight: bold;color: green;">56<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:black;"></i></P>
+                                        <i class="fa-solid fa-forward fa-beat-fade fa-5x" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 0px; color:grey;"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 border-0">
-                        <div class="card" style="background:transparent;box-shadow: none;border:0.1 solid transparent;">
+                        <div style="background:transparent;box-shadow: none;border:0.1 solid transparent;">
                             <div class="card-body">
                                 <canvas id="kgChart"></canvas>
-                                <script>
-                                    var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                    var token = "Bearer" + " " + tokenSession;
-                                    var myArray = [];
 
-
-                                    $(document).ready(function() {
-                                        $.ajax({
-                                            method: "GET",
-                                            url: urlt,
-                                            headers: {
-                                                Authorization: token,
-                                            },
-                                            success: function(response) {
-                                                data = response.data;
-                                                bf = JSON.stringify(data.body_fat);
-                                                w = JSON.stringify(data.weight);
-                                                lm = JSON.stringify(data.leanmass);
-                                                fm = JSON.stringify(data.fatmass);
-                                                var databf = JSON.parse(bf);
-                                                var dataw = JSON.parse(w);
-                                                var datalm = JSON.parse(lm);
-                                                var datafm = JSON.parse(fm);
-
-                                                var arraybf = [];
-                                                for (var i in databf)
-                                                    arraybf.push(databf[i]);
-
-                                                var arrayw = [];
-                                                for (var i in dataw)
-                                                    arrayw.push(dataw[i]);
-
-                                                var arraylm = [];
-                                                for (var i in datalm)
-                                                    arraylm.push(datalm[i]);
-
-                                                var arrayfm = [];
-                                                for (var i in datafm)
-                                                    arrayfm.push(datafm[i]);
-
-                                                chartTransaksi(data);
-
-                                                function chartTransaksi(data) {
-
-                                                    const labels = [
-                                                        '1',
-                                                        '2',
-                                                        '3',
-                                                        '4',
-                                                        '5',
-                                                    ];
-
-                                                    const datasets = {
-                                                        labels: labels,
-                                                        datasets: [{
-                                                            label: 'Weight',
-                                                            backgroundColor: 'rgb(154, 220, 255, 0.5)',
-                                                            borderColor: 'rgb(154, 220, 255)',
-                                                            borderWidth: 2,
-                                                            borderRadius: 5,
-                                                            borderSkipped: false,
-                                                            data: arrayw
-
-                                                        }, {
-                                                            label: 'Leanmass',
-                                                            backgroundColor: 'rgb(255, 248, 154, 0.5)',
-                                                            borderColor: 'rgb(255, 248, 154)',
-                                                            borderWidth: 2,
-                                                            borderRadius: 5,
-                                                            borderSkipped: false,
-                                                            data: arraylm
-
-                                                        }, {
-                                                            label: 'Fatmass',
-                                                            backgroundColor: 'rgb(255, 178, 166, 0.5)',
-                                                            borderColor: 'rgb(255, 178, 166)',
-                                                            borderWidth: 2,
-                                                            borderRadius: 5,
-                                                            borderSkipped: false,
-                                                            data: arrayfm
-
-                                                        }]
-                                                    };
-
-                                                    const config = {
-                                                        type: 'bar',
-                                                        data: datasets,
-                                                        options: {
-                                                            responsive: true,
-                                                            plugins: {
-                                                                legend: {
-                                                                    position: 'top',
-                                                                },
-                                                                title: {
-                                                                    display: true,
-                                                                    text: 'Chart.js Bar Chart'
-                                                                }
-                                                            }
-                                                        },
-                                                    };
-                                                    const myChart = new Chart(
-                                                        document.getElementById('kgChart'),
-                                                        config
-                                                    );
-                                                }
-                                            },
-                                            error: function() {
-                                                alert('Terjadi Kesalahan');
-
-                                            }
-                                        });
-
-                                    });
-                                </script>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 border-0">
-                        <div class="card" style="background: transparent;box-shadow: none; border:0.1 solid transparent">
-
+                        <div style="background: transparent;box-shadow: none; border:0.1 solid transparent">
                             <div class="card-body">
                                 <canvas id="gChart"></canvas>
-                                <script>
-                                    var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                    var token = "Bearer" + " " + tokenSession;
-                                    const urlt = "https://api.klubaderai.com/api/users-progress";
-                                    var myArray = [];
 
-
-                                    $(document).ready(function() {
-                                        $.ajax({
-                                            method: "GET",
-                                            url: urlt,
-                                            headers: {
-                                                Authorization: token,
-                                            },
-                                            success: function(response) {
-                                                data = response.data;
-                                                bf = JSON.stringify(data.body_fat);
-                                                w = JSON.stringify(data.weight);
-                                                lm = JSON.stringify(data.leanmass);
-                                                fm = JSON.stringify(data.fatmass);
-                                                var databf = JSON.parse(bf);
-                                                var dataw = JSON.parse(w);
-                                                var datalm = JSON.parse(lm);
-                                                var datafm = JSON.parse(fm);
-
-                                                var arraybf = [];
-                                                for (var i in databf)
-                                                    arraybf.push(databf[i]);
-
-                                                chartTransaksi(data);
-
-                                                function chartTransaksi(data) {
-
-                                                    const labels = [
-                                                        '1',
-                                                        '2',
-                                                        '3',
-                                                        '4',
-                                                        '5',
-                                                    ];
-
-                                                    const datasets = {
-                                                        labels: labels,
-                                                        datasets: [{
-                                                            label: 'Body Fat',
-                                                            backgroundColor: 'rgb(255, 178, 166, 0.5)',
-                                                            borderColor: 'rgb(255, 178, 166)',
-                                                            borderWidth: 2,
-                                                            borderRadius: 5,
-                                                            borderSkipped: false,
-                                                            data: arraybf
-
-                                                        }]
-                                                    };
-
-                                                    const config = {
-                                                        type: 'line',
-                                                        data: datasets,
-                                                        options: {
-                                                            responsive: true,
-                                                            plugins: {
-                                                                legend: {
-                                                                    position: 'top',
-                                                                },
-                                                                title: {
-                                                                    display: true,
-                                                                    text: 'Chart.js Bar Chart'
-                                                                }
-                                                            }
-                                                        },
-                                                    };
-                                                    const myChart = new Chart(
-                                                        document.getElementById('gChart'),
-                                                        config
-                                                    );
-                                                }
-                                            },
-                                            error: function() {
-                                                alert('Terjadi Kesalahan');
-
-                                            }
-                                        });
-
-                                    });
-                                </script>
                             </div>
                         </div>
 
