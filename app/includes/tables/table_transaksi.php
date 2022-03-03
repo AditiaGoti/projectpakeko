@@ -326,37 +326,7 @@
 
                                         });
 
-                                        $(document).ready(function() {
-                                            $.ajax({
-                                                method: "GET",
-                                                url: url,
-                                                headers: {
-                                                    Authorization: token,
-                                                },
-                                                success: function(response) {
-                                                    data = response.etc;
-                                                    buildtot(data);
-                                                    buildsum(data);
 
-                                                    function buildtot(data) {
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_transaksi + " Transaksi" + `</span>`;
-                                                        $("#totTransaksi").append(body);
-                                                    };
-
-                                                    function buildsum(data) {
-                                                        var bilangan = data.total_rupiah;
-                                                        var reverse = bilangan.toString().split('').reverse().join(''),
-                                                            ribuan = reverse.match(/\d{1,3}/g);
-                                                        ribuan = ribuan.join('.').split('').reverse().join('');
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
-                                                        $("#sumTransaksi").append(body);
-                                                    };
-                                                },
-                                                error: function() {
-                                                    alert('Terjadi Kesalahan');
-                                                }
-                                            });
-                                        });
                                         tableTransaksi.addEventListener("click", (e) => {
                                             e.preventDefault();
                                             let deleteButtonisPressed = e.target.id == "delete";
@@ -394,6 +364,37 @@
                                                     }
                                                 }))
                                         };
+                                        $(document).ready(function() {
+                                            $.ajax({
+                                                method: "GET",
+                                                url: url,
+                                                headers: {
+                                                    Authorization: token,
+                                                },
+                                                success: function(response) {
+                                                    data = response.etc;
+                                                    buildtot(data);
+                                                    buildsum(data);
+
+                                                    function buildtot(data) {
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_transaksi + " Transaksi" + `</span>`;
+                                                        $("#totTransaksi").append(body);
+                                                    };
+
+                                                    function buildsum(data) {
+                                                        var bilangan = data.total_rupiah;
+                                                        var reverse = bilangan.toString().split('').reverse().join(''),
+                                                            ribuan = reverse.match(/\d{1,3}/g);
+                                                        ribuan = ribuan.join('.').split('').reverse().join('');
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
+                                                        $("#sumTransaksi").append(body);
+                                                    };
+                                                },
+                                                error: function() {
+                                                    alert('Terjadi Kesalahan');
+                                                }
+                                            });
+                                        });
                                     </script>
                                 </tbody>
                             </table>

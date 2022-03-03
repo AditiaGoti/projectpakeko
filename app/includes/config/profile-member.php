@@ -26,7 +26,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input id="Member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
+                                        <input disabled id="Member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
@@ -53,8 +53,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Photo</label>
-                                        <img id="memberimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
-                                        <input onchange="VerifyUploadSizeIsOK()" id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <img id="Memberimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
+                                        <input onchange="VerifyUploadSizeIsOK()" id="Member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
                                         <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
 
@@ -67,13 +67,11 @@
                             </div>
 
                         </form>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                         <script>
                             var myArray = [];
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
-                            var form = document.getElementById("form_profile");
                             const url = "https://api.klubaderai.com/api/users" + "/" + id;
                             $.ajax({
                                 method: "GET",
@@ -96,8 +94,8 @@
                                 var alamat = document.getElementById("Member_address");
                                 var pass = document.getElementById("Member_pass");
                                 var cpass = document.getElementById("Member_cpass");
-                                var img = document.getElementById("member_img");
-                                var imgv = document.getElementById("memberimg_values");
+                                var img = document.getElementById("Member_img");
+                                var imgv = document.getElementById("Memberimg_values");
 
 
                                 name.value = data.name;
@@ -111,6 +109,8 @@
                             }
 
                             function updateProfile() {
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
 
                                 var formdata = new FormData();
                                 formdata.append(
@@ -133,7 +133,7 @@
                                     "alamat",
                                     document.getElementById("Member_address").value
                                 );
-                                var foto = document.getElementById("member_img").files[0]
+                                var foto = document.getElementById("Member_img").files[0]
                                 if (foto == null) {
                                     // 
                                 } else {
