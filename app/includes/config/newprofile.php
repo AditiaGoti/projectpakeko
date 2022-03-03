@@ -306,7 +306,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="formCowo">
                             <input type="hidden" name="_token">
                             <div class="col">
                                 <div class="form-group">
@@ -372,8 +372,45 @@
 
                             fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
-                                .then(result => console.log(result))
-                                .catch(error => console.log('error', error));
+                                .then(result => {
+                                    var data = JSON.parse(result);
+                                    var hasildata = data.success;
+                                    var message = data.message;
+
+                                    if (hasildata) {
+                                        $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formCowo').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                        document.getElementById("formCowo").reset();
+                                    } else {
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            `&times;</button>${message}</div>`).hide().prependTo('#formCowo').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                    }
+                                })
+                                .catch(error => {
+                                    $('<div class="alert alert-danger">' +
+                                        '<button type="button" class="close" data-dismiss="alert">' +
+                                        `&times;</button>${error}</div>`).hide().prependTo('#formCowo').fadeIn(1000);
+
+                                    $(".alert").delay(3000).fadeOut(
+                                        "normal",
+                                        function() {
+                                            $(this).remove();
+                                        });
+                                });
                         }
 
                         function proCewe() {
@@ -394,8 +431,45 @@
 
                             fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
-                                .then(result => console.log(result))
-                                .catch(error => console.log('error', error));
+                                .then(result => {
+                                    var data = JSON.parse(result);
+                                    var hasildata = data.success;
+                                    var message = data.message;
+
+                                    if (hasildata) {
+                                        $('<div class="alert alert-success">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#formCewe').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                        document.getElementById("formCewe").reset();
+                                    } else {
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            `&times;</button>${message}</div>`).hide().prependTo('#formCewe').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                    }
+                                })
+                                .catch(error => {
+                                    $('<div class="alert alert-danger">' +
+                                        '<button type="button" class="close" data-dismiss="alert">' +
+                                        `&times;</button>${error}</div>`).hide().prependTo('#formCewe').fadeIn(1000);
+
+                                    $(".alert").delay(3000).fadeOut(
+                                        "normal",
+                                        function() {
+                                            $(this).remove();
+                                        });
+                                });
                         }
                     </script>
                 </div><!-- /.modal-content -->
@@ -411,7 +485,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="formCewe">
                             <input type="hidden" name="_token">
                             <div class="form-group">
                                 <label class="control-label">Berat Badan (kg) </label>
@@ -474,7 +548,6 @@
                         btnAdd.style.display = 'block'
                     }
                 </script>
-
                 <div class="row justify-content-center px-1" style="padding-top: 10px;">
                     <div class=" col-lg-4 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
@@ -531,7 +604,7 @@
                     <div class="col-md-6 border-0">
                         <div style="background:transparent;box-shadow: none;border:0.1 solid transparent;">
                             <div class="card-body">
-                                <canvas id="kgChart"></canvas>
+                                <canvas height="200px" id="kgChart"></canvas>
 
                             </div>
                         </div>
@@ -539,7 +612,7 @@
                     <div class="col-md-6 border-0">
                         <div style="background: transparent;box-shadow: none; border:0.1 solid transparent">
                             <div class="card-body">
-                                <canvas id="gChart"></canvas>
+                                <canvas height="200px" id="gChart"></canvas>
 
                             </div>
                         </div>
