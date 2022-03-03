@@ -314,14 +314,7 @@
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         responsive: true,
-                                                        dom: 'Bfrtip',
-                                                        buttons: [
-                                                            'excel', 'pdf', 'print'
-                                                        ],
-                                                        "order": [
-                                                            [0, "desc"]
-                                                        ]
-
+                                                        "pageLength": 50,
                                                     });
                                                 },
                                                 error: function(response) {
