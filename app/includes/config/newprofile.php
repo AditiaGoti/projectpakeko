@@ -355,12 +355,6 @@
                         var myHeaders = new Headers();
                         myHeaders.append("Authorization", token);
                         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-                        var requestOptions = {
-                            method: 'POST',
-                            headers: myHeaders,
-                            body: urlencoded,
-                            redirect: 'follow'
-                        };
 
                         function proCowo() {
                             var urlencoded = new URLSearchParams();
@@ -368,6 +362,13 @@
                             urlencoded.append("berat_badan", document.getElementById("cotinggi").value);
                             urlencoded.append("leher", document.getElementById("coleher").value);
                             urlencoded.append("pinggang", document.getElementById("copinggang").value);
+
+                            var requestOptions = {
+                                method: 'POST',
+                                headers: myHeaders,
+                                body: urlencoded,
+                                redirect: 'follow'
+                            };
 
                             fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
@@ -383,6 +384,13 @@
                             urlencoded.append("leher", document.getElementById("celeher").value);
                             urlencoded.append("pinggang", document.getElementById("cepinggang").value);
                             urlencoded.append("paha", document.getElementById("cepaha").value);
+
+                            var requestOptions = {
+                                method: 'POST',
+                                headers: myHeaders,
+                                body: urlencoded,
+                                redirect: 'follow'
+                            };
 
                             fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
