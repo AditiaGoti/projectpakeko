@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.addons.css">
     <link rel="stylesheet" href="assets/vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <script src="https://kit.fontawesome.com/1dd2c20f2d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/shared/dataTables.jqueryui.min.css">
     <link rel="stylesheet" href="assets/css/shared/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
