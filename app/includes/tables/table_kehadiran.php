@@ -231,7 +231,7 @@
                                                     $("#table-data").DataTable({
                                                         responsive: true,
                                                         "pageLength": 50,
-                                                        sorting: false
+
                                                     });
                                                 },
                                                 error: function(response) {
@@ -259,4 +259,3 @@
     </footer>
     <!-- partial -->
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

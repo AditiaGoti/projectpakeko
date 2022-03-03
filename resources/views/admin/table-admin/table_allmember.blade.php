@@ -21,13 +21,7 @@ if (!$_SESSION['type'] == 1) {
     </div>
   </div>
   <?php include(app_path() . '/includes/config/footer.php'); ?>
-  <script>
-    $(document).ready(function() {
-      $("#dataTables-member").DataTable({
-        responsive: true,
-      });
-    });
-  </script>
+
 </body>
 
 </html>
