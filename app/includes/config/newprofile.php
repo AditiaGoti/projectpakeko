@@ -136,36 +136,33 @@
                     <div class="modal-body">
                         <form onsubmit="proCowo(); return false">
                             <input type="hidden" name="_token">
+                            <div class="col">
                             <div class="form-group">
-                                <label class="control-label">Berat Badan</label>
+                                <label class="control-label">Berat Badan (kg) </label>
                                 <div>
-                                    <input id="coberat" type="text" class="form-control input-lg" name="berat">
+                                    <input id="coberat" type="text" class="form-control input-sm" style="width: 200px;" name="berat">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Tinggi Badan</label>
+                                <label class="control-label">Tinggi Badan (cm) </label>
                                 <div>
-                                    <input id="cotinggi" type="text" class="form-control input-lg" name="tinggi">
+                                    <input id="cotinggi" type="text" class="form-control input-sm" style="width: 200px;"name="tinggi">
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col">
+                            <div class="form-group">
+                                <label class="control-label">Lingkar Leher (cm) </label>
+                                <div>
+                                    <input id="coleher" type="text" class="form-control input-sm" style="width: 200px;" name="massaotot">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Lingkar Leher</label>
+                                <label class="control-label">Lingkar Pinggang (cm) </label>
                                 <div>
-                                    <input id="coleher" type="text" class="form-control input-lg" name="massaotot">
+                                    <input id="copinggang" type="text" class="form-control input-sm" style="width: 200px;"name="presentasilemak">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label">Lingkar Pinggang</label>
-                                <div>
-                                    <input id="copinggang" type="text" class="form-control input-lg" name="presentasilemak">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <button type="submit" class="btn btn-success">
-                                        Submit
-                                    </button>
-                                </div>
                             </div>
                         </form>
                         <script>
@@ -195,6 +192,16 @@
                             }
                         </script>
                     </div>
+                    <div class="modal-footer">
+                    <div class="form-group">
+                                <div>
+                                    <button type="submit" class="btn btn-success">
+                                        Submit
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                    </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div>
@@ -208,40 +215,33 @@
                         <form onsubmit="proCewe(); return false">
                             <input type="hidden" name="_token">
                             <div class="form-group">
-                                <label class="control-label">Berat Badan</label>
+                                <label class="control-label">Berat Badan  (kg) </label>
                                 <div>
-                                    <input id="ceberat" type="text" class="form-control input-lg" name="berat">
+                                    <input id="ceberat" type="text" class="form-control input-sm" style="width: 200px;"name="berat">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Tinggi Badan</label>
+                                <label class="control-label">Tinggi Badan (cm) </label>
                                 <div>
-                                    <input id="cetinggi" type="text" class="form-control input-lg" name="tinggi">
+                                    <input id="cetinggi" type="text" class="form-control input-sm" style="width: 200px;"name="tinggi">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Lingkar Leher</label>
+                                <label class="control-label">Lingkar Leher (cm) </label>
                                 <div>
-                                    <input id="celeher" type="text" class="form-control input-lg" name="massaotot">
+                                    <input id="celeher" type="text" class="form-control input-sm" style="width: 200px;"name="massaotot">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Lingkar Pinggang</label>
+                                <label class="control-label">Lingkar Pinggang (cm)</label>
                                 <div>
-                                    <input id="cepinggang" type="text" class="form-control input-lg" name="presentasilemak">
+                                    <input id="cepinggang" type="text" class="form-control input-sm" style="width: 200px;"name="presentasilemak">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Lingkar Paha</label>
+                                <label class="control-label">Lingkar Paha</label><label>(cm)</label>
                                 <div>
-                                    <input type="cetext" class="form-control input-lg" name="massalemak">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <button type="submit" class="btn btn-success">
-                                        Submit
-                                    </button>
+                                    <input type="cetext" class="form-control input-sm" style="width: 200px;"name="massalemak">
                                 </div>
                             </div>
                         </form>
@@ -273,6 +273,16 @@
                             }
                         </script>
                     </div>
+                    <div class="modal-footer">
+                    <div class="form-group">
+                                <div>
+                                    <button type="submit" class="btn btn-success">
+                                        Submit
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                    </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div>
@@ -282,22 +292,21 @@
                     <div class="card-body">
                         <div class="row">
                             <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Before</h5>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;background:red;-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;">Before</h5>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Berat Badan :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">80kg</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Tinggi Badan:</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">180cm</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Massa Otot :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
 
                             </div>
-                            <div class="col" style="margin-top: 70px;">
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Presentase Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
-
-
+                            <div class="col" style="margin-top: 42px;">
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold; margin-left:-7px">Presentase Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;margin-left:-7px">Massa Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">17%</P>x
                             </div>
                         </div>
                     </div>
@@ -308,20 +317,21 @@
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">After</h5>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Berat Badan :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">80kg</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Tinggi Badan:</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">180cm</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Otot :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
+                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left;font-size: 20px; padding-bottom: 10px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; color: green; font-weight: bold;background:green;-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;">After</h5>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; font-weight: bold;">Berat Badan :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">80kg</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Tinggi Badan:</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">180cm</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;">Massa Otot :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
 
                             </div>
-                            <div class="col" style="margin-top: 70px;">
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif; ">Presentase Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">56%</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">Massa Lemak :</P>
-                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;">17%</P>
+                            <div class="col" style="margin-top: 42px;">
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;margin-left:-7px">Presentase Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">56%</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;font-weight: bold;margin-left:-7px">Massa Lemak :</P>
+                                <P style="font-size:15px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;margin-top:-15px;">17%</P>
                             </div>
                         </div>
                     </div>
@@ -331,18 +341,10 @@
             <div class="col-md-6 grid-margin">
                 <div class="card">
                     <div class="p-4 border-bottom bg-light">
-                        <h4 id="btnCowo" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCowo"></button></h4>
+                        <h4 id="btnCowo" class="card-title mb-0" style="display:block;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCowo"></button></h4>
                         <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"></button></h4>
                     </div>
-                    <!--<script>
-                        var gender = <?php echo $_SESSION["gender"] ?>;
-                        if (gender == male) {
-                            document.getElementById("btnCowo").style.display = block;
-
-                        } else {
-                            document.getElementById("btnCewe").style.display = block;
-                        }
-                    </script>-->
+          
                     <div class="card-body">
                         <canvas id="kgChart"></canvas>
                         <script>
