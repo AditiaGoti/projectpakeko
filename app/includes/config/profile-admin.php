@@ -138,10 +138,15 @@
                                     "alamat",
                                     document.getElementById("admin_address").value
                                 );
-                                formdata.append(
-                                    "img_path",
-                                    document.getElementById("admin_img").files[0]
-                                );
+
+                                var foto = document.getElementById("admin_img").files[0]
+                                if (foto == null) {
+                                    // 
+                                } else {
+                                    formdata.append(
+                                        "img_path", foto
+                                    );
+                                }
 
                                 var requestOptions = {
                                     method: "POST",
