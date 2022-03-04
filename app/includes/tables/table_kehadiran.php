@@ -1,7 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -127,6 +126,7 @@
                                         var xlsHeader = ["Email", "Nama", "Tanggal", "Waktu"];
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
+
                                             const dte = data.waktu;
                                             const date = dte.split(" ");
 
@@ -231,6 +231,7 @@
                                                     $("#table-data").DataTable({
                                                         responsive: true,
                                                         "pageLength": 50,
+                                                        sorting: false,
 
                                                     });
                                                 },

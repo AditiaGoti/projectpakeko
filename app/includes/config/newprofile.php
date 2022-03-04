@@ -378,8 +378,8 @@
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                             var urlencoded = new URLSearchParams();
-                            urlencoded.append("tinggi_badan", document.getElementById("coberat").value);
-                            urlencoded.append("berat_badan", document.getElementById("cotinggi").value);
+                            urlencoded.append("tinggi_badan", document.getElementById("cotinggi").value);
+                            urlencoded.append("berat_badan", document.getElementById("coberat").value);
                             urlencoded.append("leher", document.getElementById("coleher").value);
                             urlencoded.append("pinggang", document.getElementById("copinggang").value);
 
@@ -407,7 +407,7 @@
                                             function() {
                                                 $(this).remove();
                                             });
-                                        document.getElementById("formCowo").reset();
+                                        location.reload();
                                     } else {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
@@ -418,6 +418,7 @@
                                             function() {
                                                 $(this).remove();
                                             });
+
                                     }
                                 })
                                 .catch(error => {
@@ -442,8 +443,8 @@
                             myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                             var urlencoded = new URLSearchParams();
-                            urlencoded.append("berat_badan", document.getElementById("cetinggi").value);
-                            urlencoded.append("tinggi_badan", document.getElementById("ceberat").value);
+                            urlencoded.append("berat_badan", document.getElementById("ceberat").value);
+                            urlencoded.append("tinggi_badan", document.getElementById("cetinggi").value);
                             urlencoded.append("leher", document.getElementById("celeher").value);
                             urlencoded.append("pinggang", document.getElementById("cepinggang").value);
                             urlencoded.append("paha", document.getElementById("cepaha").value);
