@@ -314,20 +314,20 @@
                                     <table class="table table-striped table-bordered table-hover" id="table-data">
                                         <thead>
                                             <tr>
-                                                <th></th>
+                                                <th>id</th>
                                                 <th>Nama</th>
                                                 <th>Email</th>
                                                 <th>Gender</th>
-
                                                 <th>DOB</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
                                                 <th>Actions</th>
+                                                <th style="display: none"></th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tableMember">
+                                        <tbody>
                                             <script>
                                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                 var token = "Bearer" + " " + tokenSession;
@@ -365,31 +365,68 @@
                                                                 $("#sumTAktif").append(body);
                                                             };
 
-                                                            $.each(data, function(i, data) {
-
-                                                                var body = `<tr data-id=${data.id}>`;
-                                                                body += "<td>" + data.id + "</td>";
-                                                                body += "<td>" + data.name + "</td>";
-                                                                body += "<td>" + data.email + "</td>";
-                                                                body += "<td>" + data.gender + "</td>";
-                                                                body += "<td>" + data.tanggal_lahir + "</td>";
-                                                                body += "<td>" + data.nohp + "</td>";
-                                                                body += "<td>" + data.alamat + "</td>";
-                                                                body += "<td>" + data.expired + "</td>";
-                                                                body += "<td>" + data.token + "</td>";
-                                                                body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
-                                                                    " " +
-                                                                    `<button id="delete" data-toggle="modal" data-target="#exampleModalCenteru" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
-
-                                                                body += "</tr>";
-                                                                $("#table-data tbody").append(body);
-                                                            });
-                                                            /*DataTables instantiation.*/
                                                             $("#table-data").DataTable({
+                                                                data: data,
                                                                 responsive: true,
-                                                                "pageLength": 50
-
+                                                                "pageLength": 50,
+                                                                columns: [{
+                                                                        'data': 'id'
+                                                                    },
+                                                                    {
+                                                                        'data': 'name'
+                                                                    },
+                                                                    {
+                                                                        'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'gender'
+                                                                    },
+                                                                    {
+                                                                        'data': 'tanggal_lahir'
+                                                                    },
+                                                                    {
+                                                                        'data': 'nohp'
+                                                                    },
+                                                                    {
+                                                                        'data': 'alamat'
+                                                                    },
+                                                                    {
+                                                                        'data': 'expired'
+                                                                    },
+                                                                    {
+                                                                        'data': 'token'
+                                                                    },
+                                                                    {
+                                                                        'data': null,
+                                                                        'render': function(data) {
+                                                                            return '<button value="' + data.id + '" class="updateBtnU btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        'data': null,
+                                                                        'render': function(data) {
+                                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenteru" class=" deleteBtnU btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            })
+                                                            $('#table-data tbody').on('click', 'button.updateBtnU ', function() {
+                                                                var id = $(this).attr('value');
+                                                                console.log(id);
+                                                                if (type == 2) {
+                                                                    var memID = sessionStorage.setItem("id-member", id);
+                                                                    location.href = "/owformu_member";
+                                                                } else {
+                                                                    var memID = sessionStorage.setItem("id-member", id);
+                                                                    location.href = "formu_member";
+                                                                }
                                                             });
+
+                                                            $('#table-data tbody').on('click', 'button.deleteBtnU ', function() {
+                                                                var id = $(this).attr('value');
+                                                                var memID = sessionStorage.setItem("id-member", id);
+                                                            });
+
                                                         },
                                                         error: function(response) {
                                                             hasil = response.responseJSON.message;
@@ -397,26 +434,10 @@
 
                                                         }
                                                     });
-                                                    tableMember.addEventListener("click", (e) => {
-                                                        e.preventDefault();
-                                                        let deleteButtonisPressed = e.target.id == "delete";
-                                                        let updateButtonisPressed = e.target.id == "update";
-
-                                                        mid = e.target.parentElement.parentElement.dataset.id;
-                                                        if (updateButtonisPressed) {
-                                                            if (type == 2) {
-                                                                var memID = sessionStorage.setItem("id-member", mid);
-                                                                location.href = "/owformu_member";
-                                                            } else {
-                                                                var memID = sessionStorage.setItem("id-member", mid);
-                                                                location.href = "formu_member";
-                                                            }
-                                                        }
-                                                    })
-
                                                 });
 
                                                 function deleteDatau() {
+                                                    var memID = sessionStorage.getItem("id-member");
                                                     var myHeaders = new Headers();
                                                     myHeaders.append(
                                                         "Authorization",
@@ -426,7 +447,7 @@
                                                         headers: myHeaders,
                                                         redirect: "follow",
                                                     };
-                                                    fetch(`${urlu}/${mid}`, deleteRequest)
+                                                    fetch(`${urlu}/${memID}`, deleteRequest)
                                                         .then((res) => res.json())
                                                         .then((result => {
 
@@ -458,25 +479,24 @@
                                     <table class="table table-striped table-bordered table-hover" id="table-dataa">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th>id</th>
                                                 <th>Nama</th>
                                                 <th>Email</th>
                                                 <th>Gender</th>
-
                                                 <th>DOB</th>
                                                 <th>No. HP</th>
                                                 <th>Alamat</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
                                                 <th>Actions</th>
+                                                <th style="display: none"></th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tableMembera">
+                                        <tbody>
                                             <script>
                                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                 var token = "Bearer" + " " + tokenSession;
                                                 var myArray = [];
-                                                var tableMembera = document.getElementById("tableMembera");
                                                 const urlua = "https://api.klubaderai.com/api/users-active";
                                                 $(document).ready(function() {
                                                     $.ajax({
@@ -487,58 +507,79 @@
                                                         },
                                                         success: function(response) {
                                                             data = response.data;
-                                                            $.each(data, function(i, data) {
-
-                                                                var body = `<tr data-id=${data.id} >`;
-                                                                body += "<td>" + data.id + "</td>";
-                                                                body += "<td>" + data.name + "</td>";
-                                                                body += "<td>" + data.email + "</td>";
-                                                                body += "<td>" + data.gender + "</td>";
-                                                                body += "<td>" + data.tanggal_lahir + "</td>";
-                                                                body += "<td>" + data.nohp + "</td>";
-                                                                body += "<td>" + data.alamat + "</td>";
-                                                                body += "<td>" + data.expired + "</td>";
-                                                                body += "<td>" + data.token + "</td>";
-                                                                body += "<td>" +
-                                                                    `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
-                                                                    " " +
-                                                                    `<button id="delete" data-toggle="modal" data-target="#exampleModalCenterua" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
-                                                                    "</td>";
-                                                                body += "</tr>";
-                                                                $("#table-dataa tbody").append(body);
-                                                            });
                                                             /*DataTables instantiation.*/
                                                             $("#table-dataa").DataTable({
+                                                                data: data,
                                                                 responsive: true,
-                                                                "pageLength": 50
-
+                                                                "pageLength": 50,
+                                                                columns: [{
+                                                                        'data': 'id'
+                                                                    },
+                                                                    {
+                                                                        'data': 'name'
+                                                                    },
+                                                                    {
+                                                                        'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'gender'
+                                                                    },
+                                                                    {
+                                                                        'data': 'tanggal_lahir'
+                                                                    },
+                                                                    {
+                                                                        'data': 'nohp'
+                                                                    },
+                                                                    {
+                                                                        'data': 'alamat'
+                                                                    },
+                                                                    {
+                                                                        'data': 'expired'
+                                                                    },
+                                                                    {
+                                                                        'data': 'token'
+                                                                    },
+                                                                    {
+                                                                        'data': null,
+                                                                        'render': function(data) {
+                                                                            return '<button value="' + data.id + '" class="updateBtnUA btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        'data': null,
+                                                                        'render': function(data) {
+                                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenterua" class=" deleteBtnUA btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            })
+                                                            $('#table-dataa tbody').on('click', 'button.updateBtnUA ', function() {
+                                                                var id = $(this).attr('value');
+                                                                console.log(id);
+                                                                if (type == 2) {
+                                                                    var memID = sessionStorage.setItem("id-member", id);
+                                                                    location.href = "/owformu_member";
+                                                                } else {
+                                                                    var memID = sessionStorage.setItem("id-member", id);
+                                                                    location.href = "formu_member";
+                                                                }
                                                             });
+
+                                                            $('#table-dataa tbody').on('click', 'button.deleteBtnUA ', function() {
+                                                                var id = $(this).attr('value');
+                                                                var memID = sessionStorage.setItem("id-member", id);
+                                                            });
+
                                                         },
                                                         error: function(response) {
                                                             hasil = response.responseJSON.message;
                                                             alert(hasil);
-
                                                         }
                                                     });
-                                                    tableMembera.addEventListener("click", (e) => {
-                                                        e.preventDefault();
-                                                        let deleteButtonisPressed = e.target.id == "delete";
-                                                        let updateButtonisPressed = e.target.id == "update";
-
-                                                        midua = e.target.parentElement.parentElement.dataset.id;
-                                                        if (updateButtonisPressed) {
-                                                            if (type == 2) {
-                                                                var memID = sessionStorage.setItem("id-member", midua);
-                                                                location.href = "/owformu_member";
-                                                            } else {
-                                                                var memID = sessionStorage.setItem("id-member", midua);
-                                                                location.href = "formu_member";
-                                                            }
-                                                        }
-                                                    })
                                                 });
 
                                                 function deleteDataua() {
+                                                    var memID = sessionStorage.getItem("id-member");
                                                     var myHeaders = new Headers();
                                                     myHeaders.append(
                                                         "Authorization",
@@ -549,7 +590,7 @@
                                                         redirect: "follow",
                                                     };
 
-                                                    fetch(`${urlu}/${midua}`, deleteRequest)
+                                                    fetch(`${urlu}/${memID}`, deleteRequest)
                                                         .then((res) => res.json())
                                                         .then((result => {
 
@@ -591,14 +632,14 @@
                                                 <th>Expired</th>
                                                 <th>Token</th>
                                                 <th>Actions</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tableMemberi">
+                                        <tbody>
                                             <script>
                                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                 var token = "Bearer" + " " + tokenSession;
                                                 var myArray = [];
-                                                var tableMemberi = document.getElementById("tableMemberi");
                                                 const urlui = "https://api.klubaderai.com/api/users-inactive";
 
                                                 $(document).ready(function() {
@@ -610,31 +651,69 @@
                                                         },
                                                         success: function(response) {
                                                             data = response.data;
-                                                            $.each(data, function(i, data) {
 
-                                                                var body = `<tr data-id=${data.id} >`;
-                                                                body += "<td>" + data.id + "</td>";
-                                                                body += "<td>" + data.name + "</td>";
-                                                                body += "<td>" + data.email + "</td>";
-                                                                body += "<td>" + data.gender + "</td>";
-                                                                body += "<td>" + data.tanggal_lahir + "</td>";
-                                                                body += "<td>" + data.nohp + "</td>";
-                                                                body += "<td>" + data.alamat + "</td>";
-                                                                body += "<td>" + data.expired + "</td>";
-                                                                body += "<td>" + data.token + "</td>";
-                                                                body += "<td>" +
-                                                                    `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
-                                                                    " " +
-                                                                    `<button id="delete" data-toggle="modal" data-target="#exampleModalCenterui" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
-                                                                    "</td>";
-                                                                body += "</tr>";
-                                                                $("#table-datai tbody").append(body);
-                                                            });
                                                             /*DataTables instantiation.*/
                                                             $("#table-datai").DataTable({
+                                                                data: data,
                                                                 responsive: true,
-                                                                "pageLength": 50
+                                                                "pageLength": 50,
+                                                                columns: [{
+                                                                        'data': 'id'
+                                                                    },
+                                                                    {
+                                                                        'data': 'name'
+                                                                    },
+                                                                    {
+                                                                        'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'gender'
+                                                                    },
+                                                                    {
+                                                                        'data': 'tanggal_lahir'
+                                                                    },
+                                                                    {
+                                                                        'data': 'nohp'
+                                                                    },
+                                                                    {
+                                                                        'data': 'alamat'
+                                                                    },
+                                                                    {
+                                                                        'data': 'expired'
+                                                                    },
+                                                                    {
+                                                                        'data': 'token'
+                                                                    },
+                                                                    {
+                                                                        'data': null,
+                                                                        'render': function(data) {
+                                                                            return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        'data': null,
+                                                                        'render': function(data) {
+                                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenterui" class="deleteBtnUI btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            })
 
+                                                            $('#table-datai tbody').on('click', 'button.updateBtnUI ', function() {
+                                                                var id = $(this).attr('value');
+                                                                console.log(id);
+                                                                if (type == 2) {
+                                                                    var memID = sessionStorage.setItem("id-member", id);
+                                                                    location.href = "/owformu_member";
+                                                                } else {
+                                                                    var memID = sessionStorage.setItem("id-member", id);
+                                                                    location.href = "formu_member";
+                                                                }
+                                                            });
+
+                                                            $('#table-datai tbody').on('click', 'button.deleteBtnUI ', function() {
+                                                                var id = $(this).attr('value');
+                                                                var memID = sessionStorage.setItem("id-member", id);
                                                             });
                                                         },
                                                         error: function(response) {
@@ -642,29 +721,10 @@
                                                             alert(hasil);
                                                         }
                                                     });
-                                                    tableMemberi.addEventListener("click", (e) => {
-                                                        e.preventDefault();
-                                                        let deleteButtonisPressed = e.target.id == "delete";
-                                                        let updateButtonisPressed = e.target.id == "update";
-
-                                                        midui = e.target.parentElement.parentElement.dataset.id;
-
-                                                        if (updateButtonisPressed) {
-                                                            if (type == 2) {
-                                                                var memID = sessionStorage.setItem("id-member", midui);
-                                                                location.href = "/owformu_member";
-                                                            } else {
-                                                                var memID = sessionStorage.setItem("id-member", midui);
-                                                                location.href = "formu_member";
-                                                            }
-                                                        }
-                                                    })
                                                 });
 
-
-
-
                                                 function deleteDataui() {
+                                                    var memID = sessionStorage.getItem("id-member");
                                                     var myHeaders = new Headers();
                                                     myHeaders.append(
                                                         "Authorization",
@@ -674,7 +734,7 @@
                                                         headers: myHeaders,
                                                         redirect: "follow",
                                                     };
-                                                    fetch(`${urlu}/${midui}`, deleteRequest)
+                                                    fetch(`${urlu}/${memID}`, deleteRequest)
                                                         .then((res) => res.json())
                                                         .then((result => {
 

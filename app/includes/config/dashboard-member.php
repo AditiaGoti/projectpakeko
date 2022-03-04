@@ -54,9 +54,6 @@
                                             useSVG: true,
                                         });
 
-
-
-
                                         function makeCode() {
                                             var Sid = '<?php echo $_SESSION['id']; ?>';
                                             qrcode.makeCode(Sid);
