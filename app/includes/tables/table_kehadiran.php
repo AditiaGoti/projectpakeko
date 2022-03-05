@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="main-panel">
     <div class="content-wrapper">
@@ -185,12 +184,11 @@
                             <table class="table table-striped table-bordered table-hover" id="table-data">
                                 <thead>
                                     <tr>
-                                        <th>Email</th>
-                                        <th>Nama</th>
-                                        <th>Hari</th>
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
-                                        <!-- <th>Action</th> -->
+                                        <th>Hari</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -209,31 +207,49 @@
                                                 },
                                                 success: function(response) {
                                                     data = response.data;
-                                                    $.each(data, function(i, data) {
-                                                        const d = data.waktu;
-                                                        const weekday = ["Minggu", "Senin", "Selama", "Rabu", "Kamis", "Jumat", "Sabtu"];
-                                                        let day = weekday[new Date(d.replace(/-/g, "/")).getDay()];
-                                                        let time = new Date(d.replace(/-/g, "/")).toLocaleTimeString("id-ID");
-                                                        let date = new Date(d.replace(/-/g, "/")).toLocaleDateString("id-ID");
 
-                                                        var body = "<tr>";
-
-                                                        body += "<td>" + data.email + "</td>";
-                                                        body += "<td>" + data.nama + "</td>";
-                                                        body += "<td>" + day + "</td>";
-                                                        body += "<td>" + date + "</td>";
-                                                        body += "<td>" + time + " WIB" + "</td>";
-
-                                                        body += "</tr>";
-                                                        $("#table-data tbody").append(body);
-                                                    });
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
+                                                        data: data,
+                                                        "autoWidth": false,
+                                                        "sorting": false,
                                                         responsive: true,
                                                         "pageLength": 50,
-                                                        sorting: false,
+                                                        columns: [{
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    const d = new Date(data.waktu);
+                                                                    return d.toLocaleDateString()
+                                                                }
 
-                                                    });
+                                                            },
+                                                            {
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    const d = new Date(data.waktu);
+                                                                    return d.toLocaleTimeString()
+                                                                }
+                                                            },
+                                                            {
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    const d = new Date(data.waktu);
+                                                                    const weekday = ["Minggu", "Senin", "Selama", "Rabu", "Kamis", "Jumat", "Sabtu"];
+                                                                    return weekday[d.getDay()];
+
+                                                                }
+                                                            },
+
+                                                            {
+                                                                'data': 'nama'
+                                                            },
+                                                            {
+                                                                'data': 'email'
+                                                            },
+
+
+                                                        ]
+                                                    })
                                                 },
                                                 error: function(response) {
                                                     hasil = response.responseJSON.message;

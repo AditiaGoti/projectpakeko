@@ -194,26 +194,26 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover" id="table-data">
+                            <table class="table table-striped table-bordered table-hover" style="width:100%" id="table-data">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th colspan="2">Actions</th>
                                         <th>Nama</th>
+                                        <th>ID</th>
                                         <th>Email</th>
                                         <th>Gender</th>
-                                        <th>POB</th>
                                         <th>DOB</th>
                                         <th>No. HP</th>
+                                        <th>POB</th>
                                         <th>Alamat</th>
-                                        <th>Actions</th>
+                                        <th style="display: none"></th>
                                     </tr>
                                 </thead>
-                                <tbody id="tableadmin">
+                                <tbody>
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tableAdmin = document.getElementById("tableadmin");
                                         const url = "https://api.klubaderai.com/api/admin";
                                         $(document).ready(function() {
                                             $.ajax({
@@ -224,29 +224,63 @@
                                                 },
                                                 success: function(response) {
                                                     data = response.data;
-                                                    $.each(data, function(i, data) {
 
-                                                        var body = `<tr data-id=${data.id} >`;
-                                                        body += "<td>" + data.id + "</td>";
-                                                        body += "<td>" + data.name + "</td>";
-                                                        body += "<td>" + data.email + "</td>";
-                                                        body += "<td>" + data.gender + "</td>";
-                                                        body += "<td>" + data.tempat_lahir + "</td>";
-                                                        body += "<td>" + data.tanggal_lahir + "</td>";
-                                                        body += "<td>" + data.nohp + "</td>";
-                                                        body += "<td>" + data.alamat + "</td>";
-
-                                                        body += "<td>" + `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` + " " +
-                                                            `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
-                                                            "</td>";
-
-                                                        body += "</tr>";
-                                                        $("#table-data tbody").append(body);
-                                                    });
-                                                    /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
+                                                        data: data,
                                                         responsive: true,
-                                                        "pageLength": 50
+                                                        "pageLength": 50,
+                                                        "order": [
+                                                            [2, "asc"]
+                                                        ],
+                                                        columns: [{
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                }
+                                                            },
+                                                            {
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class="deleteBtnUI btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                }
+                                                            },
+                                                            {
+                                                                'data': 'name'
+                                                            },
+                                                            {
+                                                                'data': 'id'
+                                                            },
+                                                            {
+                                                                'data': 'email'
+                                                            },
+                                                            {
+                                                                'data': 'gender'
+                                                            },
+
+                                                            {
+                                                                'data': 'tanggal_lahir'
+                                                            },
+                                                            {
+                                                                'data': 'nohp'
+                                                            },
+                                                            {
+                                                                'data': 'tempat_lahir'
+                                                            },
+                                                            {
+                                                                'data': 'alamat'
+                                                            }
+                                                        ]
+                                                    })
+                                                    $('#table-data tbody').on('click', 'button.updateBtnUI ', function() {
+                                                        var id = $(this).attr('value');
+                                                        var admID = sessionStorage.setItem("id-admin", id);
+                                                        location.href = "/owformu_admin";
+
+                                                    });
+
+                                                    $('#table-data tbody').on('click', 'button.deleteBtnUI ', function() {
+                                                        var id = $(this).attr('value');
+                                                        var admID = sessionStorage.setItem("id-admin", id);
                                                     });
                                                 },
                                                 error: function(response) {
@@ -254,30 +288,22 @@
                                                     alert(hasil);
                                                 }
                                             });
-                                            tableAdmin.addEventListener("click", (e) => {
-                                                e.preventDefault();
-                                                let deleteButtonisPressed = e.target.id == "delete";
-                                                let updateButtonisPressed = e.target.id == "update";
-                                                mid = e.target.parentElement.parentElement.dataset.id;
-                                                if (updateButtonisPressed) {
-                                                    var admID = sessionStorage.setItem("id-admin", mid);
-                                                    window.location.href = '/owformu_admin';
-                                                }
-                                            })
                                         });
 
-                                        var myHeaders = new Headers();
-                                        myHeaders.append(
-                                            "Authorization",
-                                            token);
-                                        var deleteRequest = {
-                                            method: "DELETE",
-                                            headers: myHeaders,
-                                            redirect: "follow",
-                                        };
 
                                         function deleteData() {
-                                            fetch("https://api.klubaderai.com/api/admin" + "/" + mid, deleteRequest)
+                                            var admID = sessionStorage.getItem("id-admin");
+                                            var myHeaders = new Headers();
+                                            myHeaders.append(
+                                                "Authorization",
+                                                token);
+                                            var deleteRequest = {
+                                                method: "DELETE",
+                                                headers: myHeaders,
+                                                redirect: "follow",
+                                            };
+
+                                            fetch("https://api.klubaderai.com/api/admin" + "/" + admID, deleteRequest)
                                                 .then((res) => res.json())
                                                 .then((result => {
 

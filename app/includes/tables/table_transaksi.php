@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div class="main-panel">
     <div class="content-wrapper">
@@ -255,17 +254,16 @@
                             <table class="table table-striped table-bordered table-hover" id="table-data">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>ID</th>
-                                        <th>Member</th>
+                                        <th>Actions</th>
+                                        <th>Nama</th>
+                                        <th>MID</th>
                                         <th>Paket</th>
                                         <th>Nominal</th>
-                                        <th>CreatedBy</th>
-                                        <th>Waktu</th>
                                         <th>Tanggal</th>
-                                        <th>Keterangan</th>
+                                        <th>Waktu</th>
+                                        <th>CreatedBy</th>
+                                        <th>Ket</th>
 
-                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableTransaksi">
@@ -273,7 +271,6 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        var tableTransaksi = document.getElementById("tableTransaksi");
                                         const url = "https://api.klubaderai.com/api/transaksi";
                                         $(document).ready(function() {
                                             $.ajax({
@@ -300,69 +297,72 @@
                                                         var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
                                                         $("#sumTransaksi").append(body);
                                                     };
+
+                                                    datad = response.data;
+
+
+                                                    /*DataTables instantiation.*/
+                                                    $("#table-data").DataTable({
+                                                        data: datad,
+                                                        "autoWidth": false,
+                                                        responsive: true,
+                                                        "pageLength": 50,
+                                                        columns: [{
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class=" deleteBtnUA btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                }
+                                                            },
+                                                            {
+                                                                'data': 'nama_member'
+                                                            },
+                                                            {
+                                                                'data': 'id_member'
+                                                            },
+
+                                                            {
+                                                                'data': 'tipe_paket'
+                                                            },
+                                                            {
+                                                                'data': 'nominal',
+                                                                'render': DataTable.render.number(',', '.', 2, 'Rp. ')
+                                                            },
+                                                            {
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    const d = new Date(data.updated_at);
+                                                                    return d.toLocaleDateString()
+                                                                }
+                                                            },
+                                                            {
+                                                                'data': null,
+                                                                'render': function(data) {
+                                                                    const d = new Date(data.updated_at);
+                                                                    return d.toLocaleTimeString()
+                                                                }
+                                                            },
+                                                            {
+                                                                'data': 'createdby'
+                                                            },
+                                                            {
+                                                                'data': 'keterangan'
+                                                            },
+
+                                                        ]
+                                                    })
+                                                    $('#table-data tbody').on('click', 'button.deleteBtnUA ', function() {
+                                                        var id = $(this).attr('value');
+                                                        var transID = sessionStorage.setItem("id-transaksi", id);
+                                                    });
                                                 },
                                                 error: function() {
                                                     alert('Terjadi Kesalahan');
                                                 }
                                             });
                                         });
-                                        $(document).ready(function() {
-                                            $.ajax({
-                                                method: "GET",
-                                                url: url,
-                                                headers: {
-                                                    Authorization: token,
-                                                },
-                                                success: function(response) {
-                                                    data = response.data;
-                                                    $.each(data, function(i, data) {
-                                                        var nominal = data.nominal;
-                                                        var bilangan = nominal.replace('.00', '');
-
-                                                        var reverse = bilangan.toString().split('').reverse().join(''),
-                                                            ribuan = reverse.match(/\d{1,3}/g);
-                                                        ribuan = ribuan.join('.').split('').reverse().join('');
-                                                        const d = new Date(data.updated_at);
-                                                        let time = d.toLocaleTimeString();
-                                                        let date = d.toDateString();
-
-                                                        var body = `<tr data-id=${data.id}>`;
-                                                        body += "<td>" + data.id + "</td>";
-                                                        body += "<td>" + data.id_member + "</td>";
-                                                        body += "<td>" + data.nama_member + "</td>";
-                                                        body += "<td>" + data.tipe_paket + "</td>";
-                                                        body += "<td>" + "Rp. " + ribuan + "</td>";
-                                                        body += "<td>" + data.createdby + "</td>";
-                                                        body += "<td>" + time + "</td>";
-                                                        body += "<td>" + date + "</td>";
-                                                        body += "<td>" + data.keterangan + "</td>";
-                                                        body += "<td>" +
-                                                            `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` + "</td>";
-
-                                                        body += "</tr>";
-                                                        $("#table-data tbody").append(body);
-                                                    });
-                                                    /*DataTables instantiation.*/
-                                                    $("#table-data").DataTable({
-                                                        responsive: true,
-                                                        "pageLength": 50,
-                                                    });
-                                                },
-                                                error: function(response) {
-                                                    hasil = response.responseJSON.message;
-                                                    alert(hasil);
-
-                                                }
-                                            });
-                                            tableTransaksi.addEventListener("click", (e) => {
-                                                e.preventDefault();
-                                                let deleteButtonisPressed = e.target.id == "delete";
-                                                mid = e.target.parentElement.parentElement.dataset.id;
-                                            })
-
-                                        });
 
                                         function deleteData() {
+                                            var transID = sessionStorage.getItem("id-transaksi");
                                             var myHeaders = new Headers();
                                             myHeaders.append(
                                                 "Authorization",
@@ -372,13 +372,14 @@
                                                 headers: myHeaders,
                                                 redirect: "follow",
                                             };
-                                            fetch(`${url}/${mid}`, deleteRequest)
+                                            fetch(`${url}/${transID}`, deleteRequest)
                                                 .then((res) => res.json())
                                                 .then((result => {
 
                                                     var hasildata = result.success;
                                                     var message = result.message;
                                                     if (hasildata) {
+                                                        sessionStorage.removeItem("id-transaksi");
                                                         location.reload();
                                                     } else {
                                                         $('<div class="alert alert-danger">' +

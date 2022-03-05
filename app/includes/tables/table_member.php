@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="main-panel">
@@ -314,16 +313,16 @@
                                     <table class="table table-striped table-bordered table-hover" id="table-data">
                                         <thead>
                                             <tr>
-                                                <th>id</th>
+                                                <th colspan="2">Actions</th>
                                                 <th>Nama</th>
+                                                <th>id</th>
                                                 <th>Email</th>
-                                                <th>Gender</th>
-                                                <th>DOB</th>
-                                                <th>No. HP</th>
-                                                <th>Alamat</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
-                                                <th>Actions</th>
+                                                <th>DOB</th>
+                                                <th>No. HP</th>
+                                                <th>Gender</th>
+                                                <th>Alamat</th>
                                                 <th style="display: none"></th>
                                             </tr>
                                         </thead>
@@ -367,36 +366,12 @@
 
                                                             $("#table-data").DataTable({
                                                                 data: data,
+                                                                "order": [
+                                                                    [2, "asc"]
+                                                                ],
                                                                 responsive: true,
                                                                 "pageLength": 50,
                                                                 columns: [{
-                                                                        'data': 'id'
-                                                                    },
-                                                                    {
-                                                                        'data': 'name'
-                                                                    },
-                                                                    {
-                                                                        'data': 'email'
-                                                                    },
-                                                                    {
-                                                                        'data': 'gender'
-                                                                    },
-                                                                    {
-                                                                        'data': 'tanggal_lahir'
-                                                                    },
-                                                                    {
-                                                                        'data': 'nohp'
-                                                                    },
-                                                                    {
-                                                                        'data': 'alamat'
-                                                                    },
-                                                                    {
-                                                                        'data': 'expired'
-                                                                    },
-                                                                    {
-                                                                        'data': 'token'
-                                                                    },
-                                                                    {
                                                                         'data': null,
                                                                         'render': function(data) {
                                                                             return '<button value="' + data.id + '" class="updateBtnU btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
@@ -407,7 +382,34 @@
                                                                         'render': function(data) {
                                                                             return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenteru" class=" deleteBtnU btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
                                                                         }
-                                                                    }
+                                                                    },
+                                                                    {
+                                                                        'data': 'name'
+                                                                    },
+                                                                    {
+                                                                        'data': 'id'
+                                                                    },
+                                                                    {
+                                                                        'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'expired'
+                                                                    },
+                                                                    {
+                                                                        'data': 'token'
+                                                                    },
+                                                                    {
+                                                                        'data': 'tanggal_lahir'
+                                                                    },
+                                                                    {
+                                                                        'data': 'nohp'
+                                                                    },
+                                                                    {
+                                                                        'data': 'gender'
+                                                                    },
+                                                                    {
+                                                                        'data': 'alamat'
+                                                                    },
                                                                 ]
                                                             })
                                                             $('#table-data tbody').on('click', 'button.updateBtnU ', function() {
@@ -479,16 +481,16 @@
                                     <table class="table table-striped table-bordered table-hover" id="table-dataa">
                                         <thead>
                                             <tr>
-                                                <th>id</th>
+                                                <th colspan="2">Actions</th>
                                                 <th>Nama</th>
+                                                <th>id</th>
                                                 <th>Email</th>
-                                                <th>Gender</th>
-                                                <th>DOB</th>
-                                                <th>No. HP</th>
-                                                <th>Alamat</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
-                                                <th>Actions</th>
+                                                <th>DOB</th>
+                                                <th>No. HP</th>
+                                                <th>Gender</th>
+                                                <th>Alamat</th>
                                                 <th style="display: none"></th>
                                             </tr>
                                         </thead>
@@ -510,36 +512,12 @@
                                                             /*DataTables instantiation.*/
                                                             $("#table-dataa").DataTable({
                                                                 data: data,
+                                                                "order": [
+                                                                    [2, "asc"]
+                                                                ],
                                                                 responsive: true,
                                                                 "pageLength": 50,
                                                                 columns: [{
-                                                                        'data': 'id'
-                                                                    },
-                                                                    {
-                                                                        'data': 'name'
-                                                                    },
-                                                                    {
-                                                                        'data': 'email'
-                                                                    },
-                                                                    {
-                                                                        'data': 'gender'
-                                                                    },
-                                                                    {
-                                                                        'data': 'tanggal_lahir'
-                                                                    },
-                                                                    {
-                                                                        'data': 'nohp'
-                                                                    },
-                                                                    {
-                                                                        'data': 'alamat'
-                                                                    },
-                                                                    {
-                                                                        'data': 'expired'
-                                                                    },
-                                                                    {
-                                                                        'data': 'token'
-                                                                    },
-                                                                    {
                                                                         'data': null,
                                                                         'render': function(data) {
                                                                             return '<button value="' + data.id + '" class="updateBtnUA btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
@@ -550,12 +528,39 @@
                                                                         'render': function(data) {
                                                                             return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenterua" class=" deleteBtnUA btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
                                                                         }
-                                                                    }
+                                                                    },
+                                                                    {
+                                                                        'data': 'name'
+                                                                    },
+                                                                    {
+                                                                        'data': 'id'
+                                                                    },
+                                                                    {
+                                                                        'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'expired'
+                                                                    },
+                                                                    {
+                                                                        'data': 'token'
+                                                                    },
+                                                                    {
+                                                                        'data': 'tanggal_lahir'
+                                                                    },
+                                                                    {
+                                                                        'data': 'nohp'
+                                                                    },
+                                                                    {
+                                                                        'data': 'gender'
+                                                                    },
+                                                                    {
+                                                                        'data': 'alamat'
+                                                                    },
                                                                 ]
                                                             })
                                                             $('#table-dataa tbody').on('click', 'button.updateBtnUA ', function() {
                                                                 var id = $(this).attr('value');
-                                                                console.log(id);
+
                                                                 if (type == 2) {
                                                                     var memID = sessionStorage.setItem("id-member", id);
                                                                     location.href = "/owformu_member";
@@ -622,17 +627,17 @@
                                     <table class="table table-striped table-bordered table-hover" id="table-datai">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th colspan="2">Actions</th>
                                                 <th>Nama</th>
+                                                <th>id</th>
                                                 <th>Email</th>
-                                                <th>Gender</th>
-                                                <th>DOB</th>
-                                                <th>No. HP</th>
-                                                <th>Alamat</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
-                                                <th>Actions</th>
-                                                <th>Actions</th>
+                                                <th>DOB</th>
+                                                <th>No. HP</th>
+                                                <th>Gender</th>
+                                                <th>Alamat</th>
+                                                <th style="display: none"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -655,36 +660,12 @@
                                                             /*DataTables instantiation.*/
                                                             $("#table-datai").DataTable({
                                                                 data: data,
+                                                                "order": [
+                                                                    [2, "asc"]
+                                                                ],
                                                                 responsive: true,
                                                                 "pageLength": 50,
                                                                 columns: [{
-                                                                        'data': 'id'
-                                                                    },
-                                                                    {
-                                                                        'data': 'name'
-                                                                    },
-                                                                    {
-                                                                        'data': 'email'
-                                                                    },
-                                                                    {
-                                                                        'data': 'gender'
-                                                                    },
-                                                                    {
-                                                                        'data': 'tanggal_lahir'
-                                                                    },
-                                                                    {
-                                                                        'data': 'nohp'
-                                                                    },
-                                                                    {
-                                                                        'data': 'alamat'
-                                                                    },
-                                                                    {
-                                                                        'data': 'expired'
-                                                                    },
-                                                                    {
-                                                                        'data': 'token'
-                                                                    },
-                                                                    {
                                                                         'data': null,
                                                                         'render': function(data) {
                                                                             return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
@@ -695,7 +676,34 @@
                                                                         'render': function(data) {
                                                                             return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenterui" class="deleteBtnUI btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
                                                                         }
-                                                                    }
+                                                                    },
+                                                                    {
+                                                                        'data': 'name'
+                                                                    },
+                                                                    {
+                                                                        'data': 'id'
+                                                                    },
+                                                                    {
+                                                                        'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'expired'
+                                                                    },
+                                                                    {
+                                                                        'data': 'token'
+                                                                    },
+                                                                    {
+                                                                        'data': 'tanggal_lahir'
+                                                                    },
+                                                                    {
+                                                                        'data': 'nohp'
+                                                                    },
+                                                                    {
+                                                                        'data': 'gender'
+                                                                    },
+                                                                    {
+                                                                        'data': 'alamat'
+                                                                    },
                                                                 ]
                                                             })
 

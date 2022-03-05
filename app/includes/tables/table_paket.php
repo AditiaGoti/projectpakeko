@@ -48,10 +48,11 @@
                                 <table class="table table-striped table-bordered table-hover" id="table-data">
                                     <thead>
                                         <tr>
+                                            <th colspan="2">Actions</th>
                                             <th>Paket</th>
                                             <th>Harga</th>
                                             <th>CreatedBy</th>
-                                            <th>Actions</th>
+                                            <th style="display: none"></th>
                                         </tr>
                                     </thead>
                                     <tbody id="tablepaket">
@@ -59,7 +60,6 @@
                                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                             var token = "Bearer" + " " + tokenSession;
                                             var myArray = [];
-                                            var tablePaket = document.getElementById("tablepaket");
                                             const url = "https://api.klubaderai.com/api/pakets";
                                             $(document).ready(function() {
                                                 $.ajax({
@@ -70,30 +70,51 @@
                                                     },
                                                     success: function(response) {
                                                         data = response.data;
-                                                        $.each(data, function(i, data) {
-                                                            var nominal = data.harga;
-                                                            var bilangan = nominal.replace('.00', '');
-
-                                                            var reverse = bilangan.toString().split('').reverse().join(''),
-                                                                ribuan = reverse.match(/\d{1,3}/g);
-                                                            ribuan = ribuan.join('.').split('').reverse().join('');
-
-                                                            var body = `<tr data-id=${data.id} >`;
-                                                            body += "<td>" + data.paket + "</td>";
-                                                            body += "<td>" + "Rp. " + ribuan + "</td>";
-                                                            body += "<td>" + data.createdby + "</td>";
-                                                            body += "<td>" +
-                                                                `<button id="update" class="btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>` +
-                                                                " " +
-                                                                `<button id="delete" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger" role="button"><i class="fa fa-trash"></i></button>` +
-                                                                "</td>";
-
-                                                            body += "</tr>";
-                                                            $("#table-data tbody").append(body);
-                                                        });
 
                                                         $("#table-data").DataTable({
+                                                            data: data,
                                                             responsive: true,
+                                                            "pageLength": 50,
+                                                            "autoWidth": false,
+                                                            columns: [{
+                                                                    'data': null,
+                                                                    'render': function(data) {
+                                                                        return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                    }
+                                                                },
+                                                                {
+                                                                    'data': null,
+                                                                    'render': function(data) {
+                                                                        return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class="deleteBtnUI btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                    }
+                                                                },
+                                                                {
+                                                                    'data': 'paket'
+                                                                },
+                                                                {
+                                                                    'data': 'harga',
+                                                                    'render': DataTable.render.number(',', '.', 2, 'Rp. ')
+                                                                },
+                                                                {
+                                                                    'data': 'createdby'
+                                                                },
+
+                                                            ]
+                                                        })
+                                                        $('#table-data tbody').on('click', 'button.updateBtnUI ', function() {
+                                                            var id = $(this).attr('value');
+                                                            if (type == 2) {
+                                                                var pakID = sessionStorage.setItem('id-paket', id);
+                                                                location.href = "/owformu_paket";
+                                                            } else {
+                                                                var pakID = sessionStorage.setItem('id-paket', id);
+                                                                location.href = "/formu_paket";
+                                                            }
+                                                        });
+
+                                                        $('#table-data tbody').on('click', 'button.deleteBtnUI ', function() {
+                                                            var id = $(this).attr('value');
+                                                            var admID = sessionStorage.setItem("id-paket", id);
                                                         });
                                                     },
                                                     error: function() {
@@ -101,27 +122,11 @@
 
                                                     }
                                                 });
-                                                tablePaket.addEventListener("click", (e) => {
-                                                    e.preventDefault();
-                                                    let deleteButtonisPressed = e.target.id == "delete";
-                                                    let updateButtonisPressed = e.target.id == "update";
-                                                    mid = e.target.parentElement.parentElement.dataset.id;
-                                                    if (updateButtonisPressed) {
-                                                        if (type == 2) {
-                                                            var pakID = sessionStorage.setItem('id-paket', mid);
-                                                            location.href = "/owformu_paket";
-                                                        } else {
-                                                            var pakID = sessionStorage.setItem('id-paket', mid);
-                                                            location.href = "/formu_paket";
-                                                        }
-                                                    }
-
-                                                })
-
                                             });
 
 
                                             function deleteData() {
+                                                var pakID = sessionStorage.getItem('id-paket');
                                                 var myHeaders = new Headers();
                                                 myHeaders.append(
                                                     "Authorization",
@@ -131,13 +136,14 @@
                                                     headers: myHeaders,
                                                     redirect: "follow",
                                                 };
-                                                fetch(`${url}/${mid}`, deleteRequest)
+                                                fetch(`${url}/${pakID}`, deleteRequest)
                                                     .then((res) => res.json())
                                                     .then((result => {
 
                                                         var hasildata = result.success;
                                                         var message = result.message;
                                                         if (hasildata) {
+                                                            sessionStorage.removeItem("id-paket");
                                                             location.reload();
                                                         } else {
                                                             $('<div class="alert alert-danger">' +

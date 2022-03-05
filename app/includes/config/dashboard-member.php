@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="assets/css/shared/notice.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -73,23 +73,25 @@
                                                     dl = user_data.days_left;
                                                     left = dl.split(" ")
 
-                                                    if (left[5] >= 8) {
+                                                    var hari = left[5]
+                                                    var bulan = left[2] * 31
+                                                    var tahun = left[0] * 365
+                                                    var sisa = tahun + bulan + hari
+
+                                                    if (sisa == 0) {
+                                                        $('<div class="notice notice-danger">' +
+                                                            ` <strong>Welcome, ${data[0].nama} </strong>` +
+                                                            ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
+                                                    } else if ((sisa >= 1) && (sisa <= 6)) {
+                                                        $('<div class="notice notice-warning">' +
+                                                            ` <strong>Welcome, ${data[0].nama} </strong>` +
+                                                            ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
+                                                    } else if (sisa >= 7) {
                                                         $('<div class="notice notice-success">' +
                                                             ` <strong>Welcome, ${data[0].nama} </strong>` +
                                                             ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
                                                     }
-                                                    if (left[5] <= 7 && left[5] >= 1) {
 
-
-                                                        $('<div class="notice notice-warning">' +
-                                                            ` <strong>Welcome, ${data[0].nama} </strong>` +
-                                                            ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
-                                                    }
-                                                    if (left[5] == 0) {
-                                                        $('<div class="notice notice-danger">' +
-                                                            ` <strong>Welcome, ${data[0].nama} </strong>` +
-                                                            ` <h6>Sisa Membership: ${dl} </h6></div>`).show().prependTo('#status');
-                                                    }
                                                     $.each(data, function(i, data) {
                                                         const d = data.waktu;
                                                         const weekday = ["Minggu", "Senin", "Selama", "Rabu", "Kamis", "Jumat", "Sabtu"];
