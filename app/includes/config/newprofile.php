@@ -382,18 +382,18 @@
                         btnAdd.style.display = 'block'
                     }
                 </script>
-                <div class="row px-1" style="padding-top: 10px;">
+                <div class="row" style="padding-top: 10px;">
                 <div class="col-lg-6 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body" style="background: linear-gradient(10deg, salmon 30%, white);box-shadow: none;border-radius:7px;">
+                <div class="card-body" style="background: linear-gradient(50deg, salmon 30%, white);box-shadow: none;border-radius:7px;">
                             <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;background:red;-webkit-background-clip:text;
+                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;background:whitesmoke;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-weight: bold;">Before</h5>
                             </div>
                         <div class="row">
                         <div class=" col-md-6 mb-2">
                              <div class="card card-stats">
-                                <div class="card-body"style=" background: linear-gradient(10deg, #FFE4E1 30%, white);border-radius:7px; ">
+                                <div class="card-body"style=" background: linear-gradient(10deg, #66B2FF 30%, white);border-radius:7px; ">
                                     <div id="sumMember" class="col">
                                         <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Berat Badan</h5>
                                         <P id="beforeBerat"></P>
@@ -403,7 +403,7 @@
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="card card-stats">
-                                <div class="card-body"style=" background: linear-gradient(10deg, #FFE4E1 30%, white);border-radius:7px; ">
+                                <div class="card-body"style=" background: linear-gradient(10deg, khaki 30%, white);border-radius:7px; ">
                                     <div id="sumMember" class="col">
                                        <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Massa Otot</h5>
                                        <P id="beforeMassaO"></P>
@@ -413,7 +413,7 @@
                          </div>
                         <div class="col-md-6 mb-2">
                            <div class="card card-stats">
-                               <div class="card-body"style=" background: linear-gradient(10deg, #FFE4E1 30%, white);border-radius:7px; ">
+                               <div class="card-body"style=" background: linear-gradient(10deg, #FF9999 30%, white);border-radius:7px; ">
                                     <div id="sumMember" class="col">
                                        <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Berat Otot</h5>
                                        <P id="beforeOtot"></P>
@@ -423,7 +423,7 @@
                         </div>
                         <div class=" col-md-6">
                           <div class="card card-stats">
-                               <div class="card-body"style=" background: linear-gradient(10deg, #FFE4E1 30%, white);border-radius:7px; ">
+                               <div class="card-body"style=" background: linear-gradient(10deg, #FF9999 30%, white);border-radius:7px; ">
                                   <div id="sumMember" class="col">
                                      <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Massa Lemak</h5>
                                      <P id="beforeMassaL"></P>
@@ -437,15 +437,15 @@
                 </div>
         <div class="col-lg-6 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body" style=" background: linear-gradient(10deg, green 30%, white);box-shadow: none; border-radius:7px; ">
+                <div class="card-body" style=" background: linear-gradient(50deg, green 30%, white);box-shadow: none; border-radius:7px; ">
                             <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;background:green;-webkit-background-clip:text;
+                                <h5 class="card-title text-uppercase text-muted mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'League Gothic', sans-serif;background:whitesmoke;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-weight: bold;">After</h5>
                             </div>
                         <div class="row">
                         <div class=" col-md-6 mb-2">
                              <div class="card card-stats">
-                                <div class="card-body"style=" background: linear-gradient(10deg, lightgreen 30%, white);border-radius:7px; ">
+                                <div class="card-body"style=" background: linear-gradient(10deg, #66B2FF 30%, white);border-radius:7px; ">
                                     <div id="sumMember" class="col">
                                         <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Berat Badan</h5>
                                         <P id="afterBerat"></P>
@@ -455,7 +455,7 @@
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="card card-stats">
-                                <div class="card-body"style=" background: linear-gradient(10deg, lightgreen 30%, white);border-radius:7px; ">
+                                <div class="card-body"style=" background: linear-gradient(10deg, khaki 30%, white);border-radius:7px; ">
                                     <div id="sumMember" class="col">
                                        <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Massa Otot</h5>
                                        <P id="afterMassaO"></P>
@@ -465,7 +465,7 @@
                          </div>
                         <div class="col-md-6 mb-2">
                            <div class="card card-stats">
-                               <div class="card-body"style=" background: linear-gradient(10deg, lightgreen 30%, white);border-radius:7px; ">
+                               <div class="card-body"style=" background: linear-gradient(10deg, #FF9999 30%, white);border-radius:7px; ">
                                     <div id="sumMember" class="col">
                                        <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Berat Otot</h5>
                                        <P id="afterOtot"></P>
@@ -475,7 +475,7 @@
                         </div>
                         <div class=" col-md-6">
                           <div class="card card-stats">
-                               <div class="card-body"style=" background: linear-gradient(10deg, lightgreen 30%, white);border-radius:7px; ">
+                               <div class="card-body"style=" background: linear-gradient(10deg, #FF9999 30%, white);border-radius:7px; ">
                                   <div id="sumMember" class="col">
                                      <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: -10px;">Massa Lemak</h5>
                                      <P id="afterMassaL"></P>
