@@ -310,7 +310,7 @@
                                                         columns: [{
                                                                 'data': null,
                                                                 'render': function(data) {
-                                                                    return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class=" deleteBtnUA btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                    return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class=" deleteBtnUA btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
                                                                 }
                                                             },
                                                             {

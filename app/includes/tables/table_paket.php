@@ -79,13 +79,13 @@
                                                             columns: [{
                                                                     'data': null,
                                                                     'render': function(data) {
-                                                                        return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                        return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning btn-xs" role="button"><i class=" fa fa-pencil"></i></button>'
                                                                     }
                                                                 },
                                                                 {
                                                                     'data': null,
                                                                     'render': function(data) {
-                                                                        return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class="deleteBtnUI btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                        return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class="deleteBtnUI btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
                                                                     }
                                                                 },
                                                                 {
