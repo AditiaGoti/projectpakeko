@@ -16,6 +16,7 @@ if (!$_SESSION['type'] == 0) {
 
 <body>
     <div class="container-scroller">
+        <div id="loading"> </div>
         <?php include(app_path() . '/includes/config/navside-member.php'); ?>
         <?php include(app_path() . '/includes/config/profile-member.php'); ?>
     </div>
