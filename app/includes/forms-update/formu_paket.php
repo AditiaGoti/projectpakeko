@@ -95,7 +95,7 @@
                                 loader.classList.add("loading");
                                 setTimeout(() => {
                                     loader.classList.remove("loading");
-                                }, 5000);
+                                }, 8000);
                             }
 
                             function hideLoading() {
