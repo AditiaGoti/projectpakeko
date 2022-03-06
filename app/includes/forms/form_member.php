@@ -91,7 +91,21 @@
                         </form>
 
                         <script>
+                            const loader = document.querySelector("#loading");
+
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 5000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
                             function daftarMember() {
+                                displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
@@ -151,7 +165,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-
+                                        hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.message;

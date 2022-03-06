@@ -41,8 +41,21 @@
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             const url = "https://api.klubaderai.com/api/users/changepass" + "/" + id;
 
-                            function updatePassword() {
+                            const loader = document.querySelector("#loading");
 
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 5000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
+                            function updatePassword() {
+                                displayLoading()
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -73,7 +86,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-
+                                        hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.message;

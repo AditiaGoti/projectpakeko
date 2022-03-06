@@ -54,23 +54,23 @@
                             <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
                         </form>
 
-                        <!-- onclick="window.location.href='/'" -->
+
                         <script>
-                            var myalert = document.getElementById("alert");
-                            var failalert = document.getElementById("alertfail");
-                            var close = document.getElementsByClassName("closebtn");
-                            var i;
-                            for (i = 0; i < close.length; i++) {
-                                close[i].onclick = function() {
-                                    var div = this.parentElement;
-                                    div.style.opacity = "0";
-                                    setTimeout(function() {
-                                        div.style.display = "none";
-                                    }, 600);
-                                }
+                            const loader = document.querySelector("#loading");
+
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 5000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
                             }
 
                             function daftarPaket() {
+                                displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
@@ -112,7 +112,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-
+                                        hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;

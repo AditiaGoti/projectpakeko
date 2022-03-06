@@ -108,7 +108,21 @@
                                     data.img_path;
                             }
 
+                            const loader = document.querySelector("#loading");
+
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 5000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
                             function updateProfile() {
+                                displayLoading()
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
 
@@ -156,7 +170,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-
+                                        hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;

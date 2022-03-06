@@ -89,8 +89,22 @@
                                 ntoken.value = data.nilai_token;
                             }
 
-                            function updatePaket() {
+                            const loader = document.querySelector("#loading");
 
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 5000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
+
+                            function updatePaket() {
+                                displayLoading()
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -133,7 +147,7 @@
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.errors;
-
+                                        hideLoading()
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

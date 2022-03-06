@@ -79,8 +79,21 @@
                         </form>
 
                         <script>
-                            function daftaradmin() {
+                            const loader = document.querySelector("#loading");
 
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 5000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
+                            function daftaradmin() {
+                                displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
@@ -146,6 +159,7 @@
                                         var message = data.message;
 
                                         if (hasildata) {
+                                            hideLoading()
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>${message}</div>`).hide().prependTo('#form_admin').fadeIn(1000);
@@ -155,8 +169,10 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+
                                             document.getElementById("form_admin").reset();
                                         } else {
+                                            hideLoading()
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>${message}</div>`).hide().prependTo('#form_admin').fadeIn(1000);
