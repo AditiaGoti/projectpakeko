@@ -161,7 +161,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Admin Data.xlsx";
+                                        var filename = "Admin Data Klub Ade Rai.xlsx";
 
                                         var ws_name = "Data Admin";
                                         var wb = XLSX.utils.book_new(),

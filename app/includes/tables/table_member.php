@@ -209,7 +209,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Member Data.xlsx";
+                                        var filename = "Member Data Klub Ade Rai.xlsx";
 
                                         var ws_name = "Data Member";
                                         var wb = XLSX.utils.book_new(),

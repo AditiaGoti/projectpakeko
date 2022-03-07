@@ -176,7 +176,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Transaction Data.xlsx";
+                                        var filename = "Transaction Data Klub Ade Rai.xlsx";
 
                                         var ws_name = "Data Transaksi";
                                         var wb = XLSX.utils.book_new(),

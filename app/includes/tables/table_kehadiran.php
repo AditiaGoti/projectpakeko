@@ -122,7 +122,7 @@
 
                                         var data = dataparse.data;
                                         var createXLSLFormatObj = [];
-                                        var xlsHeader = ["Email", "Nama", "Tanggal", "Waktu"];
+                                        var xlsHeader = ["Tanggal", "Waktu", "Email", "Nama"];
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
 
@@ -132,10 +132,10 @@
                                             /* XLS Rows Data */
                                             var xlsRows = [{
 
-                                                "Email": data.email,
-                                                "Nama": data.nama,
                                                 "Tanggal": date[0],
-                                                "Waktu": date[1]
+                                                "Waktu": date[1],
+                                                "Email": data.email,
+                                                "Nama": data.nama
 
                                             }];
 
@@ -148,7 +148,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Attendance Data.xlsx";
+                                        var filename = "Attendance Data  Klub Ade Rai.xlsx";
 
                                         var ws_name = "Data Kehadiran";
                                         var wb = XLSX.utils.book_new(),
