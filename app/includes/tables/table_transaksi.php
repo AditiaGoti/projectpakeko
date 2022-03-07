@@ -93,7 +93,7 @@
                                     .then((result => {
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.message;
+                                        var message = data.total_trans;
                                         var totTrans = data.total_transbetween;
                                         var tot = document.getElementById("totTrans");
                                         var sum = document.getElementById("sumTrans");
