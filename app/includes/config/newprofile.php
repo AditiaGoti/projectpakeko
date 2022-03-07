@@ -367,7 +367,7 @@
             </div>
         </div>
         <div class="col-lg-12">
-            <div class="card" style="background: linear-gradient(0.2deg, khaki 40%, white);box-shadow: none;border-radius:7px;">
+            <div class="card" style="background: linear-gradient(0.2deg, #BDB76B 40%, white);box-shadow: none;border-radius:7px;">
                 <div class="modal-header">
                     <h4 id="btnCowo" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCowo"><i class="fa fa-plus" aria-hidden="true"></i></button></h4>
                     <h4 id="btnCewe" class="card-title mb-0" style="display:none;font-size: 24px;">Progress<button type="button" class="btn btn-inverse-primary btn-sm" style="margin-left: 10px;" data-toggle="modal" data-target="#ModalCewe"><i class="fa fa-plus" aria-hidden="true"></i></button></h4>
@@ -382,10 +382,10 @@
                         btnAdd.style.display = 'block'
                     }
                 </script>
-                <div class="row px-1" style="padding-top: 10px;">
+                <div class="row px-3" style="padding-top: 10px;">
                     <div class="col-lg-6 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body" style="background: linear-gradient(10deg,  #FFFF99 10%, white);box-shadow: none;border-radius:7px;">
+                            <div class="card-body" style="background: linear-gradient(10deg,  smokewhite 10%, white);box-shadow: none;border-radius:7px;">
                                 <div id="sumMember" class="col">
                                     <h5 class="card-title text-uppercase mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Anton', sans-serif;background:#663300;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-weight: bold;">Before</h5>
@@ -395,7 +395,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px;">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Berat Badan</h5>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Berat Badan</h5>
                                                     <P id="beforeBerat"></P>
                                                 </div>
                                             </div>
@@ -405,7 +405,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px; ">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;">Massa Otot</p>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;">Massa Otot</p>
                                                     <P id="beforeMassaO"></P>
                                                 </div>
                                             </div>
@@ -415,7 +415,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px; ">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;;">Berat Otot</p>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;;">Berat Otot</p>
                                                     <P id="beforeOtot"></P>
                                                 </div>
                                             </div>
@@ -425,7 +425,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px; ">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Massa Lemak</p>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Massa Lemak</p>
                                                     <P id="beforeMassaL"></P>
                                                 </div>
                                             </div>
@@ -437,7 +437,7 @@
                     </div>
                     <div class="col-lg-6 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body" style=" background: linear-gradient(10deg, #FFFF99 10%, white);box-shadow: none; border-radius:7px; ">
+                            <div class="card-body" style=" background: linear-gradient(10deg, smokewhite 10%, white);box-shadow: none; border-radius:7px; ">
                                 <div id="sumMember" class="col">
                                     <h5 class="card-title text-uppercase mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Anton', sans-serif;background:#663300;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-weight: bold;">After</h5>
@@ -447,7 +447,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px; ">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Berat Badan</p>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Berat Badan</p>
                                                     <P id="afterBerat"></P>
                                                 </div>
                                             </div>
@@ -457,7 +457,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px; ">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;">Massa Otot</p>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;">Massa Otot</p>
                                                     <P id="afterMassaO"></P>
                                                 </div>
                                             </div>
@@ -467,7 +467,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px; ">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;">Berat Otot</p>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 15px;">Berat Otot</p>
                                                     <P id="afterOtot"></P>
                                                 </div>
                                             </div>
@@ -477,7 +477,7 @@
                                         <div class="card card-stats">
                                             <div class="card-body" style=" background: linear-gradient(10deg, #331900 30%, white);border-radius:7px; ">
                                                 <div id="sumMember" class="col">
-                                                    <p style="font-size:17px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Massa Lemak</p>
+                                                    <p style="font-size:15px;font-family: 'League Gothic', sans-serif;font-weight: bold; margin-left: 10px;">Massa Lemak</p>
                                                     <P id="afterMassaL"></P>
                                                 </div>
                                             </div>
@@ -490,7 +490,7 @@
 
                     <div class="col-lg-6 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div style="background: linear-gradient(10deg, #FFFFCC 30%, white);box-shadow: none;border:0.1 solid transparent;">
+                            <div style="background: linear-gradient(10deg, whitesmoke 30%, white);box-shadow: none;border:0.1 solid transparent;">
                                 <div class="card-body">
                                     <canvas height="200px" id="kgChart"></canvas>
 
@@ -500,7 +500,7 @@
                     </div>
                     <div class="col-lg-6 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div style="background: linear-gradient(10deg, #FFFFCC 30%, white);box-shadow: none; border:0.1 solid transparent">
+                            <div style="background: linear-gradient(10deg, whitesmoke 30%, white);box-shadow: none; border:0.1 solid transparent">
                                 <div class="card-body">
                                     <canvas height="200px" id="gChart"></canvas>
 
@@ -539,29 +539,29 @@
                     body_cat = data.body_cat;
                     $(`<h6 class="text-muted f-w-400">${body_cat}</h6>`).appendTo('#body_cat');
 
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-15px; font-weight: bold; margin-left: 20px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -15px; padding-right: 10px;">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px; font-weight: bold; margin-left: 20px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -15px; padding-right: 10px;">
                 </i>${dataw[dataw.length-2]} kg</P>
                     `).appendTo('#beforeBerat');
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold; margin-left: 10px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -20px;padding-right:5px;">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold; margin-left: 10px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -20px;padding-right:5px;">
                 </i>${data.fatmass[data.fatmass.length-2]} kg</P>
                     `).appendTo('#beforeMassaO');
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color:#FFB266; margin-left:7px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 5px;color:#FFB266;">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color:#FFB266; margin-left:7px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 5px;color:#FFB266;">
                 </i>${data.leanmass[data.leanmass.length - 2]} kg</P>
                     `).appendTo('#beforeOtot');
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266; margin-left:20px">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266; margin-left:20px">
                 ${data.body_fat[data.body_fat.length - 2]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:#FFB266;"></i></P>
                     `).appendTo('#beforeMassaL');
 
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-20px; font-weight: bold; margin-left: 20px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 2px;color:#FFB266;">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-20px; font-weight: bold; margin-left: 20px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 2px;color:#FFB266;">
                 </i> ${data.weight[data.weight.length - 1]} kg</P>
                                         `).appendTo('#afterBerat');
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold; margin-left: 10px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -20px ;color:#FFB266;">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold; margin-left: 10px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -20px ;color:#FFB266;">
                 </i> ${data.fatmass[data.fatmass.length - 1]} kg</P>
                                         `).appendTo('#afterMassaO');
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266;margin-left: 7px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 10px;color:#FFB266;">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266;margin-left: 7px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 10px;color:#FFB266;">
                 </i>${data.leanmass[data.leanmass.length - 1]} kg</P>
                                         `).appendTo('#afterOtot');
-                    $(`<P style="font-size:25px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266; margin-left:20px;">
+                    $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266; margin-left:20px;">
                 ${data.body_fat[data.body_fat.length - 1]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px; padding-right: 10px;color:#FFB266;"></i></P>
                                         `).appendTo('#afterMassaL');
 
