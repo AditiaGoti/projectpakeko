@@ -300,7 +300,6 @@
 
                                                     datad = response.data;
 
-
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         data: datad,

@@ -186,7 +186,6 @@
                                     <tr>
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
-                                        <th>Hari</th>
                                         <th>Nama</th>
                                         <th>Email</th>
                                     </tr>
@@ -207,7 +206,6 @@
                                                 },
                                                 success: function(response) {
                                                     data = response.data;
-
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         data: data,
@@ -218,28 +216,20 @@
                                                         columns: [{
                                                                 'data': null,
                                                                 'render': function(data) {
-                                                                    const d = new Date(data.waktu);
-                                                                    return d.toLocaleDateString()
+                                                                    const dte = data.waktu;
+                                                                    const date = dte.split(" ");
+                                                                    return date[0];
                                                                 }
 
                                                             },
                                                             {
                                                                 'data': null,
                                                                 'render': function(data) {
-                                                                    const d = new Date(data.waktu);
-                                                                    return d.toLocaleTimeString()
+                                                                    const dte = data.waktu;
+                                                                    const date = dte.split(" ");
+                                                                    return date[1] + " WIB";
                                                                 }
                                                             },
-                                                            {
-                                                                'data': null,
-                                                                'render': function(data) {
-                                                                    const d = new Date(data.waktu);
-                                                                    const weekday = ["Minggu", "Senin", "Selama", "Rabu", "Kamis", "Jumat", "Sabtu"];
-                                                                    return weekday[d.getDay()];
-
-                                                                }
-                                                            },
-
                                                             {
                                                                 'data': 'nama'
                                                             },
