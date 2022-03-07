@@ -385,7 +385,7 @@
                 <div class="row px-1" style="padding-top: 10px;">
                     <div class="col-lg-6 mb-4">
                         <div class="card card-stats mb-4 mb-xl-0">
-                            <div class="card-body" style="background: linear-gradient(10deg,  #FFFF99 10%, white);box-shadow: none;border-radius:7px;">
+                            <div class="card-body" style="background: linear-gradient(10deg,  #663300 10%, white);box-shadow: none;border-radius:7px;">
                                 <div id="sumMember" class="col">
                                     <h5 class="card-title text-uppercase mb-0" style="text-align: left; font-size: 20px; padding-bottom: 10px;font-family: 'Anton', sans-serif;background:#663300;-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-weight: bold;">Before</h5>
