@@ -593,8 +593,8 @@
                             labels: labels,
                             datasets: [{
                                 label: 'Weight',
-                                backgroundColor: 'rgb(154, 220, 255, 0.5)',
-                                borderColor: 'rgb(154, 220, 255)',
+                                backgroundColor: 'rgb(253, 89, 1, 0.5)',
+                                borderColor: 'rgb(253, 89, 1)',
                                 borderWidth: 2,
                                 borderRadius: 5,
                                 borderSkipped: false,
@@ -602,8 +602,8 @@
 
                             }, {
                                 label: 'Leanmass',
-                                backgroundColor: 'rgb(255, 248, 154, 0.5)',
-                                borderColor: 'rgb(255, 248, 154)',
+                                backgroundColor: 'rgb(250, 171, 54, 0.5)',
+                                borderColor: 'rgb(250, 171, 54)',
                                 borderWidth: 2,
                                 borderRadius: 5,
                                 borderSkipped: false,
@@ -611,8 +611,8 @@
 
                             }, {
                                 label: 'Fatmass',
-                                backgroundColor: 'rgb(255, 178, 166, 0.5)',
-                                borderColor: 'rgb(255, 178, 166)',
+                                backgroundColor: 'rgb(0, 128, 131, 0.5)',
+                                borderColor: 'rgb(0, 128, 131)',
                                 borderWidth: 2,
                                 borderRadius: 5,
                                 borderSkipped: false,
@@ -653,8 +653,8 @@
                             labels: labels,
                             datasets: [{
                                 label: 'Body Fat',
-                                backgroundColor: 'rgb(255, 138, 174, 0.5)',
-                                borderColor: 'rgb(255, 138, 174)',
+                                backgroundColor: 'rgb(0, 95, 96, 0.5)',
+                                borderColor: 'rgb(0, 95, 96)',
                                 borderWidth: 2,
                                 borderRadius: 5,
                                 borderSkipped: false,

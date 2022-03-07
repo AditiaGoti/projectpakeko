@@ -141,8 +141,8 @@
                             labels: labels,
                             datasets: [{
                                 label: 'Transaksi',
-                                backgroundColor: 'rgb(75, 192, 192, 0.5)',
-                                borderColor: 'rgb(75, 192, 192)',
+                                backgroundColor: 'rgb(253, 89, 1, 0.5)',
+                                borderColor: 'rgb(253, 89, 1)',
                                 borderWidth: 2,
                                 borderRadius: 5,
                                 borderSkipped: false,
@@ -224,8 +224,8 @@
                             labels: labels,
                             datasets: [{
                                 label: 'Member',
-                                backgroundColor: 'rgb(255, 205, 86, 0.5)',
-                                borderColor: 'rgb(255, 205, 86)',
+                                backgroundColor: 'rgb(250, 171, 54, 0.5)',
+                                borderColor: 'rgb(250, 171, 54)',
                                 borderWidth: 2,
                                 borderRadius: 5,
                                 borderSkipped: false,
@@ -300,8 +300,8 @@
                             labels: labels,
                             datasets: [{
                                 label: 'Kehadiran',
-                                backgroundColor: 'rgb(54, 162, 235, 0.5)',
-                                borderColor: 'rgb(54, 162, 235)',
+                                backgroundColor: 'rgb(0, 128, 131, 0.5)',
+                                borderColor: 'rgb(0, 128, 131)',
                                 borderWidth: 2,
                                 borderRadius: 5,
                                 borderSkipped: false,
