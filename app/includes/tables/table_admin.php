@@ -1,7 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
@@ -23,7 +20,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="bodyModal">
                         <p> Anda Yakin Akan Hapus Data Ini?</p>
                     </div>
                     <div class="modal-footer">
@@ -229,12 +226,13 @@
                                                         data: data,
                                                         responsive: true,
                                                         "pageLength": 50,
+                                                        autoWidth: false,
                                                         "order": [
                                                             [2, "asc"]
                                                         ],
                                                         columns: [{
                                                                 'data': null,
-                                                                'render': function(data) {
+                                                                'render': function(data, id) {
                                                                     return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning btn-xs" role="button"><i class=" fa fa-pencil"></i></button>'
                                                                 }
                                                             },
@@ -315,7 +313,7 @@
                                                     } else {
                                                         $('<div class="alert alert-danger">' +
                                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                                            `&times;</button>${message}</div>`).hide().prependTo('#table-data').fadeIn(1000);
+                                                            `&times;</button>${message}</div>`).hide().prependTo('#bodyModal').fadeIn(1000);
 
                                                         $(".alert").delay(3000).fadeOut(
                                                             "normal",

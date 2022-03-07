@@ -29,7 +29,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div id="bodyModal" class="modal-body">
                         Anda Yakin Akan Hapus Data Ini?
                     </div>
                     <div class="modal-footer">
@@ -148,7 +148,7 @@
                                                         } else {
                                                             $('<div class="alert alert-danger">' +
                                                                 '<button type="button" class="close" data-dismiss="alert">' +
-                                                                `&times;</button>${message}</div>`).hide().prependTo('#table-data').fadeIn(1000);
+                                                                `&times;</button>${message}</div>`).hide().prependTo('#bodyModal').fadeIn(1000);
 
                                                             $(".alert").delay(3000).fadeOut(
                                                                 "normal",

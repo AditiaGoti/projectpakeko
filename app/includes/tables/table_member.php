@@ -34,7 +34,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="bodyu">
+                    <div class="modal-body" id="bodyModal">
                         Anda Yakin Akan Hapus Data Ini?
                     </div>
                     <div class="modal-footer">
@@ -53,7 +53,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="bodyua">
+                    <div class="modal-body" id="bodyModalA">
                         Anda Yakin Akan Hapus Data Ini?
                     </div>
                     <div class="modal-footer">
@@ -72,7 +72,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body" id="bodyui">
+                    <div class="modal-body" id="bodyModalI">
                         Anda Yakin Akan Hapus Data Ini?
                     </div>
                     <div class="modal-footer">
@@ -371,6 +371,7 @@
                                                                 ],
                                                                 responsive: true,
                                                                 "pageLength": 50,
+                                                                autoWidth: false,
                                                                 columns: [{
                                                                         'data': null,
                                                                         'render': function(data) {
@@ -461,7 +462,7 @@
                                                             } else {
                                                                 $('<div class="alert alert-danger">' +
                                                                     '<button type="button" class="close" data-dismiss="alert">' +
-                                                                    `&times;</button>${message}</div>`).hide().prependTo('#modal-bodyu').fadeIn(1000);
+                                                                    `&times;</button>${message}</div>`).hide().prependTo('#bodyModal').fadeIn(1000);
 
                                                                 $(".alert").delay(3000).fadeOut(
                                                                     "normal",
@@ -517,6 +518,7 @@
                                                                 ],
                                                                 responsive: true,
                                                                 "pageLength": 50,
+                                                                autoWidth: false,
                                                                 columns: [{
                                                                         'data': null,
                                                                         'render': function(data) {
@@ -607,7 +609,7 @@
                                                             } else {
                                                                 $('<div class="alert alert-danger">' +
                                                                     '<button type="button" class="close" data-dismiss="alert">' +
-                                                                    `&times;</button>${message}</div>`).hide().prependTo('#modal-bodyua').fadeIn(1000);
+                                                                    `&times;</button>${message}</div>`).hide().prependTo('#bodyModalA').fadeIn(1000);
 
                                                                 $(".alert").delay(3000).fadeOut(
                                                                     "normal",
@@ -664,6 +666,7 @@
                                                                     [2, "asc"]
                                                                 ],
                                                                 responsive: true,
+                                                                autoWidth: false,
                                                                 "pageLength": 50,
                                                                 columns: [{
                                                                         'data': null,
@@ -754,7 +757,7 @@
                                                             } else {
                                                                 $('<div class="alert alert-danger">' +
                                                                     '<button type="button" class="close" data-dismiss="alert">' +
-                                                                    `&times;</button>${message}</div>`).hide().prependTo('#model-bodyui').fadeIn(1000);
+                                                                    `&times;</button>${message}</div>`).hide().prependTo('#bodyModalI').fadeIn(1000);
 
                                                                 $(".alert").delay(3000).fadeOut(
                                                                     "normal",
