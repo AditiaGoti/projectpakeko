@@ -50,6 +50,8 @@
                                         <tr>
                                             <th colspan="2">Actions</th>
                                             <th>Paket</th>
+                                            <th>Durasi</th>
+                                            <th>Token</th>
                                             <th>Harga</th>
                                             <th>CreatedBy</th>
                                             <th style="display: none"></th>
@@ -70,7 +72,6 @@
                                                     },
                                                     success: function(response) {
                                                         data = response.data;
-
                                                         $("#table-data").DataTable({
                                                             data: data,
                                                             responsive: true,
@@ -92,13 +93,20 @@
                                                                     'data': 'paket'
                                                                 },
                                                                 {
+                                                                    'data': 'duration',
+
+                                                                },
+                                                                {
+                                                                    'data': 'nilai_token',
+
+                                                                },
+                                                                {
                                                                     'data': 'harga',
                                                                     'render': DataTable.render.number(',', '.', 2, 'Rp. ')
                                                                 },
                                                                 {
                                                                     'data': 'createdby'
                                                                 },
-
                                                             ]
                                                         })
                                                         $('#table-data tbody').on('click', 'button.updateBtnUI ', function() {

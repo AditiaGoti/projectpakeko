@@ -204,7 +204,7 @@
                                 <div class="col">
                                     <form>
                                         <div class="input-group mb-3">
-                                            <label style="margin-top:5px">QR Code Value</label>
+                                            <label style="margin-top:5px; padding-right:46px;">QR Code</label>
                                             <input required id="id_member" type="text" class="form-control  placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
                                             <div class="input-group-append">
                                                 <button onclick="checkID(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i> </button>
@@ -221,13 +221,26 @@
                                             </div>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <label style="margin-top:5px; padding-right:17px;">Date of Birth</label>
+                                            <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
                                             <input required id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
                                         </div>
                                         <hr>
                                         <div class="input-group mb-3">
-                                            <label style="margin-top:5px; padding-right:17px;">Expired Date</label>
+                                            <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
                                             <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
+                                        </div>
+                                        <div id="token" style="display: none;" class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:20px;">Token</label>
+                                            <div style="margin-top:7px; padding-left:100px;" class="wrapperr">
+                                                <input type="radio" name="token" value="iya" id="option-1">
+                                                <input type="radio" name="token" value="tidak" id="option-2" checked>
+                                                <label for="option-1" class="option option-1">
+                                                    <div class="dot"></div> <span>Yes</span>
+                                                </label>
+                                                <label for="option-2" class="option option-2">
+                                                    <div class="dot"></div> <span>No</span>
+                                                </label>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -239,11 +252,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="buttonkehadiran">
-                                <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-sm">
+                            <div style="margin-top: 20px;" class="buttonkehadiran">
+                                <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-lg btn-block">
                                     Submit
                                 </button>
-                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
                             </div>
                         </form>
 
@@ -278,14 +291,29 @@
                                         var dobvalue = data.data.tanggal_lahir;
                                         var imgvalue = "https://api.klubaderai.com" +
                                             data.data.img_path;
+                                        var elements = document.getElementById('token');
                                         if (hasildata) {
-                                            var name = document.getElementById("member_name");
-                                            var dob = document.getElementById("member_dob");
-                                            var exp = document.getElementById("member_exp");
-                                            name.value = namevalue;
-                                            dob.value = dobvalue;
-                                            img.src = imgvalue;
-                                            exp.value = expiredvalue;
+                                            if (data.data.token == 0) {
+
+                                                var name = document.getElementById("member_name");
+                                                var dob = document.getElementById("member_dob");
+                                                var exp = document.getElementById("member_exp");
+
+                                                name.value = namevalue;
+                                                dob.value = dobvalue;
+                                                img.src = imgvalue;
+                                                exp.value = expiredvalue;
+                                            } else {
+                                                elements.style.display = 'block';
+                                                var name = document.getElementById("member_name");
+                                                var dob = document.getElementById("member_dob");
+                                                var exp = document.getElementById("member_exp");
+
+                                                name.value = namevalue;
+                                                dob.value = dobvalue;
+                                                img.src = imgvalue;
+                                                exp.value = expiredvalue;
+                                            }
 
                                         } else {
                                             $('<div class="alert alert-danger">' +
@@ -338,6 +366,7 @@
                                     .then(result => {
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
+                                        var elements = document.getElementById('token');
                                         var users = data.data;
                                         var filter = {
                                             name: document.getElementById("member_name").value,
@@ -351,23 +380,40 @@
                                             }
                                             return true;
                                         });
+
                                         var filterData = filters[0];
-                                        var id = filterData.id;
-                                        var name = filterData.name;
-                                        var dob = filterData.tanggal_lahir;
-                                        var exp = filterData.expired;
-                                        var imgvalue = "https://api.klubaderai.com/storage/" + filterData.img_path;
-                                        var input_id = document.getElementById("id_member");
-                                        var input_exp = document.getElementById("member_exp");
-                                        input_exp.value = exp;
-                                        input_id.value = id;
-                                        img.src = imgvalue;
+
+                                        if (filterData.token == 0) {
+                                            var id = filterData.id;
+                                            var name = filterData.name;
+                                            var dob = filterData.tanggal_lahir;
+                                            var exp = filterData.expired;
+                                            var imgvalue = "https://api.klubaderai.com/storage/" + filterData.img_path;
+                                            var input_id = document.getElementById("id_member");
+                                            var input_exp = document.getElementById("member_exp");
+                                            input_exp.value = exp;
+                                            input_id.value = id;
+                                            img.src = imgvalue;
+                                        } else {
+                                            elements.style.display = 'block';
+                                            var id = filterData.id;
+                                            var name = filterData.name;
+                                            var dob = filterData.tanggal_lahir;
+                                            var exp = filterData.expired;
+                                            var imgvalue = "https://api.klubaderai.com/storage/" + filterData.img_path;
+                                            var input_id = document.getElementById("id_member");
+                                            var input_exp = document.getElementById("member_exp");
+                                            input_exp.value = exp;
+                                            input_id.value = id;
+                                            img.src = imgvalue;
+                                        }
+
 
                                     })
                                     .catch(error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            `&times;</button>${error}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
@@ -412,6 +458,11 @@
                                     "tanggal_lahir",
                                     document.getElementById("member_dob").value
                                 );
+                                urlencoded.append(
+                                    "PT_sess",
+                                    document.querySelector('input[name = token]:checked').value
+                                );
+
 
                                 var requestOptions = {
                                     method: "POST",
@@ -433,7 +484,7 @@
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
-                                                '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                                `&times;</button>${message}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
