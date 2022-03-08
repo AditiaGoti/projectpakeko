@@ -30,28 +30,34 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input id="nama_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                        <input id="nama_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Paket" aria-label="name" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Harga</label>
-                                        <input id="harga_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                                        <input id="harga_paket" type="text" class="form-control form-control-lg" placeholder="Masukan Harga Paket" aria-label="pob" required />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Durasi </label>
-                                        <input id="durasi_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
+                                        <input id="durasi_paket" type="number" style="margin-top: 25px; margin-left:-35px;" class="col-sm-7 form-control form-control-lg" placeholder="Masukan Durasi Paket" aria-label="name" required />
+                                        <select id="durasiHB" class=" col-sm-3 form-control">
+                                            <option value="days">Days</option>
+                                            <option value="months">Months</option>
+                                        </select>
+
                                     </div>
                                     <div class="form-group">
                                         <label>Token</label>
-                                        <input id="token_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Tempat Lahir Member" aria-label="pob" required />
+                                        <input id="token_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Token" aria-label="pob" required />
                                     </div>
+
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
+                            <button type="submit" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
                             </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
 
                         </form>
 
@@ -81,11 +87,14 @@
                                 var nama = document.getElementById("nama_paket");
                                 var harga = document.getElementById("harga_paket");
                                 var durasi = document.getElementById("durasi_paket");
+                                var durasii = document.getElementById("durasiHB");
                                 var ntoken = document.getElementById("token_paket");
+                                var durasipisah = data.duration.split(" ");
 
                                 nama.value = data.paket;
                                 harga.value = data.harga;
-                                durasi.value = data.duration;
+                                durasi.value = durasipisah[0];
+                                durasii.value = durasipisah[1];
                                 ntoken.value = data.nilai_token;
                             }
 
@@ -105,6 +114,10 @@
 
                             function updatePaket() {
                                 displayLoading()
+                                var durasiangka = document.getElementById("durasi_paket").value;
+                                var durasiHB = document.getElementById("durasiHB").value;
+                                var durasi = durasiangka + " " + durasiHB;
+
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -124,7 +137,7 @@
                                 );
                                 urlencoded.append(
                                     "duration",
-                                    document.getElementById("durasi_paket").value
+                                    durasi
                                 );
                                 urlencoded.append(
                                     "nilai_token",

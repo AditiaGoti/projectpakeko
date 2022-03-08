@@ -41,10 +41,10 @@
                                 <label>Keterangan</label>
                                 <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
                             </div>
-                            <button onclick="daftarTransaksi() " type="button" class="btn btn-inverse-success btn-sm">
+                            <button onclick="daftarTransaksi() " type="button" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
                             </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
                         </form>
 
                         <script>

@@ -69,11 +69,12 @@
                                         <label> CPassword</label>
                                         <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
                                     </div>
-                                    <button style="margin-top: 25px; margin-left:11px;" type="submit" class="btn btn-inverse-success ">
-                                        Submit
-                                    </button>
-                                    <button style="margin-top: 25px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark ">Cancel</button>
+
                                 </div>
+                                <button style="margin-top: 25px;" type="submit" class="btn btn-inverse-success btn-lg btn-block ">
+                                    Submit
+                                </button>
+                                <button style="margin-top: 25px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block ">Cancel</button>
                             </div>
 
                         </form>

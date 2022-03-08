@@ -40,7 +40,11 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Durasi </label>
-                                        <input id="durasi_paket" type="number" class="form-control form-control-lg" placeholder="Masukan Durasi Paket" aria-label="name" required />
+                                        <input id="durasi_paket" type="number" style="margin-top: 25px; margin-left:-35px;" class="col-sm-7 form-control form-control-lg" placeholder="Masukan Durasi Paket" aria-label="name" required />
+                                        <select id="durasiHB" class=" col-sm-3 form-control">
+                                            <option value="days">Days</option>
+                                            <option value="months">Months</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Token</label>
@@ -48,10 +52,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-sm">
+                            <button type="submit" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
                             </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-sm">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
                         </form>
 
 
@@ -70,7 +74,12 @@
                             }
 
                             function daftarPaket() {
+
                                 displayLoading()
+                                var durasiangka = document.getElementById("durasi_paket").value;
+                                var durasiHB = document.getElementById("durasiHB").value;
+                                var durasi = durasiangka + " " + durasiHB;
+
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var email = '<?php echo $_SESSION['email']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
@@ -93,7 +102,7 @@
                                 );
                                 urlencoded.append(
                                     "duration",
-                                    document.getElementById("durasi_paket").value
+                                    durasi
                                 );
                                 urlencoded.append(
                                     "nilai_token",
