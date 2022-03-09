@@ -206,7 +206,7 @@
                                         <label style="margin-top:5px; padding-right:46px;">QR Code</label>
                                         <input id="id_member" type="text" class="form-control  placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
                                         <div class="input-group-append">
-                                            <button onclick="checkID(); " class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i> </button>
+                                            <button class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i> </button>
                                         </div>
                                     </div>
                                     <hr>
@@ -294,7 +294,7 @@
                                         requestOptions
                                     )
                                     .then((response) => response.text())
-                                    .then((result => {
+                                    .then(result => {
                                         hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
@@ -343,18 +343,18 @@
                                         }
 
 
-                                    }))
-                                    .catch((error => {
+                                    })
+                                    .catch(error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            '&times;</button>Data Tidak Ditemukan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
                                             function() {
                                                 $(this).remove();
                                             });
-                                    }));
+                                    });
                             }
 
                             function checkName() {
@@ -438,10 +438,7 @@
                                                 $(this).remove();
                                             });
                                     });
-
                             }
-
-
 
                             function daftarKehadiran() {
                                 displayLoading()
