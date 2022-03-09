@@ -40,6 +40,7 @@ if (isset($_SESSION['login_status'])) {
     <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
     <link rel="stylesheet" type="text/css" href="assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/images/logoo.png" />
     <!--===============================================================================================-->
 </head>
 
