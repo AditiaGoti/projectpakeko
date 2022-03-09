@@ -150,19 +150,8 @@ iframe {
 
 .limiter {
   background-size: cover;
-  background-image: url(assets/images/klubaderaibg.png);
   background-repeat: repeat;
   width: 100%;
-}
-@media only screen and (min-width:1780px) and (max-width:1800px)
-{
-
-.limiter {
-  background-size: 4000px;
-  margin: 0 auto;
-  
-}
-
 }
 .container-login100 {
   width: 100%; 
@@ -181,8 +170,8 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 25%;
-  max-width: 400px;
+  width: 28%;
+  max-width: 450px;
   min-width: 20%;
   height: 450;
   max-height: 500px;
