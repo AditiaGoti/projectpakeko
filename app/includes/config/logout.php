@@ -9,7 +9,7 @@
     var token = "Bearer" + " " + tokenSession;
 
     var settings = {
-        "url": "http://api.klubaderai.com/api/logout",
+        "url": "https://api.klubaderai.com/api/logout",
         "method": "POST",
         "timeout": 0,
         "headers": {

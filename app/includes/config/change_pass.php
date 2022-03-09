@@ -28,10 +28,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-inverse-success btn-fw">
+                            <button type="submit" class="btn btn-inverse-success btn-lg btn-block ">
                                 Submit
                             </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-fw">Cancel</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block ">Cancel</button>
                         </form>
 
                         <script>

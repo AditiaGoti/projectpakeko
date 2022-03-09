@@ -130,14 +130,13 @@
 
                                         var data = dataparse.data;
                                         var createXLSLFormatObj = [];
-                                        var xlsHeader = ["ID", "Name", "Email", "Gender", "Tempat Lahir", "Tanggal Lahir", "No. HP", "Alamat"];
+                                        var xlsHeader = ["Name", "Email", "Gender", "Tempat Lahir", "Tanggal Lahir", "No. HP", "Alamat"];
 
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
                                             /* XLS Rows Data */
                                             var xlsRows = [{
 
-                                                "ID": data.id,
                                                 "Name": data.name,
                                                 "Email": data.email,
                                                 "Gender": data.gender,
@@ -196,7 +195,6 @@
                                     <tr>
                                         <th colspan="2">Actions</th>
                                         <th>Nama</th>
-                                        <th>ID</th>
                                         <th>Email</th>
                                         <th>Gender</th>
                                         <th>DOB</th>
@@ -244,9 +242,6 @@
                                                             },
                                                             {
                                                                 'data': 'name'
-                                                            },
-                                                            {
-                                                                'data': 'id'
                                                             },
                                                             {
                                                                 'data': 'email'

@@ -206,6 +206,7 @@
                                                 },
                                                 success: function(response) {
                                                     data = response.data;
+                                                    console.log(data)
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         data: data,

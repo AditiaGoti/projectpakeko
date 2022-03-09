@@ -199,50 +199,47 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form onsubmit="daftarKehadiran();return false" id="form_kehadiran" class="form sample">
+                        <form onsubmit="checkID();return false" id="form_kehadiran" class="form sample">
                             <div class="row">
                                 <div class="col">
-                                    <form>
-                                        <div class="input-group mb-3">
-                                            <label style="margin-top:5px; padding-right:46px;">QR Code</label>
-                                            <input required id="id_member" type="text" class="form-control  placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
-                                            <div class="input-group-append">
-                                                <button onclick="checkID(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i> </button>
-                                            </div>
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:46px;">QR Code</label>
+                                        <input id="id_member" type="text" class="form-control  placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
+                                        <div class="input-group-append">
+                                            <button onclick="checkID(); " class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i> </button>
                                         </div>
-                                    </form>
+                                    </div>
                                     <hr>
-                                    <form id="form_kehadiranNama" onsubmit="checkName(); return false">
-                                        <div class="input-group mb-3">
-                                            <label style="margin-top:5px; padding-right:70px;">Name</label>
-                                            <input required id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" required />
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i></button>
-                                            </div>
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:70px;">Name</label>
+                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
+                                        <div class="input-group-append">
+                                            <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
-                                            <input required id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" required />
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
+                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
+                                    </div>
+                                    <hr>
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
+                                        <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
+                                    </div>
+                                    <div id="token" style="display: none;" class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:20px;">Token</label>
+                                        <div style="margin-top:7px; padding-left:100px;" class="wrapperr">
+                                            <input type="radio" name="token" value="tidak" id="option-1" checked>
+                                            <input type="radio" name="token" value="iya" id="option-2">
+                                            <label for="option-1" class="option option-1">
+                                                <div class="dot"></div> <span>No</span>
+                                            </label>
+                                            <label for="option-2" class="option option-2">
+                                                <div class="dot"></div> <span>Yes</span>
+                                            </label>
                                         </div>
-                                        <hr>
-                                        <div class="input-group mb-3">
-                                            <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
-                                            <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
-                                        </div>
-                                        <div id="token" style="display: none;" class="input-group mb-3">
-                                            <label style="margin-top:5px; padding-right:20px;">Token</label>
-                                            <div style="margin-top:7px; padding-left:100px;" class="wrapperr">
-                                                <input type="radio" name="token" value="iya" id="option-1">
-                                                <input type="radio" name="token" value="tidak" id="option-2" checked>
-                                                <label for="option-1" class="option option-1">
-                                                    <div class="dot"></div> <span>Yes</span>
-                                                </label>
-                                                <label for="option-2" class="option option-2">
-                                                    <div class="dot"></div> <span>No</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    </div>
+
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="profile-card">
@@ -261,12 +258,28 @@
                         </form>
 
                         <script>
+                            const loader = document.querySelector("#loading");
+                            var iddis = document.getElementById("id_member");
+
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 8000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
                             function checkID() {
+                                displayLoading()
                                 var img = document.getElementById("img_member");
                                 img.src = "";
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var id = document.getElementById("id_member").value;
+
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -282,7 +295,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-
+                                        hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.message;
@@ -292,6 +305,8 @@
                                         var imgvalue = "https://api.klubaderai.com" +
                                             data.data.img_path;
                                         var elements = document.getElementById('token');
+
+                                        iddis.disabled = true;
                                         if (hasildata) {
                                             if (data.data.token == 0) {
 
@@ -343,13 +358,14 @@
                             }
 
                             function checkName() {
+                                displayLoading()
                                 var img = document.getElementById("img_member");
                                 img.src = "";
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var type = '<?php echo $_SESSION['type']; ?>'
                                 const url = "https://api.klubaderai.com/api/users";
-
+                                iddis.disabled = true;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -364,6 +380,7 @@
                                 fetch(url, requestOptions)
                                     .then(response => response.text())
                                     .then(result => {
+                                        hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var elements = document.getElementById('token');
@@ -413,7 +430,7 @@
                                     .catch(error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            `&times;</button>${error}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
@@ -424,18 +441,7 @@
 
                             }
 
-                            const loader = document.querySelector("#loading");
 
-                            function displayLoading() {
-                                loader.classList.add("loading");
-                                setTimeout(() => {
-                                    loader.classList.remove("loading");
-                                }, 8000);
-                            }
-
-                            function hideLoading() {
-                                loader.classList.remove("loading");
-                            }
 
                             function daftarKehadiran() {
                                 displayLoading()
@@ -492,7 +498,7 @@
                                                     $(this).remove();
                                                 });
                                             document.getElementById("form_kehadiran").reset();
-                                            document.getElementById("form_kehadiranNama").reset();
+                                            iddis.disabled = false;
                                             document.getElementById("img_member").src = "";
                                         } else {
                                             $('<div class="alert alert-danger">' +
@@ -511,7 +517,7 @@
                                     .catch((error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            `&times;</button>${error}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
