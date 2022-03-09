@@ -26,7 +26,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input disabled id="Member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
+                                        <input id="Member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email Member" aria-label="email" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
@@ -126,6 +126,10 @@
 
                                 var formdata = new FormData();
                                 formdata.append(
+                                    "email",
+                                    document.getElementById("Member_email").value
+                                ); // delete later
+                                formdata.append(
                                     "name",
                                     document.getElementById("Member_name").value
                                 );
@@ -171,7 +175,8 @@
                                         hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.errors;
+                                        console.log(result)
+                                        var message = data.message;
 
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
@@ -183,6 +188,7 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            location.href = "/profile-member";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

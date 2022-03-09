@@ -39,6 +39,7 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
+                            var type = `<?php echo $_SESSION['type']; ?>`;
                             const url = "https://api.tms-klar.com/api/users/changepass" + "/" + id;
 
                             const loader = document.querySelector("#loading");
@@ -102,6 +103,10 @@
                                                     $(this).remove();
                                                 });
                                             document.getElementById("form_changepass").reset();
+                                            if (type == 1) {
+                                                location.href = "/profile-admin";
+                                            } else if (type == 0)
+                                                location.href = "/profile-member";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

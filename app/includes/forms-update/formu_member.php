@@ -76,6 +76,7 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var memID = sessionStorage.getItem("id-member");
+                            var type = `<?php echo $_SESSION['type']; ?>`;
                             var form = document.getElementById("form_member");
                             const url = "https://api.tms-klar.com/api/users" + "/" + memID;
 
@@ -198,7 +199,10 @@
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_member').fadeIn(1000);
-
+                                            if (type == 2) {
+                                                location.href = "/owall_member";
+                                            } else if (type == 1)
+                                                location.href = "/all_member";
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
