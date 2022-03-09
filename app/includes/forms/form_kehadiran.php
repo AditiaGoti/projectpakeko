@@ -302,7 +302,7 @@
                                         var expiredvalue = data.data.expired;
                                         var namevalue = data.data.name;
                                         var dobvalue = data.data.tanggal_lahir;
-                                        var imgvalue = "https://api.klubaderai.com" +
+                                        var imgvalue = "https://api.tms-klar.com" +
                                             data.data.img_path;
                                         var elements = document.getElementById('token');
 
@@ -347,7 +347,7 @@
                                     .catch((error => {
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            `&times;</button>${error}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
@@ -405,7 +405,7 @@
                                             var name = filterData.name;
                                             var dob = filterData.tanggal_lahir;
                                             var exp = filterData.expired;
-                                            var imgvalue = "https://api.klubaderai.com/storage/" + filterData.img_path;
+                                            var imgvalue = "https://api.tms-klar.com/storage/" + filterData.img_path;
                                             var input_id = document.getElementById("id_member");
                                             var input_exp = document.getElementById("member_exp");
                                             input_exp.value = exp;
@@ -417,7 +417,7 @@
                                             var name = filterData.name;
                                             var dob = filterData.tanggal_lahir;
                                             var exp = filterData.expired;
-                                            var imgvalue = "https://api.klubaderai.com/storage/" + filterData.img_path;
+                                            var imgvalue = "api.tms-klar.com/storage/" + filterData.img_path;
                                             var input_id = document.getElementById("id_member");
                                             var input_exp = document.getElementById("member_exp");
                                             input_exp.value = exp;

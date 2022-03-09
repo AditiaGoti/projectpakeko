@@ -97,7 +97,7 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
-                                imgv.src = "https://api.klubaderai.com/public/storage/" +
+                                imgv.src = "https://api.tms-klar.com/public/storage/" +
                                     data.img_path;
 
                             }

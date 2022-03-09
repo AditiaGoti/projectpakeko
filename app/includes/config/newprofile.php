@@ -95,7 +95,7 @@
 
                                 function build(data) {
 
-                                    img = "https://api.klubaderai.com" +
+                                    img = "https://api.tms-klar.com/" +
                                         data.img_path;
 
                                     name = data.name;
