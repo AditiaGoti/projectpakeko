@@ -49,7 +49,7 @@
                                         var Sid = '<?php echo $_SESSION['id']; ?>';
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
-                                        const url = "https://api.klubaderai.com/api/kehadiran" + "/" + Sid;
+                                        const url = "https://api.tms-klar.com/api/kehadiran" + "/" + Sid;
                                         var qrcode = new QRCode(document.getElementById("fotoqr"), {
                                             useSVG: true,
                                         });

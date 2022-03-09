@@ -149,7 +149,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/register",
+                                        "https://api.tms-klar.com/api/register",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

@@ -45,7 +45,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.klubaderai.com/api/kehadiran-export";
+                                const urlTE = "https://api.tms-klar.com/api/kehadiran-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -89,7 +89,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.klubaderai.com/api/kehadiran-export";
+                                const urlTE = "https://api.tms-klar.com/api/kehadiran-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -196,7 +196,7 @@
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
                                         var tableKehadiran = document.getElementById("tabel-data");
-                                        const url = "https://api.klubaderai.com/api/kehadiran";
+                                        const url = "https://api.tms-klar.com/api/kehadiran";
                                         $(document).ready(function() {
                                             $.ajax({
                                                 method: "GET",

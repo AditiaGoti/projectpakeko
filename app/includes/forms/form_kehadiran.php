@@ -290,7 +290,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/users/" + id,
+                                        "https://api.tms-klar.com/api/users/" + id,
                                         requestOptions
                                     )
                                     .then((response) => response.text())
@@ -364,7 +364,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var type = '<?php echo $_SESSION['type']; ?>'
-                                const url = "https://api.klubaderai.com/api/users";
+                                const url = "https://api.tms-klar.com/api/users";
                                 iddis.disabled = true;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -477,7 +477,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/kehadiran",
+                                        "https://api.tms-klar.com/api/kehadiran",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

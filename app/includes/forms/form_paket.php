@@ -116,7 +116,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/pakets",
+                                        "https://api.tms-klar.com/api/pakets",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

@@ -71,7 +71,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var form = document.getElementById("form_profile");
-                            const url = "https://api.klubaderai.com/api/admin" + "/" + id;
+                            const url = "https://api.tms-klar.com/api/admin" + "/" + id;
 
                             $.ajax({
                                 method: "GET",
@@ -168,7 +168,7 @@
 
 
                                 fetch(
-                                        "https://api.klubaderai.com/api/admin" + "/" + id,
+                                        "https://api.tms-klar.com/api/admin" + "/" + id,
                                         requestOptions
                                     )
                                     .then((response) => response.text())

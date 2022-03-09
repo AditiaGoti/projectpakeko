@@ -161,7 +161,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/users",
+                                        "https://api.tms-klar.com/api/users",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

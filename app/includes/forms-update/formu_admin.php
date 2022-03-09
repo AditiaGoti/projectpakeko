@@ -67,7 +67,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var admID = sessionStorage.getItem("id-admin");
                             var form = document.getElementById("form_admin");
-                            const url = "https://api.klubaderai.com/api/admin" + "/" + admID;
+                            const url = "https://api.tms-klar.com/api/admin" + "/" + admID;
 
                             $.ajax({
                                 method: "GET",

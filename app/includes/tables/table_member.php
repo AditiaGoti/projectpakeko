@@ -104,7 +104,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.klubaderai.com/api/users-export";
+                                const urlTE = "https://api.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -148,7 +148,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.klubaderai.com/api/users-export";
+                                const urlTE = "https://api.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -333,7 +333,7 @@
                                                 var type = '<?php echo $_SESSION['type']; ?>'
                                                 var myArray = [];
                                                 var tableMember = document.getElementById("tableMember");
-                                                const urlu = "https://api.klubaderai.com/api/users";
+                                                const urlu = "https://api.tms-klar.com/api/users";
 
                                                 $(document).ready(function() {
                                                     $.ajax({
@@ -500,7 +500,7 @@
                                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                 var token = "Bearer" + " " + tokenSession;
                                                 var myArray = [];
-                                                const urlua = "https://api.klubaderai.com/api/users-active";
+                                                const urlua = "https://api.tms-klar.com/api/users-active";
                                                 $(document).ready(function() {
                                                     $.ajax({
                                                         method: "GET",
@@ -647,7 +647,7 @@
                                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                 var token = "Bearer" + " " + tokenSession;
                                                 var myArray = [];
-                                                const urlui = "https://api.klubaderai.com/api/users-inactive";
+                                                const urlui = "https://api.tms-klar.com/api/users-inactive";
 
                                                 $(document).ready(function() {
                                                     $.ajax({

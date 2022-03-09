@@ -70,7 +70,7 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
-                            const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                            const url = "https://api.tms-klar.com/api/users" + "/" + id;
                             $.ajax({
                                 method: "GET",
                                 url: url,

@@ -77,7 +77,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var memID = sessionStorage.getItem("id-member");
                             var form = document.getElementById("form_member");
-                            const url = "https://api.klubaderai.com/api/users" + "/" + memID;
+                            const url = "https://api.tms-klar.com/api/users" + "/" + memID;
 
                             $.ajax({
                                 method: "GET",

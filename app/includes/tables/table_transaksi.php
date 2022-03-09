@@ -64,7 +64,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.klubaderai.com/api/transaksi-export";
+                                const urlTE = "https://api.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -110,7 +110,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.klubaderai.com/api/transaksi-export";
+                                const urlTE = "https://api.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -271,7 +271,7 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        const url = "https://api.klubaderai.com/api/transaksi";
+                                        const url = "https://api.tms-klar.com/api/transaksi";
                                         $(document).ready(function() {
                                             $.ajax({
                                                 method: "GET",

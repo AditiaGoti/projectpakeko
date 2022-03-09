@@ -79,7 +79,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var id = `<?php echo $_SESSION['id']; ?>`;
-                                const url = "https://api.klubaderai.com/api/users" + "/" + id;
+                                const url = "https://api.tms-klar.com/api/users" + "/" + id;
 
                                 $.ajax({
                                     method: "GET",
@@ -197,7 +197,7 @@
                                 redirect: 'follow'
                             };
 
-                            fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
+                            fetch("https://api.tms-klar.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
                                 .then(result => {
                                     var data = JSON.parse(result);
@@ -263,7 +263,7 @@
                                 redirect: 'follow'
                             };
 
-                            fetch("https://api.klubaderai.com/api/users-progress", requestOptions)
+                            fetch("https://api.tms-klar.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
                                 .then(result => {
                                     var data = JSON.parse(result);
@@ -516,7 +516,7 @@
         var tokenSession = '<?php echo $_SESSION['token']; ?>';
         var token = "Bearer" + " " + tokenSession;
         var myArray = [];
-        const urlt = "https://api.klubaderai.com/api/users-progress";
+        const urlt = "https://api.tms-klar.com/api/users-progress";
         var myArray = [];
         $(document).ready(function() {
             $.ajax({

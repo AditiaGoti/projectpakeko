@@ -52,7 +52,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var myArray = [];
                             var tablePaket = document.getElementById("package");
-                            const url = "https://api.klubaderai.com/api/pakets";
+                            const url = "https://api.tms-klar.com/api/pakets";
                             $(document).ready(function() {
                                 $.ajax({
                                     method: "GET",
@@ -115,7 +115,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.klubaderai.com/api/transaksi",
+                                        "https://api.tms-klar.com/api/transaksi",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

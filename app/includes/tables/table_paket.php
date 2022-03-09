@@ -62,7 +62,7 @@
                                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                             var token = "Bearer" + " " + tokenSession;
                                             var myArray = [];
-                                            const url = "https://api.klubaderai.com/api/pakets";
+                                            const url = "https://api.tms-klar.com/api/pakets";
                                             $(document).ready(function() {
                                                 $.ajax({
                                                     method: "GET",

@@ -69,7 +69,7 @@
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var email = `<?php echo $_SESSION['email']; ?>`;
                             var pakID = sessionStorage.getItem("id-paket");
-                            const url = "https://api.klubaderai.com/api/pakets/" + pakID;
+                            const url = "https://api.tms-klar.com/api/pakets/" + pakID;
 
                             $.ajax({
                                 method: "GET",
