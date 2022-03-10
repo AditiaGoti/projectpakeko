@@ -29,8 +29,7 @@
                                     <div id="img" class="m-b-25" style="margin-top:25px">
 
                                     </div>
-                                    <h7 style="font-size: 40px;font-family: 'League Gothic', sans-serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;" class="f-w-600"><?php echo $_SESSION['name'] ?></h7>
+
                                     <p id="member" style="display:block; font-family: 'League Gothic', sans-serif; font-size:20px; background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-style: italic;">Member</p>
                                 </div>
@@ -115,7 +114,8 @@
                                     $(`<h6 class="text-muted f-w-400">${alamat}</h6>`).appendTo('#alamat');
                                     $(`<h6 class="text-muted f-w-400">${gender}</h6>`).appendTo('#gender');
                                     $(`<h6 class="text-muted f-w-400">${token}</h6>`).appendTo('#token');
-
+                                    $(` <h7 style="font-size: 40px;font-family: 'League Gothic', sans-serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;" class="f-w-600">${name}</h7></br></br>`).prependTo('#member');
                                 }
                             </script>
                         </div>

@@ -30,7 +30,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input id="member_email" disabled type="email" class="form-control form-control-lg" placeholder="Masukan Email member" aria-label="email" required />
+                                        <input id="member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email member" aria-label="email" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
@@ -111,6 +111,7 @@
                                 alamat.value = data.alamat;
                                 imgv.src = "https://api.tms-klar.com/public/" +
                                     data.img_path;
+                                sessionStorage.setItem("email-member", email.value);
                             }
 
                             function VerifyUploadSizeIsOK() {
@@ -148,7 +149,16 @@
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 var formdata = new FormData();
-
+                                var email = document.getElementById("member_email");
+                                var currEmail = sessionStorage.getItem("email-member");
+                                if (email.value == currEmail) {
+                                    //
+                                } else {
+                                    formdata.append(
+                                        "email",
+                                        email.value
+                                    );
+                                }
                                 formdata.append(
                                     "name",
                                     document.getElementById("member_name").value
@@ -211,6 +221,7 @@
                                                 });
                                             document.getElementById("form_member").reset();
                                             document.getElementById('memberimg_values').src = "";
+                                            sessionStorage.removeItem("email-member");
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

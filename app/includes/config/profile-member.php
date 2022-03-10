@@ -104,6 +104,7 @@
                                 alamat.value = data.alamat;
                                 imgv.src = "https://api.tms-klar.com/public/" +
                                     data.img_path;
+                                sessionStorage.setItem("email-member", email.value);
                             }
 
                             const loader = document.querySelector("#loading");
@@ -123,12 +124,19 @@
                                 displayLoading()
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
-
+                                var email = document.getElementById("Member_email");
+                                var currEmail = sessionStorage.getItem("email-member");
                                 var formdata = new FormData();
-                                formdata.append(
-                                    "email",
-                                    document.getElementById("Member_email").value
-                                ); // delete later
+
+                                if (email.value == currEmail) {
+                                    //
+                                } else {
+                                    formdata.append(
+                                        "email",
+                                        email.value
+                                    );
+                                }
+
                                 formdata.append(
                                     "name",
                                     document.getElementById("Member_name").value
@@ -188,6 +196,7 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            sessionStorage.removeItem("email-member");
                                             location.href = "/profile-member";
                                         } else {
                                             $('<div class="alert alert-danger">' +
