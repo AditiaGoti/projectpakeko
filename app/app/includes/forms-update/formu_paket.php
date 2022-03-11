@@ -57,7 +57,7 @@
                             <button type="submit" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
                             </button>
-                            <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
+                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
 
                         </form>
 
@@ -112,9 +112,7 @@
                                 loader.classList.remove("loading");
                             }
 
-                            function reset(){
-                                document.getElementById("form_paket").reset();
-                            }
+
                             function updatePaket() {
                                 displayLoading()
                                 var durasiangka = document.getElementById("durasi_paket").value;
@@ -162,7 +160,7 @@
 
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.errors;
+                                        var message = data.message;
                                         hideLoading()
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +

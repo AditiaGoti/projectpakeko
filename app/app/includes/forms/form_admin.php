@@ -3,9 +3,9 @@
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Merubah Data Profile
+                    <h4 class="page-title">Menambahkan Admin Klub Ade Rai
+                        <button id="owbackadmin" style="float:right; margin-left:5px; display: block;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owalladmin'">Back</button>
                     </h4>
-
                 </div>
             </div>
         </div>
@@ -13,21 +13,9 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div style="display: none;" class="alert alert-success " id="alert">
-                            <span class="close">&times;</span>
-                            <strong>Data Berhasil Disimpan</strong>
-                        </div>
-                        <div style="display: none;" class="alert alert-danger" id='alertfail'>
-                            <span class="close">&times;</span>
-                            <strong>Terjadi Kesalahan</strong>
-                        </div>
-                        <form id="form_profile" onsubmit="updateProfile(); return false" class="form sample">
+                        <form id="form_admin" enctype="multipart/form-data" onsubmit="daftaradmin();return false" class="form sample">
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
-                                    </div>
                                     <div class="form-group">
                                         <label>Name</label>
                                         <input id="admin_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama admin" aria-label="name" required />
@@ -41,72 +29,56 @@
                                         <input id="admin_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir admin" aria-label="dob" required />
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <input type="text" id="admin_nohp" class="form-control form-control-lg" placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                        <label>Email</label>
+                                        <input id="admin_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email admin" aria-label="email" required />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <input onchange="VerifyUploadSizeIsOK()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
+                                        <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
                                 </div>
                                 <div class="col">
-
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input type="text" id="admin_nohp" class="form-control " placeholder="Masukan No. Telepon admin" aria-label="pnumber" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <div class="wrapperr">
+                                            <input type="radio" name="gender" value="male" id="option-1" checked>
+                                            <input type="radio" name="gender" value="female" id="option-2">
+                                            <label for="option-1" class="option option-1">
+                                                <div class="dot"></div> <span>Laki-laki</span>
+                                            </label>
+                                            <label for="option-2" class="option option-2">
+                                                <div class="dot"></div> <span>Perempuan</span>
+                                            </label>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label>Address</label>
                                         <input type="text" id="admin_address" class="form-control form-control-lg" placeholder="Masukan Alamat admin" aria-label="adress" required />
                                     </div>
                                     <div class="form-group">
-                                        <label>Photo</label>
-                                        <img id="adminimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
-                                        <input onchange="VerifyUploadSizeIsOK()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
-                                        <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
+                                        <label>Password</label>
+                                        <input id="admin_pass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
                                     </div>
+                                    <div class="form-group">
+                                        <label> CPassword</label>
+                                        <input id="admin_cpass" type="password" class="form-control form-control-lg" placeholder="Masukan Sandi admin" aria-label="password" required />
+                                    </div>
+
                                 </div>
-                                <button type="submit" class="btn btn-inverse-success btn-lg btn-block ">
+                                <button style="margin-top: 25px;" type="submit" class="btn btn-inverse-success btn-lg btn-block ">
                                     Submit
                                 </button>
-                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block ">Cancel</button>
+                                <button style="margin-top: 25px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block ">Cancel</button>
                             </div>
 
                         </form>
-                        <script>
-                            var myArray = [];
-                            var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                            var token = "Bearer" + " " + tokenSession;
-                            var id = `<?php echo $_SESSION['id']; ?>`;
-                            var form = document.getElementById("form_profile");
-                            const url = "https://api.tms-klar.com/api/admin" + "/" + id;
 
-                            $.ajax({
-                                method: "GET",
-                                url: url,
-                                headers: {
-                                    Authorization: token
-                                },
-                                success: function(response) {
-                                    myArray = response.data;
-                                    build(myArray);
-                                },
-                            });
-
-                            function build(data) {
-                                var name = document.getElementById("admin_name");
-                                var pob = document.getElementById("admin_pob");
-                                var dob = document.getElementById("admin_dob");
-                                var email = document.getElementById("admin_email");
-                                var nohp = document.getElementById("admin_nohp");
-                                var alamat = document.getElementById("admin_address");
-                                var pass = document.getElementById("admin_pass");
-                                var cpass = document.getElementById("admin_cpass");
-                                var img = document.getElementById("admin_img");
-                                var imgv = document.getElementById("adminimg_values");
-
-                                name.value = data.name;
-                                pob.value = data.tempat_lahir;
-                                dob.value = data.tanggal_lahir;
-                                email.value = data.email;
-                                nohp.value = data.nohp;
-                                alamat.value = data.alamat;
-                                imgv.src = "https://api.tms-klar.com/public/storage/" +
-                                    data.img_path;
-                            }
-                        </script>
                         <script>
                             const loader = document.querySelector("#loading");
 
@@ -121,7 +93,7 @@
                                 loader.classList.remove("loading");
                             }
 
-                            function updateProfile() {
+                            function daftaradmin() {
                                 displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
@@ -134,8 +106,24 @@
                                     document.getElementById("admin_name").value
                                 );
                                 formdata.append(
+                                    "email",
+                                    document.getElementById("admin_email").value
+                                );
+                                formdata.append(
+                                    "password",
+                                    document.getElementById("admin_pass").value
+                                );
+                                formdata.append(
+                                    "password_confirmation",
+                                    document.getElementById("admin_cpass").value
+                                );
+                                formdata.append(
                                     "tempat_lahir",
                                     document.getElementById("admin_pob").value
+                                );
+                                formdata.append(
+                                    "gender",
+                                    document.querySelector('input[name=gender]:checked').value
                                 );
                                 formdata.append(
                                     "tanggal_lahir",
@@ -149,15 +137,10 @@
                                     "alamat",
                                     document.getElementById("admin_address").value
                                 );
-
-                                var foto = document.getElementById("admin_img").files[0]
-                                if (foto == null) {
-                                    // 
-                                } else {
-                                    formdata.append(
-                                        "img_path", foto
-                                    );
-                                }
+                                formdata.append(
+                                    "img_path",
+                                    document.getElementById("admin_img").files[0]
+                                );
 
                                 var requestOptions = {
                                     method: "POST",
@@ -165,31 +148,32 @@
                                     body: formdata,
                                     redirect: "follow",
                                 };
-
-
                                 fetch(
-                                        "https://api.tms-klar.com/api/admin" + "/" + id,
+                                        "https://api.tms-klar.com/api/register",
                                         requestOptions
                                     )
                                     .then((response) => response.text())
                                     .then((result => {
-                                        hideLoading()
+
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.errors;
+                                        var message = data.message;
 
                                         if (hasildata) {
+                                            hideLoading()
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
-                                                `&times;</button>Data Berhasil Disimpan</div>`).hide().prependTo('#form_profile').fadeIn(1000);
+                                                `&times;</button>${message}</div>`).hide().prependTo('#form_admin').fadeIn(1000);
 
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
                                                     $(this).remove();
                                                 });
-                                            location.href = "/profile-admin";
+
+                                            document.getElementById("form_admin").reset();
                                         } else {
+                                            hideLoading()
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>${message}</div>`).hide().prependTo('#form_admin').fadeIn(1000);
@@ -201,14 +185,12 @@
                                                 });
                                         }
 
+
                                     }))
                                     .catch((error => {
-
-                                        var data = JSON.parse(result);
-                                        var message = data.errors;
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            `&times;</button>${message}</div>`).hide().prependTo('#form_profile').fadeIn(1000);
+                                            '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_admin').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
@@ -216,8 +198,6 @@
                                                 $(this).remove();
                                             });
                                     }));
-
-
                             }
 
                             function VerifyUploadSizeIsOK() {
@@ -229,12 +209,6 @@
                                     alert("The file size must be no more than " + parseInt(MaxSizeInBytes / 1024 / 1024) + "MB");
                                 }
 
-                                var imgv = document.getElementById('adminimg_values');
-                                imgv.src = "";
-                                imgv.src = URL.createObjectURL(fld.files[0]);
-                                imgv.onload = function() {
-                                    URL.revokeObjectURL(imgv.src) // free memory
-                                }
                             }
                         </script>
 

@@ -30,7 +30,7 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input id="member_email" disabled type="email" class="form-control form-control-lg" placeholder="Masukan Email member" aria-label="email" required />
+                                        <input id="member_email" type="email" class="form-control form-control-lg" placeholder="Masukan Email member" aria-label="email" required />
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
@@ -67,6 +67,10 @@
                                     <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
 
                                 </div>
+                                <button type="submit" class="btn btn-inverse-success btn-lg btn-block">
+                                    Submit
+                                </button>
+                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
                             </div>
 
                         </form>
@@ -76,6 +80,7 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var memID = sessionStorage.getItem("id-member");
+                            var type = `<?php echo $_SESSION['type']; ?>`;
                             var form = document.getElementById("form_member");
                             const url = "https://api.tms-klar.com/api/users" + "/" + memID;
 
@@ -109,6 +114,7 @@
                                 alamat.value = data.alamat;
                                 imgv.src = "https://api.tms-klar.com/public/" +
                                     data.img_path;
+                                sessionStorage.setItem("email-member", email.value);
                             }
 
                             function VerifyUploadSizeIsOK() {
@@ -148,7 +154,16 @@
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 var formdata = new FormData();
-
+                                var email = document.getElementById("member_email");
+                                var currEmail = sessionStorage.getItem("email-member");
+                                if (email.value == currEmail) {
+                                    //
+                                } else {
+                                    formdata.append(
+                                        "email",
+                                        email.value
+                                    );
+                                }
                                 formdata.append(
                                     "name",
                                     document.getElementById("member_name").value
@@ -194,13 +209,16 @@
                                         hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.errors;
+                                        var message = data.message;
 
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_member').fadeIn(1000);
-
+                                            if (type == 2) {
+                                                location.href = "/owall_member";
+                                            } else if (type == 1)
+                                                location.href = "/all_member";
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
@@ -208,6 +226,7 @@
                                                 });
                                             document.getElementById("form_member").reset();
                                             document.getElementById('memberimg_values').src = "";
+                                            sessionStorage.removeItem("email-member");
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

@@ -27,7 +27,8 @@
                                     <div id="img" style="margin-top:35px" class="m-b-25">
 
                                     </div>
-
+                                    <h7 style="font-size: 40px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
+                                      -webkit-text-fill-color: transparent;"><?php echo $_SESSION['name'] ?></h7>
                                     <p id="admin" style=" display:block; font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
                                       -webkit-text-fill-color: transparent;font-size:20px;">Admin</p>
                                 </div>
@@ -105,9 +106,6 @@
                                     $(`<h6 class="text-muted f-w-400">${nohp}</h6>`).appendTo('#nohp');
                                     $(`<h6 class="text-muted f-w-400">${alamat}</h6>`).appendTo('#alamat');
                                     $(`<h6 class="text-muted f-w-400">${gender}</h6>`).appendTo('#gender');
-                                    $(` <h7 style="font-size: 40px;font-family: 'Open Sans', sans-serif;font-family: 'Righteous', cursive;font-family: 'Roboto Slab', serif;background: linear-gradient(to right, yellow,white);-webkit-background-clip:text;
-                                      -webkit-text-fill-color: transparent;">${name}</h7></br>`).appendTo('#gender');
-
                                 }
                             </script>
                         </div>
