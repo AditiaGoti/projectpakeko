@@ -27,24 +27,36 @@
                     <div class="card-body">
                         <form onsubmit="return false" id="form_transaksi" class="form sample">
 
-                            <div class="form-group">
-                                <label>ID</label>
+                            <div class="input-group mb-3">
+                                <label style="margin-top:5px; padding-right:95px;">ID</label>
                                 <input id="id_member" type="text" class="form-control form-control-lg" placeholder="Masukan ID Member" aria-label="name" required />
                             </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Package</label>
+                            
+                            <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:70px;">Name</label>
+                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
+                                        <div class="input-group-append">
+                                            <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
+                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
+                                    </div>
+                            <div class="input-group mb-3">
+                                <label for="exampleFormControlSelect1" style="margin-top:5px; padding-right:49px;">Package</label>
                                 <select class="form-control form-control-lg" id="package" required>
                                     <option>-</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Keterangan</label>
+                            <div class="input-group mb-3">
+                                <label style="margin-top:5px; padding-right:30px;">Keterangan</label>
                                 <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
                             </div>
                             <button onclick="daftarTransaksi() " type="button" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
                             </button>
-                            <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
+                            <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">reset</button>
                         </form>
 
                         <script>
@@ -81,7 +93,9 @@
                                     loader.classList.remove("loading");
                                 }, 8000);
                             }
-
+                            function reset(){
+                                document.getElementById("form_transaksi").reset();
+                            }
                             function hideLoading() {
                                 loader.classList.remove("loading");
                             }

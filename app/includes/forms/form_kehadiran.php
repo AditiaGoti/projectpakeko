@@ -253,7 +253,7 @@
                                 <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-lg btn-block">
                                     Submit
                                 </button>
-                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
+                                <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
                             </div>
                         </form>
 
@@ -267,7 +267,9 @@
                                     loader.classList.remove("loading");
                                 }, 8000);
                             }
-
+                            function reset(){
+                                document.getElementById("form_kehadiran").reset();
+                            }
                             function hideLoading() {
                                 loader.classList.remove("loading");
                             }

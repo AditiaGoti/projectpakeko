@@ -74,7 +74,7 @@
                                 <button style="margin-top: 25px;" type="submit" class="btn btn-inverse-success btn-lg btn-block ">
                                     Submit
                                 </button>
-                                <button style="margin-top: 25px;" type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block ">Cancel</button>
+                                <button style="margin-top: 25px;" type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block ">Reset</button>
                             </div>
 
                         </form>
@@ -92,7 +92,9 @@
                             function hideLoading() {
                                 loader.classList.remove("loading");
                             }
-
+                            function reset(){
+                                document.getElementById("form_admin").reset();
+                            }
                             function daftaradmin() {
                                 displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
