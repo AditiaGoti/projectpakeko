@@ -66,7 +66,6 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var admID = sessionStorage.getItem("id-admin");
-                            var type = `<?php echo $_SESSION['type']; ?>`;
                             var form = document.getElementById("form_admin");
                             const url = "https://api.tms-klar.com/api/admin" + "/" + admID;
 
@@ -204,7 +203,6 @@
                                                 });
                                             document.getElementById("form_admin").reset();
                                             document.getElementById('adminimg_values').src = "";
-                                            location.href = "/owalladmin";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
