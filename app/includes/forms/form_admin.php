@@ -82,6 +82,10 @@
                         <script>
                             const loader = document.querySelector("#loading");
 
+                            function reset() {
+                                document.getElementById("form_admin").reset();
+                            }
+
                             function displayLoading() {
                                 loader.classList.add("loading");
                                 setTimeout(() => {
@@ -92,9 +96,7 @@
                             function hideLoading() {
                                 loader.classList.remove("loading");
                             }
-                            function reset(){
-                                document.getElementById("form_admin").reset();
-                            }
+
                             function daftaradmin() {
                                 displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';

@@ -61,12 +61,11 @@
                                         <input onchange="VerifyUploadSizeIsOK()" id="member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
                                         <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
-                                   
+
                                 </div>
                                 <button type="submit" class="btn btn-inverse-success btn-lg btn-block">
                                     Submit
                                 </button>
-                                <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
                             </div>
 
                         </form>
@@ -142,9 +141,7 @@
                             function hideLoading() {
                                 loader.classList.remove("loading");
                             }
-                            function reset(){
-                                document.getElementById("form_member").reset();
-                            }
+
                             function updateProfile() {
                                 displayLoading()
                                 var myHeaders = new Headers();

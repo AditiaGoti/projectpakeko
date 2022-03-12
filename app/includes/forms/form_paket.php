@@ -55,7 +55,7 @@
                             <button type="submit" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
                             </button>
-                            <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">reset</button>
+                            <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
                         </form>
 
 
@@ -72,9 +72,11 @@
                             function hideLoading() {
                                 loader.classList.remove("loading");
                             }
-                            function reset(){
+
+                            function reset() {
                                 document.getElementById("form_paket").reset();
                             }
+
                             function daftarPaket() {
 
                                 displayLoading()

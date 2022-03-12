@@ -253,7 +253,7 @@
                                 <button onclick="daftarKehadiran()" type="button" class="btn btn-inverse-success btn-lg btn-block">
                                     Submit
                                 </button>
-                                <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
+                                <button type="button" onclick="reeset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
                             </div>
                         </form>
 
@@ -261,15 +261,19 @@
                             const loader = document.querySelector("#loading");
                             var iddis = document.getElementById("id_member");
 
+                            function reeset() {
+                                document.getElementById("form_kehadiran").reset();
+                                document.getElementById("img_member").src = "";
+                                iddis.disabled = false;
+                            }
+
                             function displayLoading() {
                                 loader.classList.add("loading");
                                 setTimeout(() => {
                                     loader.classList.remove("loading");
                                 }, 8000);
                             }
-                            function reset(){
-                                document.getElementById("form_kehadiran").reset();
-                            }
+
                             function hideLoading() {
                                 loader.classList.remove("loading");
                             }

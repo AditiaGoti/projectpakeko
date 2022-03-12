@@ -25,24 +25,28 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form onsubmit="return false" id="form_transaksi" class="form sample">
-
+                        <form onsubmit="checkID();return false" id="form_transaksi" class="form sample">
                             <div class="input-group mb-3">
                                 <label style="margin-top:5px; padding-right:95px;">ID</label>
                                 <input id="id_member" type="text" class="form-control form-control-lg" placeholder="Masukan ID Member" aria-label="name" required />
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
                             </div>
-                            
+                            <hr>
                             <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:70px;">Name</label>
-                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
-                                        <div class="input-group-append">
-                                            <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
-                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
-                                    </div>
+                                <label style="margin-top:5px; padding-right:70px;">Name</label>
+                                <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
+                                <div class="input-group-append">
+                                    <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
+                                <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
+                            </div>
+                            <hr>
                             <div class="input-group mb-3">
                                 <label for="exampleFormControlSelect1" style="margin-top:5px; padding-right:49px;">Package</label>
                                 <select class="form-control form-control-lg" id="package" required>
@@ -56,7 +60,7 @@
                             <button onclick="daftarTransaksi() " type="button" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
                             </button>
-                            <button type="button" onclick="reset()" class="btn btn-inverse-dark btn-lg btn-block">reset</button>
+                            <button type="button" onclick="reeset()" class="btn btn-inverse-dark btn-lg btn-block">Reset</button>
                         </form>
 
                         <script>
@@ -83,9 +87,8 @@
                                     }
                                 });
                             });
-                        </script>
-                        <script>
                             const loader = document.querySelector("#loading");
+                            var iddis = document.getElementById("id_member");
 
                             function displayLoading() {
                                 loader.classList.add("loading");
@@ -93,11 +96,135 @@
                                     loader.classList.remove("loading");
                                 }, 8000);
                             }
-                            function reset(){
+
+                            function reeset() {
                                 document.getElementById("form_transaksi").reset();
+                                iddis.disabled = false;
                             }
+
                             function hideLoading() {
                                 loader.classList.remove("loading");
+                            }
+
+                            function checkID() {
+                                displayLoading()
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var id = document.getElementById("id_member").value;
+
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                                var requestOptions = {
+                                    method: "GET",
+                                    headers: myHeaders,
+                                    redirect: "follow",
+                                };
+                                fetch(
+                                        "https://api.tms-klar.com/api/users/" + id,
+                                        requestOptions
+                                    )
+                                    .then((response) => response.text())
+                                    .then(result => {
+                                        hideLoading()
+                                        var data = JSON.parse(result);
+
+                                        var hasildata = data.success;
+                                        var message = data.message;
+                                        var namevalue = data.data.name;
+                                        var dobvalue = data.data.tanggal_lahir;
+                                        iddis.disabled = true;
+                                        if (hasildata) {
+                                            var name = document.getElementById("member_name");
+                                            var dob = document.getElementById("member_dob");
+                                            name.value = namevalue;
+                                            dob.value = dobvalue;
+
+                                        } else {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                `&times;</button>${message}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        }
+
+
+                                    })
+                                    .catch(error => {
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            '&times;</button>Data Tidak Ditemukan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                    });
+                            }
+
+                            function checkName() {
+                                displayLoading()
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                const url = "https://api.tms-klar.com/api/users";
+                                iddis.disabled = true;
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                                var requestOptions = {
+                                    method: 'GET',
+                                    headers: myHeaders,
+                                    redirect: 'follow'
+                                };
+
+
+                                fetch(url, requestOptions)
+                                    .then(response => response.text())
+                                    .then(result => {
+                                        hideLoading()
+                                        var data = JSON.parse(result);
+                                        var hasildata = data.success;
+                                        var elements = document.getElementById('token');
+                                        var users = data.data;
+                                        var filter = {
+                                            name: document.getElementById("member_name").value,
+                                            tanggal_lahir: document.getElementById('member_dob').value
+                                        };
+
+                                        var filters = users.filter(function(item) {
+                                            for (var key in filter) {
+                                                if (item[key] === undefined || item[key] != filter[key])
+                                                    return false;
+                                            }
+                                            return true;
+                                        });
+
+                                        var filterData = filters[0];
+
+                                        var id = filterData.id;
+                                        var input_id = document.getElementById("id_member");
+                                        input_id.value = id;
+
+                                    })
+                                    .catch(error => {
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                    });
                             }
 
                             function daftarTransaksi() {
@@ -177,6 +304,7 @@
                                     }));
                             }
                         </script>
+
                     </div>
                 </div>
             </div>
