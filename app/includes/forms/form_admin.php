@@ -174,7 +174,6 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
-
                                             document.getElementById("form_admin").reset();
                                         } else {
                                             hideLoading()

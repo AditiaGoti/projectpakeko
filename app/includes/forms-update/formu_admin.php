@@ -51,10 +51,11 @@
                                         <input onchange="VerifyUploadSizeIsOK()" id="admin_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
                                         <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
                                     </div>
-                                    <button type="submit" id="btn" class="btn btn-inverse-success btn-lg btn-block">
-                                        Submit
-                                    </button>
+
                                 </div>
+                                <button type="submit" id="btn" class="btn btn-inverse-success btn-lg btn-block">
+                                    Submit
+                                </button>
                             </div>
 
                         </form>
