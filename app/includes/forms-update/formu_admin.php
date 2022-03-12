@@ -185,7 +185,7 @@
                                         hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        var message = data.errors;
+                                        var message = data.message;
 
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
