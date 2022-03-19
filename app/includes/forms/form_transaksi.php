@@ -54,8 +54,12 @@
                                 </select>
                             </div>
                             <div class="input-group mb-3">
-                                <label style="margin-top:5px; padding-right:30px;">Keterangan</label>
-                                <input id="keterangan" type="text" class="form-control form-control-lg" aria-label="Nominal" />
+                                <label for="exampleFormControlSelect1" style="margin-top:5px; padding-right:28px;">Keterangan</label>
+                                <select class="form-control form-control-lg" id="keterangan" required>
+                                    <option>-</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Debit">Debit</option>
+                                </select>
                             </div>
                             <button onclick="daftarTransaksi() " type="button" class="btn btn-inverse-success btn-lg btn-block">
                                 Submit
