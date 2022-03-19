@@ -354,7 +354,12 @@
                                                     var message = result.message;
                                                     if (hasildata) {
                                                         sessionStorage.removeItem("id-member");
-                                                        location.reload();
+                                                        if (type == 2) {
+                                                            location.href = '/owall_member';
+
+                                                        } else {
+                                                            location.href = '/all_member';
+                                                        }
                                                     } else {
                                                         $('<div class="alert alert-danger">' +
                                                             '<button type="button" class="close" data-dismiss="alert">' +

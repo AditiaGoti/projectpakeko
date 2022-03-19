@@ -410,7 +410,12 @@
                                                     var message = result.message;
                                                     if (hasildata) {
                                                         sessionStorage.removeItem("id-transaksi");
-                                                        location.reload();
+                                                        if (type == 2) {
+                                                            location.href = '/owtransaksi';
+
+                                                        } else {
+                                                            location.href = '/transaksi';
+                                                        }
                                                     } else {
                                                         $('<div class="alert alert-danger">' +
                                                             '<button type="button" class="close" data-dismiss="alert">' +
