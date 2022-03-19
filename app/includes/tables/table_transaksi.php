@@ -53,16 +53,18 @@
                     </div>
                     <div class="modal-body">
                         <h5>Masukan Tanggal Laporan</h5>
-                        <input id="startDate" type="date"> s/d
-                        <input id="endDate" type="date">
-                        <button type="button" onclick="checkDate()" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
-                        <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
-                        <hr>
+                        <form onsubmit="checkDate(); return false">
+                            <input required id="startDate" type="date"> s/d
+                            <input required id="endDate" type="date">
+                            <button type="submit" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
+                            <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
+                        </form>
                         <script>
                             function checkDate() {
+                                sessionStorage.clear("result")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var myArray = [];
+
                                 var dataLaporan = document.getElementById("dataLaporan");
                                 const urlTE = "https://api.tms-klar.com/api/transaksi-export";
 
@@ -91,15 +93,13 @@
                                 fetch(urlTE, requestOptions)
                                     .then(response => response.text())
                                     .then((result => {
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var message = data.total_trans;
-                                        var totTrans = data.total_transbetween;
-                                        var tot = document.getElementById("totTrans");
-                                        var sum = document.getElementById("sumTrans");
+                                        sessionStorage.setItem("result", result);
+                                        if (type == 2) {
+                                            location.href = '/set-owtransaksi';
+                                        } else {
+                                            location.href = '/set-transaksi';
+                                        }
 
-                                        tot.value = message;
-                                        sum.value = totTrans;
                                     }))
                                     .catch(error => console.log('error', error));
                             }
@@ -190,18 +190,7 @@
 
                             }
                         </script>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label style="float:left">Total Transaksi :</label>
-                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left:-5px" />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Jumlah Transaksi :</label>
-                                <input id="sumTrans" disabled type="text" class="form-control " aria-label="name" style="margin-left:-5px" />
-                            </div>
-                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -6,7 +6,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Transaction Data
-                        <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Transaksi</button>
+                        <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Search</button>
+                        <button id="btnprint" onclick="print()" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-info btn-sm">Print</button>
                         <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_transaksi'">Tambah</button>
                         <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_transaksi'">Tambah</button>
                     </h4>
@@ -53,16 +54,17 @@
                     </div>
                     <div class="modal-body">
                         <h5>Masukan Tanggal Laporan</h5>
-                        <input id="startDate" type="date"> s/d
-                        <input id="endDate" type="date">
-                        <button type="button" onclick="checkDate()" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
-                        <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
-                        <hr>
+                        <form onsubmit="checkDate();return false">
+                            <input required id="startDate" type="date"> s/d
+                            <input required id="endDate" type="date">
+                            <button type="submit" style="margin-top: -1px;" class="btn btn-outline-primary btn-sm"><i style="margin: -1px;" class="fa fa-search"></i></button>
+                        </form>
                         <script>
                             function checkDate() {
+                                sessionStorage.clear("result")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var myArray = [];
+
                                 var dataLaporan = document.getElementById("dataLaporan");
                                 const urlTE = "https://api.tms-klar.com/api/transaksi-export";
 
@@ -91,21 +93,15 @@
                                 fetch(urlTE, requestOptions)
                                     .then(response => response.text())
                                     .then((result => {
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var message = data.total_trans;
-                                        var totTrans = data.total_transbetween;
-                                        var tot = document.getElementById("totTrans");
-                                        var sum = document.getElementById("sumTrans");
-
-                                        tot.value = message;
-                                        sum.value = totTrans;
+                                        sessionStorage.setItem("result", result);
+                                        location.reload();
                                     }))
                                     .catch(error => console.log('error', error));
                             }
 
                             function print(result) {
-
+                                var hasil = sessionStorage.getItem("result");
+                                var ex = JSON.parse(hasil);
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
@@ -123,8 +119,8 @@
                                 };
 
                                 var urlencoded = new URLSearchParams();
-                                urlencoded.append("start_date", document.getElementById("startDate").value);
-                                urlencoded.append("end_date", document.getElementById("endDate").value);
+                                urlencoded.append("start_date", ex.start_date);
+                                urlencoded.append("end_date", ex.end_date);
 
                                 var requestOptions = {
                                     method: 'POST',
@@ -190,18 +186,6 @@
 
                             }
                         </script>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label style="float:left">Total Transaksi :</label>
-                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left:-5px" />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Jumlah Transaksi :</label>
-                                <input id="sumTrans" disabled type="text" class="form-control " aria-label="name" style="margin-left:-5px" />
-                            </div>
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -210,7 +194,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-6 col-lg-4 mb-4">
+            <div class="col-xl-4 col-lg-4 mb-4">
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div id="dateTransaksi" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Tanggal Transaksi </h5>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -227,7 +224,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 col-lg-4 mb-4">
+            <div class="col-xl-4 col-lg-4 mb-4">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -270,96 +267,125 @@
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
+                                        var hasil = sessionStorage.getItem("result")
+                                        var ex = JSON.parse(hasil);
                                         var myArray = [];
                                         const url = "https://api.tms-klar.com/api/transaksi";
+                                        buildsum();
+                                        buildtot();
+                                        builddate();
+
+                                        function builddate() {
+                                            var body = `<span class="h2 font-weight-bold mb-0">` + ex.start_date + " s/d " + ex.end_date + `</span>`;
+                                            $("#dateTransaksi").append(body);
+                                        };
+
+                                        function buildtot() {
+                                            var body = `<span class="h2 font-weight-bold mb-0">` + ex.total_trans + " Transaksi" + `</span>`;
+                                            $("#totTransaksi").append(body);
+                                        };
+
+                                        function buildsum() {
+                                            var bilangan = ex.total_transbetween;
+                                            var reverse = bilangan.toString().split('').reverse().join(''),
+                                                ribuan = reverse.match(/\d{1,3}/g);
+                                            ribuan = ribuan.join('.').split('').reverse().join('');
+                                            var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
+                                            $("#sumTransaksi").append(body);
+                                        };
+
                                         $(document).ready(function() {
-                                            $.ajax({
-                                                method: "GET",
-                                                url: url,
-                                                headers: {
-                                                    Authorization: token,
-                                                },
-                                                success: function(response) {
-                                                    data = response.etc;
-                                                    buildtot(data);
-                                                    buildsum(data);
+                                            $("#table-data").DataTable({
+                                                data: ex.data,
+                                                "autoWidth": false,
+                                                responsive: true,
+                                                "pageLength": 50,
+                                                sorting: false,
+                                                columns: [{
+                                                        'data': null,
+                                                        'render': function(data) {
+                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class=" deleteBtnUA btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
+                                                        }
+                                                    },
+                                                    {
+                                                        'data': 'nama_member'
+                                                    },
+                                                    {
+                                                        'data': 'id_member'
+                                                    },
 
-                                                    function buildtot(data) {
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + data.total_transaksi + " Transaksi" + `</span>`;
-                                                        $("#totTransaksi").append(body);
-                                                    };
+                                                    {
+                                                        'data': 'tipe_paket'
+                                                    },
+                                                    {
+                                                        'data': 'nominal',
 
-                                                    function buildsum(data) {
-                                                        var bilangan = data.total_rupiah;
-                                                        var reverse = bilangan.toString().split('').reverse().join(''),
-                                                            ribuan = reverse.match(/\d{1,3}/g);
-                                                        ribuan = ribuan.join('.').split('').reverse().join('');
-                                                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
-                                                        $("#sumTransaksi").append(body);
-                                                    };
+                                                    },
+                                                    {
+                                                        'data': null,
+                                                        'render': function(data) {
+                                                            const d = new Date(data.updated_at);
+                                                            return d.toLocaleDateString()
+                                                        }
+                                                    },
+                                                    {
+                                                        'data': null,
+                                                        'render': function(data) {
+                                                            const d = new Date(data.updated_at);
+                                                            return d.toLocaleTimeString()
+                                                        }
+                                                    },
+                                                    {
+                                                        'data': 'createdby'
+                                                    },
+                                                    {
+                                                        'data': 'keterangan'
+                                                    },
 
-                                                    datad = response.data;
-
-                                                    /*DataTables instantiation.*/
-                                                    $("#table-data").DataTable({
-                                                        data: datad,
-                                                        "autoWidth": false,
-                                                        responsive: true,
-                                                        "pageLength": 50,
-                                                        sorting: false,
-                                                        columns: [{
-                                                                'data': null,
-                                                                'render': function(data) {
-                                                                    return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenter" class=" deleteBtnUA btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
-                                                                }
-                                                            },
-                                                            {
-                                                                'data': 'nama_member'
-                                                            },
-                                                            {
-                                                                'data': 'id_member'
-                                                            },
-
-                                                            {
-                                                                'data': 'tipe_paket'
-                                                            },
-                                                            {
-                                                                'data': 'nominal',
-                                                                'render': DataTable.render.number(',', '.', 2, 'Rp. ')
-                                                            },
-                                                            {
-                                                                'data': null,
-                                                                'render': function(data) {
-                                                                    const d = new Date(data.updated_at);
-                                                                    return d.toLocaleDateString()
-                                                                }
-                                                            },
-                                                            {
-                                                                'data': null,
-                                                                'render': function(data) {
-                                                                    const d = new Date(data.updated_at);
-                                                                    return d.toLocaleTimeString()
-                                                                }
-                                                            },
-                                                            {
-                                                                'data': 'createdby'
-                                                            },
-                                                            {
-                                                                'data': 'keterangan'
-                                                            },
-
-                                                        ]
-                                                    })
-                                                    $('#table-data tbody').on('click', 'button.deleteBtnUA ', function() {
-                                                        var id = $(this).attr('value');
-                                                        var transID = sessionStorage.setItem("id-transaksi", id);
-                                                    });
-                                                },
-                                                error: function() {
-                                                    alert('Terjadi Kesalahan');
-                                                }
-                                            });
+                                                ]
+                                            })
                                         });
+
+                                        $('#table-data tbody').on('click', 'button.deleteBtnUA ', function() {
+                                            var id = $(this).attr('value');
+                                            var transID = sessionStorage.setItem("id-transaksi", id);
+                                        });
+                                        // $(document).ready(function() {
+                                        //     $.ajax({
+                                        //         method: "GET",
+                                        //         url: url,
+                                        //         headers: {
+                                        //             Authorization: token,
+                                        //         },
+                                        //         success: function(response) {
+                                        //             data = response.etc;
+                                        //             buildtot(data);
+                                        //             buildsum(data);
+
+                                        //             function buildtot(data) {
+                                        //                 var body = `<span class="h2 font-weight-bold mb-0">` + data.total_transaksi + " Transaksi" + `</span>`;
+                                        //                 $("#totTransaksi").append(body);
+                                        //             };
+
+                                        //             function buildsum(data) {
+                                        //                 var bilangan = data.total_rupiah;
+                                        //                 var reverse = bilangan.toString().split('').reverse().join(''),
+                                        //                     ribuan = reverse.match(/\d{1,3}/g);
+                                        //                 ribuan = ribuan.join('.').split('').reverse().join('');
+                                        //                 var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
+                                        //                 $("#sumTransaksi").append(body);
+                                        //             };
+
+                                        //             datad = response.data;
+
+                                        //             /*DataTables instantiation.*/
+
+                                        //         },
+                                        //         error: function() {
+                                        //             alert('Terjadi Kesalahan');
+                                        //         }
+                                        //     });
+                                        // });
 
                                         function deleteData() {
                                             var transID = sessionStorage.getItem("id-transaksi");

@@ -47,6 +47,9 @@ Route::get('/admin', function () {
 Route::get('/transaksi', function () {
     return view('admin/table-admin/table_transaksi');
 });
+Route::get('/set-transaksi', function () {
+    return view('admin/table-admin/table_set-transaksi');
+});
 
 Route::get('/kehadiran', function () {
     return view('admin/table-admin/table_kehadiran');
@@ -107,6 +110,10 @@ Route::get('/owform_admin', function () {
 });
 
 Route::get('/owtransaksi', function () {
+    return view('owner/table-owner/table_transaksi');
+});
+
+Route::get('/set-owtransaksi', function () {
     return view('owner/table-owner/table_transaksi');
 });
 
