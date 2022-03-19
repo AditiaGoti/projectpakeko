@@ -59,6 +59,10 @@ Route::get('/all_member', function () {
     return view('admin/table-admin/table_allmember');
 });
 
+Route::get('/set-all_member', function () {
+    return view('admin/table-admin/table_set-allmember');
+});
+
 Route::get('/paket', function () {
     return view('admin/table-admin/table_paket');
 });
@@ -114,7 +118,7 @@ Route::get('/owtransaksi', function () {
 });
 
 Route::get('/set-owtransaksi', function () {
-    return view('owner/table-owner/table_transaksi');
+    return view('owner/table-owner/table_set-transaksi');
 });
 
 Route::get('/owkehadiran', function () {
@@ -124,6 +128,10 @@ Route::get('/owkehadiran', function () {
 
 Route::get('/owall_member', function () {
     return view('owner/table-owner/table_allmember');
+});
+
+Route::get('/set-owall_member', function () {
+    return view('owner/table-owner/table_set-allmember');
 });
 
 Route::get('/owpaket', function () {

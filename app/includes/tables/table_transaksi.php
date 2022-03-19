@@ -64,8 +64,6 @@
                                 sessionStorage.clear("result")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-
-                                var dataLaporan = document.getElementById("dataLaporan");
                                 const urlTE = "https://api.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();
@@ -99,7 +97,6 @@
                                         } else {
                                             location.href = '/set-transaksi';
                                         }
-
                                     }))
                                     .catch(error => console.log('error', error));
                             }
@@ -108,8 +105,6 @@
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var myArray = [];
-                                var dataLaporan = document.getElementById("dataLaporan");
                                 const urlTE = "https://api.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();

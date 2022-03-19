@@ -93,17 +93,17 @@
                     </div>
                     <div class="modal-body">
                         <h5>Masukan Tanggal Laporan</h5>
-                        <input id="startDate" type="date"> s/d
-                        <input id="endDate" type="date">
-                        <button type="button" onclick="checkDate()" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
-                        <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
-                        <hr>
+                        <form onsubmit="checkDate(); return false">
+                            <input required id="startDate" type="date"> s/d
+                            <input required id="endDate" type="date">
+                            <button type="submit" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
+                            <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
+                        </form>
                         <script>
                             function checkDate() {
+                                sessionStorage.clear("result-m")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var myArray = [];
-                                var dataLaporan = document.getElementById("dataLaporan");
                                 const urlTE = "https://api.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
@@ -131,13 +131,14 @@
                                 fetch(urlTE, requestOptions)
                                     .then(response => response.text())
                                     .then((result => {
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var message = data.message;
-                                        var totTrans = data.total;
-                                        var tot = document.getElementById("totTrans");
+                                        sessionStorage.setItem("result-m", result);
+                                        if (type == 2) {
+                                            location.href = '/set-owall_member';
+                                        } else {
+                                            location.href = '/set-all_member';
+                                        }
 
-                                        tot.value = totTrans;
+
                                     }))
                                     .catch(error => console.log('error', error));
                             }
@@ -146,8 +147,6 @@
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var myArray = [];
-                                var dataLaporan = document.getElementById("dataLaporan");
                                 const urlTE = "https://api.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();

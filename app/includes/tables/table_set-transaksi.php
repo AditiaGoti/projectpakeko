@@ -202,7 +202,11 @@
                                 <h5 class="card-title text-uppercase text-muted mb-0">Tanggal Transaksi </h5>
 
                             </div>
-
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,7 +280,7 @@
                                         builddate();
 
                                         function builddate() {
-                                            var body = `<span class="h2 font-weight-bold mb-0">` + ex.start_date + " s/d " + ex.end_date + `</span>`;
+                                            var body = `<span class="h7 font-weight-bold mb-0">` + ex.start_date + " s/d " + ex.end_date + `</span>`;
                                             $("#dateTransaksi").append(body);
                                         };
 
@@ -319,7 +323,7 @@
                                                     },
                                                     {
                                                         'data': 'nominal',
-
+                                                        'render': DataTable.render.number(',', '.', 2, 'Rp. ')
                                                     },
                                                     {
                                                         'data': null,
