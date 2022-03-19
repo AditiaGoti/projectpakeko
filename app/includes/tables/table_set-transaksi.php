@@ -8,8 +8,8 @@
                     <h4 class="page-title">Transaction Data
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Search</button>
                         <button id="btnprint" onclick="print()" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-info btn-sm">Print</button>
-                        <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_transaksi'">Tambah</button>
-                        <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_transaksi'">Tambah</button>
+                        <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/owform_transaksi'">Tambah</button>
+                        <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/form_transaksi'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -354,42 +354,6 @@
                                             var id = $(this).attr('value');
                                             var transID = sessionStorage.setItem("id-transaksi", id);
                                         });
-                                        // $(document).ready(function() {
-                                        //     $.ajax({
-                                        //         method: "GET",
-                                        //         url: url,
-                                        //         headers: {
-                                        //             Authorization: token,
-                                        //         },
-                                        //         success: function(response) {
-                                        //             data = response.etc;
-                                        //             buildtot(data);
-                                        //             buildsum(data);
-
-                                        //             function buildtot(data) {
-                                        //                 var body = `<span class="h2 font-weight-bold mb-0">` + data.total_transaksi + " Transaksi" + `</span>`;
-                                        //                 $("#totTransaksi").append(body);
-                                        //             };
-
-                                        //             function buildsum(data) {
-                                        //                 var bilangan = data.total_rupiah;
-                                        //                 var reverse = bilangan.toString().split('').reverse().join(''),
-                                        //                     ribuan = reverse.match(/\d{1,3}/g);
-                                        //                 ribuan = ribuan.join('.').split('').reverse().join('');
-                                        //                 var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
-                                        //                 $("#sumTransaksi").append(body);
-                                        //             };
-
-                                        //             datad = response.data;
-
-                                        //             /*DataTables instantiation.*/
-
-                                        //         },
-                                        //         error: function() {
-                                        //             alert('Terjadi Kesalahan');
-                                        //         }
-                                        //     });
-                                        // });
 
                                         function deleteData() {
                                             var transID = sessionStorage.getItem("id-transaksi");

@@ -7,8 +7,8 @@
                 <div class="page-header">
                     <h4 class="page-title">Data Kehadiran
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Kehadiran</button>
-                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_kehadiran'">Tambah</button>
-                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_kehadiran'">Tambah</button>
+                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/owform_kehadiran'">Tambah</button>
+                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/form_kehadiran'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -38,9 +38,10 @@
                         <input id="endDate" type="date">
                         <button type="button" onclick="checkDate()" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
                         <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
-                        <hr>
+
                         <script>
                             function checkDate() {
+                                sessionStorage.clear("result-k")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
@@ -72,13 +73,13 @@
                                 fetch(urlTE, requestOptions)
                                     .then(response => response.text())
                                     .then((result => {
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var message = data.message;
-                                        var totTrans = data.total;
-                                        var tot = document.getElementById("totTrans");
+                                        sessionStorage.setItem("result-k", result);
+                                        if (type == 2) {
+                                            location.href = '/set-owkehadiran';
+                                        } else {
+                                            location.href = '/set-kehadiran';
+                                        }
 
-                                        tot.value = totTrans;
                                     }))
                                     .catch(error => console.log('error', error));
                             }
@@ -162,13 +163,6 @@
 
                             }
                         </script>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Total Kehadiran : </label>
-                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
-                            </div>
-
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -177,6 +171,22 @@
             </div>
         </div>
         <div class="row">
+            <div class=" col-lg-12 mb-4">
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div id="sumKehadiran" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Kehadiran</h5>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                    <i class="fa fa-clipboard"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -205,8 +215,16 @@
                                                     Authorization: token,
                                                 },
                                                 success: function(response) {
+                                                    total = response.etc;
+                                                    kehadiran();
+
+
+                                                    function kehadiran() {
+                                                        var body = `<span class="h2 font-weight-bold mb-0">` + total.total_kehadiran + " Orang" + `</span>`;
+                                                        $("#sumKehadiran").append(body);
+                                                    };
+
                                                     data = response.data;
-                                                    console.log(data)
                                                     /*DataTables instantiation.*/
                                                     $("#table-data").DataTable({
                                                         data: data,

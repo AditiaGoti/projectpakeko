@@ -1,47 +1,26 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.2/xlsx.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row page-title-header">
             <div class="col-12">
                 <div class="page-header">
-                    <h4 class="page-title">Data Member
+                    <h4 class="page-title">Data Kehadiran
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Search</button>
                         <button id="btnprint" onclick="print()" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-info btn-sm">Print</button>
-                        <button id="btnAddowMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/owform_member'">Tambah</button>
-                        <button id="btnAddMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/form_member'">Tambah</button>
+                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/owform_kehadiran'">Tambah</button>
+                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/form_kehadiran'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
                         if (type == 2) {
-                            var btnAdd = document.getElementById("btnAddowMember")
+                            var btnAdd = document.getElementById("btnAddowKehadiran")
                             btnAdd.style.display = 'block'
-
                         } else {
-                            var btnAdd = document.getElementById("btnAddMember")
+                            var btnAdd = document.getElementById("btnAddkehadiran")
                             btnAdd.style.display = 'block'
                         }
                     </script>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="exampleModalCenteru" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="bodyModal">
-                        Anda Yakin Akan Hapus Data Ini?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" onclick="deleteDatau()" class="btn btn-danger">Delete</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -62,12 +41,12 @@
 
                         <script>
                             function checkDate() {
-                                sessionStorage.clear("result-m")
+                                sessionStorage.clear("result-k")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.tms-klar.com/api/users-export";
+                                const urlTE = "https://api.tms-klar.com/api/kehadiran-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -94,20 +73,23 @@
                                 fetch(urlTE, requestOptions)
                                     .then(response => response.text())
                                     .then((result => {
-                                        sessionStorage.setItem("result-m", result);
-                                        location.reload();
+                                        sessionStorage.setItem("result-k", result);
+                                        if (type == 2) {
+                                            location.href = '/set-owkehadiran';
+                                        } else {
+                                            location.href = '/set-kehadiran';
+                                        }
                                     }))
                                     .catch(error => console.log('error', error));
                             }
 
                             function print(result) {
-                                var hasil = sessionStorage.getItem("result-m");
-                                var ex = JSON.parse(hasil);
+
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.tms-klar.com/api/users-export";
+                                const urlTE = "https://api.tms-klar.com/api/kehadiran-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -140,23 +122,21 @@
 
                                         var data = dataparse.data;
                                         var createXLSLFormatObj = [];
-                                        var xlsHeader = ["ID", "Name", "Email", "Gender", "Tempat Lahir", "Tanggal Lahir", "No. HP", "Alamat", "Expired Date", "Token"];
-
+                                        var xlsHeader = ["Tanggal", "Waktu", "Email", "Nama"];
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
+
+                                            const dte = data.waktu;
+                                            const date = dte.split(" ");
+
                                             /* XLS Rows Data */
                                             var xlsRows = [{
 
-                                                "ID": data.id,
-                                                "Name": data.name,
+                                                "Tanggal": date[0],
+                                                "Waktu": date[1],
                                                 "Email": data.email,
-                                                "Gender": data.gender,
-                                                "Tempat Lahir": data.tempat_lahir,
-                                                "Tanggal Lahir": data.tanggal_lahir,
-                                                "No. HP": data.nohp,
-                                                "Alamat": data.alamat,
-                                                "Expired Date": data.expired,
-                                                "Token": data.token,
+                                                "Nama": data.nama
+
                                             }];
 
                                             $.each(xlsRows, function(i, data) {
@@ -168,9 +148,9 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Member Data Klub Ade Rai.xlsx";
+                                        var filename = "Attendance Data  Klub Ade Rai.xlsx";
 
-                                        var ws_name = "Data Member";
+                                        var ws_name = "Data Kehadiran";
                                         var wb = XLSX.utils.book_new(),
                                             ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
 
@@ -194,11 +174,11 @@
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
-                            <div id="dateMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">Tanggal Daftar</h5>
+                            <div id="dateKehadiran" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Tanggal Kehadiran</h5>
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
                                     <i class="fa fa-calendar"></i>
                                 </div>
                             </div>
@@ -210,19 +190,18 @@
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
-                            <div id="sumMember" class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Member</h5>
+                            <div id="sumKehadiran" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Kehadiran</h5>
                             </div>
                             <div class="col-auto">
                                 <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                    <i class="fa fa-users"></i>
+                                    <i class="fa fa-clipboard"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -230,149 +209,74 @@
                             <table class="table table-striped table-bordered table-hover" id="table-data">
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Actions</th>
+                                        <th>Tanggal</th>
+                                        <th>Waktu</th>
                                         <th>Nama</th>
-                                        <th>id</th>
                                         <th>Email</th>
-                                        <th>Expired</th>
-                                        <th>Token</th>
-                                        <th>DOB</th>
-                                        <th>No. HP</th>
-                                        <th>Gender</th>
-                                        <th>Alamat</th>
-                                        <th style="display: none"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <script>
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
-                                        var hasil = sessionStorage.getItem("result-m")
-                                        var ex = JSON.parse(hasil);
-                                        var type = '<?php echo $_SESSION['type']; ?>'
                                         var myArray = [];
-                                        var tableMember = document.getElementById("tableMember");
-                                        const urlu = "https://api.tms-klar.com/api/users";
-                                        member();
+                                        var hasil = sessionStorage.getItem("result-k")
+                                        var ex = JSON.parse(hasil);
+                                        var tableKehadiran = document.getElementById("tabel-data");
+                                        const url = "https://api.tms-klar.com/api/kehadiran";
+                                        kehadiran();
                                         date();
 
-                                        function member() {
+                                        function kehadiran() {
                                             var body = `<span class="h2 font-weight-bold mb-0">` + ex.total + " Orang" + `</span>`;
-                                            $("#sumMember").append(body);
+                                            $("#sumKehadiran").append(body);
                                         };
 
                                         function date() {
                                             var body = `<span class="h2 font-weight-bold mb-0">` + ex.start_date + " s/d " + ex.end_date + `</span>`;
-                                            $("#dateMember").append(body);
+                                            $("#dateKehadiran").append(body);
                                         };
 
                                         $(document).ready(function() {
 
+
+                                            /*DataTables instantiation.*/
                                             $("#table-data").DataTable({
                                                 data: ex.data,
-                                                "order": [
-                                                    [2, "asc"]
-                                                ],
+                                                "autoWidth": false,
+                                                "sorting": false,
                                                 responsive: true,
                                                 "pageLength": 50,
-                                                autoWidth: false,
                                                 columns: [{
                                                         'data': null,
                                                         'render': function(data) {
-                                                            return '<button value="' + data.id + '" class="updateBtnU btn btn-warning btn-xs" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                            const dte = data.waktu;
+                                                            const date = dte.split(" ");
+                                                            return date[0];
                                                         }
+
                                                     },
                                                     {
                                                         'data': null,
                                                         'render': function(data) {
-                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenteru" class=" deleteBtnU btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
+                                                            const dte = data.waktu;
+                                                            const date = dte.split(" ");
+                                                            return date[1] + " WIB";
                                                         }
                                                     },
                                                     {
-                                                        'data': 'name'
-                                                    },
-                                                    {
-                                                        'data': 'id'
+                                                        'data': 'nama'
                                                     },
                                                     {
                                                         'data': 'email'
                                                     },
-                                                    {
-                                                        'data': 'expired'
-                                                    },
-                                                    {
-                                                        'data': 'token'
-                                                    },
-                                                    {
-                                                        'data': 'tanggal_lahir'
-                                                    },
-                                                    {
-                                                        'data': 'nohp'
-                                                    },
-                                                    {
-                                                        'data': 'gender'
-                                                    },
-                                                    {
-                                                        'data': 'alamat'
-                                                    },
+
+
                                                 ]
                                             })
-                                            $('#table-data tbody').on('click', 'button.updateBtnU ', function() {
-                                                var id = $(this).attr('value');
-                                                console.log(id);
-                                                if (type == 2) {
-                                                    var memID = sessionStorage.setItem("id-member", id);
-                                                    location.href = "/owformu_member";
-                                                } else {
-                                                    var memID = sessionStorage.setItem("id-member", id);
-                                                    location.href = "formu_member";
-                                                }
-                                            });
 
-                                            $('#table-data tbody').on('click', 'button.deleteBtnU ', function() {
-                                                var id = $(this).attr('value');
-                                                var memID = sessionStorage.setItem("id-member", id);
-                                            });
+
                                         });
-
-                                        function deleteDatau() {
-                                            var memID = sessionStorage.getItem("id-member");
-                                            var myHeaders = new Headers();
-                                            myHeaders.append(
-                                                "Authorization",
-                                                token);
-                                            var deleteRequest = {
-                                                method: "Delete",
-                                                headers: myHeaders,
-                                                redirect: "follow",
-                                            };
-                                            fetch(`${urlu}/${memID}`, deleteRequest)
-                                                .then((res) => res.json())
-                                                .then((result => {
-
-                                                    var hasildata = result.success;
-                                                    var message = result.message;
-                                                    if (hasildata) {
-                                                        sessionStorage.removeItem("id-member");
-                                                        if (type == 2) {
-                                                            location.href = '/owall_member';
-
-                                                        } else {
-                                                            location.href = '/all_member';
-                                                        }
-                                                    } else {
-                                                        $('<div class="alert alert-danger">' +
-                                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                                            `&times;</button>${message}</div>`).hide().prependTo('#bodyModal').fadeIn(1000);
-
-                                                        $(".alert").delay(3000).fadeOut(
-                                                            "normal",
-                                                            function() {
-                                                                $(this).remove();
-                                                            });
-                                                    }
-                                                }))
-                                        };
                                     </script>
                                 </tbody>
                             </table>
@@ -380,17 +284,14 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <footer class="footer">
-            <div class="container-fluid clearfix">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022. All Rights Reserved</span>
-            </div>
-
-        </footer>
-        <!-- partial -->
     </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:../../partials/_footer.html -->
+    <footer class="footer">
+        <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2022. All Rights Reserved</span>
+        </div>
+    </footer>
+    <!-- partial -->
+</div>

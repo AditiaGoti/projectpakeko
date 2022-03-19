@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Package Data
-                        <button id="btnAddowPaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/owform_paket'">Tambah</button>
-                        <button id="btnAddPaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-primary btn-sm" onclick="window.location.href='/form_paket'">Tambah</button>
+                        <button id="btnAddowPaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/owform_paket'">Tambah</button>
+                        <button id="btnAddPaket" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/form_paket'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'

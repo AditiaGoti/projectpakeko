@@ -55,6 +55,10 @@ Route::get('/kehadiran', function () {
     return view('admin/table-admin/table_kehadiran');
 });
 
+Route::get('/set-kehadiran', function () {
+    return view('admin/table-admin/table_set-kehadiran');
+});
+
 Route::get('/all_member', function () {
     return view('admin/table-admin/table_allmember');
 });
@@ -123,6 +127,9 @@ Route::get('/set-owtransaksi', function () {
 
 Route::get('/owkehadiran', function () {
     return view('owner/table-owner/table_kehadiran');
+});
+Route::get('/set-owkehadiran', function () {
+    return view('owner/table-owner/table_set-kehadiran');
 });
 
 
