@@ -60,7 +60,6 @@
                         <input id="endDate" type="date">
                         <button type="button" onclick="checkDate()" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
                         <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
-                        <hr>
                         <script>
                             function checkDate() {
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
@@ -94,19 +93,14 @@
                                 fetch(urlTE, requestOptions)
                                     .then(response => response.text())
                                     .then((result => {
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var message = data.message;
-                                        var totTrans = data.total;
-                                        var tot = document.getElementById("totTrans");
-
-                                        tot.value = totTrans;
+                                        sessionStorage.setItem("result-m", result);
+                                        location.reload();
                                     }))
                                     .catch(error => console.log('error', error));
                             }
 
                             function print(result) {
-                                var hasil = sessionStorage.getItem("result");
+                                var hasil = sessionStorage.getItem("result-m");
                                 var ex = JSON.parse(hasil);
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;

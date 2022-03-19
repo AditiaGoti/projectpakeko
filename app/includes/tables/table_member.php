@@ -222,13 +222,6 @@
 
                             }
                         </script>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Total Member: </label>
-                                <input id="totTrans" disabled type="email" class="form-control " aria-label="email" style="margin-left: -2px;" />
-                            </div>
-
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
