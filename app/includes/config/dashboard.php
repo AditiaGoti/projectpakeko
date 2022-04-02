@@ -26,7 +26,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-6" onclick="window.location='/allmember';">
+            <div class="col-xl-2 col-lg-6 " onclick="window.location='/transaksi';">
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div id="sumTransaksiBulan" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Transaksi Bulan Ini</h5>
+
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-6 mb-4" onclick="window.location='/allmember';">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -42,13 +59,29 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xl-2 col-lg-6 mb-4" onclick="window.location='/allmember';">
+                <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div id="sumMemberBulan" class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Member Bulan Ini</h5>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="p-4 border-bottom bg-light">
                         <h4 class="card-title mb-0">Kunjungan Pelanggan</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="kehadiranChart" height="100"></canvas>
+                        <canvas id="kehadiranChart" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -58,7 +91,7 @@
                         <h4 class="card-title mb-0">Member Baru</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="memberChart" height="100"></canvas>
+                        <canvas id="memberChart" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -68,7 +101,7 @@
                         <h4 class="card-title mb-0">Nominal Transaksi</h4>
                     </div>
                     <div class="card-body">
-                        <canvas id="transaksiChart" height="100"></canvas>
+                        <canvas id="transaksiChart" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -99,16 +132,18 @@
                 },
                 success: function(response) {
                     data = response.etc;
+                    const obj = data.rupiah_permonth;
+                    const lastKey = Object.keys(obj).pop();
+                    const TransaksiBulan = obj[lastKey];
                     rp = JSON.stringify(data.rupiah_permonth);
                     var dataT = JSON.parse(rp);
                     var values = [];
                     for (var i in dataT)
                         values.push(dataT[i]);
 
-
                     buildData(data);
+                    buildDataTransaksi(data);
                     chartTransaksi(data);
-
 
                     function buildData(data) {
                         var bilangan = data.total_rupiah;
@@ -118,6 +153,16 @@
 
                         var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
                         $("#sumTransaksi").append(body);
+                    };
+
+                    function buildDataTransaksi(data) {
+                        var bilangan = TransaksiBulan;
+                        var reverse = bilangan.toString().split('').reverse().join(''),
+                            ribuan = reverse.match(/\d{1,3}/g);
+                        ribuan = ribuan.join('.').split('').reverse().join('');
+
+                        var body = `<span class="h2 font-weight-bold mb-0">` + "Rp. " + ribuan + `</span>`;
+                        $("#sumTransaksiBulan").append(body);
                     };
 
                     function chartTransaksi(data) {
@@ -190,17 +235,28 @@
                 },
                 success: function(response) {
                     data = response.etc;
+
+                    const obj = data.user_data_permonth;
+                    const lastKey = Object.keys(obj).pop();
+                    const userBulan = obj[lastKey];
+
                     udp = JSON.stringify(data.user_data_permonth);
                     var dataM = JSON.parse(udp);
                     var values = [];
                     for (var i in dataM)
                         values.push(dataM[i]);
                     buildData(data);
+                    buildDataBulan(data);
                     chartMember(data);
 
                     function buildData(data) {
                         var body = `<span class="h2 font-weight-bold mb-0">` + data.total_member + " Orang" + `</span>`;
                         $("#sumMember").append(body);
+                    };
+
+                    function buildDataBulan(data) {
+                        var body = `<span class="h2 font-weight-bold mb-0">` + userBulan + " Orang" + `</span>`;
+                        $("#sumMemberBulan").append(body);
                     };
 
                     function chartMember(data) {
