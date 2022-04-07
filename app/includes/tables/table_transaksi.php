@@ -138,7 +138,7 @@
 
                                         var data = dataparse.data;
                                         var createXLSLFormatObj = [];
-                                        var xlsHeader = ["TID", "ID", "Nama", "Paket", "Nominal", "Tanggal", "Created By", "Keterangan"];
+                                        var xlsHeader = ["TID", "ID", "Nama", "Paket", "Nominal", "Tanggal", "Created By", "Pembayaran", "Keterangan"];
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
                                             const dte = data.updated_at;
@@ -159,6 +159,7 @@
                                                 "Nominal": ribuan,
                                                 "Tanggal": date[0],
                                                 "Created_By": data.createdby,
+                                                "Pembayaran": data.pembayaran,
                                                 "Keterangan": data.keterangan
                                             }];
 
@@ -246,6 +247,7 @@
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <th>CreatedBy</th>
+                                        <th>Pembayaran</th>
                                         <th>Ket</th>
 
                                     </tr>
@@ -327,6 +329,9 @@
                                                             },
                                                             {
                                                                 'data': 'createdby'
+                                                            },
+                                                            {
+                                                                'data': 'pembayaran'
                                                             },
                                                             {
                                                                 'data': 'keterangan'

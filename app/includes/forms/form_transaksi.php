@@ -56,9 +56,10 @@
                             <div class="input-group mb-3">
                                 <label for="exampleFormControlSelect1" style="margin-top:5px; padding-right:20px;">Pembayaran</label>
                                 <select class="form-control form-control-lg" id="pembayaran" required>
-                                    <option>-</option>
                                     <option value="Cash">Cash</option>
-                                    <option value="Debit">Debit</option>
+                                    <option value="BCA">Bank BCA</option>
+                                    <option value="Mandiri">Bank Mandiri</option>
+                                    <option value="Permata">Bank Permata</option>
                                 </select>
                             </div>
                             <div class="input-group mb-3">
@@ -255,6 +256,10 @@
                                 urlencoded.append(
                                     "keterangan",
                                     document.getElementById("keterangan").value
+                                );
+                                urlencoded.append(
+                                    "pembayaran",
+                                    document.getElementById("pembayaran").value
                                 );
 
                                 var requestOptions = {
