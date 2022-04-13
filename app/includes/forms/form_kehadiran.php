@@ -15,7 +15,7 @@
         width: 100%;
         height: 250px;
 
-        transition: transform 1s;
+        transition: transform 1, 5s;
 
     }
 
