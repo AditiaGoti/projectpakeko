@@ -207,7 +207,6 @@
                                     },
                                     title: {
                                         display: true,
-                                        text: 'Chart.js Bar Chart'
                                     }
                                 }
                             },
@@ -301,7 +300,6 @@
                                     },
                                     title: {
                                         display: true,
-                                        text: 'Chart.js Bar Chart'
                                     }
                                 }
                             },
@@ -377,7 +375,6 @@
                                     },
                                     title: {
                                         display: true,
-                                        text: 'Chart.js Bar Chart'
                                     }
                                 }
                             },

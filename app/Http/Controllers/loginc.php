@@ -74,33 +74,33 @@ class loginc extends Controller
             switch ($type) {
                 case 0:
                     $_SESSION["login_status"] = true;
-                    header('location: /member');
+                    header('location: /cileungsi/member');
                     exit;
                     break;
                 case 1:
                     $_SESSION["login_status"] = true;
-                    header('location: /admin');
+                    header('location: /cileungsi/admin');
                     exit;
                     break;
                 case 2:
                     $_SESSION["login_status"] = true;
-                    header('location: /owner');
+                    header('location: /cileungsi/owner');
                     exit;
                     break;
                     switch ($type) {
                         case 0:
                             $_SESSION["login_status"] = true;
-                            header('location: /member');
+                            header('location: /cileungsi/member');
                             exit;
                             break;
                         case 1:
                             $_SESSION["login_status"] = true;
-                            header('location: /admin');
+                            header('location: /cileungsi/admin');
                             exit;
                             break;
                         case 2:
                             $_SESSION["login_status"] = true;
-                            header('location: /owner');
+                            header('location: /cileungsi/owner');
                             exit;
                             break;
                     }

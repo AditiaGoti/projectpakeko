@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-profile">
-            <a href="/profile-admin" class="nav-link">
+            <a href="/cileungsi/profile-admin" class="nav-link">
                 <div class="text-wrapper">
                     <p class="profile-name"> <i class="fa fa-user" style="margin-left: -10px; padding-right: 8px;"></i><?php echo $_SESSION['name'] ?></p>
                     <p class="designation"><i class="fa fa-envelope" style="margin-left: -11px;  padding-right: 3px;"></i>&nbsp<?php echo $_SESSION['email'] ?></p>
@@ -10,37 +10,37 @@
         </li>
         <li class="nav-item nav-category">Main Menu</li>
         <li class="nav-item">
-            <a class="nav-link" href="/admin">
+            <a class="nav-link" href="/cileungsi/admin">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Dashboard</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/all_member">
+            <a class="nav-link" href="/cileungsi/all_member">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Member</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/kehadiran">
+            <a class="nav-link" href="/cileungsi/kehadiran">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Kehadiran</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/transaksi">
+            <a class="nav-link" href="/cileungsi/transaksi">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Transaksi</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/paket">
+            <a class="nav-link" href="/cileungsi/paket">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Paket</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/logout">
+            <a class="nav-link" href="/cileungsi/logout">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Logout</span>
             </a>
