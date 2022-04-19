@@ -12,15 +12,15 @@ if (!$_SESSION['type'] == 0) {
 }
 ?>
 
-<?php include(app_path() . '/ragunan/config/header.php'); ?>
+<?php include(app_path() . '/includes/ragunan/config/header.php'); ?>
 
 <body>
     <div class="container-scroller">
-        <?php include(app_path() . '/ragunan/config/navside-member.php'); ?>
-        <?php include(app_path() . '/ragunan/config/newprofile.php'); ?>
+        <?php include(app_path() . '/includes/ragunan/config/navside-member.php'); ?>
+        <?php include(app_path() . '/includes/ragunan/config/newprofile.php'); ?>
     </div>
     </div>
-    <?php include(app_path() . '/ragunan/config/footer.php'); ?>
+    <?php include(app_path() . '/includes/ragunan/config/footer.php'); ?>
 </body>
 
 </html>

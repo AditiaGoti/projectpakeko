@@ -10,18 +10,18 @@ if (!$_SESSION['type'] == 2) {
     header("location: /");
     exit;
 }
-?><?php include(app_path() . '/ragunan/config/header.php'); ?>
+?><?php include(app_path() . '/includes/ragunan/config/header.php'); ?>
 
 <body>
     <div class="container-scroller">
         <div id="loading"> </div>
-        <?php include(app_path() . '/ragunan/config/navbar-owner.php'); ?>
+        <?php include(app_path() . '/includes/ragunan/config/navbar-owner.php'); ?>
         <div class="container-fluid page-body-wrapper">
-            <?php include(app_path() . '/ragunan/config/sidebar-owner.php'); ?>
-            <?php include(app_path() . '/ragunan/forms-update/formu_paket.php'); ?>
+            <?php include(app_path() . '/includes/ragunan/config/sidebar-owner.php'); ?>
+            <?php include(app_path() . '/includes/ragunan/forms-update/formu_paket.php'); ?>
         </div>
     </div>
-    <?php include(app_path() . '/ragunan/config/footer.php'); ?>
+    <?php include(app_path() . '/includes/ragunan/config/footer.php'); ?>
 </body>
 
 </html>
