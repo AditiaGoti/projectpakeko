@@ -12,16 +12,16 @@ if (!$_SESSION['type'] == 0) {
 }
 ?>
 
-<?php include(app_path() . '/cileungsi/config/header.php'); ?>
+<?php include(app_path() . '/ragunan/config/header.php'); ?>
 
 <body>
     <div class="container-scroller">
         <div id="loading"> </div>
-        <?php include(app_path() . '/cileungsi/config/navside-member.php'); ?>
-        <?php include(app_path() . '/cileungsi/config/profile-member.php'); ?>
+        <?php include(app_path() . '/ragunan/config/navside-member.php'); ?>
+        <?php include(app_path() . '/ragunan/config/profile-member.php'); ?>
     </div>
     </div>
-    <?php include(app_path() . '/cileungsi/config/footer.php'); ?>
+    <?php include(app_path() . '/ragunan/config/footer.php'); ?>
 </body>
 
 </html>

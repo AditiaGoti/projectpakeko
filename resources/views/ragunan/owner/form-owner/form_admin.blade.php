@@ -11,21 +11,21 @@ if (!$_SESSION['type'] == 2) {
     exit;
 }
 ?>
-<?php include(app_path() . '/cileungsi/config/header.php'); ?>
+<?php include(app_path() . '/ragunan/config/header.php'); ?>
 
 <body>
 
     <div class="container-scroller">
         <div id="loading"> </div>
-        <?php include(app_path() . '/cileungsi/config/navbar-owner.php'); ?>
+        <?php include(app_path() . '/ragunan/config/navbar-owner.php'); ?>
 
         <div class="container-fluid page-body-wrapper">
-            <?php include(app_path() . '/cileungsi/config/sidebar-owner.php'); ?>
-            <?php include(app_path() . '/cileungsi/forms/form_admin.php'); ?>
+            <?php include(app_path() . '/ragunan/config/sidebar-owner.php'); ?>
+            <?php include(app_path() . '/ragunan/forms/form_admin.php'); ?>
         </div>
     </div>
 
-    <?php include(app_path() . '/cileungsi/config/footer.php'); ?>
+    <?php include(app_path() . '/ragunan/config/footer.php'); ?>
 </body>
 
 </html>
