@@ -12,15 +12,15 @@ if (!$_SESSION['type'] == 0) {
 }
 ?>
 
-<?php include(app_path() . '/cileungsi/config/header.php'); ?>
+<?php include(app_path() . '/includes/cileungsi/config/header.php'); ?>
 
 <body>
     <div class="container-scroller">
-        <?php include(app_path() . '/cileungsi/config/navside-member.php'); ?>
-        <?php include(app_path() . '/cileungsi/config/newprofile.php'); ?>
+        <?php include(app_path() . '/includes/cileungsi/config/navside-member.php'); ?>
+        <?php include(app_path() . '/includes/cileungsi/config/newprofile.php'); ?>
     </div>
     </div>
-    <?php include(app_path() . '/cileungsi/config/footer.php'); ?>
+    <?php include(app_path() . '/includes/cileungsi/config/footer.php'); ?>
 </body>
 
 </html>
