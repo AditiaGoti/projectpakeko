@@ -7,5 +7,5 @@ if (!isset($_SESSION['login_status'])) {
     exit;
 }
 ?>
-<?php include(app_path() . '/includes/config/header.php'); ?>
-<?php include(app_path() . '/includes/config/logout.php'); ?>
+<?php include(app_path() . '/cileungsi/config/header.php'); ?>
+<?php include(app_path() . '/cileungsi/config/logout.php'); ?>
