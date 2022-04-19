@@ -64,11 +64,11 @@
                                         </div>
                                     </div>
                                     <div class="buttonupdate">
-                                        <button id="EPMember" style=" display: block; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-member'">Edit Profile</button>
+                                        <button id="EPMember" style=" display: block; margin-left: 340px;  margin-top: 40px;" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/cileungsi/editprofile-member'">Edit Profile</button>
                                     </div>
                                     <div class="buttoncp">
 
-                                        <button id="CPMember" style="display: block;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-member'">Change Password</button>
+                                        <button id="CPMember" style="display: block;float:right; margin-top: -29px;" class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/cileungsi/changepass-member'">Change Password</button>
                                     </div>
                                 </div>
                             </div>

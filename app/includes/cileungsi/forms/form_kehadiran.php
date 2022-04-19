@@ -178,8 +178,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Menambahkan Kehadiran Member Klub Ade Rai
-                        <button id="owbackkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owkehadiran'">Back</button>
-                        <button id="backkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/kehadiran'">Back</button>
+                        <button id="owbackkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/cileungsi/owkehadiran'">Back</button>
+                        <button id="backkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/cileungsi/kehadiran'">Back</button>
                     </h4>
                 </div>
             </div>

@@ -27,148 +27,149 @@ Route::get('/logout', function () {
     return view('logout');
 });
 
-// Profile
+//Cileungsi
+/// Profile
 
-Route::view('/profile-admin', 'cileungsi/admin/view-admin/profile-admin');
-Route::view('/profile-member', 'cileungsi/member/profile-member');
+Route::view('/cileungsi/profile-admin', 'cileungsi/admin/view-admin/profile-admin');
+Route::view('/cileungsi/profile-member', 'cileungsi/member/profile-member');
 
-Route::view('/editprofile-admin', 'cileungsi/admin/view-admin/editprofile-admin');
-Route::view('/editprofile-member', 'cileungsi/member/editprofile-member');
+Route::view('/cileungsi/editprofile-admin', 'cileungsi/admin/view-admin/editprofile-admin');
+Route::view('/cileungsi/editprofile-member', 'cileungsi/member/editprofile-member');
 
-Route::view('/changepass-admin', 'cileungsi/admin/view-admin/changepass-admin');
-Route::view('/changepass-member', 'cileungsi/member/changepass-member');
+Route::view('/cileungsi/changepass-admin', 'cileungsi/admin/view-admin/changepass-admin');
+Route::view('/cileungsi/changepass-member', 'cileungsi/member/changepass-member');
 
-// Admin
+/// Admin
 
-Route::get('/admin', function () {
+Route::get('/cileungsi/admin', function () {
     return view('cileungsi/admin/view-admin/dashboard');
 });
 
-Route::get('/transaksi', function () {
+Route::get('/cileungsi/transaksi', function () {
     return view('cileungsi/admin/table-admin/table_transaksi');
 });
-Route::get('/set-transaksi', function () {
+Route::get('/cileungsi/set-transaksi', function () {
     return view('cileungsi/admin/table-admin/table_set-transaksi');
 });
 
-Route::get('/kehadiran', function () {
+Route::get('/cileungsi/kehadiran', function () {
     return view('cileungsi/admin/table-admin/table_kehadiran');
 });
 
-Route::get('/set-kehadiran', function () {
+Route::get('/cileungsi/set-kehadiran', function () {
     return view('cileungsi/admin/table-admin/table_set-kehadiran');
 });
 
-Route::get('/all_member', function () {
+Route::get('/cileungsi/all_member', function () {
     return view('cileungsi/admin/table-admin/table_allmember');
 });
 
-Route::get('/set-all_member', function () {
+Route::get('/cileungsi/set-all_member', function () {
     return view('cileungsi/admin/table-admin/table_set-allmember');
 });
 
-Route::get('/paket', function () {
+Route::get('/cileungsi/paket', function () {
     return view('cileungsi/admin/table-admin/table_paket');
 });
 
-Route::get('/form_kehadiran', function () {
+Route::get('/cileungsi/form_kehadiran', function () {
     return view('cileungsi/admin/form-admin/form_kehadiran');
 });
 
-Route::get('/form_member', function () {
+Route::get('/cileungsi/form_member', function () {
     return view('cileungsi/admin/form-admin/form_member');
 });
 
-Route::get('/form_transaksi', function () {
+Route::get('/cileungsi/form_transaksi', function () {
     return view('cileungsi/admin/form-admin/form_transaksi');
 });
 
-Route::get('/form_paket', function () {
+Route::get('/cileungsi/form_paket', function () {
     return view('cileungsi/admin/form-admin/form_paket');
 });
 
-Route::get('/formu_member', function () {
+Route::get('/cileungsi/formu_member', function () {
     return view('cileungsi/admin/formu-admin/formu_member');
 });
 
-Route::get('/formu_paket', function () {
+Route::get('/cileungsi/formu_paket', function () {
     return view('cileungsi/admin/formu-admin/formu_paket');
 });
 
-// Member
+/// Member
 
-Route::get('/member', function () {
+Route::get('/cileungsi/member', function () {
     return view('cileungsi/member/dashboard-member');
 });
 
-//Owner
+///Owner
 
 
 
-Route::get('/owner', function () {
+Route::get('/cileungsi/owner', function () {
     return view('cileungsi/owner/view-owner/dashboard-owner');
 });
 
-Route::get('/owalladmin', function () {
+Route::get('/cileungsi/owalladmin', function () {
     return view('cileungsi/owner/table-owner/table_alladmin');
 });
 
-Route::get('/owform_admin', function () {
+Route::get('/cileungsi/owform_admin', function () {
     return view('cileungsi/owner/form-owner/form_admin');
 });
 
-Route::get('/owtransaksi', function () {
+Route::get('/cileungsi/owtransaksi', function () {
     return view('cileungsi/owner/table-owner/table_transaksi');
 });
 
-Route::get('/set-owtransaksi', function () {
+Route::get('/cileungsi/set-owtransaksi', function () {
     return view('cileungsi/owner/table-owner/table_set-transaksi');
 });
 
-Route::get('/owkehadiran', function () {
+Route::get('/cileungsi/owkehadiran', function () {
     return view('cileungsi/owner/table-owner/table_kehadiran');
 });
-Route::get('/set-owkehadiran', function () {
+Route::get('/cileungsi/set-owkehadiran', function () {
     return view('cileungsi/owner/table-owner/table_set-kehadiran');
 });
 
 
-Route::get('/owall_member', function () {
+Route::get('/cileungsi/owall_member', function () {
     return view('cileungsi/owner/table-owner/table_allmember');
 });
 
-Route::get('/set-owall_member', function () {
+Route::get('/cileungsi/set-owall_member', function () {
     return view('cileungsi/owner/table-owner/table_set-allmember');
 });
 
-Route::get('/owpaket', function () {
+Route::get('/cileungsi/owpaket', function () {
     return view('cileungsi/owner/table-owner/table_paket');
 });
 
-Route::get('/owform_kehadiran', function () {
+Route::get('/cileungsi/owform_kehadiran', function () {
     return view('cileungsi/owner/form-owner/form_kehadiran');
 });
 
-Route::get('/owform_member', function () {
+Route::get('/cileungsi/owform_member', function () {
     return view('cileungsi/owner/form-owner/form_member');
 });
 
-Route::get('/owform_transaksi', function () {
+Route::get('/cileungsi/owform_transaksi', function () {
     return view('cileungsi/owner/form-owner/form_transaksi');
 });
 
-Route::get('/owform_paket', function () {
+Route::get('/cileungsi/owform_paket', function () {
     return view('cileungsi/owner/form-owner/form_paket');
 });
 
-Route::get('/owformu_admin', function () {
+Route::get('/cileungsi/owformu_admin', function () {
     return view('cileungsi/owner/formu-owner/formu_admin');
 });
 
-Route::get('/owformu_member', function () {
+Route::get('/cileungsi/owformu_member', function () {
     return view('cileungsi/owner/formu-owner/formu_member');
 });
 
-Route::get('/owformu_paket', function () {
+Route::get('/cileungsi/owformu_paket', function () {
     return view('cileungsi/owner/formu-owner/formu_paket');
 });

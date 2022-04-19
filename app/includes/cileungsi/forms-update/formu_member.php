@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Merubah Member Klub Ade Rai
-                        <button id="owbackumember" style="float:right; margin-left:5px;display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owall_member'">Back</button>
-                        <button id="backumember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/all_member'">Back</button>
+                        <button id="owbackumember" style="float:right; margin-left:5px;display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/cileungsi/owall_member'">Back</button>
+                        <button id="backumember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/cileungsi/all_member'">Back</button>
                     </h4>
                 </div>
             </div>

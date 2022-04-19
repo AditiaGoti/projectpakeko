@@ -7,8 +7,8 @@
                 <div class="page-header">
                     <h4 class="page-title">Data Kehadiran
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Kehadiran</button>
-                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/owform_kehadiran'">Tambah</button>
-                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/form_kehadiran'">Tambah</button>
+                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/cileungsi/owform_kehadiran'">Tambah</button>
+                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/cileungsi/form_kehadiran'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -75,9 +75,9 @@
                                     .then((result => {
                                         sessionStorage.setItem("result-k", result);
                                         if (type == 2) {
-                                            location.href = '/set-owkehadiran';
+                                            location.href = '/cileungsi/set-owkehadiran';
                                         } else {
-                                            location.href = '/set-kehadiran';
+                                            location.href = '/cileungsi/set-kehadiran';
                                         }
 
                                     }))

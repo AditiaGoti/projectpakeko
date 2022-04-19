@@ -56,11 +56,11 @@
                                         </div>
                                     </div>
                                     <div class="buttonupdate">
-                                        <button id="EPAdmin" style=" display: block; margin-left: 345px; margin-top:70px" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/editprofile-admin'">Edit Profile</button>
+                                        <button id="EPAdmin" style=" display: block; margin-left: 345px; margin-top:70px" class="btn btn-inverse-info btn-fw" onclick="window.location.href='/cileungsi/editprofile-admin'">Edit Profile</button>
 
                                     </div>
                                     <div class="buttoncp">
-                                        <button id="CPAdmin" style="display: block; float:right; margin-top: -29px; " class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/changepass-admin'">Change Password</button>
+                                        <button id="CPAdmin" style="display: block; float:right; margin-top: -29px; " class="btn btn-inverse-warning btn-fw" onclick="window.location.href='/cileungsi/changepass-admin'">Change Password</button>
 
                                     </div>
                                 </div>

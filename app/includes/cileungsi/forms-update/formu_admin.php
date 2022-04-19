@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Merubah Admin Klub Ade Rai
-                        <button id="owbackadmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/owalladmin'">Back</button>
+                        <button id="owbackadmin" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/cileungsi/owalladmin'">Back</button>
                     </h4>
                 </div>
             </div>
