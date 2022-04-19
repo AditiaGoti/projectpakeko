@@ -173,3 +173,151 @@ Route::get('/cileungsi/owformu_member', function () {
 Route::get('/cileungsi/owformu_paket', function () {
     return view('cileungsi/owner/formu-owner/formu_paket');
 });
+
+
+//Ragunan
+/// Profile
+
+Route::view('/ragunan/profile-admin', 'ragunan/admin/view-admin/profile-admin');
+Route::view('/ragunan/profile-member', 'ragunan/member/profile-member');
+
+Route::view('/ragunan/editprofile-admin', 'ragunan/admin/view-admin/editprofile-admin');
+Route::view('/ragunan/editprofile-member', 'ragunan/member/editprofile-member');
+
+Route::view('/ragunan/changepass-admin', 'ragunan/admin/view-admin/changepass-admin');
+Route::view('/ragunan/changepass-member', 'ragunan/member/changepass-member');
+
+/// Admin
+
+Route::get('/ragunan/admin', function () {
+    return view('ragunan/admin/view-admin/dashboard');
+});
+
+Route::get('/ragunan/transaksi', function () {
+    return view('ragunan/admin/table-admin/table_transaksi');
+});
+Route::get('/ragunan/set-transaksi', function () {
+    return view('ragunan/admin/table-admin/table_set-transaksi');
+});
+
+Route::get('/ragunan/kehadiran', function () {
+    return view('ragunan/admin/table-admin/table_kehadiran');
+});
+
+Route::get('/ragunan/set-kehadiran', function () {
+    return view('ragunan/admin/table-admin/table_set-kehadiran');
+});
+
+Route::get('/ragunan/all_member', function () {
+    return view('ragunan/admin/table-admin/table_allmember');
+});
+
+Route::get('/ragunan/set-all_member', function () {
+    return view('ragunan/admin/table-admin/table_set-allmember');
+});
+
+Route::get('/ragunan/paket', function () {
+    return view('ragunan/admin/table-admin/table_paket');
+});
+
+Route::get('/ragunan/form_kehadiran', function () {
+    return view('ragunan/admin/form-admin/form_kehadiran');
+});
+
+Route::get('/ragunan/form_member', function () {
+    return view('ragunan/admin/form-admin/form_member');
+});
+
+Route::get('/ragunan/form_transaksi', function () {
+    return view('ragunan/admin/form-admin/form_transaksi');
+});
+
+Route::get('/ragunan/form_paket', function () {
+    return view('ragunan/admin/form-admin/form_paket');
+});
+
+Route::get('/ragunan/formu_member', function () {
+    return view('ragunan/admin/formu-admin/formu_member');
+});
+
+Route::get('/ragunan/formu_paket', function () {
+    return view('ragunan/admin/formu-admin/formu_paket');
+});
+
+/// Member
+
+Route::get('/ragunan/member', function () {
+    return view('ragunan/member/dashboard-member');
+});
+
+///Owner
+
+
+
+Route::get('/ragunan/owner', function () {
+    return view('ragunan/owner/view-owner/dashboard-owner');
+});
+
+Route::get('/ragunan/owalladmin', function () {
+    return view('ragunan/owner/table-owner/table_alladmin');
+});
+
+Route::get('/ragunan/owform_admin', function () {
+    return view('ragunan/owner/form-owner/form_admin');
+});
+
+Route::get('/ragunan/owtransaksi', function () {
+    return view('ragunan/owner/table-owner/table_transaksi');
+});
+
+Route::get('/ragunan/set-owtransaksi', function () {
+    return view('ragunan/owner/table-owner/table_set-transaksi');
+});
+
+Route::get('/ragunan/owkehadiran', function () {
+    return view('ragunan/owner/table-owner/table_kehadiran');
+});
+Route::get('/ragunan/set-owkehadiran', function () {
+    return view('ragunan/owner/table-owner/table_set-kehadiran');
+});
+
+
+Route::get('/ragunan/owall_member', function () {
+    return view('ragunan/owner/table-owner/table_allmember');
+});
+
+Route::get('/ragunan/set-owall_member', function () {
+    return view('ragunan/owner/table-owner/table_set-allmember');
+});
+
+Route::get('/ragunan/owpaket', function () {
+    return view('ragunan/owner/table-owner/table_paket');
+});
+
+Route::get('/ragunan/owform_kehadiran', function () {
+    return view('ragunan/owner/form-owner/form_kehadiran');
+});
+
+Route::get('/ragunan/owform_member', function () {
+    return view('ragunan/owner/form-owner/form_member');
+});
+
+Route::get('/ragunan/owform_transaksi', function () {
+    return view('ragunan/owner/form-owner/form_transaksi');
+});
+
+Route::get('/ragunan/owform_paket', function () {
+    return view('ragunan/owner/form-owner/form_paket');
+});
+
+Route::get('/ragunan/owformu_admin', function () {
+    return view('ragunan/owner/formu-owner/formu_admin');
+});
+
+Route::get('/ragunan/owformu_member', function () {
+    return view('ragunan/owner/formu-owner/formu_member');
+});
+
+Route::get('/ragunan/owformu_paket', function () {
+    return view('ragunan/owner/formu-owner/formu_paket');
+});

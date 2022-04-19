@@ -8,17 +8,17 @@ if (isset($_SESSION['login_status'])) {
     switch ($_SESSION['type']) {
         case 0:
             $_SESSION["login_status"] = true;
-            header('location: /member');
+            header('location: /cileungsi/member');
             exit;
             break;
         case 1:
             $_SESSION["login_status"] = true;
-            header('location: /admin');
+            header('location: /cileungsi/admin');
             exit;
             break;
         case 2:
             $_SESSION["login_status"] = true;
-            header('location: /owner');
+            header('location: /cileungsi/owner');
             exit;
             break;
     }
@@ -40,7 +40,7 @@ if (isset($_SESSION['login_status'])) {
     <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
     <link rel="stylesheet" type="text/css" href="assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-        <link rel="shortcut icon" href="assets/images/logoo.png" />
+    <link rel="shortcut icon" href="assets/images/logoo.png" />
     <!--===============================================================================================-->
 </head>
 
