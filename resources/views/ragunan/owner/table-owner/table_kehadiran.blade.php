@@ -6,7 +6,11 @@ if (!isset($_SESSION['login_status'])) {
   header("location: /Ragunan");
   exit;
 }
-if (!$_SESSION['type'] == 2) {
+if (!$_SESSION['type'] == 1) {
+  header("location: /Ragunan");
+  exit;
+}
+if (!$_SESSION['local'] == "Ragunan") {
   header("location: /Ragunan");
   exit;
 }
