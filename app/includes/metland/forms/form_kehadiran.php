@@ -222,6 +222,10 @@
                                         <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
                                     </div>
                                     <hr>
+                                    <div class="input-group mb-4">
+                                        <label style="margin-top:5px; padding-right:74px;">Local</label>
+                                        <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled />
+                                    </div>
                                     <div class="input-group mb-3">
                                         <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
                                         <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
@@ -285,7 +289,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var id = document.getElementById("id_member").value;
-
+                                const id = idvalue.split("-");
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -296,7 +300,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.tms-klar.com/api/users/" + id,
+                                        "https://api.tms-klar.com/api/users/" + id[0],
                                         requestOptions
                                     )
                                     .then((response) => response.text())
@@ -311,6 +315,7 @@
                                         var imgvalue = "https://api.tms-klar.com" +
                                             data.data.img_path;
                                         var elements = document.getElementById('token');
+                                        var localvalue = data.data.local;
 
                                         iddis.disabled = true;
                                         if (hasildata) {
@@ -319,11 +324,13 @@
                                                 var name = document.getElementById("member_name");
                                                 var dob = document.getElementById("member_dob");
                                                 var exp = document.getElementById("member_exp");
+                                                var local = document.getElementById("member_local");
 
                                                 name.value = namevalue;
                                                 dob.value = dobvalue;
                                                 img.src = imgvalue;
                                                 exp.value = expiredvalue;
+                                                local.value = localvalue;
                                             } else {
                                                 elements.style.display = 'block';
                                                 var name = document.getElementById("member_name");
@@ -414,9 +421,11 @@
                                             var imgvalue = "https://api.tms-klar.com/storage/" + filterData.img_path;
                                             var input_id = document.getElementById("id_member");
                                             var input_exp = document.getElementById("member_exp");
+                                            var input_local = document.getElementById("member_local");
                                             input_exp.value = exp;
-                                            input_id.value = id;
                                             img.src = imgvalue;
+                                            input_id.value = id + "-" + local;
+                                            input_local.value = local;
                                         } else {
                                             elements.style.display = 'block';
                                             var id = filterData.id;
@@ -426,8 +435,9 @@
                                             var imgvalue = "api.tms-klar.com/storage/" + filterData.img_path;
                                             var input_id = document.getElementById("id_member");
                                             var input_exp = document.getElementById("member_exp");
+                                            var input_local = document.getElementById("member_local");
                                             input_exp.value = exp;
-                                            input_id.value = id;
+                                            input_id.value = id + "-" + local;
                                             img.src = imgvalue;
                                         }
 
@@ -471,7 +481,10 @@
                                     "PT_sess",
                                     document.querySelector('input[name = token]:checked').value
                                 );
-
+                                urlencoded.append(
+                                    "local",
+                                    document.getElementById("member_local").value
+                                );
 
                                 var requestOptions = {
                                     method: "POST",

@@ -336,11 +336,13 @@
                                                 var name = document.getElementById("member_name");
                                                 var dob = document.getElementById("member_dob");
                                                 var exp = document.getElementById("member_exp");
+                                                var local = document.getElementById("member_local");
 
                                                 name.value = namevalue;
                                                 dob.value = dobvalue;
                                                 img.src = imgvalue;
                                                 exp.value = expiredvalue;
+                                                local.value = localvalue;
                                             }
 
                                         } else {
@@ -438,7 +440,7 @@
                                             var input_id = document.getElementById("id_member");
                                             var input_exp = document.getElementById("member_exp");
                                             input_exp.value = exp;
-                                            input_id.value = id;
+
                                             img.src = imgvalue;
                                             input_id.value = id + "-" + local;
                                             input_local.value = local;
