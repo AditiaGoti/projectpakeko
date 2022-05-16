@@ -3,11 +3,11 @@
 session_start();
 
 if (!isset($_SESSION['login_status'])) {
-  header("location: /");
+  header("location: /Ragunan");
   exit;
 }
 if (!$_SESSION['type'] == 1) {
-  header("location: /");
+  header("location: /Ragunan");
   exit;
 }
 ?><?php include(app_path() . '/includes/ragunan/config/header.php'); ?>
