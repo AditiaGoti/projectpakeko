@@ -77,7 +77,7 @@
                             var memID = sessionStorage.getItem("id-member");
                             var type = `<?php echo $_SESSION['type']; ?>`;
                             var form = document.getElementById("form_member");
-                            const url = "https://api.tms-klar.com/api/users" + "/" + memID;
+                            const url = "https://ragunan.tms-klar.com/api/users" + "/" + memID;
 
                             $.ajax({
                                 method: "GET",
@@ -107,7 +107,7 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
-                                imgv.src = "https://api.tms-klar.com/public/" +
+                                imgv.src = "https://ragunan.tms-klar.com/public/" +
                                     data.img_path;
                                 sessionStorage.setItem("email-member", email.value);
                             }

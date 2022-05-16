@@ -71,7 +71,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var form = document.getElementById("form_profile");
-                            const url = "https://api.tms-klar.com/api/admin" + "/" + id;
+                            const url = "https://ragunan.tms-klar.com/api/admin" + "/" + id;
 
                             $.ajax({
                                 method: "GET",
@@ -103,7 +103,7 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
-                                imgv.src = "https://api.tms-klar.com/public/storage/" +
+                                imgv.src = "https://ragunan.tms-klar.com/public/storage/" +
                                     data.img_path;
                             }
                         </script>
@@ -168,7 +168,7 @@
 
 
                                 fetch(
-                                        "https://api.tms-klar.com/api/admin" + "/" + id,
+                                        "https://ragunan.tms-klar.com/api/admin" + "/" + id,
                                         requestOptions
                                     )
                                     .then((response) => response.text())

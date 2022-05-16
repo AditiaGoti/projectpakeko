@@ -66,7 +66,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var admID = sessionStorage.getItem("id-admin");
                             var form = document.getElementById("form_admin");
-                            const url = "https://api.tms-klar.com/api/admin" + "/" + admID;
+                            const url = "https://ragunan.tms-klar.com/api/admin" + "/" + admID;
 
                             $.ajax({
                                 method: "GET",
@@ -96,7 +96,7 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
-                                imgv.src = "https://api.tms-klar.com/public/storage/" +
+                                imgv.src = "https://ragunan.tms-klar.com/public/storage/" +
                                     data.img_path;
 
                             }

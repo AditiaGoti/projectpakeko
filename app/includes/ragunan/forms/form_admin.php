@@ -153,7 +153,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.tms-klar.com/api/register",
+                                        "https://ragunan.tms-klar.com/api/register",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

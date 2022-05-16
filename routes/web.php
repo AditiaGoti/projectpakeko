@@ -19,11 +19,19 @@ Route::get('/email', function () {
     return view('email');
 });
 
-// Login
+// // Login Cileungsi
 
 Route::get('/', [loginc::class, 'index']);
 Route::post('login', [loginc::class, 'login']);
 Route::get('/logout', function () {
+    return view('logout');
+});
+
+// Login Ragunan
+
+Route::get('/', [loginr::class, 'index']);
+Route::post('loginr', [loginr::class, 'login']);
+Route::get('/logoutr', function () {
     return view('logout');
 });
 

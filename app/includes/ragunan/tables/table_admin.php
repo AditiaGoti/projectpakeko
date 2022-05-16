@@ -53,7 +53,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.tms-klar.com/api/admins-export";
+                                const urlTE = "https://ragunan.tms-klar.com/api/admins-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -97,7 +97,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.tms-klar.com/api/admins-export";
+                                const urlTE = "https://ragunan.tms-klar.com/api/admins-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -209,7 +209,7 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        const url = "https://api.tms-klar.com/api/admin";
+                                        const url = "https://ragunan.tms-klar.com/api/admin";
                                         $(document).ready(function() {
                                             $.ajax({
                                                 method: "GET",
@@ -296,7 +296,7 @@
                                                 redirect: "follow",
                                             };
 
-                                            fetch("https://api.tms-klar.com/api/admin" + "/" + admID, deleteRequest)
+                                            fetch("https://ragunan.tms-klar.com/api/admin" + "/" + admID, deleteRequest)
                                                 .then((res) => res.json())
                                                 .then((result => {
 

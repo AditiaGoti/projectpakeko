@@ -40,7 +40,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
                             var type = `<?php echo $_SESSION['type']; ?>`;
-                            const url = "https://api.tms-klar.com/api/users/changepass" + "/" + id;
+                            const url = "https://ragunan.tms-klar.com/api/users/changepass" + "/" + id;
 
                             const loader = document.querySelector("#loading");
 

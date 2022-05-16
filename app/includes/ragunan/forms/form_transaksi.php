@@ -77,7 +77,7 @@
                             var token = "Bearer" + " " + tokenSession;
                             var myArray = [];
                             var tablePaket = document.getElementById("package");
-                            const url = "https://api.tms-klar.com/api/pakets";
+                            const url = "https://ragunan.tms-klar.com/api/pakets";
                             $(document).ready(function() {
                                 $.ajax({
                                     method: "GET",
@@ -131,7 +131,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.tms-klar.com/api/users/" + id,
+                                        "https://ragunan.tms-klar.com/api/users/" + id,
                                         requestOptions
                                     )
                                     .then((response) => response.text())
@@ -182,7 +182,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var type = '<?php echo $_SESSION['type']; ?>'
-                                const url = "https://api.tms-klar.com/api/users";
+                                const url = "https://ragunan.tms-klar.com/api/users";
                                 iddis.disabled = true;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -269,7 +269,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.tms-klar.com/api/transaksi",
+                                        "https://ragunan.tms-klar.com/api/transaksi",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['login_status'])) {
+    header("location: /");
+    exit;
+}
+?>
+<?php include(app_path() . '/includes/ragunan/config/header.php'); ?>
 <div class="wrap">
     <div class="loading">
         <div class="bounceball"></div>
