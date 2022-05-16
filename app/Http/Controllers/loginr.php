@@ -89,23 +89,6 @@ class loginr extends Controller
                     header('location: /ragunan/owner');
                     exit;
                     break;
-                    switch ($type) {
-                        case 0:
-                            $_SESSION["login_status"] = true;
-                            header('location: /ragunan/member');
-                            exit;
-                            break;
-                        case 1:
-                            $_SESSION["login_status"] = true;
-                            header('location: /ragunan/admin');
-                            exit;
-                            break;
-                        case 2:
-                            $_SESSION["login_status"] = true;
-                            header('location: /ragunan/owner');
-                            exit;
-                            break;
-                    }
             }
         }
         curl_close($curl);

@@ -5,22 +5,26 @@ use League\CommonMark\Node\Block\Document;
 session_start();
 
 if (isset($_SESSION['login_status'])) {
-    switch ($_SESSION['type']) {
-        case 0:
-            $_SESSION["login_status"] = true;
-            header('location: /ragunan/member');
-            exit;
-            break;
-        case 1:
-            $_SESSION["login_status"] = true;
-            header('location: /ragunan/admin');
-            exit;
-            break;
-        case 2:
-            $_SESSION["login_status"] = true;
-            header('location: /ragunan/owner');
-            exit;
-            break;
+    if ($_SESSION['local'] == "Ragunan") {
+        switch ($_SESSION['type']) {
+            case 0:
+                $_SESSION["login_status"] = true;
+                header('location: /ragunan/member');
+                exit;
+                break;
+            case 1:
+                $_SESSION["login_status"] = true;
+                header('location: /ragunan/admin');
+                exit;
+                break;
+            case 2:
+                $_SESSION["login_status"] = true;
+                header('location: /ragunan/owner');
+                exit;
+                break;
+        }
+    } else {
+        header('location: /cileungsi');
     }
 }
 

@@ -10,6 +10,11 @@ if (!$_SESSION['type'] == 1) {
     header("location: /Ragunan");
     exit;
 }
+
+if (!$_SESSION['local'] == "Ragunan") {
+    header("location: /Ragunan");
+    exit;
+}
 ?>
 
 <?php include(app_path() . '/includes/ragunan/config/header.php'); ?>
