@@ -3,13 +3,18 @@
 session_start();
 
 if (!isset($_SESSION['login_status'])) {
-  header("location: /");
+  header("location: /Metland");
+  exit;
+}
+if (!$_SESSION['local'] == "Metland") {
+  header("location: /Metland");
   exit;
 }
 if (!$_SESSION['type'] == 1) {
-  header("location: /");
+  header("location: /Metland");
   exit;
 }
+
 ?><?php include(app_path() . '/includes/cileungsi/config/header.php'); ?>
 
 <body>
