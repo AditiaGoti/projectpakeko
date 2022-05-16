@@ -58,6 +58,7 @@ class loginc extends Controller
             $type = $decoded->type;
             $gender = $decoded->gender;
             $token = $decoded->token;
+            $local = $decoded->local;
             session_start();
 
             // Storing session data
@@ -69,6 +70,7 @@ class loginc extends Controller
             $_SESSION["email"] = $email;
             $_SESSION["type"] = $type;
             $_SESSION["gender"] = $gender;
+            $_SESSION["local"] = $local;
 
 
             switch ($type) {

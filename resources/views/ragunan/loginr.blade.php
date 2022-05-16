@@ -18,7 +18,7 @@ if (isset($_SESSION['login_status'])) {
             break;
         case 2:
             $_SESSION["login_status"] = true;
-            header('location: /cileungsi/owner');
+            header('location: /ragunan/owner');
             exit;
             break;
     }
@@ -49,7 +49,7 @@ if (isset($_SESSION['login_status'])) {
     <div class="limiter" style="background-image: url(assets/images/klubaderaibg.png);">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form method="POST" action="/login" class="login100-form validate-form">
+                <form method="POST" action="/loginr" class="login100-form validate-form">
                     <span class="login100-form-title p-b-26">
                         Selamat Datang
                     </span>

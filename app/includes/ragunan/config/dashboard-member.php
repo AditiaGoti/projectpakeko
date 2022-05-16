@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/shared/notice.css">
+<link rel="stylesheet" href="../../../../public/assets/css/shared/notice.css">
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div class="main-panel">
@@ -47,6 +47,7 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var Sid = '<?php echo $_SESSION['id']; ?>';
+
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
                                         const url = "https://ragunan.tms-klar.com/api/kehadiran" + "/" + Sid;
@@ -56,7 +57,8 @@
 
                                         function makeCode() {
                                             var Sid = '<?php echo $_SESSION['id']; ?>';
-                                            qrcode.makeCode(Sid);
+                                            var local = '<?php echo $_SESSION['local']; ?>';
+                                            qrcode.makeCode(Sid + "-" + local);
                                         }
 
                                         $(document).ready(function() {
@@ -69,6 +71,7 @@
                                                 success: function(response) {
                                                     makeCode(myArray);
                                                     data = response.data;
+                                                    console.log(data);
                                                     user_data = response.user_data;
                                                     dl = user_data.days_left;
                                                     left = dl.split(" ")

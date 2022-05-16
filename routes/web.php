@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\loginc;
+use App\Http\Controllers\loginr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Auth\Events\Login;
 
@@ -19,7 +20,7 @@ Route::get('/email', function () {
     return view('email');
 });
 
-// // Login Cileungsi
+// // // Login Cileungsi
 
 Route::get('/', [loginc::class, 'index']);
 Route::post('login', [loginc::class, 'login']);
@@ -29,10 +30,10 @@ Route::get('/logout', function () {
 
 // Login Ragunan
 
-Route::get('/', [loginr::class, 'index']);
-Route::post('loginr', [loginr::class, 'login']);
+Route::get('/Ragunan', [loginr::class, 'index']);
+Route::post('loginr', [loginr::class, 'loginrag']);
 Route::get('/logoutr', function () {
-    return view('logout');
+    return view('/ragunan/logoutr');
 });
 
 //Cileungsi
