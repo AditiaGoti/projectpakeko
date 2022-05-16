@@ -11,7 +11,7 @@ class loginc extends Controller
     {
         return view('/login');
     }
-    function login(Request $request)
+    function loginmet(Request $request)
     {
         // return $request->all();
         $login_email = $request->input('email');
@@ -48,7 +48,7 @@ class loginc extends Controller
 
         if (!$Login) {
             $message = $decoded->message;
-            echo "<script type='text/javascript'>alert('$message'); window.location.href='/';</script> ";
+            echo "<script type='text/javascript'>alert('$message'); window.location.href='/Metland';</script> ";
         } else {
 
 
@@ -76,36 +76,19 @@ class loginc extends Controller
             switch ($type) {
                 case 0:
                     $_SESSION["login_status"] = true;
-                    header('location: /cileungsi/member');
+                    header('location: /Metland/member');
                     exit;
                     break;
                 case 1:
                     $_SESSION["login_status"] = true;
-                    header('location: /cileungsi/admin');
+                    header('location: /Metland/admin');
                     exit;
                     break;
                 case 2:
                     $_SESSION["login_status"] = true;
-                    header('location: /cileungsi/owner');
+                    header('location: /Metland/owner');
                     exit;
                     break;
-                    switch ($type) {
-                        case 0:
-                            $_SESSION["login_status"] = true;
-                            header('location: /cileungsi/member');
-                            exit;
-                            break;
-                        case 1:
-                            $_SESSION["login_status"] = true;
-                            header('location: /cileungsi/admin');
-                            exit;
-                            break;
-                        case 2:
-                            $_SESSION["login_status"] = true;
-                            header('location: /cileungsi/owner');
-                            exit;
-                            break;
-                    }
             }
         }
         curl_close($curl);
