@@ -120,9 +120,9 @@
         var myArray = [];
         var sumTransaksi = document.getElementById("sumTransaksi");
         var sumTransaksi = document.getElementById("sumMember");
-        const urlt = "https://api.tms-klar.com/api/transaksi";
-        const urlm = "https://api.tms-klar.com/api/users";
-        const urlk = "https://api.tms-klar.com/api/kehadiran";
+        const urlt = "https://metland.tms-klar.com/api/transaksi";
+        const urlm = "https://metland.tms-klar.com/api/users";
+        const urlk = "https://metland.tms-klar.com/api/kehadiran";
         $(document).ready(function() {
             $.ajax({
                 method: "GET",

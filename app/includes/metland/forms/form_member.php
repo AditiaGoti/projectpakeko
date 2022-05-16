@@ -165,7 +165,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.tms-klar.com/api/users",
+                                        "https://metland.tms-klar.com/api/users",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

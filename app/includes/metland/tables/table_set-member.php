@@ -67,7 +67,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.tms-klar.com/api/users-export";
+                                const urlTE = "https://metland.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -107,7 +107,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://api.tms-klar.com/api/users-export";
+                                const urlTE = "https://metland.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -252,7 +252,7 @@
                                         var type = '<?php echo $_SESSION['type']; ?>'
                                         var myArray = [];
                                         var tableMember = document.getElementById("tableMember");
-                                        const urlu = "https://api.tms-klar.com/api/users";
+                                        const urlu = "https://metland.tms-klar.com/api/users";
                                         member();
                                         date();
 
