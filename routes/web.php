@@ -16,8 +16,13 @@ use Illuminate\Auth\Events\Login;
 |
 */
 
+
 Route::get('/email', function () {
     return view('email');
+});
+
+Route::get('/', function () {
+    return view('landing');
 });
 
 // // // Login Metland
