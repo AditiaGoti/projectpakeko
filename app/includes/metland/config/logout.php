@@ -9,7 +9,7 @@
     var token = "Bearer" + " " + tokenSession;
 
     var settings = {
-        "url": "https://metland.tms-klar.com/api/logout",
+        "url": "https://api.tms-klar.com/api/logout",
         "method": "POST",
         "timeout": 0,
         "headers": {

@@ -153,7 +153,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://metland.tms-klar.com/api/register",
+                                        "https://api.tms-klar.com/api/register",
                                         requestOptions
                                     )
                                     .then((response) => response.text())
