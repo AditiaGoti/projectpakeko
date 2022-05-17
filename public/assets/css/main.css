@@ -229,7 +229,7 @@ margin-left : 500px;
 {
   .wrap-login100 {
     width: 300px;
-  height: 500px;
+  height: 900px;
   background:cornsilk;
   opacity: 0.9;
   border-radius: 10px;
@@ -249,7 +249,7 @@ margin-left : 500px;
 @media only screen and (min-width:360px) and (max-width:399px)
 {
   .wrap-login100 { width: 300px;
-  height: 500px;
+  height: 600px;
   background:cornsilk;
   opacity: 0.9;
   border-radius: 10px;
@@ -438,7 +438,7 @@ margin-left : 500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .wrap-login100-form-btn {
@@ -570,5 +570,75 @@ margin-left : 500px;
   }
 }
 
+.container-cancel100-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.wrap-cancel100-form-btn {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.cancel100-form-bgbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: khaki;
+  background: -webkit-linear-gradient(right,black, red,black, red);
+  background: -o-linear-gradient(right,black, red,black, red);
+  background: -moz-linear-gradient(right,black, red,black, red);
+  background: linear-gradient(right,black, red,black, red);
+  top: 0;
+  left: -100%;
+  margin-top: 0px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.cancel100-form-btn {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+  width: 100%;
+  height: 50px;
+}
+
+.wrap-cancel100-form-btn:hover .cancel100-form-bgbtn {
+  left: 0;
+}
+
+
+
+@media (max-width: 576px) {
+  .wrap-cancel100 {
+    padding: 77px 15px 33px 15px;
+  }
+}
 
 
