@@ -9,22 +9,22 @@ if (isset($_SESSION['login_status'])) {
         switch ($_SESSION['type']) {
             case 0:
                 $_SESSION["login_status"] = true;
-                header('location: /ragunan/member');
+                header('location: /Metland/member');
                 exit;
                 break;
             case 1:
                 $_SESSION["login_status"] = true;
-                header('location: /ragunan/admin');
+                header('location: /Metland/admin');
                 exit;
                 break;
             case 2:
                 $_SESSION["login_status"] = true;
-                header('location: /ragunan/owner');
+                header('location: /Metland/owner');
                 exit;
                 break;
         }
     } else {
-        header('location: /cileungsi');
+        header('location: /Ragunan');
     }
 }
 
@@ -53,7 +53,7 @@ if (isset($_SESSION['login_status'])) {
     <div class="limiter" style="background-image: url(assets/images/klubaderaibg.png);">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form method="POST" action="/loginr" class="login100-form validate-form">
+                <form method="POST" action="/loginc" class="login100-form validate-form">
                     <span class="login100-form-title p-b-26">
                         Selamat Datang
                     </span>

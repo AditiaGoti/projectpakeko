@@ -24,7 +24,7 @@ if (isset($_SESSION['login_status'])) {
                 break;
         }
     } else {
-        header('location: /cileungsi');
+        header('location: /Metland');
     }
 }
 

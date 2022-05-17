@@ -9,7 +9,7 @@ class loginc extends Controller
 {
     function index()
     {
-        return view('/login');
+        return view('/metland/loginc');
     }
     function loginmet(Request $request)
     {

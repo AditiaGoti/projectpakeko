@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (isset($_SESSION['login_status'])) {
+    if ($_SESSION['local'] == "Ragunan") {
+        header('location: /Ragunan');
+    } else if ($_SESSION['local'] == "Metland") {
+        header('location: /Metland');
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,14 +48,14 @@
     <main id="main">
         <!-- ======= Team Section ======= -->
         <section id="team" class="team">
-        <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="section-title" data-aos="fade-right">
-              <h2>WELCOME To KLUB ADERAI</h2>
-              <p>Choose One :</p>
-            </div>
-          </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="section-title" data-aos="fade-right">
+                            <h2>WELCOME To KLUB ADERAI</h2>
+                            <p>Choose One :</p>
+                        </div>
+                    </div>
                     <div class="col-lg-8">
                         <div class="row">
 
@@ -51,7 +64,7 @@
                                     <div class="pic"><img src="assets/images/METLAND.png" class="img-fluid" alt=""></div>
                                     <div class="member-info">
                                         <h4>KLUB ADERAI METLAND</h4>
-                                        <a class="team-btn" href="#">LOGIN</a>
+                                        <a class="team-btn" href="/Metland">LOGIN</a>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +74,7 @@
                                     <div class="pic"><img src="assets/images/ragunan.png" class="img-fluid" alt=""></div>
                                     <div class="member-info">
                                         <h4>KLUB ADERAI RAGUNAN</h4>
-                                        <a class="team-btn" href="#">LOGIN</a>
+                                        <a class="team-btn" href="/Ragunan">LOGIN</a>
                                     </div>
                                 </div>
                             </div>
