@@ -453,9 +453,9 @@ section {
 .team {
     width: 100%;
   height: 100vh;
-  background-size: cover;
-  background-repeat: repeat;
     background: url("../images/background.png") center center;
+    background-size: cover;
+  background-repeat: repeat;
 }
 .team .member {
     position: relative;
