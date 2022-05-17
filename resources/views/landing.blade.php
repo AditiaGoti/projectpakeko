@@ -32,25 +32,17 @@
 
 <body>
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-            <h1>W E L C O M E</h1>
-            <h2>KLUB ADERAI</h2>
-        </div>
-    </section><!-- End Hero -->
-
     <main id="main">
         <!-- ======= Team Section ======= -->
         <section id="team" class="team">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="section-title" data-aos="fade-right">
-                            <h2>CHOOSE ONE</h2>
-                            <p>Pilih tempat dimana akun anda terdaftar</p>
-                        </div>
-                    </div>
+        <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="section-title" data-aos="fade-right">
+              <h2>WELCOME To KLUB ADERAI</h2>
+              <p>Choose One :</p>
+            </div>
+          </div>
                     <div class="col-lg-8">
                         <div class="row">
 
