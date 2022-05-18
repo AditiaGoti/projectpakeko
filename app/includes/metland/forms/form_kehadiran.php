@@ -300,7 +300,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.tms-klar.com/api/users/" + id,
+                                        "https://api.tms-klar.com/api/users/" + idvalue,
                                         requestOptions
                                     )
                                     .then((response) => response.text())
@@ -328,9 +328,16 @@
 
                                                 name.value = namevalue;
                                                 dob.value = dobvalue;
-                                                img.src = imgvalue;
+
                                                 exp.value = expiredvalue;
                                                 local.value = localvalue;
+
+                                                if (localvalue == "Ragunan") {
+                                                    img.src = data.data.img_path
+
+                                                } else if (localvalue == "Metland") {
+                                                    img.src = imgvalue
+                                                }
                                             } else {
                                                 elements.style.display = 'block';
                                                 var name = document.getElementById("member_name");
@@ -339,8 +346,15 @@
 
                                                 name.value = namevalue;
                                                 dob.value = dobvalue;
-                                                img.src = imgvalue;
                                                 exp.value = expiredvalue;
+                                                var local = document.getElementById("member_local");
+                                                local.value = localvalue;
+                                                if (localvalue == "Ragunan") {
+                                                    img.src = data.data.img_path
+
+                                                } else if (localvalue == "Metland") {
+                                                    img.src = imgvalue
+                                                }
                                             }
 
                                         } else {

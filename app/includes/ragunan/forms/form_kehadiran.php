@@ -316,7 +316,6 @@
                                         var imgvalue = "https://ragunan.tms-klar.com" +
                                             data.data.img_path;
                                         var elements = document.getElementById('token');
-
                                         iddis.disabled = true;
                                         if (hasildata) {
                                             if (data.data.token == 0) {
@@ -328,9 +327,15 @@
 
                                                 name.value = namevalue;
                                                 dob.value = dobvalue;
-                                                img.src = imgvalue;
                                                 exp.value = expiredvalue;
                                                 local.value = localvalue;
+
+                                                if (localvalue == "Metland") {
+                                                    img.src = data.data.img_path
+
+                                                } else if (localvalue == "Ragunan") {
+                                                    img.src = imgvalue
+                                                }
                                             } else {
                                                 elements.style.display = 'block';
                                                 var name = document.getElementById("member_name");
@@ -340,9 +345,15 @@
 
                                                 name.value = namevalue;
                                                 dob.value = dobvalue;
-                                                img.src = imgvalue;
+
                                                 exp.value = expiredvalue;
                                                 local.value = localvalue;
+                                                if (localvalue == "Metland") {
+                                                    img.src = data.data.img_path
+
+                                                } else if (localvalue == "Ragunan") {
+                                                    img.src = imgvalue
+                                                }
                                             }
 
                                         } else {
