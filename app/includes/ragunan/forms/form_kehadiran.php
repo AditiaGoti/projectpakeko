@@ -300,7 +300,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://ragunan.tms-klar.com/api/users/" + id[0],
+                                        "https://ragunan.tms-klar.com/api/users/" + idvalue,
                                         requestOptions
                                     )
                                     .then((response) => response.text())

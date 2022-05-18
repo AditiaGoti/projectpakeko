@@ -78,18 +78,19 @@ if (isset($_SESSION['login_status'])) {
                                 Login
                             </button>
                         </div>
-                        
-                    </div>
-                    <div class="container-cancel100-form-btn">
-                        <div class="wrap-cancel100-form-btn">
-                            <div class="cancel100-form-bgbtn"></div>
-                            <button name="cancel" type="cancel" class="cancel100-form-btn">
-                                cancel
-                            </button>
-                        </div>
-                        
+
                     </div>
                 </form>
+                <div class="container-cancel100-form-btn">
+                    <div class="wrap-cancel100-form-btn">
+                        <div class="cancel100-form-bgbtn"></div>
+                        <button onclick="window.location.href='/';" name="cancel" type="cancel" class="cancel100-form-btn">
+                            cancel
+                        </button>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
