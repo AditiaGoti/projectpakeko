@@ -204,12 +204,16 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <label style="margin-top:5px; padding-right:46px;">QR Code</label>
-                                        <input id="id_member" type="text" class="form-control  placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
+                                        <input id="id_member" type="text" class="form-control"  placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i> </button>
                                         </div>
                                     </div>
                                     <hr>
+                                    <div class="input-group-append">
+                                            <button class="btn btn-outline-primary" onclick="myFunction()"type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
+                                        </div>
+                                    <div id="submenu" style="display: none;">
                                     <div class="input-group mb-3">
                                         <label style="margin-top:5px; padding-right:70px;">Name</label>
                                         <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
@@ -243,6 +247,7 @@
                                             </label>
                                         </div>
                                     </div>
+                                    </div>
 
                                 </div>
                                 <div class="col-sm-6 col-md-3">
@@ -262,6 +267,14 @@
                         </form>
 
                         <script>
+                            function myFunction() {
+                                    var x = document.getElementById("submenu");
+                                    if (x.style.display === "none") {
+                                    x.style.display = "block";
+                                                } else {
+                                    x.style.display = "none";
+                                                        }
+                                    }
                             const loader = document.querySelector("#loading");
                             var iddis = document.getElementById("id_member");
 
