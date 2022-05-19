@@ -180,7 +180,7 @@
 
                                         var data = dataparse.data;
                                         var createXLSLFormatObj = [];
-                                        var xlsHeader = ["ID", "Name", "Email", "Gender", "Tempat Lahir", "Tanggal Lahir", "No. HP", "Alamat", "Expired Date", "Token"];
+                                        var xlsHeader = ["ID", "Name", "Email", "Lokal", "Gender", "Tempat Lahir", "Tanggal Lahir", "No. HP", "Alamat", "Expired Date", "Token"];
 
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
@@ -190,6 +190,7 @@
                                                 "ID": data.id,
                                                 "Name": data.name,
                                                 "Email": data.email,
+                                                "Lokal": data.local,
                                                 "Gender": data.gender,
                                                 "Tempat Lahir": data.tempat_lahir,
                                                 "Tanggal Lahir": data.tanggal_lahir,
@@ -208,7 +209,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Member Data Klub Ade Rai.xlsx";
+                                        var filename = "Member Data Klub Ade Rai Ragunan.xlsx";
 
                                         var ws_name = "Data Member";
                                         var wb = XLSX.utils.book_new(),
@@ -307,8 +308,9 @@
                                             <tr>
                                                 <th colspan="2">Actions</th>
                                                 <th>Nama</th>
-                                                <th>id</th>
+                                                <th>ID</th>
                                                 <th>Email</th>
+                                                <th>Lokal</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
                                                 <th>DOB</th>
@@ -367,13 +369,13 @@
                                                                 columns: [{
                                                                         'data': null,
                                                                         'render': function(data) {
-                                                                            return '<button value="' + data.id + '" class="updateBtnU btn btn-warning btn-xs" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                            return '<button value="' + data.id + "-" + data.local + '" class="updateBtnU btn btn-warning btn-xs" role="button"><i class=" fa fa-pencil"></i></button>'
                                                                         }
                                                                     },
                                                                     {
                                                                         'data': null,
                                                                         'render': function(data) {
-                                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenteru" class=" deleteBtnU btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
+                                                                            return '<button  value="' + data.id + "-" + data.local + '" data-toggle="modal" data-target="#exampleModalCenteru" class=" deleteBtnU btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
                                                                         }
                                                                     },
                                                                     {
@@ -384,6 +386,9 @@
                                                                     },
                                                                     {
                                                                         'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'local'
                                                                     },
                                                                     {
                                                                         'data': 'expired'
@@ -407,7 +412,6 @@
                                                             })
                                                             $('#table-data tbody').on('click', 'button.updateBtnU ', function() {
                                                                 var id = $(this).attr('value');
-                                                                console.log(id);
                                                                 if (type == 2) {
                                                                     var memID = sessionStorage.setItem("id-member", id);
                                                                     location.href = "/metland/owformu_member";
@@ -421,7 +425,6 @@
                                                                 var id = $(this).attr('value');
                                                                 var memID = sessionStorage.setItem("id-member", id);
                                                             });
-
                                                         },
                                                         error: function(response) {
                                                             hasil = response.responseJSON.message;
@@ -476,8 +479,9 @@
                                             <tr>
                                                 <th colspan="2">Actions</th>
                                                 <th>Nama</th>
-                                                <th>id</th>
+                                                <th>ID</th>
                                                 <th>Email</th>
+                                                <th>Local</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
                                                 <th>DOB</th>
@@ -514,13 +518,13 @@
                                                                 columns: [{
                                                                         'data': null,
                                                                         'render': function(data) {
-                                                                            return '<button value="' + data.id + '" class="updateBtnUA btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                            return '<button value="' + data.id + "-" + data.local + '" class="updateBtnUA btn btn-warning btn-xs" role="button"><i class=" fa fa-pencil"></i></button>'
                                                                         }
                                                                     },
                                                                     {
                                                                         'data': null,
                                                                         'render': function(data) {
-                                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenterua" class=" deleteBtnUA btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                            return '<button value="' + data.id + "-" + data.local + '" data-toggle="modal" data-target="#exampleModalCenterua" class=" deleteBtnUA btn btn-danger btn-xs" role="button"><i class="fa fa-trash"></i></button>'
                                                                         }
                                                                     },
                                                                     {
@@ -531,6 +535,9 @@
                                                                     },
                                                                     {
                                                                         'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'local'
                                                                     },
                                                                     {
                                                                         'data': 'expired'
@@ -554,7 +561,7 @@
                                                             })
                                                             $('#table-dataa tbody').on('click', 'button.updateBtnUA ', function() {
                                                                 var id = $(this).attr('value');
-
+                                                                console.log(id);
                                                                 if (type == 2) {
                                                                     var memID = sessionStorage.setItem("id-member", id);
                                                                     location.href = "/metland/owformu_member";
@@ -623,8 +630,9 @@
                                             <tr>
                                                 <th colspan="2">Actions</th>
                                                 <th>Nama</th>
-                                                <th>id</th>
+                                                <th>ID</th>
                                                 <th>Email</th>
+                                                <th>Local</th>
                                                 <th>Expired</th>
                                                 <th>Token</th>
                                                 <th>DOB</th>
@@ -663,13 +671,13 @@
                                                                 columns: [{
                                                                         'data': null,
                                                                         'render': function(data) {
-                                                                            return '<button value="' + data.id + '" class="updateBtnUI btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
+                                                                            return '<button value="' + data.id + "-" + data.local + '" class="updateBtnUI btn btn-warning" role="button"><i class=" fa fa-pencil"></i></button>'
                                                                         }
                                                                     },
                                                                     {
                                                                         'data': null,
                                                                         'render': function(data) {
-                                                                            return '<button  value="' + data.id + '" data-toggle="modal" data-target="#exampleModalCenterui" class="deleteBtnUI btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
+                                                                            return '<button  value="' + data.id + "-" + data.local + '" data-toggle="modal" data-target="#exampleModalCenterui" class="deleteBtnUI btn btn-danger" role="button"><i class="fa fa-trash"></i></button>'
                                                                         }
                                                                     },
                                                                     {
@@ -680,6 +688,9 @@
                                                                     },
                                                                     {
                                                                         'data': 'email'
+                                                                    },
+                                                                    {
+                                                                        'data': 'local'
                                                                     },
                                                                     {
                                                                         'data': 'expired'
@@ -704,13 +715,13 @@
 
                                                             $('#table-datai tbody').on('click', 'button.updateBtnUI ', function() {
                                                                 var id = $(this).attr('value');
-                                                                console.log(id);
+
                                                                 if (type == 2) {
                                                                     var memID = sessionStorage.setItem("id-member", id);
-                                                                    location.href = "/owformu_member";
+                                                                    location.href = "/metland/owformu_member";
                                                                 } else {
                                                                     var memID = sessionStorage.setItem("id-member", id);
-                                                                    location.href = "formu_member";
+                                                                    location.href = "/metland/formu_member";
                                                                 }
                                                             });
 

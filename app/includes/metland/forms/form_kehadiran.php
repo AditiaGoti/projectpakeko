@@ -211,43 +211,47 @@
                                     </div>
                                     <hr>
                                     <div class="input-group-append">
-                                            <button class="btn btn-outline-primary" onclick="myFunction(); return false"type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
-                                        </div>
+                                        <button class="btn btn-outline-primary" onclick="myFunction(); return false" type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
+                                    </div>
                                     <div id="submenu" style="display: none;">
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:70px;">Name</label>
-                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
-                                        <div class="input-group-append">
-                                            <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:70px;">Name</label>
+                                            <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
+                                            <div class="input-group-append">
+                                                <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
+                                            <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
+                                        </div>
+                                        <div class="input-group mb-4">
+                                            <label style="margin-top:5px; padding-right:74px;">Local</label>
+                                            <!-- <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled /> -->
+                                            <select class="form-control form-control" id="member_local" required>
+                                                <option value="Ragunan">Ragunan</option>
+                                                <option value="Metland">Metland</option>
+                                            </select>
+                                        </div>
+                                        <hr>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
+                                            <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
+                                        </div>
+                                        <div id="token" style="display: none;" class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:20px;">Token</label>
+                                            <div style="margin-top:7px; padding-left:100px;" class="wrapperr">
+                                                <input type="radio" name="token" value="tidak" id="option-1" checked>
+                                                <input type="radio" name="token" value="iya" id="option-2">
+                                                <label for="option-1" class="option option-1">
+                                                    <div class="dot"></div> <span>No</span>
+                                                </label>
+                                                <label for="option-2" class="option option-2">
+                                                    <div class="dot"></div> <span>Yes</span>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
-                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
-                                    </div>
-                                    <hr>
-                                    <div class="input-group mb-4">
-                                        <label style="margin-top:5px; padding-right:74px;">Local</label>
-                                        <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled />
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
-                                        <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
-                                    </div>
-                                    <div id="token" style="display: none;" class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:20px;">Token</label>
-                                        <div style="margin-top:7px; padding-left:100px;" class="wrapperr">
-                                            <input type="radio" name="token" value="tidak" id="option-1" checked>
-                                            <input type="radio" name="token" value="iya" id="option-2">
-                                            <label for="option-1" class="option option-1">
-                                                <div class="dot"></div> <span>No</span>
-                                            </label>
-                                            <label for="option-2" class="option option-2">
-                                                <div class="dot"></div> <span>Yes</span>
-                                            </label>
-                                        </div>
-                                    </div>
-
                                 </div>
                                 <div class="col-sm-6 col-md-3" id="image" style="display: none;">
                                     <div class="profile-card">
@@ -267,16 +271,16 @@
 
                         <script>
                             function myFunction() {
-                                    var x = document.getElementById("submenu");
-                                    var y = document.getElementById("image")
-                                    if (x.style.display === "none" && y.style.display === "none") {
+                                var x = document.getElementById("submenu");
+                                var y = document.getElementById("image")
+                                if (x.style.display === "none" && y.style.display === "none") {
                                     x.style.display = "block";
                                     y.style.display = "block";
-                                                } else {
+                                } else {
                                     x.style.display = "none";
                                     y.style.display = "none";
-                                                        }
-                                    }
+                                }
+                            }
                             const loader = document.querySelector("#loading");
                             var iddis = document.getElementById("id_member");
 
@@ -284,6 +288,7 @@
                                 document.getElementById("form_kehadiran").reset();
                                 document.getElementById("img_member").src = "";
                                 iddis.disabled = false;
+                                myFunction()
                             }
 
                             function displayLoading() {
@@ -299,11 +304,12 @@
 
                             function checkID() {
                                 displayLoading()
+
                                 var img = document.getElementById("img_member");
                                 img.src = "";
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                var id = document.getElementById("id_member").value;
+                                var idvalue = document.getElementById("id_member").value;
                                 const id = idvalue.split("-");
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -321,6 +327,7 @@
                                     .then((response) => response.text())
                                     .then(result => {
                                         hideLoading()
+                                        myFunction()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
                                         var message = data.message;
@@ -347,11 +354,11 @@
                                                 exp.value = expiredvalue;
                                                 local.value = localvalue;
 
-                                                if (localvalue == "Ragunan") {
-                                                    img.src = data.data.img_path
-
-                                                } else if (localvalue == "Metland") {
+                                                if (localvalue == "Metland") {
                                                     img.src = imgvalue
+
+                                                } else if (localvalue == "Ragunan") {
+                                                    img.src = data.data.img_path
                                                 }
                                             } else {
                                                 elements.style.display = 'block';
@@ -364,11 +371,11 @@
                                                 exp.value = expiredvalue;
                                                 var local = document.getElementById("member_local");
                                                 local.value = localvalue;
-                                                if (localvalue == "Ragunan") {
-                                                    img.src = data.data.img_path
-
-                                                } else if (localvalue == "Metland") {
+                                                if (localvalue == "Metland") {
                                                     img.src = imgvalue
+
+                                                } else if (localvalue == "Ragunan") {
+                                                    img.src = data.data.img_path
                                                 }
                                             }
 
@@ -387,26 +394,29 @@
 
                                     })
                                     .catch(error => {
+
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Tidak Ditemukan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                         $(".alert").delay(3000).fadeOut(
                                             "normal",
                                             function() {
                                                 $(this).remove();
                                             });
-                                    });
-                            }
+                                    })
+                            };
 
                             function checkName() {
                                 displayLoading()
                                 var img = document.getElementById("img_member");
+                                var lokal = document.getElementById("member_local").value;
                                 img.src = "";
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var type = '<?php echo $_SESSION['type']; ?>'
                                 const url = "https://api.tms-klar.com/api/users";
+                                const urlm = "https://api.tms-klar.com/api/users";
                                 iddis.disabled = true;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -419,75 +429,151 @@
                                 };
 
 
-                                fetch(url, requestOptions)
-                                    .then(response => response.text())
-                                    .then(result => {
-                                        hideLoading()
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var elements = document.getElementById('token');
-                                        var users = data.data;
-                                        var filter = {
-                                            name: document.getElementById("member_name").value,
-                                            tanggal_lahir: document.getElementById('member_dob').value
-                                        };
+                                if (lokal == "Metland") {
+                                    fetch(url, requestOptions)
+                                        .then(response => response.text())
+                                        .then(result => {
+                                            hideLoading()
+                                            var data = JSON.parse(result);
+                                            var hasildata = data.success;
+                                            var elements = document.getElementById('token');
+                                            var users = data.data;
+                                            var filter = {
+                                                name: document.getElementById("member_name").value,
+                                                tanggal_lahir: document.getElementById('member_dob').value
+                                            };
 
-                                        var filters = users.filter(function(item) {
-                                            for (var key in filter) {
-                                                if (item[key] === undefined || item[key] != filter[key])
-                                                    return false;
-                                            }
-                                            return true;
-                                        });
-
-                                        var filterData = filters[0];
-
-                                        if (filterData.token == 0) {
-                                            var id = filterData.id;
-                                            var name = filterData.name;
-                                            var dob = filterData.tanggal_lahir;
-                                            var exp = filterData.expired;
-                                            var imgvalue = "https://api.tms-klar.com/storage/" + filterData.img_path;
-                                            var input_id = document.getElementById("id_member");
-                                            var input_exp = document.getElementById("member_exp");
-                                            var input_local = document.getElementById("member_local");
-                                            input_exp.value = exp;
-                                            img.src = imgvalue;
-                                            input_id.value = id + "-" + local;
-                                            input_local.value = local;
-                                        } else {
-                                            elements.style.display = 'block';
-                                            var id = filterData.id;
-                                            var name = filterData.name;
-                                            var dob = filterData.tanggal_lahir;
-                                            var exp = filterData.expired;
-                                            var imgvalue = "api.tms-klar.com/storage/" + filterData.img_path;
-                                            var input_id = document.getElementById("id_member");
-                                            var input_exp = document.getElementById("member_exp");
-                                            var input_local = document.getElementById("member_local");
-                                            input_exp.value = exp;
-                                            input_id.value = id + "-" + local;
-                                            img.src = imgvalue;
-                                        }
-
-
-                                    })
-                                    .catch(error => {
-                                        $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
-
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
+                                            var filters = users.filter(function(item) {
+                                                for (var key in filter) {
+                                                    if (item[key] === undefined || item[key] != filter[key])
+                                                        return false;
+                                                }
+                                                return true;
                                             });
-                                    });
+
+                                            var filterData = filters[0];
+
+                                            if (filterData.token == 0) {
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "https://api.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                var input_local = document.getElementById("member_local");
+                                                input_exp.value = exp;
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
+                                            } else {
+                                                elements.style.display = 'block';
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "api.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                input_exp.value = exp;
+
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
+                                            }
+
+
+                                        })
+                                        .catch(error => {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            console.log(error)
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        })
+                                } else if (lokal == "Ragunan") {
+                                    fetch(urlm, requestOptions)
+                                        .then(response => response.text())
+                                        .then(result => {
+                                            hideLoading()
+                                            var data = JSON.parse(result);
+                                            var hasildata = data.success;
+                                            var elements = document.getElementById('token');
+                                            var users = data.data;
+                                            var filter = {
+                                                name: document.getElementById("member_name").value,
+                                                tanggal_lahir: document.getElementById('member_dob').value
+                                            };
+
+                                            var filters = users.filter(function(item) {
+                                                for (var key in filter) {
+                                                    if (item[key] === undefined || item[key] != filter[key])
+                                                        return false;
+                                                }
+                                                return true;
+                                            });
+
+                                            var filterData = filters[0];
+
+                                            if (filterData.token == 0) {
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "https://api.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                var input_local = document.getElementById("member_local");
+                                                input_exp.value = exp;
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
+                                            } else {
+                                                elements.style.display = 'block';
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "api.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                input_exp.value = exp;
+
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
+                                            }
+
+
+                                        })
+                                        .catch(error => {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                            console.log(error)
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        })
+                                };
                             }
+
+
 
                             function daftarKehadiran() {
                                 displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
+
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -514,6 +600,7 @@
                                     "local",
                                     document.getElementById("member_local").value
                                 );
+
 
                                 var requestOptions = {
                                     method: "POST",
@@ -560,6 +647,7 @@
 
                                     }))
                                     .catch((error => {
+
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
                                             `&times;</button>${error}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
