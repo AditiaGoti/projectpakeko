@@ -250,7 +250,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-sm-6 col-md-3">
+                                <div class="col-sm-6 col-md-3" id="image" style="display: none;">
                                     <div class="profile-card">
                                         <div id="member_img" class="profile-img">
                                             <img id="img_member" />
@@ -269,10 +269,13 @@
                         <script>
                             function myFunction() {
                                     var x = document.getElementById("submenu");
-                                    if (x.style.display === "none") {
+                                    var y = document.getElementById("image")
+                                    if (x.style.display === "none" && y.style.display === "none") {
                                     x.style.display = "block";
+                                    y.style.display = "block";
                                                 } else {
                                     x.style.display = "none";
+                                    y.style.display = "none";
                                                         }
                                     }
                             const loader = document.querySelector("#loading");
