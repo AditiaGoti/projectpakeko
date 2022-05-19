@@ -204,49 +204,53 @@
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <label style="margin-top:5px; padding-right:46px;">QR Code</label>
-                                        <input id="id_member" type="text" class="form-control"  placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
+                                        <input id="id_member" type="text" class="form-control" placeholder=" Masukan ID Member" form-control-lg" aria-label="name" required />
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-primary" type="submit"><i class="fa fa-search"></i> </button>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="input-group-append">
-                                            <button class="btn btn-outline-primary" onclick="myFunction()"type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
-                                        </div>
+                                        <button class="btn btn-outline-primary" onclick="myFunction();return false" type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
+                                    </div>
                                     <div id="submenu" style="display: none;">
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:70px;">Name</label>
-                                        <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
-                                        <div class="input-group-append">
-                                            <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:70px;">Name</label>
+                                            <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
+                                            <div class="input-group-append">
+                                                <button onclick="checkName(); return false" class="btn btn-outline-primary" type="button"><i class="fa fa-search"></i></button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
-                                        <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
-                                    </div>
-                                    <hr>
-                                    <div class="input-group mb-4">
-                                        <label style="margin-top:5px; padding-right:74px;">Local</label>
-                                        <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled />
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
-                                        <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
-                                    </div>
-                                    <div id="token" style="display: none;" class="input-group mb-3">
-                                        <label style="margin-top:5px; padding-right:20px;">Token</label>
-                                        <div style="margin-top:7px; padding-left:100px;" class="wrapperr">
-                                            <input type="radio" name="token" value="tidak" id="option-1" checked>
-                                            <input type="radio" name="token" value="iya" id="option-2">
-                                            <label for="option-1" class="option option-1">
-                                                <div class="dot"></div> <span>No</span>
-                                            </label>
-                                            <label for="option-2" class="option option-2">
-                                                <div class="dot"></div> <span>Yes</span>
-                                            </label>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:23px;">Date of Birth</label>
+                                            <input id="member_dob" type="date" class="form-control form-control-lg" placeholder="Masukan Tanggal Lahir Member" aria-label="dob" />
                                         </div>
-                                    </div>
+                                        <div class="input-group mb-4">
+                                            <label style="margin-top:5px; padding-right:74px;">Local</label>
+                                            <!-- <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled /> -->
+                                            <select class="form-control form-control" id="member_local" required>
+                                                <option value="Ragunan">Ragunan</option>
+                                                <option value="Metland">Metland</option>
+                                            </select>
+                                        </div>
+                                        <hr>
+                                        <div class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:20px;">Expired Date</label>
+                                            <input id="member_exp" class="form-control form-control-lg" placeholder="Expired Date" aria-label="dob" disabled />
+                                        </div>
+                                        <div id="token" style="display: none;" class="input-group mb-3">
+                                            <label style="margin-top:5px; padding-right:20px;">Token</label>
+                                            <div style="margin-top:7px; padding-left:100px;" class="wrapperr">
+                                                <input type="radio" name="token" value="tidak" id="option-1" checked>
+                                                <input type="radio" name="token" value="iya" id="option-2">
+                                                <label for="option-1" class="option option-1">
+                                                    <div class="dot"></div> <span>No</span>
+                                                </label>
+                                                <label for="option-2" class="option option-2">
+                                                    <div class="dot"></div> <span>Yes</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -268,16 +272,16 @@
 
                         <script>
                             function myFunction() {
-                                    var x = document.getElementById("submenu");
-                                    var y = document.getElementById("image")
-                                    if (x.style.display === "none" && y.style.display === "none") {
+                                var x = document.getElementById("submenu");
+                                var y = document.getElementById("image")
+                                if (x.style.display === "none" && y.style.display === "none") {
                                     x.style.display = "block";
                                     y.style.display = "block";
-                                                } else {
+                                } else {
                                     x.style.display = "none";
                                     y.style.display = "none";
-                                                        }
-                                    }
+                                }
+                            }
                             const loader = document.querySelector("#loading");
                             var iddis = document.getElementById("id_member");
 
@@ -300,6 +304,7 @@
 
                             function checkID() {
                                 displayLoading()
+
                                 var img = document.getElementById("img_member");
                                 img.src = "";
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
@@ -315,89 +320,145 @@
                                     headers: myHeaders,
                                     redirect: "follow",
                                 };
-                                fetch(
-                                        "https://ragunan.tms-klar.com/api/users/" + idvalue,
-                                        requestOptions
-                                    )
-                                    .then((response) => response.text())
-                                    .then(result => {
-                                        hideLoading()
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var message = data.message;
-                                        var expiredvalue = data.data.expired;
-                                        var namevalue = data.data.name;
-                                        var localvalue = data.data.local;
-                                        var dobvalue = data.data.tanggal_lahir;
-                                        var imgvalue = "https://ragunan.tms-klar.com" +
-                                            data.data.img_path;
-                                        var elements = document.getElementById('token');
-                                        iddis.disabled = true;
-                                        if (hasildata) {
-                                            if (data.data.token == 0) {
+                                if (lokal == "Ragunan") {
+                                    fetch(url, requestOptions)
+                                        .then(response => response.text())
+                                        .then(result => {
+                                            hideLoading()
+                                            var data = JSON.parse(result);
+                                            var hasildata = data.success;
+                                            var elements = document.getElementById('token');
+                                            var users = data.data;
+                                            var filter = {
+                                                name: document.getElementById("member_name").value,
+                                                tanggal_lahir: document.getElementById('member_dob').value
+                                            };
 
-                                                var name = document.getElementById("member_name");
-                                                var dob = document.getElementById("member_dob");
-                                                var exp = document.getElementById("member_exp");
-                                                var local = document.getElementById("member_local");
-
-                                                name.value = namevalue;
-                                                dob.value = dobvalue;
-                                                exp.value = expiredvalue;
-                                                local.value = localvalue;
-
-                                                if (localvalue == "Metland") {
-                                                    img.src = data.data.img_path
-
-                                                } else if (localvalue == "Ragunan") {
-                                                    img.src = imgvalue
+                                            var filters = users.filter(function(item) {
+                                                for (var key in filter) {
+                                                    if (item[key] === undefined || item[key] != filter[key])
+                                                        return false;
                                                 }
+                                                return true;
+                                            });
+
+                                            var filterData = filters[0];
+
+                                            if (filterData.token == 0) {
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "https://ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                var input_local = document.getElementById("member_local");
+                                                input_exp.value = exp;
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
                                             } else {
                                                 elements.style.display = 'block';
-                                                var name = document.getElementById("member_name");
-                                                var dob = document.getElementById("member_dob");
-                                                var exp = document.getElementById("member_exp");
-                                                var local = document.getElementById("member_local");
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                input_exp.value = exp;
 
-                                                name.value = namevalue;
-                                                dob.value = dobvalue;
-
-                                                exp.value = expiredvalue;
-                                                local.value = localvalue;
-                                                if (localvalue == "Metland") {
-                                                    img.src = data.data.img_path
-
-                                                } else if (localvalue == "Ragunan") {
-                                                    img.src = imgvalue
-                                                }
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
                                             }
 
-                                        } else {
+
+                                        })
+                                        .catch(error => {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
-                                                `&times;</button>${message}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+                                                `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
 
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
                                                     $(this).remove();
                                                 });
-                                        }
+                                        })
+                                } else if (lokal == "Metland") {
+                                    fetch(url, requestOptions)
+                                        .then(response => response.text())
+                                        .then(result => {
+                                            hideLoading()
+                                            var data = JSON.parse(result);
+                                            var hasildata = data.success;
+                                            var elements = document.getElementById('token');
+                                            var users = data.data;
+                                            var filter = {
+                                                name: document.getElementById("member_name").value,
+                                                tanggal_lahir: document.getElementById('member_dob').value
+                                            };
 
-
-                                    })
-                                    .catch(error => {
-                                        $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            '&times;</button>Data Tidak Ditemukan</div>').hide().prependTo('#form_kehadiran').fadeIn(1000);
-
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
+                                            var filters = users.filter(function(item) {
+                                                for (var key in filter) {
+                                                    if (item[key] === undefined || item[key] != filter[key])
+                                                        return false;
+                                                }
+                                                return true;
                                             });
-                                    });
+
+                                            var filterData = filters[0];
+
+                                            if (filterData.token == 0) {
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "https://ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                var input_local = document.getElementById("member_local");
+                                                input_exp.value = exp;
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
+                                            } else {
+                                                elements.style.display = 'block';
+                                                var id = filterData.id;
+                                                var name = filterData.name;
+                                                var dob = filterData.tanggal_lahir;
+                                                var exp = filterData.expired;
+                                                var local = filterData.local;
+                                                var imgvalue = "ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var input_id = document.getElementById("id_member");
+                                                var input_exp = document.getElementById("member_exp");
+                                                input_exp.value = exp;
+
+                                                img.src = imgvalue;
+                                                input_id.value = id + "-" + local;
+                                                input_local.value = local;
+                                            }
+
+
+                                        })
+                                        .catch(error => {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        })
+                                };
                             }
+
 
                             function checkName() {
                                 displayLoading()
