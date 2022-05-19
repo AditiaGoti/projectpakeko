@@ -34,7 +34,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="/metland/logoutc" class="nav-link">
+                <a href="/logoutc" class="nav-link">
                     <i class="menu-icon typcn typcn-document-text"></i>
                     <span class="menu-title" style="color: black;">Logout</span>
                 </a>

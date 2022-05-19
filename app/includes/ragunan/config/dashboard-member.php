@@ -37,6 +37,7 @@
                             <table id="table-data" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>Lokasi</th>
                                         <th>Hari</th>
                                         <th>Tanggal</th>
                                         <th>Waktu </th>
@@ -104,6 +105,7 @@
 
 
                                                         var body = `<tr>`;
+                                                        body += `<td >` + data.local + "</td>";
                                                         body += `<td >` + day + "</td>";
                                                         body += "<td>" + date + "</td>";
                                                         body += "<td>" + time + " WIB" + "</td>";
