@@ -104,9 +104,9 @@
                                                 });
                                             document.getElementById("form_changepass").reset();
                                             if (type == 1) {
-                                                location.href = "/profile-admin";
+                                                location.href = "/metland/profile-admin";
                                             } else if (type == 0)
-                                                location.href = "/profile-member";
+                                                location.href = "/metland/profile-member";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

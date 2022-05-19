@@ -322,10 +322,10 @@
                                                 console.log(id);
                                                 if (type == 2) {
                                                     var memID = sessionStorage.setItem("id-member", id);
-                                                    location.href = "/owformu_member";
+                                                    location.href = "/metland/owformu_member";
                                                 } else {
                                                     var memID = sessionStorage.setItem("id-member", id);
-                                                    location.href = "formu_member";
+                                                    location.href = "/metland/formu_member";
                                                 }
                                             });
 

@@ -169,9 +169,9 @@
                                                 });
                                             document.getElementById("form_paket").reset();
                                             if (type == 2) {
-                                                location.href = "/owpaket";
+                                                location.href = "/metland/owpaket";
                                             } else if (type == 1)
-                                                location.href = "/paket";
+                                                location.href = "/metland/paket";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
