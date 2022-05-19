@@ -140,7 +140,7 @@
 
                                         var data = dataparse.data;
                                         var createXLSLFormatObj = [];
-                                        var xlsHeader = ["ID", "Name", "Email", "Gender", "Tempat Lahir", "Tanggal Lahir", "No. HP", "Alamat", "Expired Date", "Token"];
+                                        var xlsHeader = ["ID", "Name", "Email", "Lokal", "Gender", "Tempat Lahir", "Tanggal Lahir", "No. HP", "Alamat", "Expired Date", "Token"];
 
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
@@ -150,6 +150,7 @@
                                                 "ID": data.id,
                                                 "Name": data.name,
                                                 "Email": data.email,
+                                                "Lokal": data.lokal,
                                                 "Gender": data.gender,
                                                 "Tempat Lahir": data.tempat_lahir,
                                                 "Tanggal Lahir": data.tanggal_lahir,
@@ -168,7 +169,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Member Data Klub Ade Rai.xlsx";
+                                        var filename = "Member Data Klub Ade Rai Ragunan.xlsx";
 
                                         var ws_name = "Data Member";
                                         var wb = XLSX.utils.book_new(),
@@ -322,10 +323,10 @@
                                                 console.log(id);
                                                 if (type == 2) {
                                                     var memID = sessionStorage.setItem("id-member", id);
-                                                    location.href = "/owformu_member";
+                                                    location.href = "/ragunan/owformu_member";
                                                 } else {
                                                     var memID = sessionStorage.setItem("id-member", id);
-                                                    location.href = "formu_member";
+                                                    location.href = "/ragunan/formu_member";
                                                 }
                                             });
 

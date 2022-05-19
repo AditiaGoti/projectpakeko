@@ -267,7 +267,7 @@
                                                     $('#table-data tbody').on('click', 'button.updateBtnUI ', function() {
                                                         var id = $(this).attr('value');
                                                         var admID = sessionStorage.setItem("id-admin", id);
-                                                        location.href = "/owformu_admin";
+                                                        location.href = "/ragunan/owformu_admin";
 
                                                     });
 

@@ -289,6 +289,7 @@
                                 document.getElementById("form_kehadiran").reset();
                                 document.getElementById("img_member").src = "";
                                 iddis.disabled = false;
+                                myFunction()
                             }
 
                             function displayLoading() {
@@ -310,6 +311,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var idvalue = document.getElementById("id_member").value;
+                                var idvalue = document.getElementById("id_member").value;
                                 const id = idvalue.split("-");
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -320,6 +322,115 @@
                                     headers: myHeaders,
                                     redirect: "follow",
                                 };
+                                fetch(
+                                        "https://ragunan.tms-klar.com/api/users/" + idvalue,
+                                        requestOptions
+                                    )
+                                    .then((response) => response.text())
+                                    .then(result => {
+                                        hideLoading()
+                                        myFunction()
+                                        var data = JSON.parse(result);
+                                        var hasildata = data.success;
+                                        var message = data.message;
+                                        var expiredvalue = data.data.expired;
+                                        var namevalue = data.data.name;
+                                        var dobvalue = data.data.tanggal_lahir;
+                                        var imgvalue = "https://ragunan.tms-klar.com" +
+                                            data.data.img_path;
+                                        var elements = document.getElementById('token');
+                                        var localvalue = data.data.local;
+
+                                        iddis.disabled = true;
+                                        if (hasildata) {
+                                            if (data.data.token == 0) {
+
+                                                var name = document.getElementById("member_name");
+                                                var dob = document.getElementById("member_dob");
+                                                var exp = document.getElementById("member_exp");
+                                                var local = document.getElementById("member_local");
+
+                                                name.value = namevalue;
+                                                dob.value = dobvalue;
+
+                                                exp.value = expiredvalue;
+                                                local.value = localvalue;
+
+                                                if (localvalue == "Ragunan") {
+                                                    img.src = imgvalue
+
+                                                } else if (localvalue == "Metland") {
+                                                    img.src = data.data.img_path
+                                                }
+                                            } else {
+                                                elements.style.display = 'block';
+                                                var name = document.getElementById("member_name");
+                                                var dob = document.getElementById("member_dob");
+                                                var exp = document.getElementById("member_exp");
+
+                                                name.value = namevalue;
+                                                dob.value = dobvalue;
+                                                exp.value = expiredvalue;
+                                                var local = document.getElementById("member_local");
+                                                local.value = localvalue;
+                                                if (localvalue == "Ragunan") {
+                                                    img.src = imgvalue
+
+                                                } else if (localvalue == "Metland") {
+                                                    img.src = data.data.img_path
+                                                }
+                                            }
+
+                                        } else {
+                                            $('<div class="alert alert-danger">' +
+                                                '<button type="button" class="close" data-dismiss="alert">' +
+                                                `&times;</button>${message}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                            $(".alert").delay(3000).fadeOut(
+                                                "normal",
+                                                function() {
+                                                    $(this).remove();
+                                                });
+                                        }
+
+
+                                    })
+                                    .catch(error => {
+
+                                        $('<div class="alert alert-danger">' +
+                                            '<button type="button" class="close" data-dismiss="alert">' +
+                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
+
+                                        $(".alert").delay(3000).fadeOut(
+                                            "normal",
+                                            function() {
+                                                $(this).remove();
+                                            });
+                                    })
+                            };
+
+                            function checkName() {
+                                displayLoading()
+                                var img = document.getElementById("img_member");
+                                var lokal = document.getElementById("member_local").value;
+                                img.src = "";
+                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var token = "Bearer" + " " + tokenSession;
+                                var type = '<?php echo $_SESSION['type']; ?>'
+                                const url = "https://ragunan.tms-klar.com/api/users";
+                                const urlm = "https://api.tms-klar.com/api/users";
+                                iddis.disabled = true;
+                                var myHeaders = new Headers();
+                                myHeaders.append("Authorization", token);
+                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                                var requestOptions = {
+                                    method: 'GET',
+                                    headers: myHeaders,
+                                    redirect: 'follow'
+                                };
+
+
                                 if (lokal == "Ragunan") {
                                     fetch(url, requestOptions)
                                         .then(response => response.text())
@@ -381,7 +492,7 @@
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
-
+                                            console.log(error)
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
@@ -389,7 +500,7 @@
                                                 });
                                         })
                                 } else if (lokal == "Metland") {
-                                    fetch(url, requestOptions)
+                                    fetch(urlm, requestOptions)
                                         .then(response => response.text())
                                         .then(result => {
                                             hideLoading()
@@ -418,7 +529,7 @@
                                                 var dob = filterData.tanggal_lahir;
                                                 var exp = filterData.expired;
                                                 var local = filterData.local;
-                                                var imgvalue = "https://ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var imgvalue = "https://api.tms-klar.com/storage/" + filterData.img_path;
                                                 var input_id = document.getElementById("id_member");
                                                 var input_exp = document.getElementById("member_exp");
                                                 var input_local = document.getElementById("member_local");
@@ -433,7 +544,7 @@
                                                 var dob = filterData.tanggal_lahir;
                                                 var exp = filterData.expired;
                                                 var local = filterData.local;
-                                                var imgvalue = "ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var imgvalue = "api.tms-klar.com/storage/" + filterData.img_path;
                                                 var input_id = document.getElementById("id_member");
                                                 var input_exp = document.getElementById("member_exp");
                                                 input_exp.value = exp;
@@ -449,7 +560,7 @@
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
-
+                                            console.log(error)
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
@@ -460,94 +571,6 @@
                             }
 
 
-                            function checkName() {
-                                displayLoading()
-                                var img = document.getElementById("img_member");
-                                img.src = "";
-                                var tokenSession = '<?php echo $_SESSION['token']; ?>';
-                                var token = "Bearer" + " " + tokenSession;
-                                var type = '<?php echo $_SESSION['type']; ?>'
-                                const url = "https://ragunan.tms-klar.com/api/users";
-                                iddis.disabled = true;
-                                var myHeaders = new Headers();
-                                myHeaders.append("Authorization", token);
-                                myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-                                var requestOptions = {
-                                    method: 'GET',
-                                    headers: myHeaders,
-                                    redirect: 'follow'
-                                };
-
-
-                                fetch(url, requestOptions)
-                                    .then(response => response.text())
-                                    .then(result => {
-                                        hideLoading()
-                                        var data = JSON.parse(result);
-                                        var hasildata = data.success;
-                                        var elements = document.getElementById('token');
-                                        var users = data.data;
-                                        var filter = {
-                                            name: document.getElementById("member_name").value,
-                                            tanggal_lahir: document.getElementById('member_dob').value
-                                        };
-
-                                        var filters = users.filter(function(item) {
-                                            for (var key in filter) {
-                                                if (item[key] === undefined || item[key] != filter[key])
-                                                    return false;
-                                            }
-                                            return true;
-                                        });
-
-                                        var filterData = filters[0];
-
-                                        if (filterData.token == 0) {
-                                            var id = filterData.id;
-                                            var name = filterData.name;
-                                            var dob = filterData.tanggal_lahir;
-                                            var exp = filterData.expired;
-                                            var local = filterData.local;
-                                            var imgvalue = "https://ragunan.tms-klar.com/storage/" + filterData.img_path;
-                                            var input_id = document.getElementById("id_member");
-                                            var input_exp = document.getElementById("member_exp");
-                                            var input_local = document.getElementById("member_local");
-                                            input_exp.value = exp;
-                                            img.src = imgvalue;
-                                            input_id.value = id + "-" + local;
-                                            input_local.value = local;
-                                        } else {
-                                            elements.style.display = 'block';
-                                            var id = filterData.id;
-                                            var name = filterData.name;
-                                            var dob = filterData.tanggal_lahir;
-                                            var exp = filterData.expired;
-                                            var local = filterData.local;
-                                            var imgvalue = "ragunan.tms-klar.com/storage/" + filterData.img_path;
-                                            var input_id = document.getElementById("id_member");
-                                            var input_exp = document.getElementById("member_exp");
-                                            input_exp.value = exp;
-
-                                            img.src = imgvalue;
-                                            input_id.value = id + "-" + local;
-                                            input_local.value = local;
-                                        }
-
-
-                                    })
-                                    .catch(error => {
-                                        $('<div class="alert alert-danger">' +
-                                            '<button type="button" class="close" data-dismiss="alert">' +
-                                            `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
-
-                                        $(".alert").delay(3000).fadeOut(
-                                            "normal",
-                                            function() {
-                                                $(this).remove();
-                                            });
-                                    });
-                            }
 
                             function daftarKehadiran() {
                                 displayLoading()
@@ -626,6 +649,7 @@
 
                                     }))
                                     .catch((error => {
+
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
                                             `&times;</button>${error}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);

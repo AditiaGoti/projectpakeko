@@ -123,7 +123,7 @@
 
                                         var data = dataparse.data;
                                         var createXLSLFormatObj = [];
-                                        var xlsHeader = ["Tanggal", "Waktu", "Email", "Nama"];
+                                        var xlsHeader = ["Tanggal", "Waktu", "Email", "Nama", "Lokal"];
                                         createXLSLFormatObj.push(xlsHeader);
                                         $.each(data, function(i, data) {
 
@@ -136,7 +136,8 @@
                                                 "Tanggal": date[0],
                                                 "Waktu": date[1],
                                                 "Email": data.email,
-                                                "Nama": data.nama
+                                                "Nama": data.nama,
+                                                "Lokal": data.local
 
                                             }];
 
@@ -149,7 +150,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Attendance Data  Klub Ade Rai.xlsx";
+                                        var filename = "Attendance Data  Klub Ade Rai Ragunan.xlsx";
 
                                         var ws_name = "Data Kehadiran";
                                         var wb = XLSX.utils.book_new(),
@@ -197,6 +198,7 @@
                                         <th>Tanggal</th>
                                         <th>Waktu</th>
                                         <th>Nama</th>
+                                        <th>Lokal</th>
                                         <th>Email</th>
                                     </tr>
                                 </thead>
@@ -251,6 +253,9 @@
                                                             },
                                                             {
                                                                 'data': 'nama'
+                                                            },
+                                                            {
+                                                                'data': 'local'
                                                             },
                                                             {
                                                                 'data': 'email'

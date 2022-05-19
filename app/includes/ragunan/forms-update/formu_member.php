@@ -209,9 +209,9 @@
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 '&times;</button>Data Berhasil Disimpan</div>').hide().prependTo('#form_member').fadeIn(1000);
                                             if (type == 2) {
-                                                location.href = "/owall_member";
+                                                location.href = "/ragunan/owall_member";
                                             } else if (type == 1)
-                                                location.href = "/all_member";
+                                                location.href = "/ragunan/all_member";
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
