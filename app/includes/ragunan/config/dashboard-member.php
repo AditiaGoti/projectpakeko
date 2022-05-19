@@ -48,7 +48,6 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var Sid = '<?php echo $_SESSION['id']; ?>';
-
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
                                         const url = "https://ragunan.tms-klar.com/api/kehadiran" + "/" + Sid;
@@ -61,6 +60,7 @@
                                             var local = '<?php echo $_SESSION['local']; ?>';
                                             qrcode.makeCode(Sid + "-" + local);
                                         }
+                                        makeCode();
 
                                         $(document).ready(function() {
                                             $.ajax({
@@ -72,7 +72,6 @@
                                                 success: function(response) {
                                                     makeCode(myArray);
                                                     data = response.data;
-                                                    console.log(data);
                                                     user_data = response.user_data;
                                                     dl = user_data.days_left;
                                                     left = dl.split(" ")
@@ -116,11 +115,16 @@
                                                     var t = $("#table-data").DataTable({
                                                         responsive: true,
                                                         "pageLength": 25,
-                                                        ordering: false,
+                                                        order: [
+                                                            [3, "desc"],
+                                                            [2, "desc"]
+                                                        ],
+
                                                     });
 
                                                 },
                                                 error: function(response) {
+
                                                     hasil = response.responseJSON.message;
                                                     alert(hasil);
                                                 }

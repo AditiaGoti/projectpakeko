@@ -239,6 +239,8 @@
                             function daftarTransaksi() {
                                 displayLoading()
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
+                                var idvalue = document.getElementById("id_member").value;
+                                const id = idvalue.split("-");
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -247,7 +249,7 @@
                                 var urlencoded = new URLSearchParams();
                                 urlencoded.append(
                                     "id_member",
-                                    document.getElementById("id_member").value
+                                    id[0]
                                 );
                                 urlencoded.append(
                                     "id_paket",

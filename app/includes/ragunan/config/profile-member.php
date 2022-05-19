@@ -55,13 +55,13 @@
                                         <label>Photo</label>
                                         <img id="Memberimg_values" style="margin-top:30px; margin-bottom:23px; " src="" width="200px" height="200px">
                                         <input onchange="VerifyUploadSizeIsOK()" id="Member_img" style="padding-top: 5px;" class="form-control" accept="image/png, image/jpg, image/jpeg" type="file" />
-                                        <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2MB*</p>
+                                        <p style="margin-left:20px; font-size: 11px;"> *Notes : Max File 2M *</p>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-inverse-success btn-lg btn-block">
                                     Submit
                                 </button>
-                                <button type="button" onclick="window.location.href='/'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
+                                <button type="button" onclick="window.location.href='/ragunan/profile-member'" class="btn btn-inverse-dark btn-lg btn-block">Cancel</button>
                             </div>
 
                         </form>
@@ -70,7 +70,8 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
-                            const url = "https://ragunan.tms-klar.com/api/users" + "/" + id;
+                            const url = "https://ragunan.tms-klar.com/api/users" + "/" + id + "-Ragunan";
+
                             $.ajax({
                                 method: "GET",
                                 url: url,
@@ -104,6 +105,7 @@
                                 alamat.value = data.alamat;
                                 imgv.src = "https://ragunan.tms-klar.com/public/" +
                                     data.img_path;
+                                console.log
                                 sessionStorage.setItem("email-member", email.value);
                             }
 
@@ -183,7 +185,6 @@
                                         hideLoading()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
-                                        console.log(result)
                                         var message = data.message;
 
                                         if (hasildata) {
@@ -212,6 +213,7 @@
 
                                     }))
                                     .catch((error => {
+                                        console.log(error)
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
                                             '&times;</button>Terjadi Kesalahan</div>').hide().prependTo('#form_profile').fadeIn(1000);

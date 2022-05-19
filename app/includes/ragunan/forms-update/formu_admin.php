@@ -187,6 +187,7 @@
                                         var hasildata = data.success;
                                         var message = data.message;
 
+
                                         if (hasildata) {
                                             $('<div class="alert alert-success">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +

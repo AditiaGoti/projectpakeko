@@ -150,7 +150,7 @@
                                                 "ID": data.id,
                                                 "Name": data.name,
                                                 "Email": data.email,
-                                                "Lokal": data.lokal,
+                                                "Lokal": data.local,
                                                 "Gender": data.gender,
                                                 "Tempat Lahir": data.tempat_lahir,
                                                 "Tanggal Lahir": data.tanggal_lahir,

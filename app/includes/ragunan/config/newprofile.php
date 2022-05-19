@@ -24,7 +24,7 @@
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGPhoto.png); background-size:auto;  background-repeat:repeat-x;">
+                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(../../../../public/assets/images/BGPhoto.png); background-size:auto;  background-repeat:repeat-x;">
                                 <div class="card-block text-center text-white">
                                     <div id="img" class="m-b-25" style="margin-top:25px">
 
@@ -78,7 +78,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var id = `<?php echo $_SESSION['id']; ?>`;
-                                const url = "https://ragunan.tms-klar.com/api/users" + "/" + id;
+                                const url = "https://ragunan.tms-klar.com/api/users" + "/" + id + "-Ragunan";
 
                                 $.ajax({
                                     method: "GET",
@@ -540,29 +540,29 @@
                     $(`<h6 class="text-muted f-w-400">${body_cat}</h6>`).appendTo('#body_cat');
 
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px; font-weight: bold; margin-left: 20px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -15px; padding-right: 10px;">
-                </i>${dataw[dataw.length-2]} kg</P>
+                </i>${dataw[1]} kg</P>
                     `).appendTo('#beforeBerat');
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold; margin-left: 10px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -20px;padding-right:5px;">
-                </i>${data.fatmass[data.fatmass.length-2]} kg</P>
+                </i>${data.fatmass[1]} kg</P>
                     `).appendTo('#beforeMassaO');
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color:#FFB266; margin-left:7px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 5px;color:#FFB266;">
-                </i>${data.leanmass[data.leanmass.length - 2]} kg</P>
+                </i>${data.leanmass[1]} kg</P>
                     `).appendTo('#beforeOtot');
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266; margin-left:20px">
-                ${data.body_fat[data.body_fat.length - 2]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:#FFB266;"></i></P>
+                ${data.body_fat[1]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px;color:#FFB266;"></i></P>
                     `).appendTo('#beforeMassaL');
 
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-20px; font-weight: bold; margin-left: 20px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 2px;color:#FFB266;">
-                </i> ${data.weight[data.weight.length - 1]} kg</P>
+                </i> ${data.weight[0]} kg</P>
                                         `).appendTo('#afterBerat');
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold; margin-left: 10px;color: #FFB266;"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -20px ;color:#FFB266;">
-                </i> ${data.fatmass[data.fatmass.length - 1]} kg</P>
+                </i> ${data.fatmass[0]} kg</P>
                                         `).appendTo('#afterMassaO');
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266;margin-left: 7px"><i class="fa-solid fa-weight-scale fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: -18px; padding-right: 10px;color:#FFB266;">
-                </i>${data.leanmass[data.leanmass.length - 1]} kg</P>
+                </i>${data.leanmass[0]} kg</P>
                                         `).appendTo('#afterOtot');
                     $(`<P style="font-size:22px;font-family: 'League Gothic', sans-serif;margin-top:-15px;font-weight: bold;color: #FFB266; margin-left:20px;">
-                ${data.body_fat[data.body_fat.length - 1]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px; padding-right: 10px;color:#FFB266;"></i></P>
+                ${data.body_fat[0]}<i class="fa-solid fa-percent fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;margin-left: 10px; padding-right: 10px;color:#FFB266;"></i></P>
                                         `).appendTo('#afterMassaL');
 
 

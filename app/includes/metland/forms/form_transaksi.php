@@ -241,13 +241,16 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var myHeaders = new Headers();
+                                var idvalue = document.getElementById("id_member").value;
+                                const id = idvalue.split("-");
                                 myHeaders.append("Authorization", token);
                                 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
                                 var urlencoded = new URLSearchParams();
+
                                 urlencoded.append(
                                     "id_member",
-                                    document.getElementById("id_member").value
+                                    id[0]
                                 );
                                 urlencoded.append(
                                     "id_paket",
