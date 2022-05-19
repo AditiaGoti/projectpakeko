@@ -211,7 +211,7 @@
                                     </div>
                                     <hr>
                                     <div class="input-group-append">
-                                            <button class="btn btn-outline-primary" onclick="myFunction()"type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
+                                            <button class="btn btn-outline-primary" onclick="myFunction(); return false"type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
                                         </div>
                                     <div id="submenu" style="display: none;">
                                     <div class="input-group mb-3">

@@ -210,6 +210,10 @@
                                         </div>
                                     </div>
                                     <hr>
+                                    <div class="input-group-append">
+                                            <button class="btn btn-outline-primary" onclick="myFunction(); return false"type="submit"><i class="fa fa-caret-square-o-down"></i> </button>
+                                        </div>
+                                    <div id="submenu" style="display: none;">
                                     <div class="input-group mb-3">
                                         <label style="margin-top:5px; padding-right:70px;">Name</label>
                                         <input id="member_name" type="text" class="form-control form-control-lg" placeholder="Masukan Nama Member" aria-label="name" />
@@ -245,7 +249,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-sm-6 col-md-3">
+                                <div class="col-sm-6 col-md-3" id="image" style="display: none;">
                                     <div class="profile-card">
                                         <div id="member_img" class="profile-img">
                                             <img id="img_member" />
@@ -262,6 +266,17 @@
                         </form>
 
                         <script>
+                            function myFunction() {
+                                    var x = document.getElementById("submenu");
+                                    var y = document.getElementById("image")
+                                    if (x.style.display === "none" && y.style.display === "none") {
+                                    x.style.display = "block";
+                                    y.style.display = "block";
+                                                } else {
+                                    x.style.display = "none";
+                                    y.style.display = "none";
+                                                        }
+                                    }
                             const loader = document.querySelector("#loading");
                             var iddis = document.getElementById("id_member");
 
