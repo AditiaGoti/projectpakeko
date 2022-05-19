@@ -18,7 +18,7 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
             <li class="nav-item nav-profile">
-                <a href="/profile-member" class="nav-link">
+                <a href="/ragunan/profile-member" class="nav-link">
                     <div class="text-wrapper">
                         <p class="profile-name"> <i class="fa fa-user" style="margin-left: -10px; padding-right: 5px;"></i><?php echo $_SESSION['name'] ?></p>
                         <p class="designation"><i class="fa fa-envelope" style="margin-left: -11px;  padding-right: 3px;"></i><?php echo $_SESSION['email'] ?></p>
@@ -27,14 +27,14 @@
             </li>
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-                <a class="nav-link" href="/member">
+                <a class="nav-link" href="/ragunan/member">
                     <i class="menu-icon typcn typcn-document-text"></i>
                     <span class="menu-title" style="color: black;">Dashboard</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="/logoutr" class="nav-link">
+                <a href="/ragunan/logoutr" class="nav-link">
                     <i class="menu-icon typcn typcn-document-text"></i>
                     <span class="menu-title" style="color: black;">Logout</span>
                 </a>

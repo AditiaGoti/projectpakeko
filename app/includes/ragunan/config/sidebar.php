@@ -40,7 +40,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/logoutr">
+            <a class="nav-link" href="/ragunan/logoutr">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title" style="color: black;">Logout</span>
             </a>

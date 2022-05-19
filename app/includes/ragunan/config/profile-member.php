@@ -197,7 +197,7 @@
                                                     $(this).remove();
                                                 });
                                             sessionStorage.removeItem("email-member");
-                                            location.href = "/profile-member";
+                                            location.href = "/ragunan/profile-member";
                                         } else {
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
