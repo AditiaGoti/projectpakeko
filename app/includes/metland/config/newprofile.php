@@ -74,6 +74,19 @@
                             </div>
 
                             <script>
+                                const loader = document.querySelector("#loading");
+
+                                function displayLoading() {
+                                    loader.classList.add("loading");
+                                    setTimeout(() => {
+                                        loader.classList.remove("loading");
+                                    }, 8000);
+                                }
+                                displayLoading()
+
+                                function hideLoading() {
+                                    loader.classList.remove("loading");
+                                }
                                 var myArray = [];
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
@@ -88,6 +101,7 @@
                                     },
                                     success: function(response) {
                                         myArray = response.data;
+                                        hideLoading()
                                         build(myArray);
                                     },
                                 });

@@ -20,6 +20,7 @@ if (!$_SESSION['local'] == "Ragunan") {
 
 <body>
     <div class="container-scroller">
+        <div id="loading"> </div>
         <?php include(app_path() . '/includes/ragunan/config/navside-member.php'); ?>
         <?php include(app_path() . '/includes/ragunan/config/newprofile.php'); ?>
     </div>

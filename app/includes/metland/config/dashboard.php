@@ -115,6 +115,19 @@
         </div>
     </footer>
     <script>
+        const loader = document.querySelector("#loading");
+
+        function displayLoading() {
+            loader.classList.add("loading");
+            setTimeout(() => {
+                loader.classList.remove("loading");
+            }, 8000);
+        }
+        displayLoading()
+
+        function hideLoading() {
+            loader.classList.remove("loading");
+        }
         var tokenSession = '<?php echo $_SESSION['token']; ?>';
         var token = "Bearer" + " " + tokenSession;
         var myArray = [];
@@ -131,6 +144,7 @@
                     Authorization: token,
                 },
                 success: function(response) {
+                    hideLoading()
                     data = response.etc;
                     const obj = data.rupiah_permonth;
                     const lastKey = Object.keys(obj).pop();

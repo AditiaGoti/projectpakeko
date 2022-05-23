@@ -23,6 +23,7 @@ if (!$_SESSION['local'] == "Metland") {
 
 <body>
     <div class="container-scroller">
+        <div id="loading"> </div>
         <?php include(app_path() . '/includes/cileungsi/config/navside-member.php'); ?>
         <?php include(app_path() . '/includes/cileungsi/config/dashboard-member.php'); ?>
     </div>
