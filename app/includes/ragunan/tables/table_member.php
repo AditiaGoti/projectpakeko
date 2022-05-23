@@ -100,6 +100,19 @@
                             <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
                         </form>
                         <script>
+                            const loader = document.querySelector("#loading");
+
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 8000);
+                            }
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
                             function checkDate() {
                                 sessionStorage.clear("result-m")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
@@ -436,6 +449,7 @@
                                                 });
 
                                                 function deleteDatau() {
+                                                    displayLoading()
                                                     var memID = sessionStorage.getItem("id-member");
                                                     var myHeaders = new Headers();
                                                     myHeaders.append(
@@ -449,13 +463,15 @@
                                                     fetch(`${urlu}/${memID}`, deleteRequest)
                                                         .then((res) => res.json())
                                                         .then((result => {
-
+                                                            hideLoading()
                                                             var hasildata = result.success;
                                                             var message = result.message;
                                                             if (hasildata) {
+
                                                                 sessionStorage.removeItem("id-member");
                                                                 location.reload();
                                                             } else {
+
                                                                 $('<div class="alert alert-danger">' +
                                                                     '<button type="button" class="close" data-dismiss="alert">' +
                                                                     `&times;</button>${message}</div>`).hide().prependTo('#bodyModal').fadeIn(1000);
@@ -586,6 +602,7 @@
                                                 });
 
                                                 function deleteDataua() {
+                                                    displayLoading()
                                                     var memID = sessionStorage.getItem("id-member");
                                                     var myHeaders = new Headers();
                                                     myHeaders.append(
@@ -600,7 +617,7 @@
                                                     fetch(`${urlu}/${memID}`, deleteRequest)
                                                         .then((res) => res.json())
                                                         .then((result => {
-
+                                                            hideLoading()
                                                             var hasildata = result.success;
                                                             var message = result.message;
                                                             if (hasildata) {
@@ -739,6 +756,7 @@
                                                 });
 
                                                 function deleteDataui() {
+                                                    displayLoading()
                                                     var memID = sessionStorage.getItem("id-member");
                                                     var myHeaders = new Headers();
                                                     myHeaders.append(
@@ -752,7 +770,7 @@
                                                     fetch(`${urlu}/${memID}`, deleteRequest)
                                                         .then((res) => res.json())
                                                         .then((result => {
-
+                                                            hideLoading()
                                                             var hasildata = result.success;
                                                             var message = result.message;
                                                             if (hasildata) {

@@ -245,6 +245,18 @@
                                 </thead>
                                 <tbody>
                                     <script>
+                                        const loader = document.querySelector("#loading");
+
+                                        function displayLoading() {
+                                            loader.classList.add("loading");
+                                            setTimeout(() => {
+                                                loader.classList.remove("loading");
+                                            }, 8000);
+                                        }
+
+                                        function hideLoading() {
+                                            loader.classList.remove("loading");
+                                        }
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var hasil = sessionStorage.getItem("result-m")
@@ -336,6 +348,7 @@
                                         });
 
                                         function deleteDatau() {
+                                            displayLoading()
                                             var memID = sessionStorage.getItem("id-member");
                                             var myHeaders = new Headers();
                                             myHeaders.append(
@@ -349,7 +362,7 @@
                                             fetch(`${urlu}/${memID}`, deleteRequest)
                                                 .then((res) => res.json())
                                                 .then((result => {
-
+                                                    hideLoading()
                                                     var hasildata = result.success;
                                                     var message = result.message;
                                                     if (hasildata) {

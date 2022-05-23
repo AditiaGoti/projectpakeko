@@ -19,6 +19,7 @@ if (!$_SESSION['local'] == "Metland") {
 
 <body>
   <div class="container-scroller">
+    <div id="loading"> </div>
     <?php include(app_path() . '/includes/cileungsi/config/navbar.php'); ?>
     <div class="container-fluid page-body-wrapper">
       <?php include(app_path() . '/includes/cileungsi/config/sidebar.php'); ?>

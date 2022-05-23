@@ -206,6 +206,18 @@
                                 </thead>
                                 <tbody>
                                     <script>
+                                        const loader = document.querySelector("#loading");
+
+                                        function displayLoading() {
+                                            loader.classList.add("loading");
+                                            setTimeout(() => {
+                                                loader.classList.remove("loading");
+                                            }, 8000);
+                                        }
+
+                                        function hideLoading() {
+                                            loader.classList.remove("loading");
+                                        }
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
@@ -285,6 +297,7 @@
 
 
                                         function deleteData() {
+                                            displayLoading()
                                             var admID = sessionStorage.getItem("id-admin");
                                             var myHeaders = new Headers();
                                             myHeaders.append(
@@ -299,7 +312,7 @@
                                             fetch("https://api.tms-klar.com/api/admin" + "/" + admID, deleteRequest)
                                                 .then((res) => res.json())
                                                 .then((result => {
-
+                                                    hideLoading()
                                                     var hasildata = result.success;
                                                     var message = result.message;
                                                     if (hasildata) {
