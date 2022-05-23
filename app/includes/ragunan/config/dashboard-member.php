@@ -45,6 +45,19 @@
                                 </thead>
                                 <tbody id="tableMemberK">
                                     <script>
+                                        const loader = document.querySelector("#loading");
+
+                                        function displayLoading() {
+                                            loader.classList.add("loading");
+                                            setTimeout(() => {
+                                                loader.classList.remove("loading");
+                                            }, 8000);
+                                        }
+                                        displayLoading()
+
+                                        function hideLoading() {
+                                            loader.classList.remove("loading");
+                                        }
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var Sid = '<?php echo $_SESSION['id']; ?>';
@@ -63,6 +76,7 @@
                                         makeCode();
 
                                         $(document).ready(function() {
+                                            hideLoading()
                                             $.ajax({
                                                 method: "GET",
                                                 url: url,

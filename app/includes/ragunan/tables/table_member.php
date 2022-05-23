@@ -108,6 +108,7 @@
                                     loader.classList.remove("loading");
                                 }, 8000);
                             }
+                            displayLoading()
 
                             function hideLoading() {
                                 loader.classList.remove("loading");
@@ -350,6 +351,7 @@
                                                             Authorization: token,
                                                         },
                                                         success: function(response) {
+                                                            hideLoading()
                                                             data = response.data;
                                                             dat = response.etc;
                                                             member(dat);

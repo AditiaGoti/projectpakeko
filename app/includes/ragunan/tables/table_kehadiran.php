@@ -204,6 +204,19 @@
                                 </thead>
                                 <tbody>
                                     <script>
+                                        const loader = document.querySelector("#loading");
+
+                                        function displayLoading() {
+                                            loader.classList.add("loading");
+                                            setTimeout(() => {
+                                                loader.classList.remove("loading");
+                                            }, 8000);
+                                        }
+                                        displayLoading()
+
+                                        function hideLoading() {
+                                            loader.classList.remove("loading");
+                                        }
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
@@ -218,8 +231,8 @@
                                                 },
                                                 success: function(response) {
                                                     total = response.etc;
+                                                    hideLoading()
                                                     kehadiran();
-
 
                                                     function kehadiran() {
                                                         var body = `<span class="h2 font-weight-bold mb-0">` + total.total_kehadiran + " Orang" + `</span>`;

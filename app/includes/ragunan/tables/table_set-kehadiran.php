@@ -217,6 +217,19 @@
                                 </thead>
                                 <tbody>
                                     <script>
+                                        const loader = document.querySelector("#loading");
+
+                                        function displayLoading() {
+                                            loader.classList.add("loading");
+                                            setTimeout(() => {
+                                                loader.classList.remove("loading");
+                                            }, 8000);
+                                        }
+                                        displayLoading()
+
+                                        function hideLoading() {
+                                            loader.classList.remove("loading");
+                                        }
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
@@ -238,7 +251,7 @@
                                         };
 
                                         $(document).ready(function() {
-
+                                            hideLoading()
 
                                             /*DataTables instantiation.*/
                                             $("#table-data").DataTable({

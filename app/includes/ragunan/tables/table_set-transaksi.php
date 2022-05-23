@@ -279,6 +279,7 @@
                                                 loader.classList.remove("loading");
                                             }, 8000);
                                         }
+                                        displayLoading()
 
                                         function hideLoading() {
                                             loader.classList.remove("loading");
@@ -313,6 +314,7 @@
                                         };
 
                                         $(document).ready(function() {
+                                            hideLoading()
                                             $("#table-data").DataTable({
                                                 data: ex.data,
                                                 "autoWidth": false,
@@ -387,7 +389,7 @@
                                             fetch(`${url}/${transID}`, deleteRequest)
                                                 .then((res) => res.json())
                                                 .then((result => {
-                                                    hideLoading
+                                                    hideLoading()
                                                     var hasildata = result.success;
                                                     var message = result.message;
                                                     if (hasildata) {
