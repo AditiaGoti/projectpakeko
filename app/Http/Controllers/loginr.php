@@ -48,7 +48,7 @@ class loginr extends Controller
 
         if (!$Login) {
             $message = $decoded->message;
-            echo "<script type='text/javascript'>alert('$message'); window.location.href='/Ragunan';</script> ";
+            echo "<script type='text/javascript'>alert('$message'); window.location.href='/ragunan';</script> ";
         } else {
 
 

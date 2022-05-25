@@ -51,7 +51,7 @@
                   <div class="pic"><img src="/assets/images/METLAND.png" class="img-fluid" alt=""></div>
                   <div class="member-info">
                     <h4>KLUB ADERAI METLAND</h4>
-                    <a class="team-btn" href="/Metland">LOGIN</a>
+                    <a class="team-btn" href="/metland">LOGIN</a>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                   <div class="pic"><img src="assets/images/ragunan.png" class="img-fluid" alt=""></div>
                   <div class="member-info">
                     <h4>KLUB ADERAI RAGUNAN</h4>
-                    <a class="team-btn" href="/Ragunan">LOGIN</a>
+                    <a class="team-btn" href="/ragunan">LOGIN</a>
                   </div>
                 </div>
               </div>

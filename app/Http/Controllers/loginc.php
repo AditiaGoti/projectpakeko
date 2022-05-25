@@ -48,7 +48,7 @@ class loginc extends Controller
 
         if (!$Login) {
             $message = $decoded->message;
-            echo "<script type='text/javascript'>alert('$message'); window.location.href='/Metland';</script> ";
+            echo "<script type='text/javascript'>alert('$message'); window.location.href='/metland';</script> ";
         } else {
 
 
@@ -76,17 +76,17 @@ class loginc extends Controller
             switch ($type) {
                 case 0:
                     $_SESSION["login_status"] = true;
-                    header('location: /Metland/member');
+                    header('location: /metland/member');
                     exit;
                     break;
                 case 1:
                     $_SESSION["login_status"] = true;
-                    header('location: /Metland/admin');
+                    header('location: /metland/admin');
                     exit;
                     break;
                 case 2:
                     $_SESSION["login_status"] = true;
-                    header('location: /Metland/owner');
+                    header('location: /metland/owner');
                     exit;
                     break;
             }
