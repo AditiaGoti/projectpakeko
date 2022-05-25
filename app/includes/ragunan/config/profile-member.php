@@ -83,7 +83,7 @@
                             var tokenSession = '<?php echo $_SESSION['token']; ?>';
                             var token = "Bearer" + " " + tokenSession;
                             var id = `<?php echo $_SESSION['id']; ?>`;
-                            const url = "https://ragunan.tms-klar.com/api/users" + "/" + id + "-ragunan";
+                            const url = "https://api.ragunan.tms-klar.com/api/users" + "/" + id + "-ragunan";
 
                             $.ajax({
                                 method: "GET",
@@ -117,7 +117,7 @@
                                 email.value = data.email;
                                 nohp.value = data.nohp;
                                 alamat.value = data.alamat;
-                                imgv.src = "https://ragunan.tms-klar.com/public/" +
+                                imgv.src = "https://api.ragunan.tms-klar.com/public/" +
                                     data.img_path;
                                 console.log
                                 sessionStorage.setItem("email-member", email.value);

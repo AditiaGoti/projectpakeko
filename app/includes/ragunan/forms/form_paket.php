@@ -120,7 +120,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://ragunan.tms-klar.com/api/pakets",
+                                        "https://api.ragunan.tms-klar.com/api/pakets",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

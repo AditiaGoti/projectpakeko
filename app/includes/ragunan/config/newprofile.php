@@ -24,7 +24,7 @@
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGPhoto.png); background-size:auto;  background-repeat:repeat-x;">
+                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(/assets/images/BGPhoto.png); background-size:auto;  background-repeat:repeat-x;">
                                 <div class="card-block text-center text-white">
                                     <div id="img" class="m-b-25" style="margin-top:25px">
 
@@ -78,7 +78,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var id = `<?php echo $_SESSION['id']; ?>`;
-                                const url = "https://ragunan.tms-klar.com/api/users" + "/" + id + "-ragunan";
+                                const url = "https://api.ragunan.tms-klar.com/api/users" + "/" + id + "-ragunan";
 
                                 $.ajax({
                                     method: "GET",
@@ -94,7 +94,7 @@
 
                                 function build(data) {
 
-                                    img = "https://ragunan.tms-klar.com/" +
+                                    img = "https://api.ragunan.tms-klar.com/" +
                                         data.img_path;
 
                                     name = data.name;
@@ -197,7 +197,7 @@
                                 redirect: 'follow'
                             };
 
-                            fetch("https://ragunan.tms-klar.com/api/users-progress", requestOptions)
+                            fetch("https://api.ragunan.tms-klar.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
                                 .then(result => {
                                     var data = JSON.parse(result);
@@ -263,7 +263,7 @@
                                 redirect: 'follow'
                             };
 
-                            fetch("https://ragunan.tms-klar.com/api/users-progress", requestOptions)
+                            fetch("https://api.ragunan.tms-klar.com/api/users-progress", requestOptions)
                                 .then(response => response.text())
                                 .then(result => {
                                     var data = JSON.parse(result);
@@ -529,7 +529,7 @@
         var tokenSession = '<?php echo $_SESSION['token']; ?>';
         var token = "Bearer" + " " + tokenSession;
         var myArray = [];
-        const urlt = "https://ragunan.tms-klar.com/api/users-progress";
+        const urlt = "https://api.ragunan.tms-klar.com/api/users-progress";
         var myArray = [];
         $(document).ready(function() {
             $.ajax({

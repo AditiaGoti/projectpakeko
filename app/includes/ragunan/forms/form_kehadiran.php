@@ -323,7 +323,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://ragunan.tms-klar.com/api/users/" + idvalue,
+                                        "https://api.ragunan.tms-klar.com/api/users/" + idvalue,
                                         requestOptions
                                     )
                                     .then((response) => response.text())
@@ -336,7 +336,7 @@
                                         var expiredvalue = data.data.expired;
                                         var namevalue = data.data.name;
                                         var dobvalue = data.data.tanggal_lahir;
-                                        var imgvalue = "https://ragunan.tms-klar.com" +
+                                        var imgvalue = "https://api.ragunan.tms-klar.com" +
                                             data.data.img_path;
                                         var elements = document.getElementById('token');
                                         var localvalue = data.data.local;
@@ -417,7 +417,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var type = '<?php echo $_SESSION['type']; ?>'
-                                const url = "https://ragunan.tms-klar.com/api/users";
+                                const url = "https://api.ragunan.tms-klar.com/api/users";
                                 const urlm = "https://api.tms-klar.com/api/users";
                                 iddis.disabled = true;
                                 var myHeaders = new Headers();
@@ -461,7 +461,7 @@
                                                 var dob = filterData.tanggal_lahir;
                                                 var exp = filterData.expired;
                                                 var local = filterData.local;
-                                                var imgvalue = "https://ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var imgvalue = "https://api.ragunan.tms-klar.com/storage/" + filterData.img_path;
                                                 var input_id = document.getElementById("id_member");
                                                 var input_exp = document.getElementById("member_exp");
                                                 var input_local = document.getElementById("member_local");
@@ -476,7 +476,7 @@
                                                 var dob = filterData.tanggal_lahir;
                                                 var exp = filterData.expired;
                                                 var local = filterData.local;
-                                                var imgvalue = "ragunan.tms-klar.com/storage/" + filterData.img_path;
+                                                var imgvalue = "api.ragunan.tms-klar.com/storage/" + filterData.img_path;
                                                 var input_id = document.getElementById("id_member");
                                                 var input_exp = document.getElementById("member_exp");
                                                 input_exp.value = exp;
@@ -613,7 +613,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://ragunan.tms-klar.com/api/kehadiran",
+                                        "https://api.ragunan.tms-klar.com/api/kehadiran",
                                         requestOptions
                                     )
                                     .then((response) => response.text())

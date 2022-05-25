@@ -64,7 +64,7 @@
                                 sessionStorage.clear("result")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                const urlTE = "https://ragunan.tms-klar.com/api/transaksi-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -105,7 +105,7 @@
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                const urlTE = "https://ragunan.tms-klar.com/api/transaksi-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -270,7 +270,7 @@
                                         var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                         var token = "Bearer" + " " + tokenSession;
                                         var myArray = [];
-                                        const url = "https://ragunan.tms-klar.com/api/transaksi";
+                                        const url = "https://api.ragunan.tms-klar.com/api/transaksi";
                                         $(document).ready(function() {
                                             $.ajax({
                                                 method: "GET",

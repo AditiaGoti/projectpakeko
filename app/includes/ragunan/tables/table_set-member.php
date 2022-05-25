@@ -67,7 +67,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://ragunan.tms-klar.com/api/users-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -107,7 +107,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://ragunan.tms-klar.com/api/users-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -169,7 +169,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Member Data Klub Ade Rai ragunan.xlsx";
+                                        var filename = "Member Data Klub Ade Rai api.ragunan.xlsx";
 
                                         var ws_name = "Data Member";
                                         var wb = XLSX.utils.book_new(),
@@ -266,7 +266,7 @@
                                         var type = '<?php echo $_SESSION['type']; ?>'
                                         var myArray = [];
                                         var tableMember = document.getElementById("tableMember");
-                                        const urlu = "https://ragunan.tms-klar.com/api/users";
+                                        const urlu = "https://api.ragunan.tms-klar.com/api/users";
                                         member();
                                         date();
 

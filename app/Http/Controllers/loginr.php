@@ -26,7 +26,7 @@ class loginr extends Controller
         }
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://ragunan.tms-klar.com/api/login',
+            CURLOPT_URL => 'https://api.ragunan.tms-klar.com/api/login',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

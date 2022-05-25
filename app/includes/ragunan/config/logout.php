@@ -9,7 +9,7 @@
     var token = "Bearer" + " " + tokenSession;
 
     var settings = {
-        "url": "https://ragunan.tms-klar.com/api/logout",
+        "url": "https://api.ragunan.tms-klar.com/api/logout",
         "method": "POST",
         "timeout": 0,
         "headers": {

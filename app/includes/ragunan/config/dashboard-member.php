@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="assets/css/shared/notice.css">
+<link rel="stylesheet" href="/assets/css/shared/notice.css">
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div class="main-panel">
@@ -63,7 +63,7 @@
                                         var Sid = '<?php echo $_SESSION['id']; ?>';
                                         var myArray = [];
                                         var tablePaket = document.getElementById("tabel-data");
-                                        const url = "https://ragunan.tms-klar.com/api/kehadiran" + "/" + Sid;
+                                        const url = "https://api.ragunan.tms-klar.com/api/kehadiran" + "/" + Sid;
                                         var qrcode = new QRCode(document.getElementById("fotoqr"), {
                                             useSVG: true,
                                         });

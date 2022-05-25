@@ -66,7 +66,7 @@
                                 var token = "Bearer" + " " + tokenSession;
 
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://ragunan.tms-klar.com/api/transaksi-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -106,7 +106,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://ragunan.tms-klar.com/api/transaksi-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/transaksi-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -289,7 +289,7 @@
                                         var hasil = sessionStorage.getItem("result")
                                         var ex = JSON.parse(hasil);
                                         var myArray = [];
-                                        const url = "https://ragunan.tms-klar.com/api/transaksi";
+                                        const url = "https://api.ragunan.tms-klar.com/api/transaksi";
                                         buildsum();
                                         buildtot();
                                         builddate();

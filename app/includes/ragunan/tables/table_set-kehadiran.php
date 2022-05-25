@@ -46,7 +46,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://ragunan.tms-klar.com/api/kehadiran-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/kehadiran-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -89,7 +89,7 @@
                                 var token = "Bearer" + " " + tokenSession;
                                 var myArray = [];
                                 var dataLaporan = document.getElementById("dataLaporan");
-                                const urlTE = "https://ragunan.tms-klar.com/api/kehadiran-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/kehadiran-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -148,7 +148,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Attendance Data  Klub Ade Rai ragunan.xlsx";
+                                        var filename = "Attendance Data  Klub Ade Rai api.ragunan.xlsx";
 
                                         var ws_name = "Data Kehadiran";
                                         var wb = XLSX.utils.book_new(),
@@ -236,7 +236,7 @@
                                         var hasil = sessionStorage.getItem("result-k")
                                         var ex = JSON.parse(hasil);
                                         var tableKehadiran = document.getElementById("tabel-data");
-                                        const url = "https://ragunan.tms-klar.com/api/kehadiran";
+                                        const url = "https://api.ragunan.tms-klar.com/api/kehadiran";
                                         kehadiran();
                                         date();
 

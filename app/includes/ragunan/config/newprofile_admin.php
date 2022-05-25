@@ -22,7 +22,7 @@
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGPhoto.png); background-size:autopx;  background-repeat: no-repeat;">
+                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(/assets/images/BGPhoto.png); background-size:autopx;  background-repeat: no-repeat;">
                                 <div class="card-block text-center text-white">
                                     <div id="img" style="margin-top:35px" class="m-b-25">
 
@@ -84,7 +84,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var id = `<?php echo $_SESSION['id']; ?>`;
-                                const url = "https://ragunan.tms-klar.com/api/users" + "/" + id;
+                                const url = "https://api.ragunan.tms-klar.com/api/users" + "/" + id;
 
                                 $.ajax({
                                     method: "GET",
@@ -101,7 +101,7 @@
 
                                 function build(data) {
 
-                                    img = "https://ragunan.tms-klar.com" +
+                                    img = "https://api.ragunan.tms-klar.com" +
                                         data.img_path;
 
                                     name = data.name;

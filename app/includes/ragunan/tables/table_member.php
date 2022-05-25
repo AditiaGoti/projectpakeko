@@ -118,7 +118,7 @@
                                 sessionStorage.clear("result-m")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                const urlTE = "https://ragunan.tms-klar.com/api/users-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -161,7 +161,7 @@
 
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
-                                const urlTE = "https://ragunan.tms-klar.com/api/users-export";
+                                const urlTE = "https://api.ragunan.tms-klar.com/api/users-export";
 
                                 var myHeaders = new Headers();
                                 myHeaders.append(
@@ -223,7 +223,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Member Data Klub Ade Rai ragunan.xlsx";
+                                        var filename = "Member Data Klub Ade Rai api.ragunan.xlsx";
 
                                         var ws_name = "Data Member";
                                         var wb = XLSX.utils.book_new(),
@@ -341,7 +341,7 @@
                                                 var type = '<?php echo $_SESSION['type']; ?>'
                                                 var myArray = [];
                                                 var tableMember = document.getElementById("tableMember");
-                                                const urlu = "https://ragunan.tms-klar.com/api/users";
+                                                const urlu = "https://api.ragunan.tms-klar.com/api/users";
 
                                                 $(document).ready(function() {
                                                     $.ajax({
@@ -515,7 +515,7 @@
                                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                 var token = "Bearer" + " " + tokenSession;
                                                 var myArray = [];
-                                                const urlua = "https://ragunan.tms-klar.com/api/users-active";
+                                                const urlua = "https://api.ragunan.tms-klar.com/api/users-active";
                                                 $(document).ready(function() {
                                                     $.ajax({
                                                         method: "GET",
@@ -667,7 +667,7 @@
                                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                                 var token = "Bearer" + " " + tokenSession;
                                                 var myArray = [];
-                                                const urlui = "https://ragunan.tms-klar.com/api/users-inactive";
+                                                const urlui = "https://api.ragunan.tms-klar.com/api/users-inactive";
 
                                                 $(document).ready(function() {
                                                     $.ajax({
