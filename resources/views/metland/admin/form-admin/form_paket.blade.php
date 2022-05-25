@@ -3,15 +3,15 @@
 session_start();
 
 if (!isset($_SESSION['login_status'])) {
-    header("location: /Metland");
+    header("location: /metland");
     exit;
 }
 if (!$_SESSION['type'] == 1) {
-    header("location: /Metland");
+    header("location: /metland");
     exit;
 }
-if (!$_SESSION['local'] == "Metland") {
-    header("location: /Metland");
+if (!$_SESSION['local'] == "metland") {
+    header("location: /metland");
     exit;
 }
 

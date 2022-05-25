@@ -3,15 +3,15 @@
 session_start();
 
 if (!isset($_SESSION['login_status'])) {
-    header("location: /Ragunan");
+    header("location: /ragunan");
     exit;
 }
 if (!$_SESSION['type'] == 0) {
-    header("location: /Ragunan");
+    header("location: /ragunan");
     exit;
 }
-if (!$_SESSION['local'] == "Ragunan") {
-    header("location: /Ragunan");
+if (!$_SESSION['local'] == "ragunan") {
+    header("location: /ragunan");
     exit;
 }
 ?><?php include(app_path() . '/includes/ragunan/config/header.php'); ?>
