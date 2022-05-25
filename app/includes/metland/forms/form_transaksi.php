@@ -4,8 +4,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Menambahkan Transaksi Klub Ade Rai
-                        <button id="owbacktransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/Metland/owtransaksi'">Back</button>
-                        <button id="backtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/Metland/transaksi'">Back</button>
+                        <button id="owbacktransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/metland/owtransaksi'">Back</button>
+                        <button id="backtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/metland/transaksi'">Back</button>
                     </h4>
                 </div>
             </div>

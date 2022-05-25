@@ -7,8 +7,8 @@
                 <div class="page-header">
                     <h4 class="page-title">Transaction Data
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Transaksi</button>
-                        <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/owform_transaksi'">Tambah</button>
-                        <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/form_transaksi'">Tambah</button>
+                        <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/owform_transaksi'">Tambah</button>
+                        <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/form_transaksi'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -93,9 +93,9 @@
                                     .then((result => {
                                         sessionStorage.setItem("result", result);
                                         if (type == 2) {
-                                            location.href = '/Metland/set-owtransaksi';
+                                            location.href = '/metland/set-owtransaksi';
                                         } else {
-                                            location.href = '/Metland/set-transaksi';
+                                            location.href = '/metland/set-transaksi';
                                         }
                                     }))
                                     .catch(error => console.log('error', error));

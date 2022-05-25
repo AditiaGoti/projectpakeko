@@ -8,8 +8,8 @@
                 <div class="page-header">
                     <h4 class="page-title">Data Member
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Member</button>
-                        <button id="btnAddowMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/owform_member'">Tambah</button>
-                        <button id="btnAddMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/form_member'">Tambah</button>
+                        <button id="btnAddowMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/owform_member'">Tambah</button>
+                        <button id="btnAddMember" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/form_member'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -133,9 +133,9 @@
                                     .then((result => {
                                         sessionStorage.setItem("result-m", result);
                                         if (type == 2) {
-                                            location.href = '/Metland/set-owall_member';
+                                            location.href = '/metland/set-owall_member';
                                         } else {
-                                            location.href = '/Metland/set-all_member';
+                                            location.href = '/metland/set-all_member';
                                         }
 
 

@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row">
-            <div class=" col-xl-2 col-lg-6 mb-4" onclick="window.location='/Metland/transaksi';">
+            <div class=" col-xl-2 col-lg-6 mb-4" onclick="window.location='/metland/transaksi';">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-6 " onclick="window.location='/Metland/transaksi';">
+            <div class="col-xl-2 col-lg-6 " onclick="window.location='/metland/transaksi';">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-6 mb-4" onclick="window.location='/Metland/allmember';">
+            <div class="col-xl-2 col-lg-6 mb-4" onclick="window.location='/metland/allmember';">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-lg-6 mb-4" onclick="window.location='/Metland/allmember';">
+            <div class="col-xl-2 col-lg-6 mb-4" onclick="window.location='/metland/allmember';">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">
                         <div class="row">

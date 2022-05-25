@@ -6,7 +6,7 @@
                 <div class="page-header">
                     <h4 class="page-title">Data Admin
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Laporan Admin</button>
-                        <button style="display: block;" id="btnAddow" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/owform_admin'">Tambah</button>
+                        <button style="display: block;" id="btnAddow" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/owform_admin'">Tambah</button>
                     </h4>
                 </div>
             </div>

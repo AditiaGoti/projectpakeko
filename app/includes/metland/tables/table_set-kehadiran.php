@@ -8,8 +8,8 @@
                     <h4 class="page-title">Data Kehadiran
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Search</button>
                         <button id="btnprint" onclick="print()" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-info btn-sm">Print</button>
-                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/owform_kehadiran'">Tambah</button>
-                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/form_kehadiran'">Tambah</button>
+                        <button id="btnAddowKehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/owform_kehadiran'">Tambah</button>
+                        <button id="btnAddkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/form_kehadiran'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -75,9 +75,9 @@
                                     .then((result => {
                                         sessionStorage.setItem("result-k", result);
                                         if (type == 2) {
-                                            location.href = '/Metland/set-owkehadiran';
+                                            location.href = '/metland/set-owkehadiran';
                                         } else {
-                                            location.href = '/Metland/set-kehadiran';
+                                            location.href = '/metland/set-kehadiran';
                                         }
                                     }))
                                     .catch(error => console.log('error', error));

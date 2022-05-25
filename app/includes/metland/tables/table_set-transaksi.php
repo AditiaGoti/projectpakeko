@@ -8,8 +8,8 @@
                     <h4 class="page-title">Transaction Data
                         <button id="btnLap" data-toggle="modal" data-target="#modalLaporan" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-warning btn-sm">Search</button>
                         <button id="btnprint" onclick="print()" style="float:right; margin-left:5px;" type="submit" class="btn btn-outline-info btn-sm">Print</button>
-                        <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/owform_transaksi'">Tambah</button>
-                        <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/Metland/form_transaksi'">Tambah</button>
+                        <button id="btnAddowTransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/owform_transaksi'">Tambah</button>
+                        <button id="btnAddtransaksi" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-outline-primary btn-sm" onclick="window.location.href='/metland/form_transaksi'">Tambah</button>
                     </h4>
                     <script>
                         var type = '<?php echo $_SESSION['type']; ?>'
@@ -393,10 +393,10 @@
                                                     if (hasildata) {
                                                         sessionStorage.removeItem("id-transaksi");
                                                         if (type == 2) {
-                                                            location.href = '/Metland/owtransaksi';
+                                                            location.href = '/metland/owtransaksi';
 
                                                         } else {
-                                                            location.href = '/Metland/transaksi';
+                                                            location.href = '/metland/transaksi';
                                                         }
                                                     } else {
                                                         $('<div class="alert alert-danger">' +

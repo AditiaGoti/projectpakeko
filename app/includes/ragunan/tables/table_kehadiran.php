@@ -150,7 +150,7 @@
                                                 createXLSLFormatObj.push(innerRowData);
                                             });
                                         });
-                                        var filename = "Attendance Data  Klub Ade Rai Ragunan.xlsx";
+                                        var filename = "Attendance Data  Klub Ade Rai ragunan.xlsx";
 
                                         var ws_name = "Data Kehadiran";
                                         var wb = XLSX.utils.book_new(),

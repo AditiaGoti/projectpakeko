@@ -178,8 +178,8 @@
             <div class="col-12">
                 <div class="page-header">
                     <h4 class="page-title">Menambahkan Kehadiran Member Klub Ade Rai
-                        <button id="owbackkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/Metland/owkehadiran'">Back</button>
-                        <button id="backkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/Metland/kehadiran'">Back</button>
+                        <button id="owbackkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/metland/owkehadiran'">Back</button>
+                        <button id="backkehadiran" style="float:right; margin-left:5px; display: none;" type="submit" class="btn btn-inverse-danger btn-sm" onclick="window.location.href='/metland/kehadiran'">Back</button>
                     </h4>
                 </div>
             </div>
@@ -230,7 +230,7 @@
                                             <!-- <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled /> -->
                                             <select class="form-control form-control" id="member_local" required>
                                                 <option value="Ragunan">Ragunan</option>
-                                                <option value="Metland">Metland</option>
+                                                <option value="metland">metland</option>
                                             </select>
                                         </div>
                                         <hr>
@@ -354,7 +354,7 @@
                                                 exp.value = expiredvalue;
                                                 local.value = localvalue;
 
-                                                if (localvalue == "Metland") {
+                                                if (localvalue == "metland") {
                                                     img.src = imgvalue
 
                                                 } else if (localvalue == "Ragunan") {
@@ -371,7 +371,7 @@
                                                 exp.value = expiredvalue;
                                                 var local = document.getElementById("member_local");
                                                 local.value = localvalue;
-                                                if (localvalue == "Metland") {
+                                                if (localvalue == "metland") {
                                                     img.src = imgvalue
 
                                                 } else if (localvalue == "Ragunan") {
@@ -429,7 +429,7 @@
                                 };
 
 
-                                if (lokal == "Metland") {
+                                if (lokal == "metland") {
                                     fetch(url, requestOptions)
                                         .then(response => response.text())
                                         .then(result => {

@@ -229,7 +229,7 @@
                                             <label style="margin-top:5px; padding-right:74px;">Local</label>
                                             <!-- <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled /> -->
                                             <select class="form-control form-control" id="member_local" required>
-                                                <option value="Ragunan">Ragunan</option>
+                                                <option value="ragunan">ragunan</option>
                                                 <option value="Metland">Metland</option>
                                             </select>
                                         </div>
@@ -356,7 +356,7 @@
                                                 exp.value = expiredvalue;
                                                 local.value = localvalue;
 
-                                                if (localvalue == "Ragunan") {
+                                                if (localvalue == "ragunan") {
                                                     img.src = imgvalue
 
                                                 } else if (localvalue == "Metland") {
@@ -373,7 +373,7 @@
                                                 exp.value = expiredvalue;
                                                 var local = document.getElementById("member_local");
                                                 local.value = localvalue;
-                                                if (localvalue == "Ragunan") {
+                                                if (localvalue == "ragunan") {
                                                     img.src = imgvalue
 
                                                 } else if (localvalue == "Metland") {
@@ -431,7 +431,7 @@
                                 };
 
 
-                                if (lokal == "Ragunan") {
+                                if (lokal == "ragunan") {
                                     fetch(url, requestOptions)
                                         .then(response => response.text())
                                         .then(result => {
