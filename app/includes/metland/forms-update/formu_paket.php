@@ -66,7 +66,7 @@
                             var email = `<?php echo $_SESSION['email']; ?>`;
                             var type = `<?php echo $_SESSION['type']; ?>`;
                             var pakID = sessionStorage.getItem("id-paket");
-                            const url = "https://api.tms-klar.com/api/pakets/" + pakID;
+                            const url = "https://metland.tms-klar.com/api/pakets/" + pakID;
 
                             $.ajax({
                                 method: "GET",

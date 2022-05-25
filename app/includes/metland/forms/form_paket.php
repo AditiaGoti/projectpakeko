@@ -120,7 +120,7 @@
                                     redirect: "follow",
                                 };
                                 fetch(
-                                        "https://api.tms-klar.com/api/pakets",
+                                        "https://metland.tms-klar.com/api/pakets",
                                         requestOptions
                                     )
                                     .then((response) => response.text())
