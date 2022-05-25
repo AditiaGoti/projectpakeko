@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>WELCOME TO KLUB ADERAI</title>
+  <title>Welcome To Klub Aderai</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -32,14 +32,6 @@
 
 <body>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>W E L C O M E</h1>
-      <h2>KLUB ADERAI</h2>
-    </div>
-  </section><!-- End Hero -->
-
   <main id="main">
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
@@ -47,8 +39,8 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="section-title" data-aos="fade-right">
-              <h2>CHOOSE ONE</h2>
-              <p>Pilih tempat dimana akun anda terdaftar</p>
+              <h2>WELCOME To KLUB ADERAI</h2>
+              <p>Choose One :</p>
             </div>
           </div>
           <div class="col-lg-8">
@@ -56,46 +48,46 @@
 
               <div class="col-lg-6">
                 <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="pic"><img src="assets/img/METLAND.png" class="img-fluid" alt=""></div>
+                  <div class="pic"><img src="assets/images/METLAND.png" class="img-fluid" alt=""></div>
                   <div class="member-info">
                     <h4>KLUB ADERAI METLAND</h4>
-                    <a class="team-btn" href="#">LOGIN</a>
+                    <a class="team-btn" href="/Metland">LOGIN</a>
                   </div>
                 </div>
               </div>
 
               <div class="col-lg-6 mt-4 mt-lg-0">
                 <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="pic"><img src="assets/img/ragunan.png" class="img-fluid" alt=""></div>
+                  <div class="pic"><img src="assets/images/ragunan.png" class="img-fluid" alt=""></div>
                   <div class="member-info">
                     <h4>KLUB ADERAI RAGUNAN</h4>
-                    <a class="team-btn" href="#">LOGIN</a>
+                    <a class="team-btn" href="/Ragunan">LOGIN</a>
                   </div>
                 </div>
               </div>
             </div>
 
           </div>
-        
 
-      </div>
+
+        </div>
       </div>
 
     </section><!-- End Team Section -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
