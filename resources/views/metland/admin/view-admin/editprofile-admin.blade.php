@@ -15,18 +15,18 @@ if (!$_SESSION['type'] == 1) {
     exit;
 }
 
-?><?php include(app_path() . '/includes/cileungsi/config/header.php'); ?>
+?><?php include(app_path() . '/includes/metland/config/header.php'); ?>
 
 <body>
     <div class="container-scroller">
         <div id="loading"> </div>
-        <?php include(app_path() . '/includes/cileungsi/config/navbar.php'); ?>
+        <?php include(app_path() . '/includes/metland/config/navbar.php'); ?>
         <div class="container-fluid page-body-wrapper">
-            <?php include(app_path() . '/includes/cileungsi/config/sidebar.php'); ?>
-            <?php include(app_path() . '/includes/cileungsi/config/profile-admin.php'); ?>
+            <?php include(app_path() . '/includes/metland/config/sidebar.php'); ?>
+            <?php include(app_path() . '/includes/metland/config/profile-admin.php'); ?>
         </div>
     </div>
-    <?php include(app_path() . '/includes/cileungsi/config/footer.php'); ?>
+    <?php include(app_path() . '/includes/metland/config/footer.php'); ?>
 </body>
 
 </html>

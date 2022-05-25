@@ -15,16 +15,16 @@ if (!$_SESSION['local'] == "Metland") {
     exit;
 }
 
-?><?php include(app_path() . '/includes/cileungsi/config/header.php'); ?>
+?><?php include(app_path() . '/includes/metland/config/header.php'); ?>
 
 <body>
     <div class="container-scroller">
         <div id="loading"> </div>
-        <?php include(app_path() . '/includes/cileungsi/config/navside-member.php'); ?>
-        <?php include(app_path() . '/includes/cileungsi/config/change_pass.php'); ?>
+        <?php include(app_path() . '/includes/metland/config/navside-member.php'); ?>
+        <?php include(app_path() . '/includes/metland/config/change_pass.php'); ?>
     </div>
     </div>
-    <?php include(app_path() . '/includes/cileungsi/config/footer.php'); ?>
+    <?php include(app_path() . '/includes/metland/config/footer.php'); ?>
 </body>
 
 </html>

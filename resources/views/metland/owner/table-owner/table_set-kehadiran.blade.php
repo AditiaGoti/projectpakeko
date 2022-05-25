@@ -15,18 +15,18 @@ if (!$_SESSION['local'] == "Metland") {
   exit;
 }
 
-?><?php include(app_path() . '/includes/cileungsi/config/header.php'); ?>
+?><?php include(app_path() . '/includes/metland/config/header.php'); ?>
 
 <body>
   <div class="container-scroller">
     <div id="loading"> </div>
-    <?php include(app_path() . '/includes/cileungsi/config/navbar-owner.php'); ?>
+    <?php include(app_path() . '/includes/metland/config/navbar-owner.php'); ?>
     <div class="container-fluid page-body-wrapper">
-      <?php include(app_path() . '/includes/cileungsi/config/sidebar-owner.php'); ?>
-      <?php include(app_path() . '/includes/cileungsi/tables/table_set-kehadiran.php'); ?>
+      <?php include(app_path() . '/includes/metland/config/sidebar-owner.php'); ?>
+      <?php include(app_path() . '/includes/metland/tables/table_set-kehadiran.php'); ?>
     </div>
   </div>
-  <?php include(app_path() . '/includes/cileungsi/config/footer.php'); ?>
+  <?php include(app_path() . '/includes/metland/config/footer.php'); ?>
 </body>
 
 </html>
