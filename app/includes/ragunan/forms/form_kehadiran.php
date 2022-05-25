@@ -229,7 +229,7 @@
                                             <label style="margin-top:5px; padding-right:74px;">Local</label>
                                             <!-- <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled /> -->
                                             <select class="form-control form-control" id="member_local" required>
-                                                <option value="ragunan">ragunan</option>
+                                                <option value="Ragunan">ragunan</option>
                                                 <option value="Metland">Metland</option>
                                             </select>
                                         </div>

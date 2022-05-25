@@ -5,26 +5,26 @@ use League\CommonMark\Node\Block\Document;
 session_start();
 
 if (isset($_SESSION['login_status'])) {
-    if ($_SESSION['local'] == "Metland") {
+    if ($_SESSION['local'] == "metland") {
         switch ($_SESSION['type']) {
             case 0:
                 $_SESSION["login_status"] = true;
-                header('location: /Metland/member');
+                header('location: /metland/member');
                 exit;
                 break;
             case 1:
                 $_SESSION["login_status"] = true;
-                header('location: /Metland/admin');
+                header('location: /metland/admin');
                 exit;
                 break;
             case 2:
                 $_SESSION["login_status"] = true;
-                header('location: /Metland/owner');
+                header('location: /metland/owner');
                 exit;
                 break;
         }
     } else {
-        header('location: /Ragunan');
+        header('location: /');
     }
 }
 

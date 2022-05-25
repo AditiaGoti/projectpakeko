@@ -262,6 +262,7 @@
                                                 loader.classList.remove("loading");
                                             }, 8000);
                                         }
+                                        displayLoading()
 
                                         function hideLoading() {
                                             loader.classList.remove("loading");
@@ -271,6 +272,7 @@
                                         var myArray = [];
                                         const url = "https://api.tms-klar.com/api/transaksi";
                                         $(document).ready(function() {
+                                            hideLoading()
                                             $.ajax({
                                                 method: "GET",
                                                 url: url,

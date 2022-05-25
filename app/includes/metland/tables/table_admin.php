@@ -214,6 +214,7 @@
                                                 loader.classList.remove("loading");
                                             }, 8000);
                                         }
+                                        displayLoading()
 
                                         function hideLoading() {
                                             loader.classList.remove("loading");
@@ -231,7 +232,7 @@
                                                 },
                                                 success: function(response) {
                                                     data = response.data;
-
+                                                    hideLoading()
                                                     $("#table-data").DataTable({
                                                         data: data,
                                                         responsive: true,

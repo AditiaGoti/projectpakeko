@@ -40,6 +40,18 @@
                         <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
 
                         <script>
+                            function displayLoading() {
+                                loader.classList.add("loading");
+                                setTimeout(() => {
+                                    loader.classList.remove("loading");
+                                }, 8000);
+                            }
+                            displayLoading()
+
+                            function hideLoading() {
+                                loader.classList.remove("loading");
+                            }
+
                             function checkDate() {
                                 sessionStorage.clear("result-k")
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
@@ -216,6 +228,7 @@
                                                 },
                                                 success: function(response) {
                                                     total = response.etc;
+                                                    hideLoading()
                                                     kehadiran();
 
 

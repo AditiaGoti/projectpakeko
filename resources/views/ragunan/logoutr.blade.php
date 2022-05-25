@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['login_status'])) {
-    header("location: /Ragunan");
+    header("location: /ragunan");
     exit;
 }
 ?>

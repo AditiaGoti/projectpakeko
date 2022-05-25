@@ -138,7 +138,7 @@
                                     .then(result => {
                                         hideLoading()
                                         var data = JSON.parse(result);
-
+                                        console.log(data)
                                         var hasildata = data.success;
                                         var message = data.message;
                                         var namevalue = data.data.name;

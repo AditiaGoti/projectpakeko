@@ -67,6 +67,7 @@
                                                     loader.classList.remove("loading");
                                                 }, 8000);
                                             }
+                                            displayLoading()
 
                                             function hideLoading() {
                                                 loader.classList.remove("loading");
@@ -84,6 +85,7 @@
                                                     },
                                                     success: function(response) {
                                                         data = response.data;
+                                                        hideLoading()
                                                         $("#table-data").DataTable({
                                                             data: data,
                                                             responsive: true,
@@ -125,10 +127,10 @@
                                                             var id = $(this).attr('value');
                                                             if (type == 2) {
                                                                 var pakID = sessionStorage.setItem('id-paket', id);
-                                                                location.href = "/owformu_paket";
+                                                                location.href = "/metland/owformu_paket";
                                                             } else {
                                                                 var pakID = sessionStorage.setItem('id-paket', id);
-                                                                location.href = "/formu_paket";
+                                                                location.href = "/metland/formu_paket";
                                                             }
                                                         });
 
