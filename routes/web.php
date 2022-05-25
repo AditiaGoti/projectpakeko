@@ -33,9 +33,9 @@ Route::get('/logoutc', function () {
     return view('/metland/logoutc');
 });
 
-// Login Ragunan
+// Login ragunan
 
-Route::get('/Ragunan', [loginr::class, 'index']);
+Route::get('/ragunan', [loginr::class, 'index']);
 Route::post('loginr', [loginr::class, 'loginrag']);
 Route::get('/logoutr', function () {
     return view('/ragunan/logoutr');
@@ -189,7 +189,7 @@ Route::get('/metland/owformu_paket', function () {
 });
 
 
-//Ragunan
+//ragunan
 /// Profile
 
 Route::view('/ragunan/profile-admin', 'ragunan/admin/view-admin/profile-admin');
