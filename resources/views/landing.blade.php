@@ -10,4 +10,4 @@ if (isset($_SESSION['login_status'])) {
 }
 
 ?>
-<?php include(app_path() . '/includes/landing.php'); ?>
+<?php include(app_path() . '/includes/landing/landing.php'); ?>
