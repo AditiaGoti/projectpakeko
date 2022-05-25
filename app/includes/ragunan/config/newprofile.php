@@ -24,7 +24,7 @@
                 <div class="col-xl-6 col-md-12">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
-                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(../../../../public/assets/images/BGPhoto.png); background-size:auto;  background-repeat:repeat-x;">
+                            <div class="col-sm-4 bg-c-lite-green user-profile" style="background-image:url(assets/images/BGPhoto.png); background-size:auto;  background-repeat:repeat-x;">
                                 <div class="card-block text-center text-white">
                                     <div id="img" class="m-b-25" style="margin-top:25px">
 

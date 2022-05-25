@@ -25,9 +25,9 @@ Route::get('/', function () {
     return view('landing');
 });
 
-// // // Login Metland
+// // // Login metland
 
-Route::get('/Metland', [loginc::class, 'index']);
+Route::get('/metland', [loginc::class, 'index']);
 Route::post('loginc', [loginc::class, 'loginmet']);
 Route::get('/logoutc', function () {
     return view('/metland/logoutc');
@@ -41,151 +41,151 @@ Route::get('/logoutr', function () {
     return view('/ragunan/logoutr');
 });
 
-//Metland
+//metland
 /// Profile
 
-Route::view('/Metland/profile-admin', 'Metland/admin/view-admin/profile-admin');
-Route::view('/Metland/profile-member', 'Metland/member/profile-member');
+Route::view('/metland/profile-admin', 'metland/admin/view-admin/profile-admin');
+Route::view('/metland/profile-member', 'metland/member/profile-member');
 
-Route::view('/Metland/editprofile-admin', 'Metland/admin/view-admin/editprofile-admin');
-Route::view('/Metland/editprofile-member', 'Metland/member/editprofile-member');
+Route::view('/metland/editprofile-admin', 'metland/admin/view-admin/editprofile-admin');
+Route::view('/metland/editprofile-member', 'metland/member/editprofile-member');
 
-Route::view('/Metland/changepass-admin', 'Metland/admin/view-admin/changepass-admin');
-Route::view('/Metland/changepass-member', 'Metland/member/changepass-member');
+Route::view('/metland/changepass-admin', 'metland/admin/view-admin/changepass-admin');
+Route::view('/metland/changepass-member', 'metland/member/changepass-member');
 
 /// Admin
 
-Route::get('/Metland/admin', function () {
-    return view('Metland/admin/view-admin/dashboard');
+Route::get('/metland/admin', function () {
+    return view('metland/admin/view-admin/dashboard');
 });
 
-Route::get('/Metland/transaksi', function () {
-    return view('Metland/admin/table-admin/table_transaksi');
+Route::get('/metland/transaksi', function () {
+    return view('metland/admin/table-admin/table_transaksi');
 });
-Route::get('/Metland/set-transaksi', function () {
-    return view('Metland/admin/table-admin/table_set-transaksi');
-});
-
-Route::get('/Metland/kehadiran', function () {
-    return view('Metland/admin/table-admin/table_kehadiran');
+Route::get('/metland/set-transaksi', function () {
+    return view('metland/admin/table-admin/table_set-transaksi');
 });
 
-Route::get('/Metland/set-kehadiran', function () {
-    return view('Metland/admin/table-admin/table_set-kehadiran');
+Route::get('/metland/kehadiran', function () {
+    return view('metland/admin/table-admin/table_kehadiran');
 });
 
-Route::get('/Metland/all_member', function () {
-    return view('Metland/admin/table-admin/table_allmember');
+Route::get('/metland/set-kehadiran', function () {
+    return view('metland/admin/table-admin/table_set-kehadiran');
 });
 
-Route::get('/Metland/set-all_member', function () {
-    return view('Metland/admin/table-admin/table_set-allmember');
+Route::get('/metland/all_member', function () {
+    return view('metland/admin/table-admin/table_allmember');
 });
 
-Route::get('/Metland/paket', function () {
-    return view('Metland/admin/table-admin/table_paket');
+Route::get('/metland/set-all_member', function () {
+    return view('metland/admin/table-admin/table_set-allmember');
 });
 
-Route::get('/Metland/form_kehadiran', function () {
-    return view('Metland/admin/form-admin/form_kehadiran');
+Route::get('/metland/paket', function () {
+    return view('metland/admin/table-admin/table_paket');
 });
 
-Route::get('/Metland/form_member', function () {
-    return view('Metland/admin/form-admin/form_member');
+Route::get('/metland/form_kehadiran', function () {
+    return view('metland/admin/form-admin/form_kehadiran');
 });
 
-Route::get('/Metland/form_transaksi', function () {
-    return view('Metland/admin/form-admin/form_transaksi');
+Route::get('/metland/form_member', function () {
+    return view('metland/admin/form-admin/form_member');
 });
 
-Route::get('/Metland/form_paket', function () {
-    return view('Metland/admin/form-admin/form_paket');
+Route::get('/metland/form_transaksi', function () {
+    return view('metland/admin/form-admin/form_transaksi');
 });
 
-Route::get('/Metland/formu_member', function () {
-    return view('Metland/admin/formu-admin/formu_member');
+Route::get('/metland/form_paket', function () {
+    return view('metland/admin/form-admin/form_paket');
 });
 
-Route::get('/Metland/formu_paket', function () {
-    return view('Metland/admin/formu-admin/formu_paket');
+Route::get('/metland/formu_member', function () {
+    return view('metland/admin/formu-admin/formu_member');
+});
+
+Route::get('/metland/formu_paket', function () {
+    return view('metland/admin/formu-admin/formu_paket');
 });
 
 /// Member
 
-Route::get('/Metland/member', function () {
-    return view('Metland/member/dashboard-member');
+Route::get('/metland/member', function () {
+    return view('metland/member/dashboard-member');
 });
 
 ///Owner
 
 
 
-Route::get('/Metland/owner', function () {
-    return view('Metland/owner/view-owner/dashboard-owner');
+Route::get('/metland/owner', function () {
+    return view('metland/owner/view-owner/dashboard-owner');
 });
 
-Route::get('/Metland/owalladmin', function () {
-    return view('Metland/owner/table-owner/table_alladmin');
+Route::get('/metland/owalladmin', function () {
+    return view('metland/owner/table-owner/table_alladmin');
 });
 
-Route::get('/Metland/owform_admin', function () {
-    return view('Metland/owner/form-owner/form_admin');
+Route::get('/metland/owform_admin', function () {
+    return view('metland/owner/form-owner/form_admin');
 });
 
-Route::get('/Metland/owtransaksi', function () {
-    return view('Metland/owner/table-owner/table_transaksi');
+Route::get('/metland/owtransaksi', function () {
+    return view('metland/owner/table-owner/table_transaksi');
 });
 
-Route::get('/Metland/set-owtransaksi', function () {
-    return view('Metland/owner/table-owner/table_set-transaksi');
+Route::get('/metland/set-owtransaksi', function () {
+    return view('metland/owner/table-owner/table_set-transaksi');
 });
 
-Route::get('/Metland/owkehadiran', function () {
-    return view('Metland/owner/table-owner/table_kehadiran');
+Route::get('/metland/owkehadiran', function () {
+    return view('metland/owner/table-owner/table_kehadiran');
 });
-Route::get('/Metland/set-owkehadiran', function () {
-    return view('Metland/owner/table-owner/table_set-kehadiran');
-});
-
-
-Route::get('/Metland/owall_member', function () {
-    return view('Metland/owner/table-owner/table_allmember');
+Route::get('/metland/set-owkehadiran', function () {
+    return view('metland/owner/table-owner/table_set-kehadiran');
 });
 
-Route::get('/Metland/set-owall_member', function () {
-    return view('Metland/owner/table-owner/table_set-allmember');
+
+Route::get('/metland/owall_member', function () {
+    return view('metland/owner/table-owner/table_allmember');
 });
 
-Route::get('/Metland/owpaket', function () {
-    return view('Metland/owner/table-owner/table_paket');
+Route::get('/metland/set-owall_member', function () {
+    return view('metland/owner/table-owner/table_set-allmember');
 });
 
-Route::get('/Metland/owform_kehadiran', function () {
-    return view('Metland/owner/form-owner/form_kehadiran');
+Route::get('/metland/owpaket', function () {
+    return view('metland/owner/table-owner/table_paket');
 });
 
-Route::get('/Metland/owform_member', function () {
-    return view('Metland/owner/form-owner/form_member');
+Route::get('/metland/owform_kehadiran', function () {
+    return view('metland/owner/form-owner/form_kehadiran');
 });
 
-Route::get('/Metland/owform_transaksi', function () {
-    return view('Metland/owner/form-owner/form_transaksi');
+Route::get('/metland/owform_member', function () {
+    return view('metland/owner/form-owner/form_member');
 });
 
-Route::get('/Metland/owform_paket', function () {
-    return view('Metland/owner/form-owner/form_paket');
+Route::get('/metland/owform_transaksi', function () {
+    return view('metland/owner/form-owner/form_transaksi');
 });
 
-Route::get('/Metland/owformu_admin', function () {
-    return view('Metland/owner/formu-owner/formu_admin');
+Route::get('/metland/owform_paket', function () {
+    return view('metland/owner/form-owner/form_paket');
 });
 
-Route::get('/Metland/owformu_member', function () {
-    return view('Metland/owner/formu-owner/formu_member');
+Route::get('/metland/owformu_admin', function () {
+    return view('metland/owner/formu-owner/formu_admin');
 });
 
-Route::get('/Metland/owformu_paket', function () {
-    return view('Metland/owner/formu-owner/formu_paket');
+Route::get('/metland/owformu_member', function () {
+    return view('metland/owner/formu-owner/formu_member');
+});
+
+Route::get('/metland/owformu_paket', function () {
+    return view('metland/owner/formu-owner/formu_paket');
 });
 
 
