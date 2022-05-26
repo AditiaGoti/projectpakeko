@@ -40,6 +40,8 @@
                         <button type="button" onclick="checkDate()" style="margin-top: -1px;" class="btn btn-outline-primary"><i style="margin: -1px;" class="fa fa-search"></i></button>
 
                         <script>
+                            const loader = document.querySelector("#loading");
+
                             function displayLoading() {
                                 loader.classList.add("loading");
                                 setTimeout(() => {

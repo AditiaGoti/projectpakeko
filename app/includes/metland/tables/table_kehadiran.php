@@ -40,6 +40,7 @@
                         <button type="button" onclick="print()" style="margin-top: -1px;" class="btn btn-outline-info"><i style="margin: -1px;" class="fa fa-print"></i></button>
 
                         <script>
+                         const loader = document.querySelector("#loading");
                             function displayLoading() {
                                 loader.classList.add("loading");
                                 setTimeout(() => {

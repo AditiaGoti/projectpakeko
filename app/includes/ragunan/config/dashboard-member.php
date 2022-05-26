@@ -85,6 +85,7 @@
                                                 },
                                                 success: function(response) {
                                                     makeCode(myArray);
+                                                    
                                                     data = response.data;
                                                     user_data = response.user_data;
                                                     dl = user_data.days_left;

@@ -229,8 +229,8 @@
                                             <label style="margin-top:5px; padding-right:74px;">Local</label>
                                             <!-- <input id="member_local" class="form-control form-control-lg" placeholder="Local Member" aria-label="lcl" disabled /> -->
                                             <select class="form-control form-control" id="member_local" required>
-                                                <option value="Ragunan">Ragunan</option>
                                                 <option value="Metland">Metland</option>
+                                                <option value="Ragunan">Ragunan</option>
                                             </select>
                                         </div>
                                         <hr>
@@ -326,9 +326,10 @@
                                     )
                                     .then((response) => response.text())
                                     .then(result => {
-                                        hideLoading()
+
                                         myFunction()
                                         var data = JSON.parse(result);
+
                                         var hasildata = data.success;
                                         var message = data.message;
                                         var expiredvalue = data.data.expired;
@@ -360,6 +361,7 @@
                                                 } else if (localvalue == "Ragunan") {
                                                     img.src = data.data.img_path
                                                 }
+                                                hideLoading()
                                             } else {
                                                 elements.style.display = 'block';
                                                 var name = document.getElementById("member_name");
@@ -377,6 +379,7 @@
                                                 } else if (localvalue == "Ragunan") {
                                                     img.src = data.data.img_path
                                                 }
+                                                hideLoading()
                                             }
 
                                         } else {
@@ -389,12 +392,13 @@
                                                 function() {
                                                     $(this).remove();
                                                 });
+                                            hideLoading()
                                         }
 
 
                                     })
                                     .catch(error => {
-
+                                        hideLoading()
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
                                             `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
@@ -429,12 +433,13 @@
                                 };
 
 
-                                if (lokal == "metland") {
+                                if (lokal == "Metland") {
                                     fetch(url, requestOptions)
                                         .then(response => response.text())
                                         .then(result => {
-                                            hideLoading()
+
                                             var data = JSON.parse(result);
+
                                             var hasildata = data.success;
                                             var elements = document.getElementById('token');
                                             var users = data.data;
@@ -467,6 +472,8 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
+
                                             } else {
                                                 elements.style.display = 'block';
                                                 var id = filterData.id;
@@ -482,15 +489,18 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
+
                                             }
 
 
                                         })
                                         .catch(error => {
+                                            hideLoading()
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
-                                            console.log(error)
+
                                             $(".alert").delay(3000).fadeOut(
                                                 "normal",
                                                 function() {
@@ -501,7 +511,7 @@
                                     fetch(urlm, requestOptions)
                                         .then(response => response.text())
                                         .then(result => {
-                                            hideLoading()
+
                                             var data = JSON.parse(result);
                                             var hasildata = data.success;
                                             var elements = document.getElementById('token');
@@ -535,6 +545,7 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
                                             } else {
                                                 elements.style.display = 'block';
                                                 var id = filterData.id;
@@ -550,11 +561,13 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
                                             }
 
 
                                         })
                                         .catch(error => {
+                                            hideLoading()
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);

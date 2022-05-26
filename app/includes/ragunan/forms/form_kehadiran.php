@@ -311,7 +311,6 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var idvalue = document.getElementById("id_member").value;
-                                var idvalue = document.getElementById("id_member").value;
                                 const id = idvalue.split("-");
                                 var myHeaders = new Headers();
                                 myHeaders.append("Authorization", token);
@@ -328,7 +327,7 @@
                                     )
                                     .then((response) => response.text())
                                     .then(result => {
-                                        hideLoading()
+
                                         myFunction()
                                         var data = JSON.parse(result);
                                         var hasildata = data.success;
@@ -362,6 +361,7 @@
                                                 } else if (localvalue == "Metland") {
                                                     img.src = data.data.img_path
                                                 }
+                                                hideLoading()
                                             } else {
                                                 elements.style.display = 'block';
                                                 var name = document.getElementById("member_name");
@@ -379,9 +379,11 @@
                                                 } else if (localvalue == "Metland") {
                                                     img.src = data.data.img_path
                                                 }
+                                                hideLoading()
                                             }
 
                                         } else {
+                                            hideLoading()
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>${message}</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
@@ -396,7 +398,7 @@
 
                                     })
                                     .catch(error => {
-
+                                        hideLoading()
                                         $('<div class="alert alert-danger">' +
                                             '<button type="button" class="close" data-dismiss="alert">' +
                                             `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
@@ -431,11 +433,11 @@
                                 };
 
 
-                                if (lokal == "ragunan") {
+                                if (lokal == "Ragunan") {
                                     fetch(url, requestOptions)
                                         .then(response => response.text())
                                         .then(result => {
-                                            hideLoading()
+
                                             var data = JSON.parse(result);
                                             var hasildata = data.success;
                                             var elements = document.getElementById('token');
@@ -469,6 +471,7 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
                                             } else {
                                                 elements.style.display = 'block';
                                                 var id = filterData.id;
@@ -484,11 +487,13 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
                                             }
 
 
                                         })
                                         .catch(error => {
+                                            hideLoading()
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);
@@ -503,7 +508,7 @@
                                     fetch(urlm, requestOptions)
                                         .then(response => response.text())
                                         .then(result => {
-                                            hideLoading()
+
                                             var data = JSON.parse(result);
                                             var hasildata = data.success;
                                             var elements = document.getElementById('token');
@@ -537,6 +542,7 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
                                             } else {
                                                 elements.style.display = 'block';
                                                 var id = filterData.id;
@@ -552,11 +558,13 @@
                                                 img.src = imgvalue;
                                                 input_id.value = id + "-" + local;
                                                 input_local.value = local;
+                                                hideLoading()
                                             }
 
 
                                         })
                                         .catch(error => {
+                                            hideLoading()
                                             $('<div class="alert alert-danger">' +
                                                 '<button type="button" class="close" data-dismiss="alert">' +
                                                 `&times;</button>Data Tidak Ditemukan</div>`).hide().prependTo('#form_kehadiran').fadeIn(1000);

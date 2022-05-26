@@ -78,7 +78,7 @@
                                 var tokenSession = '<?php echo $_SESSION['token']; ?>';
                                 var token = "Bearer" + " " + tokenSession;
                                 var id = `<?php echo $_SESSION['id']; ?>`;
-                                const url = "https://api.ragunan.tms-klar.com/api/users" + "/" + id + "-ragunan";
+                                const url = "https://api.ragunan.tms-klar.com/api/users" + "/" + id + "-Ragunan";
 
                                 $.ajax({
                                     method: "GET",
@@ -89,11 +89,11 @@
                                     success: function(response) {
                                         myArray = response.data;
                                         build(myArray);
+                                  
                                     },
                                 });
 
                                 function build(data) {
-
                                     img = "https://api.ragunan.tms-klar.com/" +
                                         data.img_path;
 
